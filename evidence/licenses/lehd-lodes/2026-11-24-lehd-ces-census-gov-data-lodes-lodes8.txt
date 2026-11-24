@@ -1,0 +1,205 @@
+URL: https://lehd.ces.census.gov/data/lodes/LODES8/
+Final-URL: https://lehd.ces.census.gov/data/lodes/LODES8/
+Retrieved: 2026-11-24T23:38:23+00:00
+HTTP-Status: 200
+Raw-SHA256: 0f716b8ebd412ac5de59009e0763ac7f4b448892a9dbb28fe5b25e7b223a62e7
+Raw-Bytes: 35703
+---
+--> 
+ --> 
+
+ An official website of the United States government 
+
+ Here's how you know 
+
+ Here's how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government 
+ organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you ve safely connected to 
+ the .gov website. Share sensitive information only on official, 
+ secure websites. 
+
+ --> 
+
+ --> 
+
+ Skip to main content 
+
+ --> 
+
+ end of header 
+
+ Name Last modified Size Description 
+
+ Parent Directory   -   
+
+ ak/ 2026-10-26 11:49 -   
+
+ al/ 2026-10-26 11:49 -   
+
+ ar/ 2026-10-26 11:49 -   
+
+ az/ 2026-10-26 11:49 -   
+
+ ca/ 2026-10-26 11:49 -   
+
+ co/ 2026-10-26 11:49 -   
+
+ ct/ 2026-10-26 11:49 -   
+
+ dc/ 2026-10-26 11:49 -   
+
+ de/ 2026-10-26 11:49 -   
+
+ fl/ 2026-10-26 11:49 -   
+
+ ga/ 2026-10-26 11:49 -   
+
+ hi/ 2026-10-26 11:49 -   
+
+ ia/ 2026-10-26 11:49 -   
+
+ id/ 2026-10-26 11:49 -   
+
+ il/ 2026-10-26 11:49 -   
+
+ in/ 2026-10-26 11:49 -   
+
+ ks/ 2026-10-26 11:49 -   
+
+ ky/ 2026-10-26 11:49 -   
+
+ la/ 2026-10-26 11:49 -   
+
+ ma/ 2026-10-26 11:49 -   
+
+ md/ 2026-10-26 11:49 -   
+
+ me/ 2026-10-26 11:49 -   
+
+ mi/ 2026-10-26 11:49 -   
+
+ mn/ 2026-10-26 11:49 -   
+
+ mo/ 2026-10-26 11:49 -   
+
+ ms/ 2026-10-29 07:40 -   
+
+ mt/ 2026-10-26 11:49 -   
+
+ nc/ 2026-10-26 11:49 -   
+
+ nd/ 2026-10-26 11:49 -   
+
+ ne/ 2026-10-26 11:49 -   
+
+ nh/ 2026-10-26 11:49 -   
+
+ nj/ 2026-10-26 11:49 -   
+
+ nm/ 2026-10-26 11:49 -   
+
+ nv/ 2026-10-26 11:49 -   
+
+ ny/ 2026-10-26 11:49 -   
+
+ oh/ 2026-10-26 11:49 -   
+
+ ok/ 2026-10-26 11:49 -   
+
+ or/ 2026-10-26 11:49 -   
+
+ pa/ 2026-10-26 11:49 -   
+
+ pr/ 2026-10-26 11:49 -   
+
+ ri/ 2026-10-26 11:49 -   
+
+ sc/ 2026-10-26 11:49 -   
+
+ sd/ 2026-10-26 11:49 -   
+
+ tn/ 2026-10-26 11:49 -   
+
+ tx/ 2026-10-26 11:49 -   
+
+ us/ 2026-10-26 11:49 -   
+
+ ut/ 2026-10-26 11:49 -   
+
+ va/ 2026-10-26 11:49 -   
+
+ vt/ 2026-10-26 11:49 -   
+
+ wa/ 2026-10-26 11:49 -   
+
+ wi/ 2026-10-26 11:49 -   
+
+ wv/ 2026-10-26 11:49 -   
+
+ wy/ 2026-10-26 11:49 -   
+
+ LODESTechDoc8.0.pdf 2023-09-05 17:20 555K   
+
+ LODESTechDoc8.1.pdf 2023-11-09 12:30 534K   
+
+ LODESTechDoc8.3.pdf 2024-11-06 15:16 559K   
+
+ LODESTechDoc8.4.pdf 2025-12-03 10:40 588K   
+
+ LODESTechDoc8.5.pdf 2026-10-28 15:49 394K   
+
+ --> 
+
+ CONNECT WITH US 
+
+ --> 
+
+ Information Quality 
+
+ Data Linkage Infrastructure 
+
+ Data Protection and Privacy Policy 
+
+ Accessibility 
+
+ FOIA 
+
+ Inspector General 
+
+ No FEAR Act 
+
+ U.S. Department of Commerce 
+
+ USA.gov 
+
+ Measuring America's People, Places, and Economy
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions?

@@ -8,6 +8,11 @@ pypi.org                             # pip install
 files.pythonhosted.org               # pip install
 
 # --- sources
+api.bls.gov                          # bls-laus (API v1 fallback)
+apps.bea.gov                         # bea-regional
+download.bls.gov                     # bls-laus
+lehd.ces.census.gov                  # lehd-lodes
 noaa-nclimgrid-daily-pds.s3.amazonaws.com   # noaa-nclimgrid-daily
 www.fema.gov                         # fema-disaster-declarations
+www.fhfa.gov                         # fhfa-hpi
 www2.census.gov                      # census-acs-summary-file (+ other Census bulk files)

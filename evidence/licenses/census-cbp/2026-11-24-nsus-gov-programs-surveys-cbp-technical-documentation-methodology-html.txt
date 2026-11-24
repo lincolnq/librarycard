@@ -1,0 +1,877 @@
+URL: https://www.census.gov/programs-surveys/cbp/technical-documentation/methodology.html
+Final-URL: https://www.census.gov/programs-surveys/cbp/technical-documentation/methodology.html
+Retrieved: 2026-11-24T23:40:04+00:00
+HTTP-Status: 200
+Raw-SHA256: 4991918321708156d73c37c498b5529b4cbec71f64992356d4f14cd482108b69
+Raw-Bytes: 379216
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ Our Surveys & Programs 
+
+ / 
+
+ County Business Patterns (CBP) 
+
+ / 
+
+ Technical Documentation 
+
+ / 
+
+ Methodology 
+
+ County Business Patterns Methodology
+
+ Skip Navigation 
+
+ Within Technical Documentation
+
+ Methodology 
+
+ Record Layouts 
+
+ Reference Files 
+
+ Within Technical Documentation
+
+ Within Technical Documentation 
+
+ Methodology 
+
+ Record Layouts 
+
+ Reference Files 
+
+ -->
+
+ County Business Patterns Methodology
+
+ Please note that the information on this page is no longer current. The Census Bureau is evaluating alternative approaches to comply with the U.S. Department of Commerce’s administrative order prohibiting the use of noise infusion. Updated guidance will be provided once new plans are finalized. 
+
+ In this Section:
+
+ Universe 
+
+ Data Content by Geography 
+
+ Industry and Geographic Classification 
+
+ Protecting Confidentiality 
+
+ Reliability of Data 
+
+ Comparability with Other Data 
+
+ Universe
+
+ County Business Patterns (CBP) covers more than 6 million single-unit establishments and more than 2 million multi-unit establishments. The Business Register is the Census Bureau's source of information on employer establishments included in the County Business Patterns. The Business Register is a multi-relational database that contains a record for each known establishment with paid employees that is located in the United States, Puerto Rico and Island Areas (American Samoa, Guam, Commonwealth of the Northern Mariana Islands and U.S. Virgin Islands). An establishment is a single physical location at which business is conducted or services or industrial operations are performed. An establishment is not necessarily equivalent to a company or enterprise, which may consist of one or more establishments. A single-unit company owns or operates only one establishment. A multi-unit company owns or operates two or more establishments. The treatment of establishments on the Business Register differs according to whether the establishment is part of a single-unit or multi-unit company.
+
+ Single Unit Company
+
+ A single-unit company's unique identifier is its Employer Identification Number (EIN). The Internal Revenue Service (IRS) issues an EIN and the company uses it as an identifier to report payroll taxes. All employers are required to have at least one EIN. Because a single-unit company has only one establishment, there is a one-to-one relationship between the company and the EIN. Thus the company, the EIN, and the establishment all reference the same physical location and all three terms can be used interchangeably and unambiguously when referring to a single-unit company.
+
+ Descriptive information for a single-unit establishment in the County Business Patterns universe, including geographic location, industry classification, legal form of organization classification, payroll, and employment, come from a variety of administrative record and survey sources. Administrative records filed by EIN are the most common source of information for single-unit establishments, with updates on geographic location and industry classification from Census Bureau conducted surveys.
+
+ Multi-Unit Company
+
+ For multi-unit companies a different structure connects the company with its establishments via the EIN. Essentially a multi-unit company is associated with a cluster of one or more EINs and EINs are associated with one or more establishments. A multi-unit company consists of at least two establishments. Each company is associated with at least one EIN and only one company can use a given EIN. One multi-unit company may have several EINs. Similarly, there is a one-to-many relationship between EINs and establishments. Each EIN can be associated with many establishments, but each establishment is associated with only one EIN. With the possibility of one-to-many relationships, there must be distinction between the company, its EINs, and its establishments. A unique employer unit identification number identifies each establishment owned by a multi-unit company on the Business Register.
+
+ There is less dependency on administrative record sources for multi-unit establishment information because EIN and establishment are not equivalent for multi-unit companies. The Census Bureau's Economic Census (conducted every five years in years ending in ‘2’ and ‘7’) initially identifies multi-unit companies when a company expands to more than one establishment. Establishments for a multi-unit company are identified through the Economic Census and the annual Report of Organization survey (formerly Company Organization Survey). Geographic location, industry classification, payroll, and employment come primarily from the Economic Census and the Report of Organization. EIN-level administrative payroll and employment data are apportioned to the establishment level in cases of nonresponse or for smaller companies not selected for the Report of Organization.
+
+ Legal Form of Organization
+
+ The legal form of organization (LFO) is assigned at the establishment level and  is derived from administrative record sources. CBP publishes U.S.-level data (starting with 2008) and state-level data (starting with 2010) by the following LFOs:
+
+ C-Corporations and other corporate legal forms of organization
+
+ S-Corporations
+
+ Sole Proprietorships
+
+ Partnerships
+
+ Non-profits
+
+ Government
+
+ Other
+
+ LFO data are published by NAICS industry and employment size.
+
+ Employment Services
+
+ Historically, the permanent on-site workforce at a business location were paid employees of that establishment. This traditional practice of enterprises directly hiring employees is still the dominant employer/employee relationship in the United States. However, there are also professional employer organizations (PEO's) or employee-leasing companies that provide leased workers and specialized management services. These employer organizations are responsible for payroll, including withholding and remitting employment-related taxes, for some or all of the employees of their clients, and also serve as the employer of those employees for benefits and related purposes.
+
+CBP has shown a steady increase in PEOs and other Employment Services (NAICS 5613) establishments, as well as Payroll Services (NAICS 541214) establishments. In these cases, employees are not always classified in the predominant industry of the client businesses. Employment services establishments may pay these employees out of a single payroll office. This may result in the leasing enterprise's employment and payroll data being reported in the county where the payroll office is located, thus distorting the data for that county. In some cases, many thousands of employees may be paid from a single payroll office. Therefore, for geography purposes, employee-leasing establishments may be published in the “statewide” category in states where such payroll offices are located, as these establishments service multiple counties.
+
+ Exclusions and Undercoverage 
+
+ CBP covers most of the country's economic activity. The series excludes data on self-employed individuals, employees of private households, railroad employees, agricultural production employees, and most government employees. See the Industry and Geographic Classification section for specific NAICS exclusions. Businesses operating without an EIN, and businesses with an EIN but without employees, are excluded from the County Business Patterns universe.
+
+ A certain amount of undercoverage occurs in the universe, primarily with establishments for multi-unit companies. Usually, the Census Bureau does not create a multi-unit company structure in the Business Register for very small employers (less than 10 employees) identified in the Economic Census. In addition, the Report of Organization is an annual mail survey that includes all multi-unit companies with 500 or more employees. Companies with less than 500 employees are only selected for the Report of Organization when administrative record sources indicate the company may be undergoing organizational change and are adding or dropping establishments. Establishments for smaller companies may be missed, as well as establishments for companies not responding to the Economic Census or the Report of Organization. The Census Bureau takes much effort to get establishment information for large companies because of their importance to the economy. The Census Bureau does not have any estimates of establishment undercoverage. Coverage of payroll and employment is very good because of the usage of administrative record data.
+
+ Back to Top 
+
+ Data Content by Geography
+
+ County Business Patterns publishes datasets every year for different geography levels. The content of these datasets depend​ on the geographic level​ of detail. An outline of each dataset is listed below: 
+
+ National: The national​-level dataset includes all 50 states and the District of Columbia. The data​set includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll. The data ​are ​tabulated by 2- through 6-digit NAICS industry, ​Legal ​Form of ​Organization, and by employment size of the establishment.​ The national-level dataset does not include data for Puerto Rico and the Island Areas.  
+
+ State:  The state-level dataset ​includes data for all 50 states and the District of Columbia. The data​set includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll. Th​e data are tabulated by 2- through 6-digit NAICS industry, ​Legal ​Form of ​Organization, and by employment size of the establishment. ​There is also a state-equivalent dataset for Puerto Rico and the Island Areas that has an identical format.  
+
+ County: The county​-level dataset includes data for all 50 states and the District of Columbia. The data​set includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll. The data are tabulated by 2- through 6-digit NAICS industry. Additionally, the number of establishments (but not employment or payroll) are available by employment size of the establishment. There is also a county-equivalent dataset for Puerto Rico and the Island Areas that has an identical format. 
+
+ Metropolitan/Micropolitan Statistical Area (MSA): Metropolitan and Micropolitan Statistical Areas are combined into one MSA​-level dataset. The data​set includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll. The data ​are tabulated by 2- through 6-digit NAICS industry. Additionally, the number of establishments (but not employment or payroll) are available by employment size of the establishment.  
+
+ Combined Statistical Area (CSA): The CSA​-level dataset includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll. The data are tabulated by 2- through 6-digit NAICS industry. Additionally, the number of establishments (but not employment or payroll) are available by employment size of the establishment.  
+
+ ZIP Code:  The ZIP Code Business Patterns (ZBP) dataset includes the number of establishments, employment during the week of March 12th, first quarter and annual payroll for NAICS 00 (total for all sectors). Additionally, the number of establishments (but not employment or payroll) are available by employment size of the establishment for 2- through 6-digit NAICS.
+
+ Congressional District: The Congressional District level dataset includes the number of establishments, employment during the week of March 12, first quarter payroll, and annual payroll. Th​e data are tabulated by 2-digit NAICS sector.  
+
+ Back to Top 
+
+ Industry and Geographic Classification
+
+ Industry classification of business establishments in CBP is according to the North American Industry Classification System (NAICS). CBP publishes data for nearly 1,000 industries. For more information on the NAICS codes, as well as changes over the years, visit the NAICS website . NAICS codes are updated every five years.
+
+ The primary source of industry classification is derived from data collected through the Economic Census or through other Census surveys. When this is not available, the Census Bureau uses a hierarchy of administrative record sources to assign a NAICS code, including classifications from the Bureau of Labor Statistics, business birth information, and self-assigned codes from income tax records.
+
+ For a small percentage of records, only a partial classification is possible from all sources. For these cases, a complete industry classification is assigned, or imputed, by using a "nearest neighbor" assignment process that assigns the NAICS from an establishment with similar payroll, employment and organizational type with possible constraints. Analysts review the assignments to ensure that anomalies do not occur at the county level. For some multi-unit establishments with a partial classification, a complete code is imputed from another establishment within the same company. The imputation rate for complete codes varies widely during the five-year Economic Census processing cycle, but generally affects small businesses. Completely unclassified records are an even smaller percentage and are tabulated and published separately.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ North American Industry Classification System (NAICS)
+
+ The County Business Patterns series includes the following NAICS sectors:
+
+ 11 
+ Forestry, Fishing and Hunting, and Agricultural Support Services (NAICS 113-115) 
+
+ 21 
+ Mining 
+
+ 22 
+ Utilities 
+
+ 23 
+ Construction 
+
+ 31-33 
+ Manufacturing 
+
+ 42 
+ Wholesale Trade 
+
+ 44-45 
+ Retail Trade 
+
+ 48-49 
+ Transportation and Warehousing 
+
+ 51 
+ Information 
+
+ 52 
+ Finance and Insurance 
+
+ 53 
+ Real Estate and Rental and Leasing 
+
+ 54 
+ Professional, Scientific, and Technical Services 
+
+ 55 
+ Management of Companies and Enterprises 
+
+ 56 
+ Administrative and Support and Waste Management and Remediation Services 
+
+ 61 
+ Educational Services 
+
+ 62 
+ Health Care and Social Assistance 
+
+ 71 
+ Arts, Entertainment, and Recreation 
+
+ 72 
+ Accommodation and Food Services 
+
+ 81 
+ Other Services (except Public Administration) 
+
+ 99 
+ Industries Not Classified 
+
+ Industries Excluded from County Business Patterns 
+
+ CBP covers most NAICS industries excluding Crop and Animal Production (NAICS 111,112); Rail Transportation (NAICS 482); Postal Service (NAICS 491); Pension, Health, Welfare, and Other Insurance Funds (NAICS 525110, 525120, 525190); Trusts, Estates, and Agency Accounts (NAICS 525920); Offices of Notaries (NAICS 541120); Private Households (NAICS 814); and Public Administration (NAICS 92).
+
+ Government Establishments Included in County Business Patterns 
+
+ Although most government establishments are excluded from tabulation, CBP includes government sponsored Beer, Wine, and Distilled Alcoholic Beverage Merchant Wholesalers (NAICS 4248); Beer, Wine, and Liquor Stores (NAICS 44531); Tobacco Stores (NAICS 453991); Book Publishers (511130); Monetary Authorities – Central Bank (NAICS 521110); Savings Institutions (NAICS 522120); Credit Unions (NAICS 522130); Hospitals (NAICS 622); Gambling Industries (NAICS 7132); and Casino Hotels (NAICS 721120).
+
+ Geographic Classification of Establishments 
+
+ CBP classifies an establishment by its physical location. Under the usual definition, an establishment or business is a fixed physical location or permanent structure where some form of business activity is conducted. The Economic Census and the Report of Organization requests the physical location of each establishment in a company. In addition, administrative record sources provide physical location addresses. In some cases when the physical location is not available, geographic assignment is based on the mailing address. When a business relocates, there may be a significant delay until the Census Bureau receives the updated physical location address, particularly for small businesses. This may have an impact on establishment counts at the county level, but this level is not measured.
+
+ CBP publishes county data for Louisiana (parishes), Alaska (organized boroughs, city and boroughs, municipalities, and census areas), and Connecticut (planning regions) as the equivalent of a county. The independent cities in Virginia, and the cities of Baltimore, MD; St. Louis, MO, and Carson City, NV, are treated as separate counties.
+
+ Employers without a fixed location within a state (or of unknown county location) are included under a “statewide” classification. This incomplete detail causes only slight understatement of county employment.
+
+ Back to Top 
+
+ Protecting Confidentiality
+
+ In accordance with U.S. Code, Title 13, Section 9, no data are published that would disclose the operations of an individual employer.
+
+ The Census Bureau has reviewed this data product to ensure appropriate access, use, and disclosure avoidance protection of the confidential source data (Project No. 7503949, Disclosure Review Board (DRB) approval number:  CBDRB-FY25-0158).
+
+ Noise Infusion
+
+ Since reference year 2007, County Business Patterns has used Noise Infusion to protect the confidentiality of respondent data.  Noise Infusion is a method of disclosure avoidance in which data values for each establishment are perturbed prior to table creation by applying a random noise multiplier to the magnitude data (i.e., characteristics such as first-quarter payroll, annual payroll, and number of employees) for each establishment. Disclosure protection is accomplished in a manner that results in a relatively small change in the vast majority of cell values.  Each published cell value has an associated noise flag indicating the relative amount of distortion in the cell value resulting from the perturbation of the data contributing to the cell. The flag for ‘low noise’ (G) indicates the cell value was changed by less than 2 percent with the application of noise, the flag for ‘moderate noise’ (H) indicates the value was changed by at least 2 percent but less than 5 percent, and the flag for 'high noise' (J) indicates the value was changed 5 percent or more. Prior to 2015, cell values with a 'high noise' flag, were suppressed from publication by replacing the cell value and associated noise flag with a "D."  For an introduction to the noise infusion disclosure avoidance method, see Using Noise for Disclosure Limitation of Establishment Tabular Data [PDF] by Timothy Evans, Laura Zayatz, and John Slanta in the Journal of Official Statistics (1998). Other cells in the table may be suppressed (denoted with an S) in the same manner because of concerns about the quality of the data.  Though some of these suppressed cells may be derived by subtraction, the results are not official and may differ substantially from the actual, unknown population values.
+
+ Beginning with reference year 2017, a cell is only published if it contains three or more establishments. In all other cases, the cell is not included in the release (i.e., it is dropped from publication). In prior years, payroll values for cells with fewer than three establishments would have been suppressed and an employment size range (EMPFLAG) would have be provided; however, the number of establishments would have been published. This EMPFLAG was also included to denote employment size range for data withheld to avoid disclosure or withheld because data did not meet publication standards. The use of EMPFLAG was discontinued beginning in reference year 2018 and a noisy employment cell value is provided.
+
+ Also starting with 2017 CBP, the publication flag 'D' (withheld to avoid disclosing data for individual businesses; data are included in broader industry totals) has been replaced with publication flag 'S' (withheld to avoid releasing data that do not meet publication standards; data are included in broader industry totals).
+
+ Prior to the use of noise infusion, CBP data were protected using cell suppression implemented using the p-percent or (n,k) rule.
+
+ Back to Top 
+
+ Reliability of Data 
+
+ Payroll and employment data are obtained from administrative records for single-unit companies and a combination of administrative records and survey-collected data for multi-unit companies. They are not subject to sampling error, but are subject to nonsampling errors, which can be attributed to several sources: inability to identify all cases that should be in the universe; definition and classification difficulties; errors in recording or coding the data obtained; and other errors of coverage, processing, and estimation for missing or misreported data.
+
+ The accuracy of these tabulated data is determined by the joint effects of the various nonsampling errors. No direct measurement of these effects has been obtained except for estimation for missing or misreported industry classifications; however, precautionary steps were taken in all phases of the processing to minimize the effects of nonsampling errors.
+
+ Employment is either missing or reported as zero, when quarterly payroll is greater than zero, for approximately 6% of incoming administrative records. In addition, less than one percent of employment values are reported as positive, but the average wage falls outside of expected limits. For either of these situations, employment is imputed using one of several methods. The most frequent is using the average wage for the industry and geographic area. Other methods include using the company's average employment of the two adjacent quarters, or average company wage data for the prior year. Quarterly payroll is edited by comparing with reported data from other quarters over a two-year period to determine any anomalies and potential misreporting. Suspected missing payroll and extreme values are imputed based on company reporting patterns over the two-year period as well as overall trends within the NAICS sector. The Census Bureau imputes payroll for less than 2% percent of all incoming administrative payroll records.
+
+ To provide more accurate data and account for the effects of the pandemic on employment and payroll for reference year 2020, no imputation was applied to reported zero payroll and employment in the second and third quarter of 2020. For reference years 2020, 2021 and 2022, adjustments based on actual and predicted payroll were made for each quarter and by NAICS to imputed payroll and employment when the reported values were missing.
+
+ Establishment payroll and employment data for multi-unit companies are collected through the Economic Census and the Report of Organization. Data for companies not included in the Report of Organization or not responding to the survey are imputed from administrative record data by taking company level administrative payroll and employment data and distributing it down to the establishment level by best estimates of the size of each establishment in the company. If some establishments have reported payroll and some do not, the breakdown is performed with the difference between the administrative data at the company level and the total reported amounts.
+
+ Back to Top 
+
+ Comparability with Other Data
+
+ The comparability of data over time may be affected by changes in industry classifications, definitions of establishments, establishment’s active status, and/or changes to geographic boundaries (actual or statistically-defined areas).
+
+ Industry Classification
+
+ Since 1998, County Business Patterns (CBP) has been tabulated based on the North American Industry Classification System (NAICS) . For prior periods, data were tabulated according to the Standard Industrial Classification (SIC) System .
+
+ 2017 to 2023 data use 2017 NAICS
+
+ 2012 to 2016 data use 2012 NAICS
+
+ 2008 to 2011 data use 2007 NAICS
+
+ 2003 to 2007 data use 2002 NAICS
+
+ 1998 to 2002 data use 1997 NAICS
+
+ 1988 to 1997 data use 1987 SIC
+
+ 1986 to 1987 data use 1972 SIC
+
+ Treatment of Auxiliary Establishments
+
+ In the 1998 - 2002 CBP data, corporate, subsidiary, and regional managing offices were tabulated in NAICS Sector 55. All other auxiliaries were tabulated in NAICS 95. Starting with  2003 CBP, corporate, subsidiary, and regional managing offices are still published in NAICS Sector 55, but the other auxiliaries are tabulated in the industry of the service performed.
+
+ In 1997 and earlier CBP data series based on SIC classification, auxiliary establishments were similarly excluded from SIC categories.
+
+ Back to Top 
+
+ Economic Census
+
+ Definitions and coverage differences may affect the direct comparison of Economic Census and CBP data. See Glossary for an explanation of the data items contained in CBP.
+
+ The Economic Census generally uses respondent reported data. CBP uses a combination of reported Report of Organization data, Economic Census data, and administrative records data. Although efforts are made to resolve significant differences in the data, differences are known to exist. See Methodology for further information on how the CBP data are produced.
+
+ Some large companies report different activities at the same location as separate profit centers. The CBP program treats each profit center as a separate establishment. The Economic Census reporting may combine the profit centers into one establishment. This results in establishment count differences due to differences in how the data are collected.
+
+ For more information on the Economic Census, see the Economic Census page .
+
+ Back to Top 
+
+ Geographic Comparability
+
+ Counties : County boundary changes may occur between each publication year; however these changes are implemented in batch once every 5 years. Such changes are detailed in the report Substantial Changes to Counties and County Equivalent Entities: 1970-Present . This is primarily done to maintain data consistency and comparability over time.
+
+ Congressional Districts: CBP Congressional District data are based on the district boundaries from the most recent Congress when the data was published, and not the CBP reference year. For example, 2021 CBP Congressional District data are based on the district boundaries from the 118th Congress (Jan. 2023 – Jan. 2025), as 2021 CBP data were published in April 2023.
+
+ An exception is made in the reference years that end in ‘9’ and ‘0’ for CBP data, which coincides with the time where the Decennial Census is being processed. The U.S. Census Bureau's Redistricting Data Program does not collect the Congressional District boundaries for the cycle that aligns with the Decennial Census. Accordingly, for reference years ending in ‘9’ and ‘0’, CBP Congressional District data is based on the district boundaries from the preceding congressional cycle. For example, the district boundaries for the 117th Congress (Jan. 2021 – Jan. 2023) were not collected by the Census Bureau. Therefore, 2019 and 2020 CBP Congressional District data (released in April 2021 and April 2022, respectively) are based on the district boundaries of the 116th Congress (Jan. 2019 – Jan. 2021).
+
+ Metropolitan/Micropolitan Statistical Areas (MSAs) : MSAs are redefined after each decennial census and may be revised based on population estimates. MSA changes are detailed in the following page: Metropolitan and Micropolitan Guidance for Data Users . New areas will qualify and the boundaries and/or titles of many existing areas will change. Like counties, these changes are implemented in batch once every 5 years. For questions regarding specific years, please see the MSA Geography Reference page .  
+
+ In 2002 and earlier data, CBP data were published for New England County Metropolitan Areas rather than for MSAs in CT, ME, MA, NH, RI, and VT. Micropolitan areas were first defined in 2003 and no data have been published for prior years.
+
+ ZIP Codes : ZIP codes are defined at the discretion of the U.S. Postal Service and may change from time to time.
+
+ Back to Top 
+
+ Historical Comparability
+
+ There have been certain variations in County Business Patterns data collected:
+
+ 1974 through 2004 Data are provided for mid-March employment, first-quarter and annual payrolls, and establishments by industry for each county in a state and in a separate report for the United States. Data are included for every industry having a significant number of employees or establishments. Refer to the glossary for a description of the types of employment covered. Data for industries with fewer than 100 employees, as well as data for detailed industries withheld to avoid disclosing data for individual companies, was not printed in these reports. However, this data was made available on the County Business Patterns data disks.
+
+ 1964 through 1973 Data are provided for first-quarter reporting units, employment, and taxable payrolls for each county and metropolitan area in a state and in a separate report for the United States. Data are included for every industry having a significant number of employees or reporting units.
+
+ 1959 and 1962 Data are provided for first-quarter reporting units, employment, and taxable payrolls for each county in a state and in a separate report for the United States. Data are included for every industry having a significant number of employees or reporting units. Data are combined for some counties in eight states.
+
+ 1956 Data are provided for first-quarter reporting units, employment, and taxable payrolls for each county in a state and in a separate report for the United States. Data are included for SIC economic divisions, major groups, and selected three-digit SICs. Data are combined for some counties in eight states.
+
+ 1949 and 1950 Data are provided for first-quarter manufacturing establishments, employment, and taxable payrolls for each large county in a state and in a separate report for the United States. Data are included for manufacturing major industry groups and selected three-digit SICs. Manufacturing totals are included for small counties. Data are combined for some counties in eight states.
+
+ 1947, 1948, 1951, and 1953 Data are provided for first-quarter reporting units, employment, and taxable payrolls for each large county in a state and in a separate report for the United States. Data are included for SIC economic divisions, major groups, and selected three-digit SICs. Economic division totals are included for small counties. Data are combined for some counties in eight states.
+
+ 1946 Data are provided for first-quarter reporting units, employment, and taxable payrolls for each large county in a state and in a separate report for the United States. Data are included for SIC economic divisions and major groups. Economic division totals are included for small counties. Data are combined for some counties in eight states.
+
+ Back to Top 
+
+ Glossary
+
+ Definitions available on the CBP Glossary page.
+
+ Back to Top 
+
+ Page Last Revised - June 18, 2026 
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy
