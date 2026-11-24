@@ -1,0 +1,95 @@
+schema_version: 1
+id: census-decennial-2020-pl
+name: 2020 Census Redistricting Data (Public Law 94-171) Summary File
+publisher:
+  name: U.S. Census Bureau
+  url: https://www.census.gov
+  type: us_federal
+homepage: https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html
+description: >-
+  The first detailed 2020 Census results, delivered to the states for legislative redistricting under Public Law
+  94-171: total and voting-age population by race and Hispanic origin, housing-unit occupancy and group-quarters
+  population, for every geography down to the census block (including voting districts and the 2020-era
+  congressional and state legislative districts). Counts come from the full decennial enumeration, protected by the
+  Bureau's differential-privacy disclosure avoidance system. Data Commons carries headline 2020 counts; this source
+  adds block, block-group and voting-district detail and the full race/ethnicity cross-tabs.
+domains: [demographics, elections, housing]
+tags: [census, decennial, 2020-census, redistricting, pl-94-171, race, hispanic, voting-age-population, vap, block, voting-district, vtd, group-quarters]
+coverage:
+  geography: 50 states, DC and Puerto Rico; one state per request
+  countries: [US]
+  geographic_granularity: [state, county, county_subdivision, place, tract, block_group, block, precinct, congressional_district, state_legislative_district, school_district]
+  time_range:
+    start: "2020"
+    end: "2020"
+    notes: Census Day April 1, 2020. Released August 2021 (legacy format) and September 2021 (tables). One-time release.
+  temporal_granularity: decennial
+  unit_of_observation: Geographic area (one summary level per request) with table cells as columns
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www2.census.gov/programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/
+      description: One directory per state (e.g. Delaware/de2020.pl.zip); each zip holds the geographic header and three data segments (legacy pipe-delimited format).
+    - url: https://www2.census.gov/programs-surveys/decennial/rdo/about/2020-census-program/Phase3/SupportMaterials/2020PL_R_import_scripts.zip
+      description: Census R import scripts; source of the field names and of the cell labels the adapter returns in metadata.
+  formats: [pipe-delimited text (legacy summary file), zip]
+  rate_limits: None published. State zips are 2-100 MB (TX largest); cached 180 days (license allows, data are final).
+  auth: none
+update:
+  cadence: decennial
+  expected_lag: ~16 months after Census Day (statutory deadline April 1 of the following year; 2020 was delayed to August 2021).
+  notes: Final for 2020. The 2030 redistricting data are due by April 1, 2031 and will be a separate entry.
+change_detection:
+  method: http_headers
+  url: https://www2.census.gov/programs-surveys/decennial/2020/data/01-Redistricting_File--PL_94-171/Delaware/de2020.pl.zip
+  headers: [last-modified, content-length]
+  poll_interval_days: 30
+  notes: The 2020 release is final; a changed Last-Modified/size on a representative state zip would mean the Bureau re-issued the files (errata), which needs a check of the layout.
+license:
+  name: Creative Commons Zero 1.0 (public domain dedication), per census.gov data.json
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Census Bureau, 2020 Census Redistricting Data (Public Law 94-171) Summary File."
+  evidence: evidence/licenses/census-decennial-2020-pl/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: GEOID / GEOCODE
+    label: Geographic identifiers
+    definition: GEOID is the fully-qualified GEO_ID (e.g. 0500000US10001); GEOCODE is the short code (10001). Component columns STATE, COUNTY, TRACT, BLKGRP, BLOCK, VTD, CD116, SLDU18, SLDL18, SDUNI are also returned.
+  - name: P0010001
+    label: Total population
+    unit: persons
+    definition: P1 cell 1. P1 = race (71 cells - one race, two or more races by combination); P2 = Hispanic or Latino by race (73 cells, P0020002 = Hispanic or Latino).
+  - name: P0030001
+    label: Population 18 years and over
+    unit: persons
+    definition: Voting-age population (P3, race; P4, Hispanic origin by race for 18+).
+  - name: H0010001 / H0010002 / H0010003
+    label: Housing units total / occupied / vacant
+    unit: housing units
+    definition: Table H1 occupancy status.
+  - name: P0050001
+    label: Group quarters population
+    unit: persons
+    definition: P5 total; P0050002 institutionalized (adult correctional, juvenile, nursing, other), P0050007 noninstitutionalized (college housing, military, other).
+  - name: POP100 / HU100
+    label: Total population / housing units (geo header)
+    definition: Same totals as P0010001 / H0010001, carried in the geographic header.
+  - name: AREALAND / AREAWATR / INTPTLAT / INTPTLON
+    label: Land/water area (m²) and internal point
+    definition: From the 2020 geographic header.
+caveats:
+  - Counts are protected by differential privacy (the 2020 Disclosure Avoidance System). Only state total population, total housing units and occupied group-quarters facility counts are held invariant; small-area counts (blocks, block groups, small places) contain injected noise and can be implausible (e.g. population with no housing units). Aggregate blocks rather than trusting single blocks.
+  - Race tables follow the 2020 coding with large increases in "Some Other Race" and multiracial reporting compared with 2010 because of question and coding changes; do not read 2010-2020 changes in race composition as pure demographic change.
+  - District columns are the plans in effect for the 2020 Census (116th Congress, 2018 state legislative districts); post-2020 redistricting plans are not in this file. Use the Census 118th/119th congressional district summary files or new tabulations for current districts.
+  - Only one state per request, and one summary level per request; nation-level and multi-state geographies (e.g. metro areas) are not served by this adapter.
+  - Census data cells are integers; the adapter returns publisher cell ids (P0010001 etc.) and puts labels in metadata.variable_labels. Labels with a trailing colon are subtotals.
+related: [census-acs-summary-file, census-gazetteer, census-pep, census-data-api]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: census_decennial_2020_pl
+adapter_version: 1.0.0

@@ -1,0 +1,11 @@
+{
+ "_source_url": "https://www.census.gov/data.json",
+ "_retrieved": "2026-11-24T23:39:55+00:00",
+ "_pattern": "gazetteer|tiger",
+ "_catalog_license_counts": {
+  "https://creativecommons.org/publicdomain/zero/1.0/": 1550,
+  "http://creativecommons.org/publicdomain/zero/1.0/": 200,
+  "https://creativecommons.org/publicdomain/zero/1.0/unidentified": 50
+ },
+ "entries": []
+}

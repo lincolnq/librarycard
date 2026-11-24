@@ -1,0 +1,11 @@
+URL: https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip (member cb_2024_us_county_500k.shp.iso.xml)
+Retrieved: 2026-11-24T23:45:00+00:00
+HTTP-Status: 200
+Raw-SHA256 (xml member): 28e7669a05219e511461b573d3a2d9e51d8d9549aad25e32a3955e530fc1cdba
+Note: excerpt of the ISO 19115 metadata that the Census Bureau Geography Division ships with its boundary products
+(same division and same MAF/TIGER source database as the Gazetteer files, which ship without metadata).
+---
+accessConstraints : otherRestrictions
+useConstraints : otherRestrictions
+otherConstraints : Access constraints: None
+otherConstraints : Use Constraints: The intended display scale for this file is 1:500,000. This file should not be displayed at scales larger than 1:500,000. These products are free to use in a product or publication, however acknowledgement must be given to the U.S. Census Bureau as the source. The boundary information is for visual display at appropriate small scales only. Cartographic boundary files should not be used for geographic analysis including area or perimeter calculation. Files should not be used for geocoding addresses. Files should not be used for determining precise geographic area relationships.

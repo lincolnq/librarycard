@@ -1,0 +1,1199 @@
+URL: https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html
+Final-URL: https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html
+Retrieved: 2026-11-24T23:48:16+00:00
+HTTP-Status: 200
+Raw-SHA256: ba02341bf65b0da249966d0527eb3570e5ee5cd860b3ffd0c53ef1a0d046a4f8
+Raw-Bytes: 438339
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ Our Surveys & Programs 
+
+ / 
+
+ Decennial Census of Population and Housing 
+
+ / 
+
+ About 
+
+ / 
+
+ Redistricting Data Program 
+
+ / 
+
+ Decennial Census P.L. 94-171 Redistricting Data Summary Files 
+
+ Decennial Census P.L. 94-171 Redistricting Data
+
+ Skip Navigation 
+
+ Within About
+
+ Census in the Constitution 
+
+ Coverage Measurement 
+
+ Decennial Census and American Community Survey (ACS) 
+
+ History of the Census 
+
+ Local Update of Census Addresses (LUCA) 
+
+ New Construction Program 
+
+ Participant Statistical Areas Program (PSAP) 
+
+ Redistricting Data Program 
+
+ Related Sites 
+
+ Voting Rights Data 
+
+ Why a Decennial Census? 
+
+ Within About
+
+ Within About 
+
+ Census in the Constitution 
+
+ Coverage Measurement 
+
+ Decennial Census and American Community Survey (ACS) 
+
+ History of the Census 
+
+ Local Update of Census Addresses (LUCA) 
+
+ New Construction Program 
+
+ Participant Statistical Areas Program (PSAP) 
+
+ Redistricting Data Program 
+
+ Related Sites 
+
+ Voting Rights Data 
+
+ Why a Decennial Census? 
+
+ -->
+
+ Decennial Census P.L. 94-171 Redistricting Data
+
+ November 29, 2023 
+
+ Written by:
+
+ The Redistricting and Voting Rights Data Office (contact [email protected] or 301-763-4039)
+
+ P.L. 94-171 Redistricting Data
+
+ Public Law (P.L.) 94-171, enacted by Congress in December 1975, requires the Census Bureau to provide states the opportunity to identify the small area geography for which they need data in order to conduct legislative redistricting. The law also requires the U.S. Census Bureau to furnish tabulations of population to each state, including for those small areas the states have identified, within one year of Census day.
+
+ Since the first Census Redistricting Data Program, conducted as part of the 1980 census, the U.S. Census Bureau has included summaries for the major race groups specified by the Statistical Programs and Standards Office of the U.S. Office of Management and Budget (OMB) in Directive 15 (as issued in 1977 and revised in 1997). Originally, the tabulation groups included White, Black, American Indian/Alaska Native, and Asian/Pacific Islander, plus “some other race.” These race data were also cross-tabulated by Hispanic/Non-Hispanic origin. At the request of the state legislatures and the Department of Justice, for the 1990 Census Redistricting Data Program, voting age (18 years old and over) was added to the cross-tabulation of race and Hispanic origin. For the 2000 Census, these categories were revised to the current categories used today.
+
+ 2020 
+
+ 2010 
+
+ 2000 
+
+ 2020
+
+ 2020
+
+ 2010
+
+ 2000
+
+ 2020
+
+ In this section:
+
+ 2020 Census Redistricting Data (P.L 94-171) Summary Files 
+
+ 2020 Census (P.L. 94-171) Geographic Support Products 
+
+ Group Quarters Assistance 
+
+ Explaining the 2020 Census Redistricting Data 
+
+ Additional 2020 Census Resources 
+
+ 2020 Census Redistricting Data (P.L. 94-171) Summary Files
+
+ The 2020 Census Redistricting Data (P.L. 94-171) Summary Files in the Legacy Format were posted for FTP download, by state, on August 12, 2021 and released on data.census.gov with the full redistricting toolkit on September 16, 2021. Both releases contained the same data, only the format was different.
+
+ The summary file tables include:
+
+ P1. – Race
+
+ P2. – Hispanic or Latino, and not Hispanic or Latino by Race
+
+ P3. – Race for the Population 18 Years and Over
+
+ P4. – Hispanic or Latino, and not Hispanic or Latino by Race for the Population 18 Years and Over
+
+ P5. – Group Quarters Population by Major Group Quarters Type
+
+ H1. – Occupancy Status (Housing)
+
+ The 2020 Census Redistricting Data (P.L. 94-171) Summary File data are available for all 50 states, the District of Columbia, and the Commonwealth of Puerto Rico through data.census.gov and FTP download (in the Legacy Format).
+
+ The 2020 Census State Redistricting Data (P.L. 94-171) Summary File Technical Documentation is available in English, and in Spanish specifically for Puerto Rico. The 2020 Census National Redistricting Data (P.L. 94-171) Summary File Technical Documentation is available in English only. Links to the Technical Documentation are provided below.
+
+ Legacy Format Support Materials are provided to help data users work with the legacy format summary files. These materials include header records for each of the data segments in the summary file, Microsoft Access shells, an instructional guide and video tutorial that provide step-by-step instructions on how to download the legacy format data and import the data into the Microsoft Access Shells, and SAS and R statistical software import scripts. Links to these support materials are provided below.
+
+ Data Links
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Legacy Format Summary Files 
+
+ Census Data Explorer (data.census.gov) 
+
+ Technical Documentation
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ 2020 Census State Redistricting Data (Public Law 94-171) Summary File Technical Documentation 
+ [1.7 MB] 
+
+ 2020 Census State Redistricting Data (Public Law 94-171) Summary File Technical Documentation (Spanish) 
+ [1.7 MB] 
+
+ 2020 Census National Redistricting Data Summary File Technical Documentation 
+ [1.2 MB] 
+
+ The national documentation is only for the limited set of geographic entities which cross state boundaries. 
+
+ Legacy Format Support Materials
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Legacy Format Summary File Header Records 
+ [< 1 MB] 
+
+ VIDEO: How to use the Microsoft Access Database Shell 
+
+ GUIDE: How to use the Microsoft Access Database Shell 
+ [< 1 MB] 
+
+ Microsoft Access Database Shell 
+ [< 1 MB] 
+
+ SAS statistical software import scripts 
+ [< 1 MB] 
+
+ R statistical software import scripts 
+ [< 1 MB] 
+
+ Frequently used geographic summary level codes 
+ [< 1 MB] 
+
+ 2020 Census (P.L. 94-171) Geographic Support Products
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ TIGER\Line Shapefiles 
+
+ Use the 2020 Tab of the linked page.
+
+ Maps (.pdf format) 
+
+ Block Assignment Files (BAFs) 
+
+ Use the 2020 Tab of the linked page. BAFs are meant to be used in conjunction with the NLTs.
+
+ Name Look-up Tables (NLTs) 
+
+ Use the 2020 Tab of the linked page. NLTs are meant to be used in conjunction with the BAFs.
+
+ 2010 to 2020 Tabulation Block Crosswalk Tables 
+
+ Use the 2020 Tab of the linked page. Select Block Relationship Files.
+
+ Group Quarters Assistance
+
+ The Census Bureau published a Federal Register Notice on the  Final 2020 Census Residence Criteria and Residence Situations  on February 8, 2018. In the Notice, the Census Bureau stated we will continue the practice of counting prisoners at the correctional facility, to ensure that the concept of usual residence is interpreted and applied consistent with the intent of the Census Act of 1790. The Notice also stated the Census Bureau recognizes that some states have decided, or may decide in the future, to ‘move’ their group quarters (GQ) population (e.g. student, military, and prisoner population) to an alternate address for the purpose of redistricting. To assist those states, the Census Bureau is offering the use of a geocoding service. This service was updated with 2020 Census geographic data in January 2021, to assist states with their goals of reallocating GQ population for legislative redistricting.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Group Quarters Assistance - The Census Geocoder
+
+ September 24, 2026
+
+ Explaining the 2020 Census Redistricting Data
+
+ About the 2020 Redistricting Data Product 
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Publication
+
+ Redistricting Data — A Primer and History
+
+ October 26, 2023
+
+ This document is a reference guide to the data the Census Bureau provides to states and other jurisdictions for their redistricting efforts.
+
+ What to Consider if You Find an Unexpected Census Result
+
+ December 30, 2021
+
+ Overall, 2020 Census redistricting data are comparable to population benchmarks. If you find a result you did not expect, there are several things to consider.
+
+ Publication
+
+ Disclosure Avoidance for the 2020 Census: An Introduction
+
+ November 02, 2021
+
+ In this handbook, the U.S. Census Bureau’s Disclosure Avoidance System is described in the context of the 2020 Census Redistricting Data Summary File.
+
+ Publication
+
+ Strength in Numbers: A Guide to the 2020 Census Redistricting Data
+
+ September 16, 2021
+
+ This brochure explains where census numbers come from and the role they have in the way states redraw the boundaries of their legislative districts.
+
+ 2020 Census Redistricting Data Product Frequently Asked Questions
+
+ August 05, 2021
+
+ Information on plans to release the 2020 Census P.L. 94-171 Redistricting Data Summary Files.
+
+ Disclosure Avoidance Modernization
+
+ All 2020 Census data products (with the exception of the apportionment data) will be protected with a new, modernized disclosure avoidance system.
+
+ Top of Section 
+
+ America Counts Stories 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Population
+
+ Adult Population Grew Faster Than Total Population From 2010 to 2020
+
+ August 12, 2021 
+
+ The first detailed results of the 2020 Census released today show a nationwide shift in the age makeup of the U.S. population from 2010 to 2020.
+
+ Population
+
+ Improved Race, Ethnicity Measures Show U.S. is More Multiracial
+
+ August 12, 2021 
+
+ Today’s release of 2020 Census data provides a new snapshot of the racial and ethnic composition of the country.
+
+ Population
+
+ 2020 U.S. Population More Racially, Ethnically Diverse Than in 2010
+
+ August 12, 2021 
+
+ 2020 Census results released today allow us to measure the nation’s racial and ethnic diversity and how it varies at different geographic levels.
+
+ Population
+
+ More Than Half of U.S. Counties Were Smaller in 2020 Than in 2010
+
+ August 12, 2021 
+
+ The U.S. Census Bureau today released the first 2020 Census population counts for counties, metropolitan and micropolitan statistical areas, and cities.
+
+ Population
+
+ What Do We Know About the Quality of 2020 Census Redistricting Data?
+
+ August 12, 2021 
+
+ To assess the quality of the redistricting data released today, we compared 2020 Census to key data benchmarks.
+
+ Housing
+
+ Growth in Housing Units Slowed in the Last Decade
+
+ August 12, 2021 
+
+ The 2020 Census results released today provide a count of vacant and occupied housing units across the nation.
+
+ Housing
+
+ 8.2 Million People Counted at U.S. Group Quarters in the 2020 Census
+
+ August 12, 2021 
+
+ The 2020 Census data released today provide counts of the group quarters population down to the block level for the first time in a decade.
+
+ Housing
+
+ U.S. Housing Vacancy Rate Declined in Past Decade
+
+ August 12, 2021 
+
+ The percentage of housing units vacant in 2020 dropped to 9.7% from 11.4% in 2010, according to 2020 Census data released this week.
+
+ View all 2020 Census Stories 
+
+ Top of Section 
+
+ Blog Posts 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Random Samplings Blog
+
+ Using Demographic Benchmarks to Help Evaluate 2020 Census Results
+
+ November 09, 2021
+
+ One of the primary methods of evaluating the quality of a census is comparing the results to other population benchmarks. 
+
+ Random Samplings Blog
+
+ The Census Geocoder - Group Quarters Assistance
+
+ August 10, 2021
+
+ People living in group quarters, such as nursing homes, military barracks, and college/university student housing, are among the unique populations counted in the 2020 Census. 
+
+ View All 2020 Census Blog Posts 
+
+ Top of Section 
+
+ Census Academy 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ View all 2020 Census Training 
+
+ Top of Section 
+
+ Data Tools 
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Data Tool
+
+ QuickFacts
+
+ QuickFacts provides frequently requested Census Bureau information at the national, state, county, and city level.
+
+ Data Tool
+
+ Explore Census Data
+
+ This new platform on data.census.gov is based on overwhelming feedback to streamline the way you get data and digital content from the Census Bureau.
+
+ Top of Section 
+
+ Fact Sheets 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ View all 2020 Census Fact Sheets 
+
+ Top of Section 
+
+ News 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Press Release
+
+ 2024 CRE and Ranking Tables by Natural Hazard Risk
+
+ January 29, 2026
+
+ Census Bureau releases 2024 Community Resilience Estimates, highlighting areas in the United States most socially vulnerable to impacts from natural disasters.
+
+ Press Release
+
+ Census Bureau Releases 2023 CRE and Natural Hazard Risk Ranking Tables
+
+ January 30, 2025
+
+ The U.S. Census Bureau today released the 2023 Community Resilience Estimates (CRE), which highlight socially vulnerable areas in the United States.
+
+ Press Release
+
+ Census Bureau Releases 119th Congress Block Equivalency Files
+
+ August 15, 2024
+
+ These files are the whole 2020 Census tabulation block representations of the 119th Congressional District plans.
+
+ Press Release
+
+ Бюро переписи предоставляет информацию о разрешении вопросов подсчета 
+
+ December 15, 2021
+
+ Бюро переписи населения США отправило государственным должностным лицам информацию об операции по разрешению вопросов подсчета в рамках Переписи населения 2020.
+
+ View all 2020 Census News 
+
+ Top of Section 
+
+ Videos 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Video
+
+ The Comprehensive Course for Accessing 2020 Census Redistricting Data
+
+ February 16, 2022 
+
+ This all-levels course will demonstrate several methods to access these data.
+
+ Video
+
+ How to Access 2020 Census Redistricting Data Files from the FTP Site
+
+ February 16, 2022 
+
+ This all-levels course will teach you how access redistricting data.
+
+ Video
+
+ Redistricting Data Through the Census Data API: Tables and Group Calls
+
+ September 16, 2021 
+
+ Following a few core concepts and steps, you can learn how to extract 2020 P.L. 94-171 Redistricting Data using the Census Bureau's API.
+
+ Video
+
+ Accessing 2020 Redistricting Data: Mapping Geographies
+
+ September 16, 2021 
+
+ Learn how to map geographies using data.census.gov.
+
+ Video
+
+ Redistricting Data Through the Census Data API: Single Estimates
+
+ September 16, 2021 
+
+ Learn the core concepts and steps needed to extract 2020 P.L. 94-171 Redistricting Data using the Census Bureau's Application Programming Interface (API).
+
+ Video
+
+ Comparing 2010 and 2020 Redistricting Data on data.census.gov
+
+ September 16, 2021 
+
+ Many data users will want to access the newly release 2020 Redistricting Data and compare it with the previous 2010 Redistricting data.
+
+ Video
+
+ Accessing 2020 Redistricting Data: Census Blocks
+
+ September 16, 2021 
+
+ Learn how to find 2020 P.L. 94-171 Redistricting data at the Census block level on data.census.gov.
+
+ Video
+
+ Accessing 2020 Census Redistricting Data on data.census.gov
+
+ September 16, 2021 
+
+ In this video tutorial, we show you various examples on how to access Redistricting Data to pull tables on housing population counts, apply filters, and more.
+
+ View all 2020 Census Videos 
+
+ Top of Section 
+
+ Visualizations 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Visualization
+
+ Growing in Numbers
+
+ September 13, 2024 
+
+ The Hispanic population reached 62.1 million in 2020, increasing by over 11.6 million in a decade. 
+
+ Visualization
+
+ Cada vez más numerosos
+
+ September 13, 2024 
+
+ La población hispana llegó a los 62.1 millones de personas en el 2020, con lo que aumentó más de 11.6 millones en una década.
+
+ Visualization
+
+ 2020 Census: Percent Change in County Population: 2010 to 2020
+
+ August 12, 2021 
+
+ Percent change in county population. 
+
+ Visualization
+
+ 2020 Census: Racial and Ethnic Diversity Index by State
+
+ August 12, 2021 
+
+ The Diversity Index tells us the chance that two people chosen at random will be from different racial and ethnic groups.
+
+ Visualization
+
+ Racial and Ethnic Diversity in the U.S.: 2010 Census and 2020 Census
+
+ August 12, 2021 
+
+ We use the Diversity Index (DI) to measure the probability that two people chosen at random will be from different race and ethnicity groups.
+
+ Visualization
+
+ The U.S. Adult and Under-Age-18 Populations: 2020 Census
+
+ August 12, 2021 
+
+ View the percentage of the population that was aged 18 and over in 2020 for your state.
+
+ Visualization
+
+ Race and Ethnicity in the United States: 2010 Census and 2020 Census
+
+ August 12, 2021 
+
+ View how race and ethnicity have changed by state from the 2010 Census and 2020 Census.
+
+ Visualization
+
+ 2020 Census Demographic Data Map Viewer
+
+ August 12, 2021 
+
+ The 2020 Census Demographic Data Map Viewer is web map application that includes state, county, and tract-level data from the 2020 Census. 
+
+ View all 2020 Census Visualizations 
+
+ Top of Section 
+
+ Additional 2020 Census Resources
+
+ Declarations filed in the case of Ohio v. Raimondo
+
+ In declarations filed in the case of Ohio v. Raimondo, the U.S. Census Bureau made clear that we could provide a legacy format redistricting data summary file to all states by mid-to-late August 2021, now realized as August 12. We also met our commitment to provide the full redistricting data toolkit by Sept. 30, 2021, with delivery on Sept. 16, 2021.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Declarations - Ohio v. Raimondo 
+ [<1 MB] 
+
+ Related Information
+
+ Redistricting Data Program Management
+
+ Redistricting Data Program
+
+ Decennial Census of Population and Housing Datasets
+
+ Page Last Revised - November 29, 2023 
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy

@@ -1,0 +1,335 @@
+URL: https://catalog.data.gov/dataset/urban-influence-codes
+Final-URL: https://catalog.data.gov/dataset/urban-influence-codes
+Retrieved: 2026-11-24T23:40:34+00:00
+HTTP-Status: 200
+Raw-SHA256: fea84b31bbf57062369386523e76c9249113696a5b426524efba36aa6445f309
+Raw-Bytes: 137553
+---
+Skip to main content 
+
+ An official website of the United States government
+
+ Here’s how you know
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// 
+ means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Menu 
+
+ Data 
+
+ Metrics 
+
+ Organizations 
+
+ User Guide 
+
+ Contact 
+
+ Search 
+
+ Return to search results
+
+ Urban Influence Codes
+
+ Published by Economic Research Service, Department of Agriculture 
+
+ | 
+ Department of Agriculture 
+
+ | Catalog Last Checked: October 09, 2026 at 04:40 PM 
+
+ | Dataset Last Updated: October 24, 2019 
+
+ The 2013 Urban Influence Codes form a classification scheme that distinguishes metropolitan counties by population size of their metro area, and nonmetropolitan counties by size of the largest city or town and proximity to metro and micropolitan areas. The standard Office of Management and Budget (OMB) metro and nonmetro categories have been subdivided into two metro and 10 nonmetro categories, resulting in a 12-part county classification. This scheme was originally developed in 1993. This scheme allows researchers to break county data into finer residential groups, beyond metro and nonmetro, particularly for the analysis of trends in nonmetro areas that are related to population density and metro influence. 
+
+An update of the Urban Influence Codes is planned for mid-2023.
+
+ Resources
+
+ 1 resource available
+
+ Webpage with links to Excel files
+
+ ASPX
+
+ Visit Page
+
+ Find Related Datasets
+
+ Search by Tags
+
+ Click any tag below to search for similar datasets
+
+ metro
+
+ nonmetro
+
+ rural
+
+ rural sociology
+
+ urban
+
+ Complete Metadata
+
+ @type 
+
+ dcat:Dataset
+
+ accessLevel 
+
+ public
+
+ accessRights 
+
+ public
+
+ bureauCode 
+
+ [ 
+ "005:13" 
+ ] 
+
+ contactPoint 
+
+ { 
+ "fn" : "John Cromartie" , 
+ "@type" : "vcard:Contact" , 
+ "hasEmail" : "mailto:john.cromartie@usda.gov" 
+ } 
+
+ describedBy 
+
+ { 
+ "accessURL" : " http://www.ers.usda.gov/data-products/urban-influence-codes/documentation.aspx " 
+ } 
+
+ description 
+
+ The 2013 Urban Influence Codes form a classification scheme that distinguishes metropolitan counties by population size of their metro area, and nonmetropolitan counties by size of the largest city or town and proximity to metro and micropolitan areas. The standard Office of Management and Budget (OMB) metro and nonmetro categories have been subdivided into two metro and 10 nonmetro categories, resulting in a 12-part county classification. This scheme was originally developed in 1993. This scheme allows researchers to break county data into finer residential groups, beyond metro and nonmetro, particularly for the analysis of trends in nonmetro areas that are related to population density and metro influence. 
+
+An update of the Urban Influence Codes is planned for mid-2023.
+
+ distribution 
+
+ [ 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "Webpage with links to Excel files" , 
+ "license" : " https://creativecommons.org/publicdomain/zero/1.0/ " , 
+ "accessURL" : " http://www.ers.usda.gov/data-products/urban-influence-codes.aspx " , 
+ "description" : "Excel files: 2013 Urban Influence Codes 
+2003 and 1993 Urban influence Codes for U.S. counties 
+2003 Urban influence Codes for Puerto Rico" 
+ } 
+ ] 
+
+ identifier 
+
+ USDA-ERS-00092
+
+ issued 
+
+ 2019-10-24
+
+ keyword 
+
+ [ 
+ "metro" , 
+ "nonmetro" , 
+ "rural" , 
+ "rural sociology" , 
+ "urban" 
+ ] 
+
+ license 
+
+ https://creativecommons.org/publicdomain/zero/1.0/
+
+ modified 
+
+ 2019-10-24
+
+ programCode 
+
+ [ 
+ "005:041" 
+ ] 
+
+ publisher 
+
+ { 
+ "name" : "Economic Research Service, Department of Agriculture" , 
+ "@type" : "org:Organization" 
+ } 
+
+ spatial 
+
+ [ 
+ { 
+ "@type" : "Location" , 
+ "prefLabel" : "United States" 
+ } 
+ ] 
+
+ title 
+
+ Urban Influence Codes
+
+ Contact
+
+ Have questions or suggestions about this dataset? Reach out to the contact below.
+
+ Name
+
+ John Cromartie
+
+ Email
+
+ john.cromartie@usda.gov
+
+ Access & Use
+
+ License
+
+ https://creativecommons.org/publicdomain/zero/1.0/
+
+ Access Level
+
+ public
+
+ Dataset Information
+
+ Dataset First Published
+
+ October 24, 2019
+
+ Dataset Last Updated
+
+ October 24, 2019
+
+ Location 
+
+ Metadata Information
+
+ Catalog Last Checked
+
+ October 09, 2026 at 04:40 PM
+
+ Harvest Record
+
+ View Raw Data
+
+ About 
+
+ Open Government 
+
+ Website Policies 
+
+ Sitemap 
+ -->
+ PERFORMANCE.GOV 
+
+ Data.gov on Github 
+
+ Follow @GSA
+
+ data.gov
+
+ An official website of the GSA's Technology Transformation Services 
+
+ About GSA 
+
+ Accessibility statement 
+
+ FOIA requests 
+
+ No FEAR Act data 
+
+ Office of the Inspector General 
+
+ Performance reports 
+
+ Privacy policy 
+
+ Looking for U.S. government information and services?
+
+ Visit USA.gov 
+
+ Feedback 
+
+ Contact us
+
+ How can we help you?
+
+ General Question or Issue 
+ For questions about Data.gov or to report a problem 
+
+ Data.gov Feedback 
+ Share suggestions to improve Data.gov features and content 
+
+ Contact USA.gov 
+ For questions about federal government services (not Data.gov specific) 
+
+ Default Ticket Form
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Data.gov Feedback
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Contact the USAGov team
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send
