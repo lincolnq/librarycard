@@ -1,0 +1,93 @@
+schema_version: 1
+id: unitedstates-congress-legislators
+name: congress-legislators (Members of the United States Congress, 1789-present)
+publisher:
+  name: "@unitedstates project (GovTrack.us and civic-tech volunteers)"
+  url: https://github.com/unitedstates
+  type: open_data_project
+homepage: https://github.com/unitedstates/congress-legislators
+description: >-
+  Every member of the U.S. Congress since 1789 with their terms of office, party, state and district, plus a
+  crosswalk of identifiers into other databases (Bioguide, ICPSR/Voteview, FEC, GovTrack, OpenSecrets, Thomas/Congress.gov,
+  C-SPAN, Wikipedia), current official social-media accounts, and current committee and subcommittee assignments.
+  Maintained by the @unitedstates project through volunteer edits and automated imports from the Biographical Directory
+  of Congress, House and Senate sources; released as CC0. Data Commons does not carry this roster or the id crosswalk.
+domains: [politics_legislation, elections]
+tags: [congress, legislators, members-of-congress, bioguide, icpsr, fec-id, house, senate, committees,
+       committee-membership, social-media, crosswalk, unitedstates, govtrack]
+coverage:
+  geography: United States — 50 states, DC and territories (delegates/resident commissioner)
+  countries: [US]
+  geographic_granularity: [state, congressional_district, legislator]
+  time_range:
+    start: "1789"
+    end: null
+    notes: Committee membership covers the current Congress only. Legislator rows carry the most recent term only.
+  temporal_granularity: continuous
+  unit_of_observation: One member of Congress (latest term); or one member x one current committee/subcommittee assignment
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://unitedstates.github.io/congress-legislators/legislators-current.csv
+      description: Sitting members (table=current); one row per person, latest term, ids and social accounts flattened.
+    - url: https://unitedstates.github.io/congress-legislators/legislators-historical.csv
+      description: All former members since 1789 (table=historical); same columns.
+    - url: https://unitedstates.github.io/congress-legislators/committee-membership-current.csv
+      description: Current committee/subcommittee assignments (table=committee_membership).
+  formats: [csv, json, yaml]
+  rate_limits: None published (static files on GitHub Pages).
+  auth: none
+  notes: Source YAML with full term histories, committees, district offices and the executive branch lives in the main branch of https://github.com/unitedstates/congress-legislators (also as JSON on the gh-pages site); the adapter reads only the three CSVs.
+update:
+  cadence: irregular
+  expected_lag: Usually days after a member is sworn in, leaves office or changes committees (volunteer-maintained).
+change_detection:
+  method: regex
+  url: https://unitedstates.github.io/congress-legislators/legislators-current.csv
+  pattern: '\A([^\r\n]+)'
+  poll_interval_days: 7
+  notes: Fingerprints only the CSV header line, so it moves when columns are added/renamed/removed (a schema change that can break the adapter) but not on routine roster edits, which happen constantly.
+license:
+  name: CC0 1.0 Universal (public domain dedication)
+  spdx: CC0-1.0
+  url: https://github.com/unitedstates/congress-legislators/blob/main/LICENSE
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "@unitedstates project, congress-legislators (CC0), https://github.com/unitedstates/congress-legislators."
+  evidence: evidence/licenses/unitedstates-congress-legislators/
+  checked_at: "2026-11-24"
+  notes: Repository-level CC0 dedication covers the generated CSV/JSON. The adapter drops full birth dates (returns birth_year only).
+key_variables:
+  - name: bioguide_id
+    definition: Biographical Directory of Congress id (e.g. C000127) — the project's recommended primary key; joins voteview-congress.bioguide_id.
+  - name: full_name / last_name / first_name
+    definition: Official name; first is the recognizable first name, nickname separate.
+  - name: type
+    definition: Chamber of the latest term — 'rep' (House, incl. non-voting delegates) or 'sen'.
+  - name: state / district / senate_class
+    definition: Postal code of the state; House district number (0 = at-large); Senate class 1-3.
+  - name: party
+    definition: Party of the latest term as published (Democrat, Republican, Independent, historical parties).
+  - name: icpsr_id / fec_ids / govtrack_id / opensecrets_id / thomas_id / lis_id
+    definition: Crosswalk ids (ICPSR = Voteview icpsr; fec_ids comma-separated FEC candidate ids).
+  - name: twitter / facebook / youtube / mastodon
+    definition: Official accounts only (no campaign or personal accounts), current members.
+  - name: birth_year
+    unit: year
+    definition: Derived by the adapter from the publisher's birthday field, which is not returned.
+  - name: committee_id / committee_name / title / rank (committee_membership)
+    definition: Thomas committee code (subcommittees append digits, e.g. HSAG15), name, leadership title (Chairman, Ranking Member), seniority rank on the majority/minority side.
+caveats:
+  - Legislator rows are flattened to the member's MOST RECENT term — state, district, party and chamber are not historical per-congress values. Use voteview-congress (per-congress member rows) or the project's YAML for term histories.
+  - Volunteer-maintained; departures, appointments and party switches can lag by days, and the current/historical split may briefly be stale ("If it matters, load both files").
+  - "Committee membership is current-Congress only; party there means majority/minority side, not party name."
+  - House 'rep' rows include non-voting delegates (DC, PR, GU, VI, AS, MP); filter by state if you need only the 435 voting seats.
+  - District numbers are those of the member's latest term and use that era's district lines; at-large seats are district 0.
+  - Social-media handles change often and only current members carry them.
+related: [voteview-congress, congress-gov-api]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: unitedstates_congress_legislators
+adapter_version: 1.0.0

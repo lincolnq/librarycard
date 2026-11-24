@@ -1,0 +1,93 @@
+schema_version: 1
+id: federal-register-documents
+name: Federal Register Documents (FederalRegister.gov API)
+publisher:
+  name: Office of the Federal Register, National Archives and Records Administration (NARA), with GPO
+  url: https://www.federalregister.gov
+  type: us_federal
+homepage: https://www.federalregister.gov/reader-aids/developer-resources/rest-api
+description: >-
+  Metadata for every document published in the daily Federal Register since 1994 — final rules, proposed rules,
+  agency notices and presidential documents (executive orders, proclamations, memoranda) — with publishing agencies,
+  FR citation and pages, effective and comment-deadline dates, docket ids, Regulation Identifier Numbers, significance
+  under EO 12866, and links to the official PDF on govinfo.gov. Compiled by the Office of the Federal Register from
+  agency submissions and served through the FederalRegister.gov REST API. Not available in Data Commons.
+domains: [regulation, politics_legislation]
+tags: [federal-register, regulations, rulemaking, rules, proposed-rules, notices, executive-orders, proclamations,
+       presidential-documents, agencies, rin, dockets, nara, ofr, significant-rules, regulatory-activity]
+coverage:
+  geography: United States — federal agencies and the President
+  countries: [US]
+  geographic_granularity: [nation, document]
+  time_range:
+    start: "1994-01-01"
+    end: null
+    notes: Daily issues from 1994 onward; documents appear on publication (public-inspection copies a day earlier are not included).
+  temporal_granularity: daily
+  unit_of_observation: One Federal Register document
+access:
+  method: api
+  endpoints:
+    - url: https://www.federalregister.gov/api/v1/documents.json
+      description: Document search (conditions[...] filters, fields[], per_page up to 1000, next_page_url pagination; at most 10,000 results per query).
+    - url: https://www.federalregister.gov/api/v1/agencies.json
+      description: Agency list with slugs used by the agency filter.
+  formats: [json, csv]
+  rate_limits: None published; the HTML site blocks automated clients (only /api/ is open to programs).
+  auth: none
+update:
+  cadence: daily
+  expected_lag: Same day — documents appear on their publication date (business days).
+change_detection:
+  method: regex
+  url: https://www.federalregister.gov/api/v1/documents/2021-02252.json
+  pattern: '"([a-z_]+)":'
+  poll_interval_days: 7
+  notes: Fingerprints the set of JSON field names on a fixed historical document (EO 14009), so it moves only when the API's document schema changes, not with the daily flow of new documents.
+license:
+  name: U.S. Government work (17 U.S.C. §105), FederalRegister.gov terms not retrievable
+  spdx: null
+  url: https://www.govinfo.gov/about/policies#copyright
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "Office of the Federal Register (NARA), Federal Register documents via the FederalRegister.gov API."
+  evidence: evidence/licenses/federal-register-documents/
+  checked_at: "2026-11-24"
+  notes: Generally public domain, but FederalRegister.gov's own terms page blocks automated clients, NARA's catalog declares no license, and GPO warns government publications may contain third-party copyrighted material → link_only per POLICY.
+key_variables:
+  - name: document_number
+    definition: FR document number (e.g. 2021-02252), unique id of a document.
+  - name: publication_date
+    unit: date
+    definition: Date published in the Federal Register.
+  - name: type / subtype
+    definition: Rule, Proposed Rule, Notice, Presidential Document; subtype for presidential documents (Executive Order, Proclamation, Memorandum ...).
+  - name: title / action / abstract
+    definition: Document title, action line (e.g. "Final rule") and agency-written summary.
+  - name: agency_names / agency_slugs
+    definition: Issuing agencies joined with '; ' (slugs usable in the agency filter).
+  - name: citation / volume / start_page / end_page
+    definition: Official FR citation (e.g. 86 FR 7793) and page span.
+  - name: effective_on / comments_close_on / signing_date
+    unit: date
+    definition: Effective date of a rule, comment deadline of a proposed rule, signing date of a presidential document.
+  - name: executive_order_number / president
+    definition: EO number (executive orders only) and the President in office (set for all document types, not only presidential documents).
+  - name: docket_ids / regulation_id_numbers / significant
+    definition: Agency docket ids and RINs (joined with '; '); significant = deemed significant under EO 12866 (null when not applicable/unknown).
+  - name: html_url / pdf_url
+    definition: FederalRegister.gov page and the official govinfo.gov PDF.
+caveats:
+  - FederalRegister.gov is an unofficial edition; only the PDF on govinfo.gov (pdf_url) is the official legal text. Rows are metadata, not full text.
+  - The API reports at most 10,000 matches per query and cannot page past them; counts at that cap are lower bounds — split by date range for exhaustive counts.
+  - Document counts are not counts of regulations — corrections, extensions of comment periods and notices of meetings are separate documents; check action/title and correction_of.
+  - The `significant` flag reflects OMB/OIRA designation as reported to OFR and is reliable only for rules and proposed rules after 1994; it is null for most notices.
+  - Presidential documents are filed by publication date; use signing_date for when an order was signed (often days earlier).
+  - Agency attribution uses current FederalRegister.gov agency slugs; reorganized agencies (e.g. DHS components) may appear under parent and sub-agency together.
+related: [congress-gov-api, usaspending-spending-by-geography]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: federal_register_documents
+adapter_version: 1.0.0

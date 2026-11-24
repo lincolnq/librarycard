@@ -1,0 +1,96 @@
+schema_version: 1
+id: voteview-congress
+name: "Voteview: Congressional Roll-Call Votes Database"
+publisher:
+  name: Voteview, UCLA Department of Political Science (Lewis, Poole, Rosenthal, Boche, Rudkin, Sonnet)
+  url: https://voteview.com/about
+  type: research_institution
+homepage: https://voteview.com/data
+description: >-
+  Every recorded roll-call vote in the U.S. House and Senate since the 1st Congress (1789), with each member's
+  individual vote, roll-call descriptions and outcomes, and DW-NOMINATE and Nokken-Poole ideology scores for every
+  member in every congress. Built and maintained by the Voteview project at UCLA from congressional records (the
+  current congress is updated nightly); the NOMINATE scaling method is Poole and Rosenthal's. Data Commons has no
+  roll-call or ideology data.
+domains: [politics_legislation]
+tags: [voteview, roll-call, votes, dw-nominate, nominate, ideology, polarization, congress, house, senate,
+       icpsr, nokken-poole, legislative-behavior]
+coverage:
+  geography: United States — House and Senate members by state and district
+  countries: [US]
+  geographic_granularity: [state, congressional_district, legislator, roll_call]
+  time_range:
+    start: "1789"
+    end: null
+    notes: 1st Congress to the current congress; current-congress files are regenerated nightly.
+  temporal_granularity: per_session
+  unit_of_observation: Member x congress (members); roll call (rollcalls); member x roll call (votes)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://voteview.com/static/data/out/members/{H|S|HS}{NNN}_members.csv
+      description: Per-congress member table with DW-NOMINATE scores (table=members), ~50 KB per chamber.
+    - url: https://voteview.com/static/data/out/rollcalls/{H|S|HS}{NNN}_rollcalls.csv
+      description: Per-congress roll-call descriptions and results (table=rollcalls).
+    - url: https://voteview.com/static/data/out/votes/{H|S|HS}{NNN}_votes.csv
+      description: Per-congress individual votes (table=votes), 1-17 MB per file; streamed and filtered.
+    - url: https://voteview.com/static/data/out/parties/HSall_parties.csv
+      description: party_code to party_name lookup joined into members rows.
+  formats: [csv, json]
+  rate_limits: None published. HSall_* all-congress files are hundreds of MB; the adapter never uses them.
+  auth: none
+update:
+  cadence: daily
+  expected_lag: Votes appear within about a day; NOMINATE scores for the current congress are re-estimated as votes accumulate.
+change_detection:
+  method: regex
+  url: https://voteview.com/static/data/out/members/S001_members.csv
+  pattern: '\A([^\r\n]+)'
+  poll_interval_days: 7
+  notes: Every file is regenerated nightly (Last-Modified/ETag move daily), so the monitor fingerprints the header row of a tiny historical members file instead; it changes only when Voteview changes its column layout.
+license:
+  name: No published license (citation requested)
+  spdx: null
+  url: https://voteview.com/data
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: >-
+    Lewis, Jeffrey B., Keith Poole, Howard Rosenthal, Adam Boche, Aaron Rudkin, and Luke Sonnet (2026).
+    Voteview: Congressional Roll-Call Votes Database. https://voteview.com/
+  evidence: evidence/licenses/voteview-congress/
+  checked_at: "2026-11-24"
+  notes: voteview.com states no terms for the data, only a citation request; classified link_only per POLICY (silent terms).
+key_variables:
+  - name: congress / chamber / icpsr
+    definition: Congress number (118 = 2023-2025), House/Senate/President, and the member's ICPSR id (join key across the three tables; icpsr_id in unitedstates-congress-legislators).
+  - name: bioname / bioguide_id / state_abbrev / district_code / party_code / party_name
+    definition: Member name (surname first), Bioguide id, state, district (0 = Senate; 98/99/1 for some at-large), Voteview party code (100 Democrat, 200 Republican, 328 Independent) and its name (joined by the adapter).
+  - name: nominate_dim1
+    unit: score in [-1, 1]
+    definition: DW-NOMINATE first dimension (liberal-conservative; negative = liberal). Static across a member's career.
+  - name: nominate_dim2
+    unit: score in [-1, 1]
+    definition: "DW-NOMINATE second dimension (cross-cutting issues: slavery, currency, civil rights, lifestyle)."
+  - name: nokken_poole_dim1 / nokken_poole_dim2
+    definition: Ideal points estimated separately for each congress (allow members to move over time).
+  - name: rollnumber / date / bill_number / vote_question / vote_result / yea_count / nay_count
+    definition: Roll-call number within congress+chamber, vote date, bill, question, result, and tallies (rollcalls table).
+  - name: cast_code / cast_label
+    definition: Member's vote — 1 Yea, 2 Paired Yea, 3 Announced Yea, 4 Announced Nay, 5 Paired Nay, 6 Nay, 7/8 Present, 9 Not Voting, 0 not a member at the time. cast_label is added by the adapter.
+  - name: prob
+    unit: percent
+    definition: NOMINATE-estimated probability of the vote as cast.
+caveats:
+  - DW-NOMINATE scores are model estimates from voting behavior, not measures of ideology per se; dimension 1 is comparable across congresses only under the model's assumption of static member positions (use Nokken-Poole for per-congress movement).
+  - Current-congress scores are provisional and change nightly as votes accumulate; `conditional` = 1 marks provisionally estimated members. Cite the retrieval date.
+  - rollnumber restarts in each congress and chamber, and excludes quorum calls and vacated votes, so it can differ from the clerk's roll-call number (clerk_rollnumber).
+  - A member who switches party or becomes President gets a new icpsr id; aggregate by bioguide_id to follow a person.
+  - Members with few votes have null NOMINATE scores (empty cells are returned as null). The President appears in every members file, including chamber=house or senate files (chamber "President"), with scores from announced positions; drop those rows when counting legislators.
+  - "Whole-congress votes tables are large (~250k rows per chamber); filter by rollnumber or icpsr and respect the row limit."
+related: [unitedstates-congress-legislators, congress-gov-api]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: voteview_congress
+adapter_version: 1.0.0

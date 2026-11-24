@@ -16,3 +16,8 @@ www.eac.gov                          # eac-eavs
 www.fec.gov                          # fec-all-candidates
 www.fema.gov                         # fema-disaster-declarations
 www2.census.gov                      # census-acs-summary-file (+ other Census bulk files)
+api.usaspending.gov                  # usaspending-spending-by-geography
+raw.githubusercontent.com            # usaspending-spending-by-geography (change detection: API contract file)
+unitedstates.github.io               # unitedstates-congress-legislators
+voteview.com                         # voteview-congress
+www.federalregister.gov              # federal-register-documents

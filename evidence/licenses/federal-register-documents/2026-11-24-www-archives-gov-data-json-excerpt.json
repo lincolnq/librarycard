@@ -1,0 +1,490 @@
+{
+ "_source_url": "https://www.archives.gov/files/data.json",
+ "_retrieved": "2026-11-24T23:39:02+00:00",
+ "_pattern": "FederalRegister.gov and API|Federal Register in XML",
+ "_catalog_license_counts": {
+  "null": 81,
+  "https://creativecommons.org/publicdomain/zero/1.0/": 2,
+  "https://creativecommons.org/licenses/by-nc/4.0/legalcode": 1
+ },
+ "entries": [
+  {
+   "@type": "dcat:Dataset",
+   "title": "2014 Federal Register in XML",
+   "modified": "2014-01-02",
+   "accessLevel": "public",
+   "identifier": "NARA-FedReg-2014",
+   "dataQuality": true,
+   "issued": "2013-01-02",
+   "spatial": "United States",
+   "temporal": "2014-01/2014-12",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of the Federal Register",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "National Archives and Records Administration"
+    }
+   },
+   "accrualPeriodicity": "R/P1D",
+   "isPartOf": "NARA-FedReg",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Oliver Potts",
+    "hasEmail": "mailto:opendata@nara.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/xml",
+     "title": "2014 Federal Register in XML",
+     "downloadURL": "https://www.gpo.gov/fdsys/bulkdata/FR/2014/FR-2014.zip"
+    }
+   ],
+   "keyword": [
+    "FDsys",
+    "FR",
+    "FR XML",
+    "Federal Register",
+    "GPO",
+    "Government Printing Office",
+    "NARA",
+    "National Archives and Records Administration",
+    "OFR",
+    "Office of the Federal Register",
+    "XML",
+    "directives",
+    "guidelines",
+    "notice",
+    "notices",
+    "proposed rule",
+    "proposed rules",
+    "regs",
+    "regulation",
+    "regulations",
+    "rule",
+    "rule makings",
+    "rulemaking",
+    "rules"
+   ],
+   "bureauCode": [
+    "393:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "https://www.gpo.gov/fdsys/bulkdata/FR/resources"
+   ],
+   "theme": [
+    "regulations"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2015 Federal Register in XML",
+   "modified": "2015-01-02",
+   "accessLevel": "public",
+   "identifier": "NARA-FedReg-2015",
+   "dataQuality": true,
+   "issued": "2013-01-02",
+   "spatial": "United States",
+   "temporal": "2015-01/2015-12",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of the Federal Register",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "National Archives and Records Administration"
+    }
+   },
+   "accrualPeriodicity": "R/P1D",
+   "isPartOf": "NARA-FedReg",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Oliver Potts",
+    "hasEmail": "mailto:opendata@nara.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/xml",
+     "format": "xml",
+     "title": "2015 Federal Register in XML",
+     "downloadURL": "https://www.gpo.gov/fdsys/bulkdata/FR/2015/FR-2015.zip"
+    }
+   ],
+   "keyword": [
+    "FDsys",
+    "FR",
+    "FR XML",
+    "Federal Register",
+    "GPO",
+    "Government Printing Office",
+    "NARA",
+    "National Archives and Records Administration",
+    "OFR",
+    "Office of the Federal Register",
+    "XML",
+    "directives",
+    "guidelines",
+    "notice",
+    "notices",
+    "proposed rule",
+    "proposed rules",
+    "regs",
+    "regulation",
+    "regulations",
+    "rule",
+    "rule makings",
+    "rulemaking",
+    "rules"
+   ],
+   "bureauCode": [
+    "393:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "https://www.gpo.gov/fdsys/bulkdata/FR/resources"
+   ],
+   "theme": [
+    "regulations"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2016 Federal Register in XML",
+   "modified": "2016-01-02",
+   "accessLevel": "public",
+   "identifier": "NARA-FedReg-2016",
+   "dataQuality": true,
+   "issued": "2016-01-02",
+   "spatial": "United States",
+   "temporal": "2015-01/2015-12",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of the Federal Register",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "National Archives and Records Administration"
+    }
+   },
+   "accrualPeriodicity": "R/P1D",
+   "isPartOf": "NARA-FedReg",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Oliver Potts",
+    "hasEmail": "mailto:opendata@nara.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/xml",
+     "format": "xml",
+     "title": "2016 Federal Register in XML",
+     "downloadURL": "https://www.gpo.gov/fdsys/bulkdata/FR/2016/FR-2016.zip"
+    }
+   ],
+   "keyword": [
+    "FDsys",
+    "FR",
+    "FR XML",
+    "Federal Register",
+    "GPO",
+    "Government Printing Office",
+    "NARA",
+    "National Archives and Records Administration",
+    "OFR",
+    "Office of the Federal Register",
+    "XML",
+    "directives",
+    "guidelines",
+    "notice",
+    "notices",
+    "proposed rule",
+    "proposed rules",
+    "regs",
+    "regulation",
+    "regulations",
+    "rule",
+    "rule makings",
+    "rulemaking",
+    "rules"
+   ],
+   "bureauCode": [
+    "393:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "https://www.gpo.gov/fdsys/bulkdata/FR/resources"
+   ],
+   "theme": [
+    "regulations"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "Federal Register in XML",
+   "modified": "2013-12-15",
+   "accessLevel": "public",
+   "identifier": "NARA-FedReg",
+   "dataQuality": true,
+   "issued": "2000-01-03",
+   "landingPage": "https://www.govinfo.gov/bulkdata/FR/resources",
+   "spatial": "United States",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of the Federal Register",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "National Archives and Records Administration"
+    }
+   },
+   "accrualPeriodicity": "R/P1D",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Oliver Potts",
+    "hasEmail": "mailto:opendata@nara.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "format": "xml",
+     "title": "Federal Register XML",
+     "downloadURL": "https://www.gpo.gov/fdsys/bulkdata/FR"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2000 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2000/FR-2000.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2001 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2001/FR-2001.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2002 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2002/FR-2002.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2003 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2003/FR-2003.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2004 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2004/FR-2004.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2005 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2005/FR-2005.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2006 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2006/FR-2006.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2007 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2007/FR-2007.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2008 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2008/FR-2008.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2009 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2009/FR-2009.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2010 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2010/FR-2010.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2011 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2011/FR-2011.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2012 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2012/FR-2012.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2013 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2013/FR-2013.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2014 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2014/FR-2014.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2015 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2015/FR-2015.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2016 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2016/FR-2016.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2017 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2017/FR-2017.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "title": "Federal Register - 2018 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2018/FR-2018.zip"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/zip",
+     "format": "xml",
+     "title": "Federal Register - 2018 Bulk XML",
+     "downloadURL": "https://www.govinfo.gov/bulkdata/FR/2018/FR-2018.zip"
+    }
+   ],
+   "keyword": [
+    "NARA",
+    "National Archives",
+    "National Archives and Records Administration",
+    "OFR",
+    "Office of the Federal Register",
+    "directives",
+    "guidelines",
+    "meetings",
+    "notices",
+    "presidential executive orders and proclamations",
+    "proposed rules",
+    "regulations",
+    "rule makings",
+    "rules"
+   ],
+   "bureauCode": [
+    "393:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "https://www.govinfo.gov/help/fr#about"
+   ],
+   "theme": [
+    "regulations",
+    "proposed rules"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "FederalRegister.gov and API",
+   "modified": "R/P1D",
+   "accessLevel": "public",
+   "identifier": "NARA-FedReg-GovAPI",
+   "dataQuality": true,
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of the Federal Register",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "National Archives and Records Administration"
+    }
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Oliver Potts",
+    "hasEmail": "mailto:opendata@nara.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://www.federalregister.gov/",
+     "title": "Website for the Federal Register"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://www.federalregister.gov/developers/api/v1",
+     "format": "API",
+     "title": "API Interactive Documentation"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://www.federalregister.gov/learn/developers",
+     "title": "Developers webpage for FederalRegister.gov"
+    }
+   ],
+   "keyword": [
+    "NARA",
+    "National Archives",
+    "Office of the Federal Register",
+    "directives",
+    "guidelines",
+    "meetings",
+    "notices",
+    "presidential executive orders and proclamations",
+    "proposed rules",
+    "regulations",
+    "rule makings"
+   ],
+   "bureauCode": [
+    "393:00"
+   ],
+   "programCode": [
+    "000:000"
+   ]
+  }
+ ]
+}
