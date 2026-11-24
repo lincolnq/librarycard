@@ -28,6 +28,10 @@ Example MCP client config (stdio):
 {"mcpServers": {"open-data-catalog": {"command": "/path/to/repo/.venv/bin/odc-server"}}}
 ```
 
+MCP clients launch stdio servers with a minimal environment. If you are behind a TLS-intercepting proxy, pass
+`HTTPS_PROXY` and `SSL_CERT_FILE` (or `REQUESTS_CA_BUNDLE`) in the server's `env` config. Optional settings:
+`ODC_CACHE_DIR` (default `~/.cache/open-data-catalog`), `ODC_CACHE=0` to disable caching, `ODC_HTTP_TIMEOUT`.
+
 Tools:
 
 | Tool | Returns |

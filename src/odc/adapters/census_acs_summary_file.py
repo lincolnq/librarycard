@@ -64,8 +64,10 @@ def latest_year(dataset: str) -> int:
             http.head(_dat_url(y, dataset, "B01003"))
             _latest_cache[dataset] = y
             return y
-        except SourceError:
-            continue
+        except SourceError as e:
+            if e.status in (401, 403, 404):
+                continue  # that release year isn't published (yet); www2.census.gov answers 401 for missing files
+            raise
     raise SourceError("could not find any ACS table-based summary file release", kind="http")
 
 
@@ -84,7 +86,7 @@ def _clean(v: str | None):
 
 class CensusAcsSummaryFile(SourceAdapter):
     source_id = "census-acs-summary-file"
-    version = "1.0.0"
+    version = "1.0.1"
     usage = ("Pick a detailed table id (e.g. B19013 = median household income, B01003 = total population, "
              "B17001 = poverty status) and a geography. Columns are <TABLE>_E### (estimate) and <TABLE>_M### "
              "(90% margin of error); `metadata.variable_labels` maps them to labels. Table ids are listed in "
@@ -150,7 +152,7 @@ class CensusAcsSummaryFile(SourceAdapter):
         try:
             rows, matched = scan_csv(url, cache_allowed=cache_allowed, predicate=keep, limit=limit, delimiter="|", max_age_s=30 * 86400)
         except SourceError as e:
-            if e.status == 404:
+            if e.status in (401, 404):
                 raise FilterError(f"no {dataset} file for table {table} in {year} ({url}). Check the table id; 1-year data omits some tables.") from None
             raise
         wanted = f.get("variables")

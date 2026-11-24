@@ -90,4 +90,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: census_acs_summary_file
-adapter_version: 1.0.0
+adapter_version: 1.0.1
