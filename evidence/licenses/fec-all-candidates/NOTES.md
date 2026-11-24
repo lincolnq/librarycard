@@ -17,7 +17,14 @@
 - `*-privacy-and-security-policy.txt`: site privacy policy; says nothing about data reuse (saved to show no other terms apply).
 
 ## Classification
-- redistribution: **allowed** — the FEC's own dataset-level licence statement (POD `licence` → LICENSE.md) says FEC work is public domain in the US and CC0 worldwide; the only use restriction FEC names is the statutory sale-or-use rule, which FEC states "applies only to the use of individual contributor information". The all-candidates file contains candidate-level totals only (no contributor names/addresses), so the restriction does not reach it. This adapter must never be extended to itemized contributions (also excluded by POLICY §Scope 3).
-- commercial_use: **yes** — public domain/CC0 for this content; the commercial-use ban is scoped to individual contributor information, which this file lacks.
-- attribution: "Federal Election Commission, All candidates file (weball<YY>), FEC bulk data." (FEC requests no specific form.)
-- Judgment call recorded for reviewers: the licence statement is attached to the API entry in data.json rather than to the bulk files, but it is the agency's stated policy for FEC data generally (POLICY §Licensing 3: "when … the agency's policy states it").
+- redistribution: **link_only** (reviewed 2026-11-24, superseding the onboarding agent's `allowed`).
+  The LICENSE.md snapshot is the licence of the fecgov/FEC *website code repository* — it enumerates fonts, the U.S. Web
+  Design Standards and image assets, then says "the rest of this project is in the worldwide public domain". It is
+  linked from data.json's "FEC API" entry, but it is not a dataset-level statement about the bulk data files. FEC data
+  are very likely public domain as federal works (17 U.S.C. §105), but POLICY §Licensing requires a clear statement and
+  forbids guessing permissively, so we fetch on demand and do not cache.
+- commercial_use: **unclear** — the statutory sale-or-use restriction (52 U.S.C. 30111(a)(4)) applies to individual
+  contributor information, which this file lacks, but no affirmative data license was found.
+- attribution: "Federal Election Commission, All candidates file (weball<YY>), FEC bulk data."
+- To upgrade to `allowed`: find an FEC page stating the bulk data (or FEC data generally) is public domain / freely
+  reusable, snapshot it, and cite it here.

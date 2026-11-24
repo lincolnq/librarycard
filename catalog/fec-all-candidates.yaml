@@ -49,12 +49,12 @@ license:
   name: Public domain (U.S. Government work) / CC0 1.0, per FEC's data licence; statutory sale-or-use restriction on individual contributor information does not apply to this file
   spdx: CC0-1.0
   url: https://github.com/fecgov/FEC/blob/master/LICENSE.md
-  redistribution: allowed
-  commercial_use: "yes"
+  redistribution: link_only
+  commercial_use: unclear
   attribution: "Federal Election Commission, All candidates file (weball), FEC bulk data, https://www.fec.gov/data/browse-data/?tab=bulk-data."
   evidence: evidence/licenses/fec-all-candidates/
   checked_at: "2026-11-24"
-  notes: See NOTES.md — licence named in fec.gov/data.json; FEC says the sale-or-use restriction (52 U.S.C. 30111(a)(4)) "applies only to the use of individual contributor information".
+  notes: "Reclassified to link_only on review: the only CC0/public-domain statement found (fecgov/FEC LICENSE.md, linked from data.json's API entry) licenses FEC's website source code, not the bulk data files. No dataset-level data license was found. See NOTES.md."
 key_variables:
   - name: CAND_ID
     definition: FEC candidate id; first letter is the office (H/S/P), then election-cycle digit, state and sequence, e.g. H8NY15148. Stable across cycles for the same office.
