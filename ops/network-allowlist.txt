@@ -21,3 +21,6 @@ raw.githubusercontent.com            # usaspending-spending-by-geography (change
 unitedstates.github.io               # unitedstates-congress-legislators
 voteview.com                         # voteview-congress
 www.federalregister.gov              # federal-register-documents
+www.ers.usda.gov                     # usda-ers-rural-urban-codes
+www.fema.gov                         # fema-disaster-declarations
+www2.census.gov                      # census-acs-summary-file, census-pep, census-saipe, census-gazetteer, census-decennial-2020-pl

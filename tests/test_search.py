@@ -13,10 +13,10 @@ def test_keyword_ranking(cat):
 
 
 def test_filters(cat):
-    assert all("disasters_emergency" in r["domains"] for r in cat.search("", domain="disasters_emergency"))
-    assert "census-acs-summary-file" in ids(cat.search("", geography="tract"))
-    assert "noaa-nclimgrid-daily" in ids(cat.search("", geography="Texas"))
-    assert "noaa-nclimgrid-daily" not in ids(cat.search("", time_range="1900-1940"))
+    assert all("disasters_emergency" in r["domains"] for r in cat.search("", domain="disasters_emergency", limit=100))
+    assert "census-acs-summary-file" in ids(cat.search("", geography="tract", limit=100))
+    assert "noaa-nclimgrid-daily" in ids(cat.search("", geography="Texas", limit=100))
+    assert "noaa-nclimgrid-daily" not in ids(cat.search("", time_range="1900-1940", limit=100))
 
 
 def test_bad_time_range(cat):

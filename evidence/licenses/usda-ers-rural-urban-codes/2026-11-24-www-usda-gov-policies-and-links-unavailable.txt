@@ -1,0 +1,13 @@
+URL: https://www.usda.gov/policies-and-links
+Attempted: 2026-11-24T23:40:34+00:00
+Error: HTTP 403 from https://www.usda.gov/policies-and-links: <HTML><HEAD>
+<TITLE>Access Denied</TITLE>
+</HEAD><BODY>
+<H1>Access Denied</H1>
+ 
+You don't have permission to access "http&#58;&#47;&#47;www&#46;usda&#46;gov&#47;policies&#45;and&#45;links" on this server.<P>
+Reference&#32;&#35;18&#46;ea680117&#46;1795563635&#46;358f1763
+<P>https&#58;&#47;&#47;errors&#46;edgesuite&#46;net&#47;18&#46;ea680117&#46;1795563635&#46;358f1763</P>
+</BODY>
+</HTML>
+

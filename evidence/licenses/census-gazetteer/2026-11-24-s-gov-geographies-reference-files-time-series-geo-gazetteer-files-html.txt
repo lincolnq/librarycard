@@ -1,0 +1,916 @@
+URL: https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html
+Final-URL: https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html
+Retrieved: 2026-11-24T23:39:59+00:00
+HTTP-Status: 200
+Raw-SHA256: 531f39980f08512000337e9847086adb57b23d2d60504c0008947a0ca75df83a
+Raw-Bytes: 533341
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ Census Geographies 
+
+ / 
+
+ Census Reference Files 
+
+ / 
+
+ Gazetteer Files 
+
+ Gazetteer Files
+
+ Skip Navigation 
+
+ Within Census Geographies
+
+ Mapping Files 
+
+ Mapping Tools 
+
+ Reference Files 
+
+ Reference Maps 
+
+ Within Census Geographies
+
+ Within Census Geographies 
+
+ Mapping Files 
+
+ Mapping Tools 
+
+ Reference Files 
+
+ Reference Maps 
+
+ -->
+
+ Gazetteer Files
+
+ The U.S. Gazetteer Files provide a listing of all geographic areas for selected geographic area types. The files include geographic identifier codes, names, area measurements, and representative latitude and longitude coordinates. 
+
+ 2026 
+
+ 2025 
+
+ 2024 
+
+ 2023 
+
+ 2022 
+
+ More
+
+ 2021 
+
+ 2020 
+
+ 2019 
+
+ 2018 
+
+ 2017 
+
+ 2016 
+
+ 2015 
+
+ 2014 
+
+ 2013 
+
+ 2012 
+
+ 2010 
+
+ 2000 
+
+ 1990 
+
+ 2026
+
+ 2026
+
+ 2025
+
+ 2024
+
+ 2023
+
+ 2022
+
+ 2021
+
+ 2020
+
+ 2019
+
+ 2018
+
+ 2017
+
+ 2016
+
+ 2015
+
+ 2014
+
+ 2013
+
+ 2012
+
+ 2010
+
+ 2000
+
+ 1990
+
+ 2026
+
+ This page provides links to the 2026 gazetteer files for 120th congressional districts, American Indian/Alaska Native/Native Hawaiian Areas, census tracts, counties, county subdivisions (minor civil divisions/census county divisions), places, school districts (elementary, secondary, unified, and administrative), state legislative districts (upper and lower), states, 2020 Census urban areas, and ZIP Code tabulation areas (ZCTAs) for the 50 states, the District of Columbia, and Puerto Rico.
+
+ Notes:
+
+ All national files are in a compressed format.
+
+ Files are pipe-delimited text with one record per file, unless noted.
+
+ Population and housing unit counts are not included in these files.
+
+ The Island Areas (American Samoa, the Commonwealth of the Northern Mariana Islands, Guam, and the U.S. Virgin Islands) are not included in these files.
+
+ The geography in these files matches the areas for which the 2026 American Community Survey data are published.
+
+ Because of changes in boundaries and entity names, the creation of new entities, and the dissolution of others, users should not expect a one-to-one relationship between the entity names and codes in these files and the 2013-2025 American Community Survey, 2020 Census, 2010 Census, Census 2000, or 1990 Census files.
+
+ 120th Congressional Districts
+
+ The congressional districts file contains data for the 120th Congress (January 2026 to January 2028).
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the 120th Congressional Districts Gazetteer File 
+ [<1.0 MB] 
+
+ American Indian/Alaska Native/Native Hawaiian Areas
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the American Indian/Alaska Native/Native Hawaiian Areas Gazetteer File 
+ [<1.0 MB] 
+
+ American Indian/Alaska Native/Native Hawaiian Areas, by Component
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the American Indian/Alaska Native/Native Hawaiian Areas, by Component Gazetteer File 
+ [<1.0 MB] 
+
+ Census Tracts
+
+ The census tract file is based on 2020 Census tracts.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the National Census Tracts Gazetteer Files 
+ [2.2 MB] 
+
+ Download a single state Census Tracts Gazetteer File:
+
+ Download a single state Census Tracts Gazetteer File:</p> 
+" id="07X7WNII7NBMG9DSXC" class="tags uscb-flex-row-gt-sm-90 uscb-flex-row-sm-80 uscb-padding-L-40" placeholder="Select a State"/>
+
+ Core Based Statistical Areas
+
+ Some records contain special characters. 
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the National Core Based Statistical Areas Gazetteer File 
+ [<1.0 MB] 
+
+ Counties
+
+ Some records contain special characters.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the National Counties Gazetteer File 
+ [<1.0 MB] 
+
+ Download a single state Counties Gazetteer File:
+
+ Download a single state Counties Gazetteer File:</p> 
+" id="Y30KHAVF174M08GNBJ" class="tags uscb-flex-row-gt-sm-90 uscb-flex-row-sm-80 uscb-padding-L-40" placeholder="Select a State"/>
+
+ County Subdivisions
+
+ Some records contain special characters.
+
+ The congressional districts file contains data for the 115th Congress (January 2017 to January 2019).
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the National County Subdivisions Gazetteer File 
+ [1.4 MB] 
+
+ Download a single state County Subdivisions Gazetteer File:
+
+ Download a single state County Subdivisions Gazetteer File:</p> 
+" id="R3L7EAT0SJAHS3YAL8" class="tags uscb-flex-row-gt-sm-90 uscb-flex-row-sm-80 uscb-padding-L-40" placeholder="Select a State"/>
+
+ Places
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the National Places Gazetteer Files 
+ [1.2 MB] 
+
+ Download a single state Places Gazetteer File:
+
+ Download a single state Places Gazetteer File:</p> 
+" id="FQ6S6ZIHQ4HWN4W7YQ" class="tags uscb-flex-row-gt-sm-90 uscb-flex-row-sm-80 uscb-padding-L-40" placeholder="Select a State"/>
+
+ School Districts - Elementary
+
+ The school districts - elementary file contains data for 25 states and represents districts in operation as of January 1, 2026. The states represented in the file are: Arizona, California, Connecticut, Georgia, Illinois, Kentucky, Maine, Massachusetts, Michigan, Minnesota, Missouri, Montana, New Hampshire, New Jersey, New York, North Dakota, Oklahoma, Oregon, Rhode Island, Tennessee, Texas, Vermont, Virginia, Wisconsin, and Wyoming.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the School Districts - Elementary Gazetteer File 
+ [<1.0 MB] 
+
+ School Districts - Secondary
+
+ The school districts - secondary file contains data for 19 states and represents districts in operation as of January 1, 2026. The states represented in the file are: Arizona, California, Connecticut, Georgia, Illinois, Kentucky, Maine, Massachusetts, Minnesota, Montana, New Hampshire, New Jersey, New York, Oregon, Rhode Island, Tennessee, Texas, Vermont, and Wisconsin.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the School Districts - Secondary Gazetteer File 
+ [<1.0 MB] 
+
+ School Districts - Unified
+
+ The school districts - unified file contains data for unified school districts in the 50 states, the District of Columbia, and Puerto Rico and represents districts in operation as of January 1, 2026.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the School Districts - Unified Gazetteer File 
+ [<1.0 MB] 
+
+ School Districts - Administrative
+
+ The school districts - administrative file contains data for administrative school district areas in the state of Vermont and represents districts in operation as of January 1, 2026.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the School Districts - Administrative Gazetteer File 
+ [<1.0 MB] 
+
+ States
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the National States Gazetteer File 
+ [<1.0 MB] 
+
+ State Legislative Districts - Lower Chamber
+
+ The state legislative districts - lower chamber file contains data for 49 states and Puerto Rico for the 2026 election cycle. Nebraska has a unicameral legislature, and the District of Columbia has a single council, both of which the Census Bureau treats as upper-chamber legislative areas for the purpose of data presentation. Therefore, there are no lower chamber state legislative districts provided for Nebraska or the District of Columbia.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the State Legislative Districts - Lower Chamber Gazetteer File 
+ [<1.0 MB] 
+
+ State Legislative Districts - Upper Chamber
+
+ The state legislative districts - upper chamber file contains data for all 50 states, the District of Columbia, and Puerto Rico for the 2026 election cycle. Some records contain special characters.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the State Legislative Districts - Upper Chamber Gazetteer Files 
+ [<1.0 MB] 
+
+ Urban Areas
+
+ This file contains the 2020 Census urban areas based on 2020 Census blocks.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the Urban Areas Gazetteer File 
+ [<1.0 MB] 
+
+ ZIP Code Tabulation Areas
+
+ This file contains ZIP Code tabulation areas based on 2020 Census blocks.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Download the ZIP Code Tabulation Areas Gazetteer File 
+ [1.0 MB] 
+
+ Related Information
+
+ Gazetteer File Record Layouts
+
+ Geography Reference Files
+
+ Page Last Revised - September 4, 2026 
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy

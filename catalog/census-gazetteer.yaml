@@ -1,0 +1,98 @@
+schema_version: 1
+id: census-gazetteer
+name: Census Gazetteer Files
+publisher:
+  name: U.S. Census Bureau, Geography Division
+  url: https://www.census.gov/geographies.html
+  type: us_federal
+homepage: https://www.census.gov/geographies/reference-files/time-series/geo/gazetteer-files.html
+description: >-
+  Annual reference lists of every legal and statistical geographic entity in a Census geographic layer (states,
+  counties, county subdivisions, places, census tracts, ZCTAs, congressional and state legislative districts,
+  school districts, metro/micro areas, urban areas, American Indian areas) with its GEOID, name, land and water
+  area and an internal-point latitude/longitude. They are derived from the Census MAF/TIGER database with boundaries
+  as of January 1 of the year. Useful as a join key list, for population density (divide by ALAND_SQMI) and for
+  approximate point locations without handling shapefiles.
+domains: [geography_boundaries, demographics]
+tags: [census, gazetteer, land-area, water-area, internal-point, latitude, longitude, geoid, zcta, tract, congressional-district, density, tiger]
+coverage:
+  geography: United States, DC and Puerto Rico (per layer)
+  countries: [US]
+  geographic_granularity: [state, county, county_subdivision, place, tract, zcta, congressional_district, state_legislative_district, school_district, metro_area, other]
+  time_range:
+    start: "2020"
+    end: "2026"
+    notes: One edition per year (boundaries as of Jan 1). Editions back to 2012 (and 2000/2010 census files) exist on the host; the adapter serves 2020 onward. The state layer exists from 2024; some layers (e.g. cbsa in 2022) are missing in some years.
+  temporal_granularity: annual
+  unit_of_observation: Geographic entity (one row per GEOID in a layer and year)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www2.census.gov/geo/docs/maps-data/data/gazetteer/
+      description: Year directories <YEAR>_Gazetteer/; the adapter uses the latest unless `year` is given.
+    - url: https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_Gaz_counties_national.zip
+      description: National file per layer, pattern <YEAR>_Gazetteer/<YEAR>_Gaz_<layer>_national.zip (single .txt member).
+    - url: https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2025_Gazetteer/2025_gaz_tracts_10.txt
+      description: Per-state files for counties/cousubs/place/tracts, pattern <YEAR>_gaz_<layer>_<state FIPS>.txt; used when `state` is given.
+  formats: [tab-delimited text (to 2024), pipe-delimited text (2025+), zip]
+  rate_limits: None published. National zips are 3 KB-2.5 MB; cached 60 days (license allows).
+  auth: none
+update:
+  cadence: annual
+  expected_lag: Released ~August-September of the boundary year (boundaries as of January 1).
+  notes: Published together with the TIGER/Line files.
+change_detection:
+  method: regex
+  url: https://www2.census.gov/geo/docs/maps-data/data/gazetteer/
+  pattern: 'href="(\d{4}_Gazetteer)/"'
+  poll_interval_days: 14
+  notes: Fires when a new annual edition directory appears. On change, check the new edition's file naming and delimiter (it switched from tab to pipe and added GEOIDFQ in 2025) and update coverage.time_range.end.
+license:
+  name: Creative Commons Zero 1.0 (public domain dedication) — Census Bureau open-data license; see NOTES.md for how it applies to the Gazetteer
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Census Bureau, Geography Division, <YEAR> Gazetteer Files."
+  evidence: evidence/licenses/census-gazetteer/
+  checked_at: "2026-11-24"
+  notes: The Gazetteer itself is not listed in census.gov/data.json; the classification rests on the Bureau-wide CC0 declaration (all 1,800 catalogued datasets) and the CC0 / "free to use ... acknowledgement must be given" terms on sibling Geography Division products. See NOTES.md.
+key_variables:
+  - name: GEOID
+    label: Geographic identifier
+    definition: Census GEOID for the layer (2-digit state, 5-digit county, 7-digit place, 11-digit tract, 5-digit ZCTA, 4-digit state+district for congressional districts, ...).
+  - name: GEOIDFQ
+    label: Fully-qualified GEO_ID
+    definition: Summary level + variant + "US" + GEOID (e.g. 0500000US01001), matching ACS GEO_IDs. Published from the 2025 edition onward only.
+  - name: USPS
+    label: State postal code
+    definition: Two-letter state abbreviation (absent for ZCTA, CBSA and urban-area layers).
+  - name: NAME
+    label: Entity name
+    definition: Name with legal/statistical area description (absent for tracts, ZCTAs and congressional districts).
+  - name: ALAND / AWATER
+    label: Land / water area
+    unit: square metres
+    definition: Land and water area of the entity from MAF/TIGER.
+  - name: ALAND_SQMI / AWATER_SQMI
+    label: Land / water area
+    unit: square miles
+    definition: Same areas in square miles (rounded to 3 decimals).
+  - name: INTPTLAT / INTPTLONG
+    label: Internal point
+    unit: decimal degrees (NAD83)
+    definition: Latitude/longitude of the Census internal point, a point guaranteed to lie inside (or near the centre of) the entity — not a population-weighted centroid.
+caveats:
+  - Each edition reflects boundaries as of January 1 of its year. Join to statistical tables using the matching boundary vintage (e.g. ACS 2024 uses 2024 geography; 2020-based tracts apply from 2020 onward; congressional districts change by Congress, e.g. 119CDs).
+  - Internal points are not population centroids and can be far from where people live in large or irregular areas; for population-weighted centres use the Census centers-of-population files.
+  - Areas are computed from TIGER for the edition's boundaries and can differ slightly between editions even without boundary changes (coordinate updates), so small year-to-year area changes are not real changes.
+  - Columns differ by layer and edition (e.g. NAME is absent for tracts and ZCTAs; LSAD/FUNCSTAT appear for places; GEOIDFQ exists only from 2025; the delimiter changed from tab to pipe in 2025). Code against column names, not positions.
+  - ZCTAs approximate USPS ZIP Code delivery areas but are not ZIP codes; many ZIP codes (PO boxes, single buildings) have no ZCTA.
+  - Connecticut uses 9 planning regions as county-equivalents from the 2022 edition onward.
+related: [census-acs-summary-file, census-pep, census-saipe]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: census_gazetteer
+adapter_version: 1.0.0

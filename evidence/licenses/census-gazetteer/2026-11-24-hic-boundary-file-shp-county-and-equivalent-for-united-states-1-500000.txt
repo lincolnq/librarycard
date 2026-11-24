@@ -1,0 +1,416 @@
+URL: https://catalog.data.gov/dataset/2024-cartographic-boundary-file-shp-county-and-equivalent-for-united-states-1-500000
+Final-URL: https://catalog.data.gov/dataset/2024-cartographic-boundary-file-shp-county-and-equivalent-for-united-states-1-500000
+Retrieved: 2026-11-24T23:40:01+00:00
+HTTP-Status: 200
+Raw-SHA256: 773d214f3f311a20879a0477735e0785eb6d0fcaa7d33181e9c589a383e222c2
+Raw-Bytes: 157715
+---
+Skip to main content 
+
+ An official website of the United States government
+
+ Here’s how you know
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// 
+ means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Menu 
+
+ Data 
+
+ Metrics 
+
+ Organizations 
+
+ User Guide 
+
+ Contact 
+
+ Search 
+
+ Return to search results
+
+ 2024 Cartographic Boundary File (SHP), County and Equivalent for United States, 1:500,000
+
+ Published by U.S. Department of Commerce, U.S. Census Bureau, Geography Division 
+
+ | 
+ U.S. Census Bureau, Department of Commerce 
+
+ | Catalog Last Checked: August 01, 2026 at 03:21 AM 
+
+ | Dataset Last Updated: May 01, 2025 at 12:00 AM 
+
+ The 2024 cartographic boundary shapefiles are simplified representations of selected geographic areas from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTDB). These boundary files are specifically designed for small-scale thematic mapping. When possible, generalization is performed with the intent to maintain the hierarchical relationships among geographies and to maintain the alignment of geographies within a file set for a given year. Geographic areas may not align with the same areas from another year. Some geographies are available as nation-based files while others are available only as state-based files.
+
+The primary legal divisions of most states are termed counties. In Louisiana, these divisions are known as parishes. In Alaska, which has no counties, the equivalent entities are the organized boroughs, city and boroughs, municipalities, and for the unorganized area, census areas. The latter are delineated cooperatively for statistical purposes by the State of Alaska and the Census Bureau. In four states (Maryland, Missouri, Nevada, and Virginia), there are one or more incorporated places that are independent of any county organization and thus constitute primary divisions of their states. These incorporated places are known as independent cities and are treated as equivalent entities for purposes of data presentation. The District of Columbia and Guam have no primary divisions, and each area is considered an equivalent entity for purposes of data presentation. The Census Bureau treats the following entities as equivalents of counties for purposes of data presentation: Municipios in Puerto Rico, Districts and Islands in American Samoa, Municipalities in the Commonwealth of the Northern Mariana Islands, and Islands in the U.S. Virgin Islands. The entire area of the United States, Puerto Rico, and the Island Areas is covered by counties or equivalent entities.
+
+The generalized boundaries for counties and equivalent entities are based on those as of January 1, 2024, primarily as reported through the Census Bureau's Boundary and Annexation Survey (BAS).
+
+ Resources
+
+ 4 resources available
+
+ cb_2024_us_county_500k.zip
+
+ ZIP
+
+ Download
+
+ cb_2024_us_county_500k.shp.ea.iso.xml
+
+ XML
+
+ Download
+
+ 2024_file_name_def.pdf
+
+ PDF
+
+ Download
+
+ description.pdf
+
+ PDF
+
+ Download
+
+ Find Related Datasets
+
+ Search by Tags
+
+ Click any tag below to search for similar datasets
+
+ 2024
+
+ SHP
+
+ Borough
+
+ Cartographic Boundary
+
+ Census Area
+
+ City
+
+ City and Borough
+
+ County
+
+ County equivalent
+
+ District
+
+ Generalized
+
+ Independent City
+
+ Island
+
+ Municipality
+
+ Municipio
+
+ Parish
+
+ United States of America (the)
+
+ US
+
+ + 10 more
+
+ Complete Metadata
+
+ @type 
+
+ dcat:Dataset
+
+ accessLevel 
+
+ non-public
+
+ contactPoint 
+
+ { 
+ "fn" : "U.S. Department of Commerce, U.S. Census Bureau, Geography Division" , 
+ "@type" : "vcard:Contact" , 
+ "hasEmail" : "mailto:geo.geography@census.gov" 
+ } 
+
+ describedByType 
+
+ application/octet-steam
+
+ description 
+
+ The 2024 cartographic boundary shapefiles are simplified representations of selected geographic areas from the U.S. Census Bureau's Master Address File / Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) Database (MTDB). These boundary files are specifically designed for small-scale thematic mapping. When possible, generalization is performed with the intent to maintain the hierarchical relationships among geographies and to maintain the alignment of geographies within a file set for a given year. Geographic areas may not align with the same areas from another year. Some geographies are available as nation-based files while others are available only as state-based files.
+
+The primary legal divisions of most states are termed counties. In Louisiana, these divisions are known as parishes. In Alaska, which has no counties, the equivalent entities are the organized boroughs, city and boroughs, municipalities, and for the unorganized area, census areas. The latter are delineated cooperatively for statistical purposes by the State of Alaska and the Census Bureau. In four states (Maryland, Missouri, Nevada, and Virginia), there are one or more incorporated places that are independent of any county organization and thus constitute primary divisions of their states. These incorporated places are known as independent cities and are treated as equivalent entities for purposes of data presentation. The District of Columbia and Guam have no primary divisions, and each area is considered an equivalent entity for purposes of data presentation. The Census Bureau treats the following entities as equivalents of counties for purposes of data presentation: Municipios in Puerto Rico, Districts and Islands in American Samoa, Municipalities in the Commonwealth of the Northern Mariana Islands, and Islands in the U.S. Virgin Islands. The entire area of the United States, Puerto Rico, and the Island Areas is covered by counties or equivalent entities.
+
+The generalized boundaries for counties and equivalent entities are based on those as of January 1, 2024, primarily as reported through the Census Bureau's Boundary and Annexation Survey (BAS).
+
+ distribution 
+
+ [ 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "cb_2024_us_county_500k.zip" , 
+ "format" : "ZIP" , 
+ "mediaType" : "application/zip" , 
+ "description" : "The cartographic boundary files are simplified representations of selected geographic areas specifically designed for small scale thematic mapping. These files contain simplified extracts of selected geographic areas from the U.S. Census Bureau's Master Address File/Topologically Integrated Geographic Encoding and Referencing (MAF/TIGER) database." , 
+ "downloadURL" : " https://www2.census.gov/geo/tiger/GENZ2024/shp/cb_2024_us_county_500k.zip " , 
+ "describedByType" : "application/octet-stream" 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "cb_2024_us_county_500k.shp.ea.iso.xml" , 
+ "format" : "XML" , 
+ "mediaType" : "application/xml" , 
+ "description" : "Entity and attribute file" , 
+ "downloadURL" : " https://meta.geo.census.gov/data/existing/decennial/GEO/CPMB/boundary/2024/19110/shp/cb_2024_us_county_500k.shp.ea.iso.xml " , 
+ "describedByType" : "application/octet-stream" 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "2024_file_name_def.pdf" , 
+ "format" : "PDF" , 
+ "mediaType" : "application/pdf" , 
+ "description" : "The file naming convention for the cartographic boundary files." , 
+ "downloadURL" : " https://www2.census.gov/geo/tiger/GENZ2024/2024_file_name_def.pdf " , 
+ "describedByType" : "application/octet-stream" 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "description.pdf" , 
+ "format" : "PDF" , 
+ "mediaType" : "application/pdf" , 
+ "description" : "General description of the cartographic boundary files and their appropriate use." , 
+ "downloadURL" : " https://www2.census.gov/geo/tiger/GENZ2024/description.pdf " , 
+ "describedByType" : "application/octet-stream" 
+ } 
+ ] 
+
+ identifier 
+
+ https://meta.geo.census.gov/data/existing/decennial/GEO/CPMB/boundary/2024/19115/shp/cb_2024_us_county_500k.shp.iso.xml
+
+ issued 
+
+ 2025-05-01T00:00:00.000+00:00
+
+ keyword 
+
+ [ 
+ "2024" , 
+ "SHP" , 
+ "Borough" , 
+ "Cartographic Boundary" , 
+ "Census Area" , 
+ "City" , 
+ "City and Borough" , 
+ "County" , 
+ "County equivalent" , 
+ "District" , 
+ "Generalized" , 
+ "Independent City" , 
+ "Island" , 
+ "Municipality" , 
+ "Municipio" , 
+ "Parish" , 
+ "United States of America (the)" , 
+ "US" 
+ ] 
+
+ language 
+
+ [] 
+
+ license 
+
+ https://creativecommons.org/publicdomain/zero/1.0/
+
+ modified 
+
+ 2025-05-01T00:00:00.000+00:00
+
+ publisher 
+
+ { 
+ "name" : "U.S. Department of Commerce, U.S. Census Bureau, Geography Division" , 
+ "@type" : "org:Organization" 
+ } 
+
+ rights 
+
+ otherRestrictions
+
+ spatial 
+
+ 179.77847,-14.548699,-179.146711,71.387815
+
+ theme 
+
+ [ 
+ "geospatial" 
+ ] 
+
+ title 
+
+ 2024 Cartographic Boundary File (SHP), County and Equivalent for United States, 1:500,000
+
+ Contact
+
+ Have questions or suggestions about this dataset? Reach out to the contact below.
+
+ Name
+
+ U.S. Department of Commerce, U.S. Census Bureau, Geography Division
+
+ Email
+
+ geo.geography@census.gov
+
+ Access & Use
+
+ License
+
+ https://creativecommons.org/publicdomain/zero/1.0/
+
+ Access Level
+
+ non-public
+
+ Dataset Information
+
+ Dataset First Published
+
+ May 01, 2025 at 12:00 AM
+
+ Dataset Last Updated
+
+ May 01, 2025 at 12:00 AM
+
+ Location 
+
+ Metadata Information
+
+ Catalog Last Checked
+
+ August 01, 2026 at 03:21 AM
+
+ Harvest Record
+
+ View Raw Data
+
+ About 
+
+ Open Government 
+
+ Website Policies 
+
+ Sitemap 
+ -->
+ PERFORMANCE.GOV 
+
+ Data.gov on Github 
+
+ Follow @GSA
+
+ data.gov
+
+ An official website of the GSA's Technology Transformation Services 
+
+ About GSA 
+
+ Accessibility statement 
+
+ FOIA requests 
+
+ No FEAR Act data 
+
+ Office of the Inspector General 
+
+ Performance reports 
+
+ Privacy policy 
+
+ Looking for U.S. government information and services?
+
+ Visit USA.gov 
+
+ Feedback 
+
+ Contact us
+
+ How can we help you?
+
+ General Question or Issue 
+ For questions about Data.gov or to report a problem 
+
+ Data.gov Feedback 
+ Share suggestions to improve Data.gov features and content 
+
+ Contact USA.gov 
+ For questions about federal government services (not Data.gov specific) 
+
+ Default Ticket Form
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Data.gov Feedback
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Contact the USAGov team
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send

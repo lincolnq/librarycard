@@ -1,0 +1,400 @@
+{
+ "_source_url": "https://data.hud.gov/data.json",
+ "_retrieved": "2026-11-24T23:40:38+00:00",
+ "_pattern": "fair market rent",
+ "_catalog_license_counts": {
+  "null": 226
+ },
+ "entries": [
+  {
+   "@type": "Dataset",
+   "title": "Fair Market Rents lookup tool",
+   "identifier": "HUD010",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Adam Bibler",
+    "hasEmail": "mailto:Adam.Bibler@hud.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Department of Housing and Urban Development"
+   },
+   "keyword": [
+    "affordable housing",
+    "fair market rents",
+    "fmr",
+    "rent",
+    "rental assistance",
+    "section 8"
+   ],
+   "issued": "2020-04-10",
+   "modified": "2020-08-13",
+   "accrualPeriodicity": "R/P1Y",
+   "bureauCode": [
+    "025:28"
+   ],
+   "programCode": [
+    "025:000"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "HUD Fair Market Rent Documentation System",
+     "accessURL": "https://www.huduser.gov/portal/datasets/fmr.html",
+     "format": "API"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "FY2020 Fair Market Rents",
+     "downloadURL": "https://www.huduser.gov/portal/datasets/fmr/fmr2020/FY20_4050_FMRs.xlsx",
+     "mediaType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "title": "Small Area Fair Market Rents (SAFMR) Calculator",
+   "identifier": "HUD201",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Adam Bibler",
+    "hasEmail": "mailto:Adam.Bibler@hud.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Department of Housing and Urban Development"
+   },
+   "keyword": [
+    "HUD",
+    "housing assistance",
+    "housing choice voucher",
+    "pha",
+    "rent",
+    "section 8",
+    "small area FMR"
+   ],
+   "modified": "2020-08-13",
+   "bureauCode": [
+    "025:28"
+   ],
+   "programCode": [
+    "025:000"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "small-area-fair-market-rent",
+     "accessURL": "https://www.huduser.gov/portal/datasets/fmr/smallarea/index.html#2021_query"
+    }
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "title": "Fair Market Rents",
+   "identifier": "https://www.arcgis.com/home/item.html?id=12d2516901f947b5bb4da4e780e35f07",
+   "contactPoint": {
+    "@type": "vcard:Kind",
+    "fn": "HUD GIS Helpdesk",
+    "hasEmail": "mailto:GIShelpdesk@hud.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of Policy Development and Research, GIS Helpdesk and Open Data Division",
+    "subOrganizationOf": [
+     {
+      "@type": "org:Organization",
+      "name": "U.S. Department of Housing and Urban Development"
+     }
+    ]
+   },
+   "keyword": [
+    "HUD",
+    "U.S. Department of Housing and Urban Development",
+    "Fair Market Rent",
+    "FMR",
+    "Policy Development and Research",
+    "PDR",
+    "Housing Choice Voucher Program",
+    "HCVP",
+    "Rental Assistance Programs",
+    "HUD.Official.Content",
+    "NGDA",
+    "Boundaries",
+    "Economy",
+    "Location",
+    "Society",
+    "National Geospatial Data Asset",
+    "NGDA",
+    "NGDAID122",
+    "Real Property Theme"
+   ],
+   "issued": "2017-11-22T15:44:25.000Z",
+   "modified": "2025-09-30T23:49:22.016Z",
+   "accrualPeriodicity": "annually",
+   "accessRights": "Public",
+   "bureauCode": [
+    "025:00"
+   ],
+   "programCode": [
+    "025:000"
+   ],
+   "landingPage": {
+    "@id": "https://hudgis-hud.opendata.arcgis.com/datasets/HUD::fair-market-rents",
+    "@type": "Document",
+    "title": "Fair Market Rents landing page"
+   },
+   "describedBy": {
+    "@id": "https://www.arcgis.com/sharing/rest/content/items/12d2516901f947b5bb4da4e780e35f07/info/metadata/metadata.xml?format=default",
+    "@type": "foaf:Document",
+    "title": "Source metadata",
+    "mediaType": "application/xml"
+   },
+   "spatial": {
+    "@type": "Location",
+    "prefLabel": "United States and Minor Outlying Islands",
+    "bbox": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -179.147339,
+        71.390482
+       ],
+       [
+        179.778467,
+        71.390482
+       ],
+       [
+        179.778467,
+        -14.548692
+       ],
+       [
+        -179.147339,
+        -14.548692
+       ],
+       [
+        -179.147339,
+        71.390482
+       ]
+      ]
+     ]
+    }
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/datasets/HUD::fair-market-rents",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/datasets/HUD::fair-market-rents",
+     "mediaType": "text/html",
+     "format": "Web Page"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Data Layer",
+     "accessURL": "https://www.arcgis.com/home/item.html?id=12d2516901f947b5bb4da4e780e35f07&sublayer=0",
+     "downloadURL": "https://www.arcgis.com/home/item.html?id=12d2516901f947b5bb4da4e780e35f07&sublayer=0",
+     "mediaType": "text/html",
+     "format": "A data layer is used to access and display data in a map or scene. Layers support ready-to-use properties and settings of data services."
+    },
+    {
+     "@type": "dcat:DataService",
+     "title": "ArcGIS REST service",
+     "accessURL": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/Fair_Market_Rents/FeatureServer/0",
+     "downloadURL": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/Fair_Market_Rents/FeatureServer/0",
+     "mediaType": "application/vnd.restful+json",
+     "format": "GeoServices REST"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "CSV",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/csv?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/csv?layers=0",
+     "mediaType": "text/csv",
+     "format": "CSV"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ZIP",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/shapefile?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/shapefile?layers=0",
+     "mediaType": "application/zip",
+     "format": "Shapefile"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GeoJSON",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geojson?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geojson?layers=0",
+     "mediaType": "application/geo+json",
+     "format": "GeoJSON"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "KML",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/kml?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/kml?layers=0",
+     "mediaType": "application/vnd.google-earth.kml+xml",
+     "format": "KML"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ZIP",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/filegdb?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/filegdb?layers=0",
+     "mediaType": "application/zip",
+     "format": "File Geodatabase"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "TXT",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/featureCollection?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/featureCollection?layers=0",
+     "mediaType": "text/plain",
+     "format": "Feature Collection"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "XLSX",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/excel?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/excel?layers=0",
+     "mediaType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+     "format": "Excel"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GPKG",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geoPackage?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geoPackage?layers=0",
+     "mediaType": "application/geopackage+sqlite3",
+     "format": "GeoPackage"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "GDB",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/sqlite?layers=0",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/sqlite?layers=0",
+     "mediaType": "application/zip",
+     "format": "SQLite Geodatabase"
+    }
+   ],
+   "rights": [
+    "HUD and the dataset and metadata authors assume no responsibility for the use or misuse of the dataset. No warranty, expressed or implied is made with regard to the accuracy of the spatial accuracy, and no liability is assumed by the U.S. Government in general, the dataset creators or the U.S. Department of Housing and Urban Development specifically, as to the spatial or attribute accuracy of the data."
+   ]
+  },
+  {
+   "@type": "Dataset",
+   "title": "Small Area Fair Market Rents",
+   "identifier": "https://www.arcgis.com/home/item.html?id=6458c67bad2a4cc7aa97514ef7ba8a0e",
+   "contactPoint": {
+    "@type": "vcard:Kind",
+    "fn": "HUD GIS Helpdesk",
+    "hasEmail": "mailto:GIShelpdesk@hud.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Office of Policy Development and Research, GIS Helpdesk and Open Data Division",
+    "subOrganizationOf": [
+     {
+      "@type": "org:Organization",
+      "name": "Department of Housing and Urban Development"
+     }
+    ]
+   },
+   "keyword": [
+    "US Department of Housing and Urban Development",
+    "HUD",
+    "Office of Policy Development and Research",
+    "PDR",
+    "Small Area Fair Market Rents",
+    "SAFMR",
+    "Fair Market Rents",
+    "FMR",
+    "Economic Development",
+    "Housing",
+    "Fair Housing",
+    "HUD.Official.Content"
+   ],
+   "issued": "2021-04-28T14:11:00.000Z",
+   "modified": "2025-10-01T00:59:54.000Z",
+   "accessRights": "Public",
+   "bureauCode": [
+    "025:00"
+   ],
+   "programCode": [
+    "025:000"
+   ],
+   "landingPage": {
+    "@id": "https://hudgis-hud.opendata.arcgis.com/maps/HUD::small-area-fair-market-rents-2",
+    "@type": "Document",
+    "title": "Small Area Fair Market Rents landing page"
+   },
+   "describedBy": {
+    "@id": "https://www.arcgis.com/sharing/rest/content/items/6458c67bad2a4cc7aa97514ef7ba8a0e/info/metadata/metadata.xml?format=default",
+    "@type": "foaf:Document",
+    "title": "Source metadata",
+    "mediaType": "application/xml"
+   },
+   "spatial": {
+    "@type": "Location",
+    "prefLabel": "United States and Minor Outlying Islands",
+    "bbox": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -176.696708,
+        71.341324
+       ],
+       [
+        145.8305,
+        71.341324
+       ],
+       [
+        145.8305,
+        -14.373768
+       ],
+       [
+        -176.696708,
+        -14.373768
+       ],
+       [
+        -176.696708,
+        71.341324
+       ]
+      ]
+     ]
+    }
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Hub Dataset",
+     "accessURL": "https://hudgis-hud.opendata.arcgis.com/maps/HUD::small-area-fair-market-rents-2",
+     "downloadURL": "https://hudgis-hud.opendata.arcgis.com/maps/HUD::small-area-fair-market-rents-2",
+     "mediaType": "text/html",
+     "format": "Web Page"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "title": "ArcGIS Data Layer",
+     "accessURL": "https://www.arcgis.com/home/item.html?id=6458c67bad2a4cc7aa97514ef7ba8a0e",
+     "downloadURL": "https://www.arcgis.com/home/item.html?id=6458c67bad2a4cc7aa97514ef7ba8a0e",
+     "mediaType": "text/html",
+     "format": "A data layer is used to access and display data in a map or scene. Layers support ready-to-use properties and settings of data services."
+    },
+    {
+     "@type": "dcat:DataService",
+     "title": "ArcGIS REST service",
+     "accessURL": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HUD_PDR_Small_Area_Fair_Market_Rents/FeatureServer",
+     "downloadURL": "https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/HUD_PDR_Small_Area_Fair_Market_Rents/FeatureServer",
+     "mediaType": "application/vnd.restful+json",
+     "format": "GeoServices REST"
+    }
+   ],
+   "rights": [
+    "HUD and the dataset and metadata authors assume no responsibility for the use or misuse of the dataset. No warranty, expressed or implied is made with regard to the accuracy of the spatial accuracy, and no liability is assumed by the U.S. Government in general, the dataset creators or the U.S. Department of Housing and Urban Development specifically, as to the spatial or attribute accuracy of the data."
+   ]
+  }
+ ]
+}

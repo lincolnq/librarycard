@@ -1,0 +1,596 @@
+URL: https://catalog.data.gov/dataset/fair-market-rents
+Final-URL: https://catalog.data.gov/dataset/fair-market-rents
+Retrieved: 2026-11-24T23:40:39+00:00
+HTTP-Status: 200
+Raw-SHA256: 5d689cb8f9c4f7ea74786b693dc44c151d98a4fa5575aec652cc139b582ee994
+Raw-Bytes: 204858
+---
+Skip to main content 
+
+ An official website of the United States government
+
+ Here’s how you know
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// 
+ means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Menu 
+
+ Data 
+
+ Metrics 
+
+ Organizations 
+
+ User Guide 
+
+ Contact 
+
+ Search 
+
+ Return to search results
+
+ Fair Market Rents
+
+ Published by Office of Policy Development and Research, GIS Helpdesk and Open Data Division 
+
+ | 
+ Department of Housing and Urban Development 
+
+ | Catalog Last Checked: October 28, 2026 at 01:17 AM 
+
+ | Dataset Last Updated: September 30, 2025 at 11:49 PM 
+
+ Fair Market Rents (FMRs) represent the estimated amount (base rent + essential utilities) that a property in a given area typically rents for. The data are primarily used to determine payment standard amounts for the Housing Choice Voucher program. However, FMRs are also used to determine initial renewal rents for expiring project-based Section 8 contracts, determine initial rents for housing assistance payment (HAP) contracts in the Moderate Rehabilitation Single Room Occupancy program (Mod Rehab), rent ceilings for rental units in both the HOME Investment Partnerships program and the Emergency Solution Grants (ESG) program, calculate of maximum award amounts for Continuum of Care recipients and the maximum amount of rent a recipient may pay for property leased with Continuum of Care funds, and calculate flat rent amounts in Public Housing Units. Fair Market Rents (FMRs) represent the estimated amount (base rent + essential utilities) that a property in a given area typically rents for. The data is primarily used to determine payment standard amounts for the Housing Choice Voucher program; however, FMRs are also used to: Determine initial renewal rents for expiring project-based Section 8 contracts; Determine initial rents for housing assistance payment (HAP) contracts in the Moderate Rehabilitation Single Room Occupancy program (Mod Rehab), rent ceilings for rental units in both the HOME Investment Partnerships program and the Emergency Solution Grants (ESG) program; Calculate of maximum award amounts for Continuum of Care recipients and the maximum amount of rent a recipient may pay for property leased with Continuum of Care funds, and; Calculate flat rent amounts in Public Housing Units. Data is updated annualy in accordance with 42 USC 1437f which requires FMRs be posted at least 30 days before they are effective and that they are effective at the start of the federal fiscal year, October 1st. In order to calculate rents for units with more than four bedrooms, an extra 15% cost is added to the four bedroom unit value. The formula is to multiply the four bedroom rent by 1.15. For example, in FY21 the rent for a four bedroom unit in the El Centro, California Micropolitan Statistical Area is $1,444. The rent for a five bedroom unit would be $1,444 * 1.15 or $1,661. Each subsequent bedroom is an additional 15%. A six bedroom unit would be $1,444 * 1.3 or $1,877. These values are not included in the feature service. To learn more about Fair Market Rents visit: https://www.huduser.gov/portal/datasets/fmr.html/, for questions about the spatial attribution of this dataset, please reach out to us at GISHelpdesk@hud.gov. Data Dictionary: DD_Fair Market Rents Date of Coverage: FY2026 : Oct. 1 - Sept. 30
+
+ Resources
+
+ 12 resources available
+
+ ArcGIS REST service
+
+ GEOS
+
+ Download
+
+ Visit Page
+
+ CSV
+
+ CSV
+
+ Download
+
+ Visit Page
+
+ XLSX
+
+ EXCE
+
+ Download
+
+ Visit Page
+
+ TXT
+
+ FEAT
+
+ Download
+
+ Visit Page
+
+ ZIP
+
+ FILE
+
+ Download
+
+ Visit Page
+
+ GPKG
+
+ GEOP
+
+ Download
+
+ Visit Page
+
+ GeoJSON
+
+ GEOJSON
+
+ Download
+
+ Visit Page
+
+ KML
+
+ KML
+
+ Download
+
+ Visit Page
+
+ ZIP
+
+ SHAP
+
+ Download
+
+ Visit Page
+
+ GDB
+
+ SQLI
+
+ Download
+
+ Visit Page
+
+ ArcGIS Hub Dataset
+
+ WEB
+
+ Download
+
+ Visit Page
+
+ ArcGIS Data Layer
+
+ FILE
+
+ Download
+
+ Visit Page
+
+ Find Related Datasets
+
+ Search by Tags
+
+ Click any tag below to search for similar datasets
+
+ Boundaries
+
+ Economy
+
+ FMR
+
+ Fair Market Rent
+
+ HCVP
+
+ HUD
+
+ HUD.Official.Content
+
+ Housing Choice Voucher Program
+
+ Location
+
+ NGDA
+
+ NGDA
+
+ NGDAID122
+
+ National Geospatial Data Asset
+
+ PDR
+
+ Policy Development and Research
+
+ Real Property Theme
+
+ Rental Assistance Programs
+
+ Society
+
+ U.S. Department of Housing and Urban Development
+
+ + 11 more
+
+ Complete Metadata
+
+ @type 
+
+ Dataset
+
+ accessRights 
+
+ Public
+
+ accrualPeriodicity 
+
+ annually
+
+ bureauCode 
+
+ [ 
+ "025:00" 
+ ] 
+
+ contactPoint 
+
+ { 
+ "fn" : "HUD GIS Helpdesk" , 
+ "@type" : "vcard:Kind" , 
+ "hasEmail" : "mailto:GIShelpdesk@hud.gov" 
+ } 
+
+ describedBy 
+
+ { 
+ "@id" : " https://www.arcgis.com/sharing/rest/content/items/12d2516901f947b5bb4da4e780e35f07/info/metadata/metadata.xml?format=default " , 
+ "@type" : "foaf:Document" , 
+ "title" : "Source metadata" , 
+ "mediaType" : "application/xml" 
+ } 
+
+ description 
+
+ Fair Market Rents (FMRs) represent the estimated amount (base rent + essential utilities) that a property in a given area typically rents for. The data are primarily used to determine payment standard amounts for the Housing Choice Voucher program. However, FMRs are also used to determine initial renewal rents for expiring project-based Section 8 contracts, determine initial rents for housing assistance payment (HAP) contracts in the Moderate Rehabilitation Single Room Occupancy program (Mod Rehab), rent ceilings for rental units in both the HOME Investment Partnerships program and the Emergency Solution Grants (ESG) program, calculate of maximum award amounts for Continuum of Care recipients and the maximum amount of rent a recipient may pay for property leased with Continuum of Care funds, and calculate flat rent amounts in Public Housing Units. Fair Market Rents (FMRs) represent the estimated amount (base rent + essential utilities) that a property in a given area typically rents for. The data is primarily used to determine payment standard amounts for the Housing Choice Voucher program; however, FMRs are also used to: Determine initial renewal rents for expiring project-based Section 8 contracts; Determine initial rents for housing assistance payment (HAP) contracts in the Moderate Rehabilitation Single Room Occupancy program (Mod Rehab), rent ceilings for rental units in both the HOME Investment Partnerships program and the Emergency Solution Grants (ESG) program; Calculate of maximum award amounts for Continuum of Care recipients and the maximum amount of rent a recipient may pay for property leased with Continuum of Care funds, and; Calculate flat rent amounts in Public Housing Units. Data is updated annualy in accordance with 42 USC 1437f which requires FMRs be posted at least 30 days before they are effective and that they are effective at the start of the federal fiscal year, October 1st. In order to calculate rents for units with more than four bedrooms, an extra 15% cost is added to the four bedroom unit value. The formula is to multiply the four bedroom rent by 1.15. For example, in FY21 the rent for a four bedroom unit in the El Centro, California Micropolitan Statistical Area is $1,444. The rent for a five bedroom unit would be $1,444 * 1.15 or $1,661. Each subsequent bedroom is an additional 15%. A six bedroom unit would be $1,444 * 1.3 or $1,877. These values are not included in the feature service. To learn more about Fair Market Rents visit: https://www.huduser.gov/portal/datasets/fmr.html/, for questions about the spatial attribution of this dataset, please reach out to us at GISHelpdesk@hud.gov. Data Dictionary: DD_Fair Market Rents Date of Coverage: FY2026 : Oct. 1 - Sept. 30
+
+ distribution 
+
+ [ 
+ { 
+ "@type" : "dcat:DataService" , 
+ "title" : "ArcGIS REST service" , 
+ "format" : "GeoServices REST" , 
+ "accessURL" : " https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/Fair_Market_Rents/FeatureServer/0 " , 
+ "mediaType" : "application/vnd.restful+json" , 
+ "downloadURL" : " https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/Fair_Market_Rents/FeatureServer/0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "CSV" , 
+ "format" : "CSV" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/csv?layers=0 " , 
+ "mediaType" : "text/csv" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/csv?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "XLSX" , 
+ "format" : "Excel" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/excel?layers=0 " , 
+ "mediaType" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/excel?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "TXT" , 
+ "format" : "Feature Collection" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/featureCollection?layers=0 " , 
+ "mediaType" : "text/plain" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/featureCollection?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "ZIP" , 
+ "format" : "File Geodatabase" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/filegdb?layers=0 " , 
+ "mediaType" : "application/zip" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/filegdb?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "GPKG" , 
+ "format" : "GeoPackage" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geoPackage?layers=0 " , 
+ "mediaType" : "application/geopackage+sqlite3" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geoPackage?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "GeoJSON" , 
+ "format" : "GeoJSON" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geojson?layers=0 " , 
+ "mediaType" : "application/geo+json" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/geojson?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "KML" , 
+ "format" : "KML" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/kml?layers=0 " , 
+ "mediaType" : "application/vnd.google-earth.kml+xml" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/kml?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "ZIP" , 
+ "format" : "Shapefile" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/shapefile?layers=0 " , 
+ "mediaType" : "application/zip" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/shapefile?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "GDB" , 
+ "format" : "SQLite Geodatabase" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/sqlite?layers=0 " , 
+ "mediaType" : "application/zip" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/api/download/v1/items/12d2516901f947b5bb4da4e780e35f07/sqlite?layers=0 " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "ArcGIS Hub Dataset" , 
+ "format" : "Web Page" , 
+ "accessURL" : " https://hudgis-hud.opendata.arcgis.com/datasets/HUD::fair-market-rents " , 
+ "mediaType" : "text/html" , 
+ "downloadURL" : " https://hudgis-hud.opendata.arcgis.com/datasets/HUD::fair-market-rents " 
+ } , 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "ArcGIS Data Layer" , 
+ "format" : "A data layer is used to access and display data in a map or scene. Layers support ready-to-use properties and settings of data services." , 
+ "accessURL" : " https://www.arcgis.com/home/item.html?id=12d2516901f947b5bb4da4e780e35f07&sublayer=0 " , 
+ "mediaType" : "text/html" , 
+ "downloadURL" : " https://www.arcgis.com/home/item.html?id=12d2516901f947b5bb4da4e780e35f07&sublayer=0 " 
+ } 
+ ] 
+
+ identifier 
+
+ https://www.arcgis.com/home/item.html?id=12d2516901f947b5bb4da4e780e35f07
+
+ issued 
+
+ 2017-11-22T15:44:25.000Z
+
+ keyword 
+
+ [ 
+ "Boundaries" , 
+ "Economy" , 
+ "FMR" , 
+ "Fair Market Rent" , 
+ "HCVP" , 
+ "HUD" , 
+ "HUD.Official.Content" , 
+ "Housing Choice Voucher Program" , 
+ "Location" , 
+ "NGDA" , 
+ "NGDA" , 
+ "NGDAID122" , 
+ "National Geospatial Data Asset" , 
+ "PDR" , 
+ "Policy Development and Research" , 
+ "Real Property Theme" , 
+ "Rental Assistance Programs" , 
+ "Society" , 
+ "U.S. Department of Housing and Urban Development" 
+ ] 
+
+ landingPage 
+
+ { 
+ "@id" : " https://hudgis-hud.opendata.arcgis.com/datasets/HUD::fair-market-rents " , 
+ "@type" : "Document" , 
+ "title" : "Fair Market Rents landing page" 
+ } 
+
+ modified 
+
+ 2025-09-30T23:49:22.016Z
+
+ programCode 
+
+ [ 
+ "025:000" 
+ ] 
+
+ publisher 
+
+ { 
+ "name" : "Office of Policy Development and Research, GIS Helpdesk and Open Data Division" , 
+ "@type" : "org:Organization" , 
+ "subOrganizationOf" : [ 
+ { 
+ "name" : "U.S. Department of Housing and Urban Development" , 
+ "@type" : "org:Organization" 
+ } 
+ ] 
+ } 
+
+ rights 
+
+ [ 
+ "HUD and the dataset and metadata authors assume no responsibility for the use or misuse of the dataset. No warranty, expressed or implied is made with regard to the accuracy of the spatial accuracy, and no liability is assumed by the U.S. Government in general, the dataset creators or the U.S. Department of Housing and Urban Development specifically, as to the spatial or attribute accuracy of the data." 
+ ] 
+
+ spatial 
+
+ { 
+ "bbox" : { 
+ "type" : "Polygon" , 
+ "coordinates" : [ 
+ [ 
+ [ 
+ -179.147339 , 
+ 71.390482 
+ ] , 
+ [ 
+ 179.778467 , 
+ 71.390482 
+ ] , 
+ [ 
+ 179.778467 , 
+ -14.548692 
+ ] , 
+ [ 
+ -179.147339 , 
+ -14.548692 
+ ] , 
+ [ 
+ -179.147339 , 
+ 71.390482 
+ ] 
+ ] 
+ ] 
+ } , 
+ "@type" : "Location" , 
+ "prefLabel" : "United States and Minor Outlying Islands" 
+ } 
+
+ title 
+
+ Fair Market Rents
+
+ Contact
+
+ Have questions or suggestions about this dataset? Reach out to the contact below.
+
+ Name
+
+ HUD GIS Helpdesk
+
+ Email
+
+ gishelpdesk@hud.gov
+
+ Access & Use
+
+ Access Rights
+
+ Public
+
+ Dataset Information
+
+ Dataset First Published
+
+ November 22, 2017 at 03:44 PM
+
+ Dataset Last Updated
+
+ September 30, 2025 at 11:49 PM
+
+ Accrual Periodicity
+
+ annually
+
+ Location 
+
+ Metadata Information
+
+ Catalog Last Checked
+
+ October 28, 2026 at 01:17 AM
+
+ Harvest Record
+
+ View Raw Data
+
+ About 
+
+ Open Government 
+
+ Website Policies 
+
+ Sitemap 
+ -->
+ PERFORMANCE.GOV 
+
+ Data.gov on Github 
+
+ Follow @GSA
+
+ data.gov
+
+ An official website of the GSA's Technology Transformation Services 
+
+ About GSA 
+
+ Accessibility statement 
+
+ FOIA requests 
+
+ No FEAR Act data 
+
+ Office of the Inspector General 
+
+ Performance reports 
+
+ Privacy policy 
+
+ Looking for U.S. government information and services?
+
+ Visit USA.gov 
+
+ Feedback 
+
+ Contact us
+
+ How can we help you?
+
+ General Question or Issue 
+ For questions about Data.gov or to report a problem 
+
+ Data.gov Feedback 
+ Share suggestions to improve Data.gov features and content 
+
+ Contact USA.gov 
+ For questions about federal government services (not Data.gov specific) 
+
+ Default Ticket Form
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Data.gov Feedback
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Contact the USAGov team
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send
