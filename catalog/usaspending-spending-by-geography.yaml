@@ -1,0 +1,85 @@
+schema_version: 1
+id: usaspending-spending-by-geography
+name: USAspending.gov Spending by Geography (API v2 search/spending_by_geography)
+publisher:
+  name: U.S. Department of the Treasury, Bureau of the Fiscal Service (USAspending.gov)
+  url: https://www.usaspending.gov
+  type: us_federal
+homepage: https://www.usaspending.gov/search
+description: >-
+  Federal award obligations — contracts, grants, loans, direct payments and other financial assistance — summed by
+  state, county or congressional district, for any fiscal year or date range since FY2008, filterable by award type
+  and awarding or funding agency. Built from agency-reported award data (FPDS for contracts, FABS for assistance)
+  that USAspending.gov publishes under the DATA Act, with per-capita figures from Census population. Finer geography
+  and agency/award-type detail than the federal spending indicators in Data Commons.
+domains: [government_spending, public_finance]
+tags: [usaspending, federal-spending, obligations, contracts, grants, loans, financial-assistance, data-act,
+       congressional-district, county, state, agency, treasury, fiscal-service]
+coverage:
+  geography: United States — states, DC, territories; counties; congressional districts
+  countries: [US]
+  geographic_granularity: [state, county, congressional_district]
+  time_range:
+    start: "2007-10-01"
+    end: null
+    notes: The search API covers action dates from 2007-10-01 (FY2008); earlier years (from FY2001) only via USAspending bulk downloads.
+  temporal_granularity: daily
+  unit_of_observation: Geographic area x query (total obligations for the requested period, award types and agency)
+access:
+  method: api
+  endpoints:
+    - url: https://api.usaspending.gov/api/v2/search/spending_by_geography/
+      description: POST with JSON body (scope, geo_layer, filters.time_period/award_type_codes/agencies); the exact body is returned in fetch metadata.request_body.
+    - url: https://api.usaspending.gov/api/v2/references/toptier_agencies/
+      description: Toptier agency names/abbreviations used to validate the agency filter.
+  formats: [json]
+  rate_limits: None published.
+  auth: none
+update:
+  cadence: daily
+  expected_lag: Contracts within ~5 days of award (FPDS), assistance within ~30 days; agencies' account data monthly/quarterly. Past fiscal years keep receiving corrections.
+change_detection:
+  method: content_hash
+  url: https://raw.githubusercontent.com/fedspendingtransparency/usaspending-api/master/usaspending_api/api_contracts/contracts/v2/search/spending_by_geography.md
+  poll_interval_days: 7
+  notes: Hashes the publisher's official API contract for this endpoint (in the usaspending-api repository), which changes when request/response fields or deprecations change — not when data refreshes.
+license:
+  name: USAspending.gov licensing statement (open data, subject to Dun & Bradstreet data limitations)
+  spdx: null
+  url: https://www.usaspending.gov/about#about-licensing
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "USAspending.gov, U.S. Department of Treasury, Bureau of the Fiscal Service, https://www.usaspending.gov. Accessed <date>."
+  evidence: evidence/licenses/usaspending-spending-by-geography/
+  checked_at: "2026-11-24"
+  notes: Reuse is granted "subject to the Limitation on Permissible Use of Dun & Bradstreet, Inc. Data" (third-party data incl. location fields) — a condition we can't verify, so link_only. Only geographic aggregates are fetched; no recipient-level data.
+key_variables:
+  - name: shape_code
+    definition: Area code as returned — state postal code, 5-digit county FIPS, or 4-digit congressional district (state FIPS + district, '00' at-large). Null for obligations with unresolved location.
+  - name: display_name
+    definition: Area name (county names lack the state; use state/state_fips).
+  - name: state / state_fips
+    definition: Added by the adapter from shape_code.
+  - name: aggregated_amount
+    unit: USD (nominal)
+    definition: Sum of obligations (net of de-obligations) for transactions in the period matching the filters.
+  - name: population / per_capita
+    unit: persons; USD per person
+    definition: Census population used by USAspending and aggregated_amount / population (null for some areas).
+  - name: total_outlays
+    unit: USD
+    definition: Only with spending_level='awards' — outlays on the matched awards.
+caveats:
+  - Amounts are obligations (commitments), not outlays/cash paid, and include negative de-obligations; loans are face value, not budgetary cost.
+  - Place of performance (default) and recipient location answer different questions — a contractor HQ'd in Virginia performing in Texas counts in TX by place of performance and VA by recipient location. Large shares of contracts report the HQ, inflating DC/VA/MD.
+  - Coverage excludes classified spending and some programs reported only in aggregate; direct payments to individuals are reported aggregated by county/state, and Medicare/Social Security benefits are largely not in award data.
+  - Congressional district assignment is USAspending's (reported or derived from ZIP/address) and its district vintage is not stated per row; district boundaries change with redistricting (2013, 2023 and mid-decade state redraws), so compare districts across years with care.
+  - Fiscal years keep changing as agencies correct and late-report awards; record provenance.retrieved_at, and expect the latest FY to be incomplete.
+  - Totals by agency depend on agency_type — awarding agency (who signed the award) and funding agency (whose appropriation paid) differ for interagency awards.
+related: [federal-register-documents, census-acs-summary-file, data-commons]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: usaspending_spending_by_geography
+adapter_version: 1.0.0

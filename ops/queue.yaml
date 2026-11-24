@@ -5,4 +5,29 @@
 #   format       - only available in formats we can't parse with stdlib (e.g. xlsx-only, PDF tables)
 #   low_priority - fine source, just not done yet
 # Remove an entry when the source is onboarded (odc validate enforces this).
-queued: []
+queued:
+  - id: openstates-bulk-sessions
+    name: Open States bulk legislative session data (bills, votes, events) — per-session CSV/JSON archives
+    homepage: https://open.pluralpolicy.com/data/
+    reason: credentials
+    detail: >-
+      Checked 2026-11-24. The per-session CSV and JSON archive pages (https://open.pluralpolicy.com/data/session-csv/,
+      /data/session-json/) return HTTP 200 but say "Please log in to access download links" and contain no download URLs
+      for anonymous users, so access requires an account (registration). The bucket root https://data.openstates.org/
+      returns HTTP 403 AccessDenied (S3 directory listing disabled; not a proxy/network block). The monthly full
+      Postgres dump (https://data.openstates.org/postgres/monthly/YYYY-MM-public.pgdump) is linked publicly but is pg_dump
+      custom format (not stdlib-parseable; would also be a format issue). The Open States API v3 needs a key. License:
+      data page says "Unless otherwise noted data is provided under a public domain dedication". If useful, a catalog-only
+      restricted entry (registration_required) could be added.
+    added: "2026-11-24"
+  - id: openstates-legislators-current
+    name: Open States current state legislators (per-state CSV)
+    homepage: https://open.pluralpolicy.com/data/legislator-csv/
+    reason: low_priority
+    detail: >-
+      Reachable without login on 2026-11-24: https://data.openstates.org/people/current/{state}.csv (e.g. ak.csv HTTP 200,
+      54 KB; nightly). Source repo github.com/openstates/people is CC0 1.0; data page states a public domain dedication.
+      Columns include official contact fields plus email, birth_date, biography and image — an adapter should drop
+      birth_date/biography (or reduce to birth year) per the official-capacity rule. Not in this batch's scope; good
+      next candidate (state legislators complement unitedstates-congress-legislators).
+    added: "2026-11-24"

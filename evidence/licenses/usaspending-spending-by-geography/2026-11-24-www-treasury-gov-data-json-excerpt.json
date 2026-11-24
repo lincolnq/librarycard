@@ -1,0 +1,123 @@
+{
+ "_source_url": "https://www.treasury.gov/jsonfiles/data.json",
+ "_retrieved": "2026-11-24T23:39:12+00:00",
+ "_pattern": "USAspending",
+ "_catalog_license_counts": {
+  "http://creativecommons.org/publicdomain/zero/1.0/": 104,
+  "https://creativecommons.org/publicdomain/zero/1.0/": 35,
+  "http://opendefinition.org/licenses/cc-zero/": 3,
+  "null": 89
+ },
+ "entries": [
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "015-BFS-2015Q3-003",
+   "distribution": [
+    {
+     "accessURL": "https://www.usaspending.gov/#/",
+     "describedBy": "https://www.usaspending.gov/#/download_center/data_dictionary",
+     "describedByType": "text/html",
+     "downloadURL": "https://files.usaspending.gov/agency_submissions/",
+     "mediaType": "text/html",
+     "@type": "dcat:Distribution"
+    }
+   ],
+   "accrualPeriodicity": "irregular",
+   "title": "USAspending.gov Broker Submission Data (Raw Files)",
+   "keyword": [
+    "Federal Contracts/Contracts/Awards/Grants/Loans/Loan Guarantees/FFATA/Subawards/Subcontracts/Subcontracts/Insurance/Assistance/Financial Assistance/Other Financial Assistance/Direct Payment/Purchase Cards/USAspendingPurchase/Travel/Fleet/Contractor/contracting agency Top/DATA Act/Data Transparency"
+   ],
+   "modified": "2019-06-25",
+   "publisher": {
+    "@type": "org:Organization",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "Department of the Treasury"
+     },
+     "name": "Fiscal Service"
+    },
+    "name": "Bureau of the Fiscal Service"
+   },
+   "contactPoint": {
+    "fn": "Lee Burke",
+    "hasEmail": "mailto:lee.burke@fiscal.treasury.gov"
+   },
+   "accessLevel": "public",
+   "bureauCode": [
+    "015:12"
+   ],
+   "programCode": [
+    "015:031"
+   ],
+   "describedBy": "https://www.usaspending.gov/#/download_center/data_dictionary",
+   "landingPage": "https://www.usaspending.gov/#/",
+   "primaryITInvestmentUII": "015-999990047",
+   "issued": "2015-01-15T00:00:00"
+  },
+  {
+   "@type": "dcat:Dataset",
+   "identifier": "015-BFS-2015Q3-002",
+   "distribution": [
+    {
+     "accessURL": "https://www.usaspending.gov/#/",
+     "describedBy": "https://fiscal.treasury.gov/fsservices/gov/data-trans/dt-daims.htm",
+     "describedByType": "text/html",
+     "downloadURL": "https://www.usaspending.gov/#/download_center/award_data_archive",
+     "mediaType": "text/html",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "accessURL": "https://www.usaspending.gov/#/",
+     "describedBy": "https://fiscal.treasury.gov/fsservices/gov/data-trans/dt-daims.htm",
+     "describedByType": "text/html",
+     "downloadURL": "https://www.usaspending.gov/#/download_center/custom_award_data",
+     "mediaType": "text/html",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "accessURL": "https://www.usaspending.gov/#/",
+     "describedBy": "https://fiscal.treasury.gov/fsservices/gov/data-trans/dt-daims.htm",
+     "describedByType": "text/html",
+     "downloadURL": "https://api.usaspending.gov",
+     "mediaType": "text/html",
+     "@type": "dcat:Distribution"
+    }
+   ],
+   "accrualPeriodicity": "R/P1D",
+   "title": "USAspending.gov Federal Award, Subaward, and Account Data",
+   "keyword": [
+    "Federal Contracts/Contracts/Awards/Grants/Loans/Loan Guarantees/FFATA/Subawards/Subcontracts/Subcontracts/Insurance/Assistance/Financial Assistance/Other Financial Assistance/Direct Payment/Purchase Cards/USAspendingPurchase/Travel/Fleet/Contractor/contracting agency Top/DATA Act/Data Transparency"
+   ],
+   "modified": "2018-06-30",
+   "publisher": {
+    "@type": "org:Organization",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "Department of the Treasury"
+     },
+     "name": "Fiscal Service"
+    },
+    "name": "Bureau of the Fiscal Service"
+   },
+   "contactPoint": {
+    "fn": "Lee Burke",
+    "hasEmail": "mailto:lee.burke@fiscal.treasury.gov"
+   },
+   "accessLevel": "public",
+   "bureauCode": [
+    "015:12"
+   ],
+   "programCode": [
+    "015:031"
+   ],
+   "describedBy": "https://fiscal.treasury.gov/fsservices/gov/data-trans/dt-daims.htm",
+   "landingPage": "https://www.usaspending.gov/#/",
+   "primaryITInvestmentUII": "015-999990047",
+   "issued": "2015-01-15T00:00:00"
+  }
+ ]
+}

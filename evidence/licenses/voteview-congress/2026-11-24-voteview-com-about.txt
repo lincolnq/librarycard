@@ -1,0 +1,137 @@
+URL: https://voteview.com/about
+Final-URL: https://voteview.com/about
+Retrieved: 2026-11-24T23:38:58+00:00
+HTTP-Status: 200
+Raw-SHA256: 1370a5759a2ac0a2e792ab01ef9d95d63b02d4a1bfbfcdb2e32a0306d2d74657
+Raw-Bytes: 13667
+---
+Skip to main content 
+
+ search 
+
+ chamber 
+
+ Senate 
+
+ House of Representatives 
+
+ party 
+
+ committee 
+
+ geography 
+
+ data 
+
+ about 
+
+ UCLA Presents 
+ voteview.com beta 3 
+
+ Welcome! We have just updated Voteview's aging codebase. In the process, we have fixed some nagging issues, added a few new features, and
+ improved performance. If you notice anything that used to work that no longer does, please let us know.
+
+ About the project
+
+ Voteview allows users to view every congressional roll call vote in American history
+ on a map of the United States and on a liberal-conservative ideological map including information
+ about the ideological positions of voting Senators and Representatives. The original Voteview of DOS was
+ developed by Keith T. Poole and Howard Rosenthal at Carnegie-Mellon University between 1989 and 1992. Poole and Rosenthal developed Voteview for Windows in 1993 at Princeton University and that work was continued by Boris Shor.
+ The legacy version of the website is available at legacy.voteview.com .
+
+ The new voteview.com combines the visualizations provided by the now obsolete Voteview desktop system,
+ data and NOMINATE estimates provided by the old voteview.com web site, and up-to-date voting data
+ from the current Congress with new search, download and visualization functionality.
+
+ Ideological positions are calculated using the DW-NOMINATE ( D ynamic W eighted NOMINA l T hree-step E stimation).
+ This procedure was developed by Poole and Rosenthal in the 1980s and is a "scaling procedure", representing
+ legislators on a spatial map. In this sense, a spatial map is much like a road map--the closeness of two
+ legislators on the map shows how similar their voting records are. Using this measure of distance, DW-NOMINATE
+ is able to recover the "dimensions" that inform congressional voting behavior.
+
+ The primary dimension through most of American history has been "liberal" vs. "conservative"
+ (also referred to as "left" vs. "right"). A second dimension picks up differences within the major political
+ parties over slavery, currency, nativism, civil rights, and lifestyle issues during periods of American history.
+
+ The technical details of the DW-NOMINATE model can be found in Poole's Spatial Models of Parliamentary Voting .
+ Poole and Rosenthal's Ideology and Congress 
+ explores the nature of voting in Congress and the political history of the United States through the lens of
+ the ideological dimensions recovered by DW-NOMINATE and is a useful companion to this site.
+
+ UCLA's Department of Political Science and Social Science Computing host and maintain NOMINATE score data and
+ voteview.com. We welcome feedback, questions, and media enquiries concerning this project.
+
+ Support
+
+ This project was made possible by support from The William and Flora Hewlett Foundation 
+ (Grant #2016-3870), the National Science Foundation (NSF-SBS-0611974),
+ UCLA Social Science Computing and the University of Georgia. Some
+ open source components used under license.
+
+ Project Staff
+
+ Project Lead: 
+
+ Jeffrey B. Lewis 
+
+ Professor, University of California Los Angeles
+
+ Directors Emeritus: 
+
+ Keith T. Poole 
+
+ Philip H. Alston, Jr. Distinguished Professor Emeritus, University of Georgia
+
+ Professor Emeritus, University of California San Diego
+
+ Howard Rosenthal (In Memoriam)
+
+ Professor of Politics, Emeritus, New York University
+
+ Roger Williams Straus Professor of Social Sciences, Emeritus, Princeton University.
+
+ Current Lead Developer: 
+
+ Barney Chen , University of California Los Angeles
+
+ Founding Developer Leads: 
+
+ Adam Boche , Lead Database Developer — University of California Los Angeles
+
+ Aaron Rudkin , Lead Developer — University of California Los Angeles
+
+ Luke Sonnet , Lead Developer — University of California Los Angeles
+
+ Past Contributors: 
+ Erik Hanson,
+ William Lewis,
+ Felipe Nunes ,
+ Fabio Souto ,
+ Jonah Wood
+
+ Update Newsletter
+
+ We recognize that some institutional users may wish to be contacted in advance of major changes.
+ If you would like to be informed of major updates (including deprecation of data sources, major
+ new data sources, or major changes to score calculation), please leave your email here. We
+ expect these updates will be no more than annual in frequency. Your email address is stored securely
+ with our email contact provider, SendGrid.com , will never be shared with
+ any other third parties, and we will never contact you for any reason other than to announce major
+ changes to voteview.com.
+
+ Email Address 
+
+ Subscribe 
+
+ Subscribe 
+ Unsubscribe 
+
+ Contact Us
+
+ Your Name 
+
+ Email Address 
+
+ Subject 
+
+ Message
