@@ -1,0 +1,104 @@
+URL: https://registry.opendata.aws/noaa-nclimgrid/
+Final-URL: https://registry.opendata.aws/noaa-nclimgrid/
+Retrieved: 2026-11-24T23:24:12+00:00
+HTTP-Status: 200
+Raw-SHA256: a52a2e16a6a45144c238b60fde146edd8af7e455b22e6f4697ac1174311fed07
+Raw-Bytes: 12438
+---
+Registry of Open Data on AWS 
+
+ NOAA U.S. Climate Gridded Dataset (NClimGrid)
+
+ agriculture 
+
+ climate 
+
+ meteorological 
+
+ weather 
+
+ Description
+
+ The NOAA Monthly U.S. Climate Gridded Dataset (NClimGrid) consists of four climate variables derived from the GHCN-D dataset: maximum temperature, minimum temperature, average temperature and precipitation. Each file provides monthly values in a 5x5 lat/lon grid for the Continental United States. Data is available from 1895 to the present. On an annual basis, approximately one year of "final" nClimGrid will be submitted to replace the initially supplied "preliminary" data for the same time period. Users should be sure to ascertain which level of data is required for their research.
+
+EpiNOAA is an analysis ready dataset that consists of a daily time-series of nClimGrid measures (maximum temperature, minimum temperature, average temperature, and precipitation) at the county scale. Each file provides daily values for the Continental United States. Data are available from 1951 to the present. Daily data are updated every 3 days with a preliminary data file and replaced with the scaled (i.e., quality controlled) data file every three months. This derivative data product is an enhancement from the original daily nClimGrid dataset in that all four weather parameters are now packaged into one file and assembled in a daily time-series format. In addition to a direct download option, an R package and web interface has been developed to streamline access to the final data product. These options allow end users three separate access modes to arrive at a customized dataset unique to each end user’s application. Users should be sure to review the data documentation to inform which level of data is required for their research.
+
+ Update Frequency
+
+ Monthly
+
+ License
+
+ NOAA data disseminated through NODD are open to the public and can be used as desired.
+
+NOAA makes data openly available to ensure maximum use of our data, and to spur and encourage exploration and innovation throughout the industry. NOAA requests attribution for the use or dissemination of unaltered NOAA data. However, it is not permissible to state or imply endorsement by or affiliation with NOAA. If you modify NOAA data, you may not state or imply that it is original, unaltered NOAA data.
+
+ Documentation
+
+ https://www.ncei.noaa.gov/access/metadata/landing-page/bin/iso?id=gov.noaa.ncdc:C00332 
+
+ Managed By
+
+ See all datasets managed by NOAA .
+
+ Contact
+
+ For any questions regarding data delivery or any general questions regarding the NOAA Open Data Dissemination (NODD) Program, email the NODD Team at nodd@noaa.gov .
+
+ We also seek to identify case studies on how NOAA data is being used and will be featuring those stories in joint publications and in upcoming events. If you are interested in seeing your story highlighted, please share it with the NODD team by emailing nodd@noaa.gov 
+
+ How to Cite
+
+ NOAA U.S. Climate Gridded Dataset (NClimGrid) was accessed on DATE from https://registry.opendata.aws/noaa-nclimgrid. 
+
+ Resources on AWS
+
+ Description 
+ Daily NClimGrid Data 
+ Resource type 
+ S3 Bucket 
+ Amazon Resource Name (ARN) 
+ arn:aws:s3:::noaa-nclimgrid-daily-pds 
+ AWS Region 
+ us-east-1 
+ AWS CLI Access (No AWS account required) 
+ aws s3 ls --no-sign-request s3://noaa-nclimgrid-daily-pds/ 
+ Explore 
+ Browse Bucket 
+
+ Description 
+ New data notifications for Daily NClimGrid, only Lambda and SQS protocols allowed 
+ Resource type 
+ SNS Topic 
+ Amazon Resource Name (ARN) 
+ arn:aws:sns:us-east-1:123901341784:NewNClimGridDailyObject 
+ AWS Region 
+ us-east-1 
+
+ Description 
+ Monthly NClimGrid Data 
+ Resource type 
+ S3 Bucket 
+ Amazon Resource Name (ARN) 
+ arn:aws:s3:::noaa-nclimgrid-monthly-pds 
+ AWS Region 
+ us-east-1 
+ AWS CLI Access (No AWS account required) 
+ aws s3 ls --no-sign-request s3://noaa-nclimgrid-monthly-pds/ 
+ Explore 
+ Browse Bucket 
+
+ Description 
+ New data notifications for Daily NClimGrid, only Lambda and SQS protocols allowed 
+ Resource type 
+ SNS Topic 
+ Amazon Resource Name (ARN) 
+ arn:aws:sns:us-east-1:123901341784:NewNClimGridMonthlyObject 
+ AWS Region 
+ us-east-1 
+
+ Edit this dataset entry on GitHub 
+
+ Tell us about your project 
+
+ Home

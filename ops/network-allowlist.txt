@@ -1,0 +1,13 @@
+# Hosts contacted by adapters and the monitor. One per line; "*.example.gov" wildcards allowed.
+# `odc validate` fails if a fetchable source uses a host not listed here.
+# Keep sorted within each section. Add a comment naming the source(s) that need each host.
+
+# --- infrastructure
+api.github.com                       # monitor/file_issues.py (GitHub Actions only)
+pypi.org                             # pip install
+files.pythonhosted.org               # pip install
+
+# --- sources
+noaa-nclimgrid-daily-pds.s3.amazonaws.com   # noaa-nclimgrid-daily
+www.fema.gov                         # fema-disaster-declarations
+www2.census.gov                      # census-acs-summary-file (+ other Census bulk files)

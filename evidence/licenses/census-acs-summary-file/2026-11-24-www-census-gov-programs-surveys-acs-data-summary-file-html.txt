@@ -1,0 +1,762 @@
+URL: https://www.census.gov/programs-surveys/acs/data/summary-file.html
+Final-URL: https://www.census.gov/programs-surveys/acs/data/summary-file.html
+Retrieved: 2026-11-24T23:24:09+00:00
+HTTP-Status: 200
+Raw-SHA256: b57c1ee411222a0e207a7bd54da276af116c68840698ecae046f4e218424a93a
+Raw-Bytes: 356475
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ 2025 American Community Survey 1-year estimates and 2025 ACS 1-year Supplemental Estimates are now available.
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ Our Surveys & Programs 
+
+ / 
+
+ American Community Survey (ACS) 
+
+ / 
+
+ ACS Data 
+
+ / 
+
+ ACS Summary File Table-Based Format 
+
+ ACS Summary File Table-Based Format
+
+ Skip Navigation 
+
+ Within Data
+
+ Custom Tabulations 
+
+ Data Tables 
+
+ Data Tools 
+
+ Data via API 
+
+ Data via FTP 
+
+ Equal Employment Opportunity (EEO) 
+
+ Experimental Data 
+
+ Race, Ethnicity, Ancestry and American Indian & Alaska Native Tables 
+
+ Summary File 
+
+ Variance Replicate Estimate Tables 
+
+ Within Data
+
+ Within Data 
+
+ Custom Tabulations 
+
+ Data Tables 
+
+ Data Tools 
+
+ Data via API 
+
+ Data via FTP 
+
+ Equal Employment Opportunity (EEO) 
+
+ Experimental Data 
+
+ Race, Ethnicity, Ancestry and American Indian & Alaska Native Tables 
+
+ Summary File 
+
+ Variance Replicate Estimate Tables 
+
+ -->
+
+ ACS Summary File
+
+ The American Community Survey (ACS) Summary File is a unique data product that includes all estimates and margins of error (MOE) from the  Detailed Tables  for all geographies published for the ACS. The ACS Summary File allows data users to download statistics for a large number of tables and geographic areas. 
+
+ The Table-Based ACS Summary File provides a separate file containing both the estimates and MOE for all available geographies for a given Detailed Table. Data users only need to merge in geography labels to create complete tables.  
+
+ Check out the Getting Started and data year tabs below for information and resources. The resources include instructions for merging the geography labels with each table via Excel or programs like SAS and Python.  
+
+ The current format started in 2018 and is the only format available starting with the 2022 data release. Information about the original Sequence-Based Format, available for data years 2005 through 2021, is available on the  ACS Summary File Sequence-Based Format  page.  
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Using the American Community Survey Table-Based Summary File 
+ [8.4 MB] 
+
+ American Community Survey
+
+ Getting Started 
+
+ 2025 
+
+ 2024 
+
+ 2023 
+
+ 2022 
+
+ More
+
+ 2021 
+
+ 2020 
+
+ 2019 
+
+ 2018 
+
+ 2017 to 2005 
+
+ Getting Started
+
+ Getting Started
+
+ 2025
+
+ 2024
+
+ 2023
+
+ 2022
+
+ 2021
+
+ 2020
+
+ 2019
+
+ 2018
+
+ 2017 to 2005
+
+ Getting Started
+
+ The Table-Based ACS Summary File contains three file types:
+
+ Table Labels  - Description of each line item in a table for 1-year or 5-year data release
+
+     Example File Name: ACS20211YR_Table_Shells.txt or      ACS20215YR_Table_Shells.txt
+
+    Example: B01001_003 = “SEX BY AGE - Total Males Under 5 Years”
+
+ ​Geography Labels  - All geography labels for 1-year or 5-year data release
+
+     Example File Name: Geos20211YR.txt or Geos20215YR.txt 
+
+    Example: 0400000US06 = “California”
+
+ Data Files  - Data (including estimates, margins of error, and geographies) organized by table ID for 1-year or 5-year release
+
+    Folder: 1YRData, 5YRData
+
+    Example: The file acsdt1y2021-b01001.dat, variable B01001_E003      for 0400000US06 = 1,129,355
+
+ There are a variety of resources available for understanding and using the table-based format. Below is a link to the FTP site to access data and documentation, links to webinars related to the table-based format, examples for using SAS and Python, instructions on using geography files with the summary file, and a link to find ACS Table Lists.
+
+ Summary File Data 
+
+ 2021-Present: Select the table-based folder to find table-based format. 2018-2020: Select the Prototype folder to select the table-based format. Summary file data from 2005 to 2017 only had the sequence-based format. 
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ ACS Summary File Data 
+
+ Webinars About the Summary File Format Change
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ September 2022- Using the American Community Survey Summary File 
+
+ June 2022- Understanding the New ACS Summary File Format 
+
+ October 2020- Proposed Format Change to Simplify the ACS Summary File 
+
+ Example Programs
+
+ Find examples using SAS and Python. Additionally, there are instructions for using the ACS Summary File with Excel.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ SAS-How to Retrieve ACS 1-Year Table Data for All Geographies in a State 
+
+ SAS-How to Retrieve All ACS 5-Year Table Data for All Tracts in the United States 
+
+ Python-Get ACS 1-Year Table Data for All Geographies in a State 
+
+ Python-Get All ACS 5-Year Table Data for All Tracts in the United States 
+
+ Excel Instructions on How to Import Geography into Table-Based Summary File Tables 
+
+ ACS Table List
+
+ Visit the Table List webpage for documentation including table IDs, titles, universes, and 1-year/5-year availability for ACS Tables in one spreadsheet.
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Table Shells and Table List
+
+ Related Information
+
+ SUMMARY FILE (SF) 
+
+ ACS Summary File Sequence-Based Format
+
+ Data Release Rules
+
+ Page Last Revised - October 16, 2026 
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy
