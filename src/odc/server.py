@@ -12,9 +12,11 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
 from typing import Any
 
 from mcp.server.mcpserver import MCPServer
+from mcp.server.transport_security import TransportSecuritySettings
 
 from .adapters import adapter_for
 from .adapters.base import FilterError
@@ -187,16 +189,34 @@ def build_server() -> MCPServer:
 def main() -> None:
     ap = argparse.ArgumentParser(description="Open Data Catalog MCP server")
     ap.add_argument("--http", action="store_true", help="serve streamable HTTP instead of stdio")
-    ap.add_argument("--host", default="127.0.0.1")
-    ap.add_argument("--port", type=int, default=8765)
+    ap.add_argument("--host", default=os.environ.get("ODC_HOST", "127.0.0.1"))
+    ap.add_argument("--port", type=int, default=int(os.environ.get("ODC_PORT", "8765")))
     args = ap.parse_args()
     logging.getLogger("httpx").setLevel(logging.WARNING)  # keep stderr quiet; one line per request is noise
     catalog()  # fail fast on an invalid catalog
     server = build_server()
-    if args.http:
-        server.run("streamable-http", host=args.host, port=args.port)
-    else:
+    if not args.http:
         server.run("stdio")
+        return
+
+    @server.custom_route("/healthz", methods=["GET"])
+    async def healthz(request):  # used by container/platform health checks
+        from starlette.responses import JSONResponse
+        st = status_report(catalog())
+        return JSONResponse({"ok": True, "sources": st["total_sources"], "fetchable": st["fetchable"]})
+
+    # Public deployments: set ODC_ALLOWED_HOSTS="mcp.librarycard.net" (comma-separated) to enable
+    # DNS-rebinding protection; leave unset for local use.
+    hosts = [h.strip() for h in os.environ.get("ODC_ALLOWED_HOSTS", "").split(",") if h.strip()]
+    security = TransportSecuritySettings(
+        enable_dns_rebinding_protection=bool(hosts),
+        allowed_hosts=hosts + [f"{h}:*" for h in hosts],
+        allowed_origins=[f"https://{h}" for h in hosts],
+    )
+    # Stateless + JSON responses: every request is independent, so the server scales horizontally
+    # and survives restarts without session affinity.
+    server.run("streamable-http", host=args.host, port=args.port, stateless_http=True, json_response=True,
+               transport_security=security)
 
 
 if __name__ == "__main__":
