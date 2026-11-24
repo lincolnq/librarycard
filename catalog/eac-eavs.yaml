@@ -1,0 +1,94 @@
+schema_version: 1
+id: eac-eavs
+name: Election Administration and Voting Survey (EAVS)
+publisher:
+  name: U.S. Election Assistance Commission (EAC)
+  url: https://www.eac.gov
+  type: us_federal
+homepage: https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys
+description: >-
+  The EAVS is the EAC's biennial census of how federal elections are administered, answered by every state and
+  territory for each of its ~6,400 local election jurisdictions. It reports voter registration and list maintenance
+  (NVRA), military and overseas (UOCAVA) voting, mail ballots sent/returned/rejected, polling places, precincts and
+  poll workers, provisional ballots, turnout by voting method, and voting equipment. These are administrative counts
+  reported by election officials at county or town level — detail Data Commons does not carry.
+domains: [elections]
+tags: [eavs, eac, election-administration, voter-registration, turnout, mail-voting, absentee, provisional-ballots, uocava, nvra, poll-workers, polling-places, jurisdiction]
+coverage:
+  geography: United States — 50 states, DC, American Samoa, Guam, Northern Mariana Islands, Puerto Rico, U.S. Virgin Islands (participation by territory varies by year)
+  countries: [US]
+  geographic_granularity: [county, county_subdivision, state]
+  time_range:
+    start: "2018"
+    end: "2024"
+    notes: Adapter serves the 2018, 2020, 2022 and 2024 public-release CSVs. EAVS exists back to 2004 (2016 and earlier use a different file layout and are not served). Each survey covers the federal general election of that year and registration activity over the preceding two years.
+  temporal_granularity: biennial
+  unit_of_observation: Local election jurisdiction (county; town/township in New England, Michigan and Wisconsin; some states report statewide) × survey year
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www.eac.gov/sites/default/files/
+      description: Per-year "nolabel" CSV (zipped except 2018, 2-23 MB) at hard-coded paths in DATA_FILES in src/odc/adapters/eac_eavs.py, e.g. 2026-02/2024_EAVS_for_Public_Release_nolabel_V2_csv.zip; codebooks (xlsx) for 2018, 2020, 2024 are parsed for variable labels.
+    - url: https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys
+      description: Landing page listing every year's data files, codebooks, survey instruments and errata notes (redirects to /research-and-data/studies-and-reports).
+  formats: [csv, xlsx (codebook)]
+  rate_limits: None published (Cloudflare-fronted site). Files are streamed per request and not cached (link_only).
+  auth: none
+  notes: Also published as xlsx, Stata, SPSS and SAS. The companion EAVS Policy Survey (state-level law/procedure answers) is not served.
+update:
+  cadence: biennial
+  expected_lag: ~7-8 months after the November election (2024 data published June 2025), with revised versions later (2024 V2, February 2026).
+change_detection:
+  method: regex
+  url: https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys
+  pattern: 'href="[^"]*/([^"/]*EAVS[^"/]*nolabel[^"/]*)"'
+  poll_interval_days: 14
+  notes: Fingerprints the set of EAVS "nolabel" CSV file names linked from the data page. Fires when a new survey year or a new version (e.g. V2 -> V3) is posted; then add/update the URL in DATA_FILES (and CODEBOOKS) and coverage.time_range.
+license:
+  name: No license stated (U.S. federal agency data; EAC site terms ask for citation and no implied endorsement)
+  spdx: null
+  url: https://www.eac.gov/main/privacy-statement
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "U.S. Election Assistance Commission, Election Administration and Voting Survey (EAVS) public-release data, https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys."
+  evidence: evidence/licenses/eac-eavs/
+  checked_at: "2026-11-24"
+  notes: No public-domain or license statement found for EAVS data (data.json has no license field); classified link_only per POLICY. EAC products may not be used to imply EAC endorsement.
+key_variables:
+  - name: FIPSCode
+    definition: 10-digit jurisdiction code, state(2)+county(3)+county subdivision(5), zero-padded by the adapter where the file dropped the leading zero. Wisconsin municipalities use 5-digit non-FIPS codes; Maine has a statewide UOCAVA pseudo-jurisdiction.
+  - name: State_Abbr
+    definition: State/territory postal code.
+  - name: A1a
+    unit: registrants
+    definition: Total registered voters (active + inactive) as of the general election, as reported by the jurisdiction. A1b = active, A1c = inactive.
+  - name: F1a
+    unit: voters
+    definition: Total voters who participated in the general election (2024 label "Total Voters"; 2020 "Total Participating Voters"). F1b..F1h break it down by method (in person on election day, UOCAVA, mail, provisional, early in person, ...).
+  - name: C1a
+    unit: ballots
+    definition: Total mail (domestic civilian absentee/mail) ballots transmitted to voters; C1b = returned by voters.
+  - name: E1a
+    unit: ballots
+    definition: Total provisional ballots cast; E1b fully counted, E1d rejected.
+  - name: B1a
+    unit: registrants
+    definition: UOCAVA (military and overseas) voters registered/eligible.
+  - name: D1a
+    unit: precincts
+    definition: Total precincts; D2a/D3a polling places, D5a election-day poll workers (numbering varies by year).
+caveats:
+  - Sentinel codes are converted to null — -77 valid skip (question not applicable via skip logic), -88 "does not apply" (the jurisdiction says the item doesn't apply, e.g. no same-day registration), -99 "data not available" — so null never means zero, and nulls are common for some items.
+  - Item codes and definitions change between survey years (e.g. 2024 added A1d and A10-A12 and dropped or renumbered items such as A3j and F3b-F3f that exist in 2022). Check metadata.variable_labels (from the year's codebook; none exists for 2022) or the survey instrument before comparing an item across years.
+  - Jurisdictions are not uniformly counties. New England states, Michigan and Wisconsin report by town/township (Wisconsin alone has ~1,850 rows), Alaska reports as one statewide jurisdiction, and some states can only report certain items at state level (check the Comments columns). Aggregate to the state before comparing states.
+  - Data are self-reported by election officials with varying record systems; EAC flags quality issues in errata notes (e.g. Errata_Note_2024_EAVS_v2.pdf). Totals often fail internal consistency (subitems not summing to totals), and later file versions revise values.
+  - Registration counts (A1a) include inactive registrants and are not comparable to citizen voting-age population; registration rates above 100% of CVAP are an artifact of list maintenance timing, not fraud evidence.
+  - 'F1a "total voters" counts ballots counted/participants as reported by the jurisdiction, which can differ from certified vote totals for the top office (undervotes, rejected ballots, reporting differences).'
+  - Free-text *Comments and *_Other columns are excluded unless include_comments=true; they hold officials' explanations that often qualify the numbers.
+related: [mit-election-president-state, mit-election-county-president]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: eac_eavs
+adapter_version: 1.0.0

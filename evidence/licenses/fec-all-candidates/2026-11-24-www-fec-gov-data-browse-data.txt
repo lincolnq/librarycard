@@ -1,0 +1,1366 @@
+URL: https://www.fec.gov/data/browse-data/?tab=bulk-data
+Final-URL: https://www.fec.gov/data/browse-data/?tab=bulk-data
+Retrieved: 2026-11-24T23:34:46+00:00
+HTTP-Status: 200
+Raw-SHA256: 0a653b61e00a3e0235f6723be8ec1a4a8f7409f3d36f2ae7e9d2677413dce9c0
+Raw-Bytes: 115884
+---
+Your web browser is not supported
+
+ This site uses features that are not supported by this browser. For a better experience, please switch to a modern browser.
+
+ skip navigation 
+
+ Here's how you know 
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Federal Election Commission | United States of America 
+
+ Calendar 
+
+ Glossary 
+
+ Search 
+
+ Search 
+
+ Menu 
+
+ Menu
+
+ Home 
+
+ Campaign finance data 
+
+ All data 
+
+ Raising 
+
+ Spending 
+
+ Loans and debts 
+
+ Filings and reports 
+
+ Candidates 
+
+ Committees 
+
+ Bulk data 
+
+ Campaign finance statistics 
+
+ Find elections. Search by state or ZIP code 
+
+ Look up contributions from specific individuals 
+
+ Help for candidates and committees 
+
+ All compliance resources 
+
+ Guides 
+
+ Forms 
+
+ Dates and deadlines 
+
+ Trainings 
+
+ Learn about electronic filing 
+
+ Find and contact your committee's analyst 
+
+ Legal resources 
+
+ All legal resources 
+
+ Advisory opinions 
+
+ Enforcement 
+
+ Statutes 
+
+ Legislation 
+
+ Regulations and rulemakings
+
+ Court cases 
+
+ Policy and other guidance 
+
+ Search across legal resources 
+
+ Search guidance documents 
+
+ About 
+
+ All about the FEC 
+
+ News and announcements 
+
+ Commission meetings 
+
+ Mission and history 
+
+ Leadership and structure 
+
+ Reports about the FEC 
+
+ Careers 
+
+ Working with the FEC 
+
+ Contact 
+
+ Introduction to campaign finance and elections 
+
+ Federal Election Commission | United States of America 
+
+ Home 
+
+ › 
+ Campaign finance data 
+
+ › 
+ Browse data
+
+ Browse data
+
+ Raising 
+
+ Spending 
+
+ Loans and debts 
+
+ Candidates 
+
+ Committees 
+
+ Filings and reports 
+
+ Campaign finance statistics 
+
+ External sources 
+
+ Download bulk data 
+
+ Raising
+
+ Raising includes receiving anything of value, like money, services, or property.
+
+ Search or browse data
+
+ All receipts 
+
+ Search candidate and committee receipt data by source, amount and date.
+
+ Individual contributions 
+
+ Search individual contributions to see who is donating to candidates and committees. Search for contributors by name, location, employer and occupation.
+
+ National party account receipts 
+
+ Search contributions to national party committee accounts including presidential nominating conventions, national party headquarters buildings, and election recounts and contests and other legal proceedings accounts. Search for contributsions by name, location, employer and occupation and party account.
+
+ Lobbyist bundled contributions
+
+ Download this data as .CSV to use on your own 
+
+ Cumulative amount raised by committees
+
+ More raising charts 
+
+ How much money has been raised between:
+
+ Previous month 
+ – 
+
+ next month 
+
+ Candidates
+
+ PACs
+
+ Party committees
+
+ All committees
+
+ Newly filed summary data may not appear for up to 48 hours. 
+
+ Methodology 
+
+ Methodology Overview
+
+ This data includes Forms 3, 3P, and 3X.
+
+ Money raised includes each of the following:
+
+ Adjusted receipts for PACs, parties, congressional filers and presidential filers
+
+ Adjusted receipts are the total receipts minus the following:
+
+ Contribution refunds
+
+ Contributions from political party committees and other political committees
+
+ Loan repayments
+
+ Offsets to operating expenditures
+
+ Transfers from nonfederal accounts for allocated activities
+
+ The form-by-form breakdown for adjusted receipts is: 
+
+ Form 3: line 16 - ( line 11(b) + line 11(c) + line 14 + line 19(c) + line 20(d)) 
+
+ Form 3P: line 22 - ( line 17(b) + line 17(c) + line 20(d) + line 27(c) + line 28(d) )
+
+ Form 3X: line 19 - ( line 11(b) + line 11(c) + line 15 + line 16 + line 18(a) + line 26 + line 28(d) )
+
+ Spending
+
+ Spending includes all the types of disbursements candidates and committees make.
+
+ Search or browse data
+
+ Disbursements 
+
+ Search select disbursements from committees by the recipient, purpose, amount and date. Excludes outside spending to support or oppose candidates and allocated federal/nonfederal disbursements.
+
+ Independent expenditures 
+
+ Search independent expenditures to find specific spenders, candidates mentioned and transaction information.
+
+ Download this data as .CSV to use on your own 
+
+ Party coordinated expenditures 
+
+ Search party coordinated expenditures by specific national or state party committee, candidate and payee.
+
+ National party account disbursements 
+
+ Search disbursements made from national party committee accounts including presidential nominating conventions, national party headquarters buildings, and election recounts and contests and other legal proceedings accounts. Search by recipient, purpose, amount, date and party account.
+
+ Allocated federal/nonfederal disbursements 
+
+ Search allocated federal and nonfederal disbursements across committee types. Search by spender and recipient name, date and amount spent.
+
+ Electioneering communications 
+
+ Search electioneering communications by the spender, candidate mentioned, date, or amount spent.
+
+ Download this data as .CSV to use on your own 
+
+ Communication costs 
+
+ Search communication costs for communications that support or oppose specific candidates. Search by date and amount spent.
+
+ Download this data as .CSV to use on your own 
+
+ Cumulative amount spent by committees
+
+ More spending charts 
+
+ How much money has been spent between:
+
+ Previous month 
+ – 
+
+ next month 
+
+ Candidates
+
+ PACs
+
+ Party committees
+
+ All committees
+
+ Newly filed summary data may not appear for up to 48 hours. 
+
+ Methodology 
+
+ Methodology Overview
+
+ This data includes Forms 3, 3P, and 3X.
+
+ Money spent includes each of the following:
+
+ Adjusted disbursements for PACs, parties, congressional filers and presidential filers
+
+ Adjusted disbursements are total disbursements minus the following:
+
+ Contribution refunds
+
+ Contributions to candidates and other political committees
+
+ Loan repayments
+
+ Nonfederal share of allocated disbursements
+
+ Offsets to expenditures
+
+ Other disbursements
+
+ Transfers to other authorized committees and affiliated committees
+
+ The form-by-form breakdown for adjusted disbursements is:
+
+ Form 3: line 22 - ( line 18 + line 19(c) + line 20(d) + line 21 )
+
+ Form 3P: line 30 - ( line 20(d) + line 24 + line 27(c) + line 28(d) + line 29 )
+
+ Form 3X: line 31 - ( line 21(a)(ii) + line 22 + line 23 + line 26 + line 28(d) + line 29 )
+
+ Loans and debts
+
+ Search or browse data
+
+ Loans 
+
+ Search loans owed by or to committees. Search by committee, loaner’s name, date the loan was incurred, original loan amount and payments made.
+
+ Debts 
+
+ Search debts owed by committees. Search by committee, creditor/debtor’s name, coverage date, beginning balance and ending balance.
+
+ Candidates
+
+ Search candidate data, including money raised, money spent, cash on hand and debt.
+
+ Search or browse data
+
+ All candidates 
+
+ Search candidates for president, Senate and House for all years by location, party and more.
+
+ Download this data as .CSV to use on your own 
+
+ Presidential candidates 
+
+ Search presidential candidate data including money raised,
+ money spent, cash on hand and debt.
+
+ Find which candidates have applied for presidential public
+ funding »
+
+ Explore presidential matching fund submissions »
+
+ Presidential candidates 
+
+ Presidential candidate map
+
+ Presidential candidates 
+
+ Compare candidates in the 2024 election
+
+ Presidential candidate map exports 
+
+ Senate candidates 
+
+ Search Senate candidate data including money raised, money spent, cash on hand and debt.
+
+ Senate candidates 
+
+ Raising: by the numbers
+
+ House of Representatives candidates 
+
+ Search House candidate data including money raised, money spent, cash on hand and debt.
+
+ House candidates 
+
+ Raising: by the numbers
+
+ Most recent Statements of Candidacy (Form 2) 
+
+ Statements of Candidacy (Form 2) contain basic information about individuals running for federal office, including their names, addresses and authorized campaign committees.
+
+ Download this data as .CSV to use on your own 
+
+ Committees
+
+ The term committee encompasses several different political groups that receive and spend money in federal elections.
+
+ Search or browse data
+
+ All committees 
+
+ Search for committees by type, years active, political party, location and treasurer.
+
+ Download this data as .CSV to use on your own 
+
+ Political action and party committees 
+
+ Search for political action and party committees by type, state or territory, treasurer, sponsor and filing frequency.
+
+ Leadership PACs and sponsors
+
+ Download this data as .CSV to use on your own 
+
+ Lobbyist/registrant committees
+
+ Download this data as .CSV to use on your own 
+
+ Most recent Statements of Organization (Form 1) 
+
+ Statements of Organization (Form 1) contain basic information about committees, including type, address and treasurer.
+
+ Download this data as .CSV to use on your own 
+
+ Requests for Additional Information sent to committees 
+
+ Requests for Additional Information (RFAIs) are sent to committees when a Campaign Finance Analyst needs additional clarification on a committee's filing or identifies an error, omission or possible prohibited activity. Search RFAIs by committee or date.
+
+ Filings and reports
+
+ Filings contain all the statements, reports and notices that candidates and committees file. Search by date, type and filing candidate or committee.
+
+ Get notified when a candidate or committee submits a new filing
+
+ Subscribe to individual candidates and committees to be notified immediately by email of new filing submissions, as well as Requests for Additional Information the FEC sends to filers.
+
+ Subscribe 
+
+ Already subscribed? Log in 
+
+ Search or browse data
+
+ All filings 
+
+ Search for reports, statements, and filings submitted by committees and filers. Search by committee name, candidate, receipt date, form type and more.
+
+ All electronic filings 
+
+ Search for electronically filed reports from 1997 to present.
+
+ Presidential committee reports 
+
+ Search financial disclosure reports filed by presidential committees on Form 3P. Search by committee name, candidate, amount of financial activity and report name.
+
+ House and Senate committee reports 
+
+ Search financial disclosure reports filed by House and Senate committees on the Form 3. Search by committee name, candidate, amount of financial activity and report name.
+
+ Download this data as .CSV to use on your own 
+
+ PAC and party committee reports 
+
+ Search financial disclosure reports filed by political action committees (PACs) and party committees on Form 3X. Search by committee name, amount of financial activity and report name.
+
+ False and fictitious filings
+
+ Download this data as .CSV to use on your own 
+
+ Campaign finance statistics
+
+ Data tables that summarize financial activity by election cycle and coverage period for congressional candidates, political parties, political action committees and communication filings (independent expenditures, electioneering communications and communication costs).
+
+ Find statistics 
+
+ External sources
+
+ Certain information is reported to the FEC, but more information is reported to other governmental agencies.
+
+ Internal Revenue Service (IRS) filings 
+
+ Search and download filings and disclosures by political organizations.
+
+ Federal Communications Commission (FCC) electioneering communications database 
+
+ Search electioneering communications.
+
+ Office of Government Ethics (OGE) presidential candidate financial disclosure reports 
+
+ View financial disclosure reports filed by presidential candidates.
+
+ Download bulk data
+
+ Downloadable bulk data files contain data from statements and reports filed with the Commission in a form that may be useful to users performing in-depth campaign finance research. The files can be very large because they contain transaction-level data. The update schedule of these files varies from daily to weekly. Expand each file's accordion to read more about what is contained in the file.
+
+ Candidate files
+
+ Candidate summary 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ 1993–1994 
+
+ 1991–1992 
+
+ 1989–1990 
+
+ 1987–1988 
+
+ 1985–1986 
+
+ 1983–1984 
+
+ 1981–1982 
+
+ 1979–1980 
+
+ Data description for this file 
+
+ The all candidate summary file contains one record including summary financial information for all candidates who raised or spent money during the period no matter when they are up for election. 
+
+ Candidate master 
+
+ Candidate master
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ 1993–1994 
+
+ 1991–1992 
+
+ 1989–1990 
+
+ 1987–1988 
+
+ 1985–1986 
+
+ 1983–1984 
+
+ 1981–1982 
+
+ 1979–1980 
+
+ Data description for this file 
+
+ Header file 
+
+ The candidate master file contains one record for each candidate who has either registered with the Federal Election Commission or appeared on a ballot list prepared by a state elections office.
+
+ Candidate-committee linkages 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ Data description for this file 
+
+ Header file 
+
+ This file contains one record for each candidate to committee linkage.
+
+ Presidential candidate map exports 
+
+ This data summarizes financial information disclosed by presidential candidates who have reported at least $100,000 in contributions from individuals other than the candidate .
+
+ The 2028 files contain financial activity through the most recent filing. The historical files contain financial activity through December 31 of the corresponding election year.
+
+ Overall candidate summary
+
+ 2024 
+
+ 2020 
+
+ 2016 
+
+ 2012 
+
+ 2008 
+
+ Contribution totals by size
+
+ 2024 
+
+ 2020 
+
+ 2016 
+
+ 2012 
+
+ 2008 
+
+ Contribution totals by state and three-digit zip code
+
+ 2024 
+
+ 2020 
+
+ 2016 
+
+ 2012 
+
+ 2008 
+
+ Learn how this information is compiled 
+
+ New statements of candidacy (Form 2) 
+
+ New statements of candidacy
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ Data description for this file 
+
+ This file lists all individuals who have filed a Statement of Candidacy (FEC Form 2) with the FEC to register as a candidate for federal office (U.S. House of Representatives, U.S. Senate and U.S. President) in a given election cycle.
+
+ House/Senate current campaigns 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ Data description for this file 
+
+ These files contain one record for each campaign. This record contains summary financial information.
+
+ All candidates 
+
+ Candidate summary
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ Data description for this file 
+
+ This file contains information for each candidate who has registered with the FEC or appears on an official state ballot for an election to the U.S. House of Representatives, U.S. Senate or U.S. President.
+
+ Committee files
+
+ Committee master 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ 1993–1994 
+
+ 1991–1992 
+
+ 1989–1990 
+
+ 1987–1988 
+
+ 1985–1986 
+
+ 1983–1984 
+
+ 1981–1982 
+
+ 1979–1980 
+
+ Data description for this file 
+
+ Header file 
+
+ The committee master file contains one record for each committee registered with the Federal Election Commission. This includes federal political action committees and party committees, campaign committees for presidential, house and senate candidates, as well as groups or organizations who are spending money for or against candidates for federal office.
+
+ Committee summary 
+
+ Committee summary
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ Data description for this file 
+
+ This file contains overall receipts and disbursements for each political committee, group or individual registered with the Federal Election Commission, along with a breakdown of overall receipts by source and totals for contributions to other committees, independent expenditures made, etc.
+
+ PAC summary 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ Data description for this file 
+
+ This file gives overall receipts and disbursements for each PAC and party committee registered with the commission, along with a breakdown of overall receipts by source and totals for contributions to other committees, independent expenditures made and other information.
+
+ Leadership PACs and sponsors 
+
+ Leadership PACs and sponsors
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ Data description for this file 
+
+ Candidates and members of Congress can create "leadership PACs" to raise funds to support other candidates for federal office. This file lists the PACs who have registered with the FEC as a leadership PAC.
+
+ New statements of organization (Form 1) 
+
+ New committee registrants
+
+ 2025-2026 
+
+ 2023-2024 
+
+ 2021-2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ Data description for this file 
+
+ This file lists all committees that have filed an initial Statement of Organization (FEC Form 1) with the FEC to register as a Federal committee since January 1, 2009.
+
+ Lobbyist/registrant committees 
+
+ Lobbyist/registrant committees
+
+ 2007–2026 
+
+ Data description for this file 
+
+ The list of PACs that are established or controlled by lobbyists or others registered with Congress for lobby disclosure. Campaigns, parties and leadership PACs who received bundled contributions from these PACs may be required to disclose that bundling activity to the FEC.
+
+ Transaction files
+
+ Any transaction from one committee to another 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ 1993–1994 
+
+ 1991–1992 
+
+ 1989–1990 
+
+ 1987–1988 
+
+ 1985–1986 
+
+ 1983–1984 
+
+ 1981–1982 
+
+ 1979–1980 
+
+ Data description for this file 
+
+ Header file 
+
+ The itemized records (miscellaneous transactions) file contains all transactions (contributions, transfers, etc. among federal committees). It contains all data in the itemized committee contributions file plus PAC contributions to party committees, party transfers from state committee to state committee, and party transfers from national committee to state committee. This file only includes federal transfers not soft money transactions.
+
+ Communication costs 
+
+ Communication costs
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ Data description for this file 
+
+ This file contains specific disbursement transactions disclosed to the Commission as communication costs by corporations and labor organizations.
+
+ Contributions by individuals 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ 1993–1994 
+
+ 1991–1992 
+
+ 1989–1990 
+
+ 1987–1988 
+
+ 1985–1986 
+
+ 1983–1984 
+
+ 1981–1982 
+
+ 1979–1980 
+
+ Data description for this file 
+
+ Header file 
+
+ The individual contributions file contains each contribution from an individual to a federal committee. It includes the ID number of the committee receiving the contribution, the name, city, state, zip code, and place of business of the contributor along with the date and amount of the contribution.
+
+ Contributions from committees to candidates and independent expenditures 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ 2001-2002 
+
+ 1999–2000 
+
+ 1997–1998 
+
+ 1995–1996 
+
+ 1993–1994 
+
+ 1991–1992 
+
+ 1989–1990 
+
+ 1987–1988 
+
+ 1985–1986 
+
+ 1983–1984 
+
+ 1981–1982 
+
+ 1979-1980 
+
+ Data description for this file 
+
+ Header file 
+
+ The itemized committee contributions file contains each contribution or independent expenditure made by a PAC, party committee, candidate committee, or other federal committee to a candidate during the two-year election cycle.
+
+ Electioneering communications 
+
+ Electioneering communications
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ Data description for this file 
+
+ This file contains specific disbursement transactions disclosed to the Commission as electioneering communications.
+
+ Independent expenditures (24- and 48-Hour Reports) 
+
+ Independent expenditures
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ Data description for this file 
+
+ This file contains "24-hour" and "48-hour" reports of independent expenditures filed during the current election cycle and for election cycles through 2010. The file contains detailed information about independent expenditures, including who was paid, the purpose of the disbursement, date and amount of the expenditure and the candidate for or against whom the expenditure was made.
+
+ Lobbyist bundled filings 
+
+ Lobbyist bundled filings
+
+ 2009–2026 
+
+ Data description for this file 
+
+ The list of PACs that are established or controlled by lobbyists or others registered with Congress for lobby disclosure. Campaigns, parties and leadership PACs who received bundled contributions from these PACs may be required to disclose that bundling activity to the FEC.
+
+ Operating expenditures 
+
+ 2025–2026 
+
+ 2023–2024 
+
+ 2021–2022 
+
+ 2019–2020 
+
+ 2017–2018 
+
+ 2015–2016 
+
+ 2013–2014 
+
+ 2011–2012 
+
+ 2009–2010 
+
+ 2007-2008 
+
+ 2005–2006 
+
+ 2003–2004 
+
+ Data description for this file 
+
+ Header file 
+
+ This file contains disbursements reported on FEC Form 3 Line 17, FEC Form 3P Line 23and FEC Form 3X Lines 21(a)(i), 21(a)(ii) and 21(b).
+
+ Other files
+
+ False and fictitious filings 
+
+ False and fictitious filings
+
+ 2016–2026 
+
+ Data description for this file 
+
+ The FEC works to ensure all filings are accurate and complete. As part of that process, the Commission asks filers whose registration forms contain questionable information to verify their accuracy. This page lists filers that did not respond and verify their information.
+
+ Electronically filed reports (.fec) 
+
+ File formats, header file and metadata 
+
+ Download files by day 
+
+ Daily compilation of electronically filed reports and statements.
+
+ Paper filed reports (.fec) 
+
+ File formats, header file and metadata 
+
+ Download files by day 
+
+ A paper report submitted to the Commission is a committee's official campaign finance disclosure filing for paper filers. If there are any discrepancies between the paper report and the electronic data file received from our data entry contractor, the paper report takes precedence. 
+
+ Postgres database dump files 
+
+ Dump files 
+
+ Readme 
+
+ The PostgreSQL database dump files contain data from 1975 to present from Schedule A, Schedule B, Schedule E and committee history. In addition, you will find a readme file with basic information about how to restore the PG dump files. Note: these files can be very large.
+
+ Senate unofficial electronic filings 
+
+ Senate unofficial electronic filings
+
+ 2008–2018 
+
+ More ways to explore data
+
+ Icon representing elections 
+
+ Find elections by location
+
+ Icon representing profiles 
+
+ Search candidate or committee profiles
+
+ Icon of an American flag 
+
+ Use the OpenFEC API
+
+ Anyone can inspect and copy reports and statements filed by political committees. But the names and addresses of individual contributors may not be sold or used for commercial purposes or to solicit contributions or donations.
+
+ Read more about the sale or use of FEC data .
+
+ About 
+
+ Careers 
+
+ Press 
+
+ Contact 
+
+ Privacy and security policy 
+
+ Plain language 
+
+ Accessibility statement 
+
+ Strategy, budget and performance 
+
+ No FEAR Act 
+
+ Open government 
+
+ USA.gov 
+
+ Inspector General 
+
+ FOIA 
+
+ OpenFEC API 
+
+ GitHub repository 
+
+ Release notes 
+
+ FEC.gov status 
+
+ Federal Election Commission
+
+ The FEC's Twitter page 
+
+ The FEC's YouTube page 
+
+ Sign up for FECMail 
+
+ This information is produced and disseminated at U.S. taxpayer expense.
+
+ Hide glossary 
+
+ Glossary
+
+ Search terms 
+
+ Examples: receipt; Hybrid PAC

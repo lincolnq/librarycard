@@ -1,0 +1,49 @@
+{
+ "_source_url": "https://www.fec.gov/data.json",
+ "_retrieved": "2026-11-24T23:34:48+00:00",
+ "_pattern": "FEC",
+ "_catalog_license_counts": {
+  "null": 1
+ },
+ "entries": [
+  {
+   "@type": "dcat:Dataset",
+   "title": "FEC API",
+   "keyword": [
+    "campaign",
+    "finance",
+    "FEC",
+    "elections"
+   ],
+   "modified": "R/P2W",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Federal Election Commission"
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Open Source",
+    "hasEmail": "mailto:apiinfo@fec.gov"
+   },
+   "identifier": "https://api.open.fec.gov/",
+   "accessLevel": "public",
+   "bureauCode": [
+    "360:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "licence": "https://github.com/fecgov/FEC/blob/master/LICENSE.md",
+   "distribution": [
+    {
+     "accessURL": "https://api.open.fec.gov",
+     "description": "A fully queryable REST API with JSON output",
+     "describedBy": "https://api.open.fec.gov/swagger/",
+     "describedByType": "application/swagger+json",
+     "format": "API",
+     "title": "OpenFEC REST API"
+    }
+   ]
+  }
+ ]
+}

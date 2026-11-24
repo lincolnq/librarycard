@@ -1,0 +1,299 @@
+URL: https://www.fec.gov/updates/sale-or-use-contributor-information/
+Final-URL: https://www.fec.gov/updates/sale-or-use-contributor-information/
+Retrieved: 2026-11-24T23:34:46+00:00
+HTTP-Status: 200
+Raw-SHA256: 59c9f0ed5498b78b9a50953514f4b068e09a3742e108b917c3ec411724d61bbd
+Raw-Bytes: 40722
+---
+Your web browser is not supported
+
+ This site uses features that are not supported by this browser. For a better experience, please switch to a modern browser.
+
+ skip navigation 
+
+ Here's how you know 
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Federal Election Commission | United States of America 
+
+ Calendar 
+
+ Glossary 
+
+ Search 
+
+ Search 
+
+ Menu 
+
+ Menu
+
+ Home 
+
+ Campaign finance data 
+
+ All data 
+
+ Raising 
+
+ Spending 
+
+ Loans and debts 
+
+ Filings and reports 
+
+ Candidates 
+
+ Committees 
+
+ Bulk data 
+
+ Campaign finance statistics 
+
+ Find elections. Search by state or ZIP code 
+
+ Look up contributions from specific individuals 
+
+ Help for candidates and committees 
+
+ All compliance resources 
+
+ Guides 
+
+ Forms 
+
+ Dates and deadlines 
+
+ Trainings 
+
+ Learn about electronic filing 
+
+ Find and contact your committee's analyst 
+
+ Legal resources 
+
+ All legal resources 
+
+ Advisory opinions 
+
+ Enforcement 
+
+ Statutes 
+
+ Legislation 
+
+ Regulations and rulemakings
+
+ Court cases 
+
+ Policy and other guidance 
+
+ Search across legal resources 
+
+ Search guidance documents 
+
+ About 
+
+ All about the FEC 
+
+ News and announcements 
+
+ Commission meetings 
+
+ Mission and history 
+
+ Leadership and structure 
+
+ Reports about the FEC 
+
+ Careers 
+
+ Working with the FEC 
+
+ Contact 
+
+ Introduction to campaign finance and elections 
+
+ Federal Election Commission | United States of America 
+
+ Home 
+
+ › 
+ FEC Record: Outreach 
+
+ › 
+ Sale or use of contributor information 
+
+ FEC Record: Outreach
+
+ Sale or use of contributor information
+ November 2, 2018 
+
+ Under the Federal Election Campaign Act (the Act), information about individual contributors taken from FEC reports cannot be sold or used for soliciting contributions (including any political or charitable contribution) or for any commercial purpose.
+
+ The restriction
+ The Act and Commission regulations require federal political committees to file campaign finance reports disclosing their receipts and disbursements. As part of those reports, committees must list the name, address, occupation and employer for each individual contributor who gives more than $200 to the campaign during an election cycle (or calendar year for PACs and party committees).
+ The Act also requires the FEC to make campaign finance disclosure reports available to the public, including on its website, within 48 hours of receipt. To protect the privacy of individual contributors, the Act prohibits the sale or use of any information about those donors, including their names and addresses, for the purpose of soliciting contributions or for commercial purposes. Commission regulations also prohibit the use of this information to solicit donations, including charitable donations.
+ This restriction applies only to the use of individual contributor information. Any person may compile and sell the names of political committees . Additionally, Commission regulations provide that the restriction does not apply to the use of individual contributor information in newspapers, magazines, books or similar communications, as long as the principal purpose of the communication is not to solicit contributions or conduct commercial activity.
+
+ Disclosure of personal information
+ The Act requires political committees to make their best efforts to obtain and disclose individual contributor information. To demonstrate best efforts, political committees must request the full name, mailing address, occupation and name of employer for each individual who contributes more than $200 per election cycle (or calendar year for PACs and party committees). If the contributor does not provide the information, the committee treasurer must make at least one follow-up request within 30 days of the receipt of the contribution.
+ If a contributor believes that their identifying information should be corrected or updated on an FEC report, the contributor should contact the committee that filed it. The committee will need to file an amended report to change the information. Upon receipt of the amended report, the Commission will make it publicly available and will also update its individual contributor database to reflect the new information. However, the original report will remain on the public record.
+
+ Examples of permissible uses
+ Through the advisory opinion (AO) process , the Commission has identified several uses of contributor information that are permissible and do not violate the “sale or use” restriction.
+ In AO 1986-25 , the Commission concluded that individual contributor information may be used for bona fide academic research projects that do not involve the sale or use of that information for a commercial purpose or for soliciting contributions.
+ A candidate may use the names and addresses of individual contributors disclosed on an unauthorized committee’s reports to inform the contributors that the candidate did not authorize the committee to solicit them ( AO 1984-02 ). Candidates may also use the names and addresses of individual contributors to an opponent’s campaign to respond to alleged defamatory charges ( AO 1981-05 ) and may use campaign expenditure data reported by other candidates in their own solicitation materials ( AO 1980-78 ).
+ A nonprofit organization may use information from FEC reports to inform certain individual donors of their right to seek refunds of their contributions to federal candidates and may help to facilitate those refunds ( AO 2013-16 ) In this instance, the use of individual contributor information was permitted because of safeguards for donor information and limited contact with individual contributors were implemented. Likewise, the proposed display of total refund requests and total dollar amounts requested (both from specific committees and from all committees) on the organization’s website did not include any identifiable contributor information. See also AO 2009-19 .
+ In AO 2014-07 , the Commission concluded that a for-profit corporation may create and operate a website that uses FEC contributor data and other information to help visitors identify and contribute to candidates. The website may also present aggregated campaign finance data on candidate committees, such as the number of persons who have contributed to a committee and the amount of contributions received, so long as it does not disclose individual contributors' contact information.
+ Similarly, in AO 2012-22 , the Commission concluded that a corporation may establish a commercial website to provide information about federal candidates and process users' contributions to the candidates they choose. The corporation may also compile and disseminate campaign finance data from reports candidates file with the FEC, so long as information about individual contributors is not included.
+ Businesses may use the names and addresses of candidates, campaign workers, campaign consultants, and others who provide services to political committees in order to solicit them as potential clients, solicit newsletter subscriptions, or obtain leads for news articles (AOs 1981-38 and 1983-44 ).
+
+ Examples of impermissible uses
+ In other AOs, the Commission has concluded that certain uses of individual contributor information are not permissible.
+ In AO 2003-24 , the Commission concluded that a tax-exempt advocacy group may not use contributor information listed on FEC disclosure reports to communicate with the reported contributors. Likewise, in AO 1995-05 , the Commission determined that an organization may not use the names of individual contributors taken from FEC reports to send them bulletins on the voting records of Members of Congress if the bulletins contain a solicitation for the organization.
+ The Commission has also concluded that using a list of individual contributors copied from a committee’s FEC reports is not permissible even with the committee’s permission ( AO 1979-03 ) and that using names of individual contributors to verify names included on a commercial list is not permissible ( AO 1985-16 ).
+
+ Committee’s contributor list
+ The sale or use restriction does not prevent a committee from compiling and distributing its own list of contributors. A committee may donate, sell, rent or trade its contributor list to other committees and organizations.
+ Committee treasurers are responsible for ensuring that any mail lists they lease or purchase have not been derived in violation of the sale or use restriction.
+
+ Salting
+ The Act and Commission regulations provide a method of detecting whether the names and addresses of individual contributors are being used illegally. Committees may sprinkle throughout or “salt” each report with up to ten fictitious contributor names. A portion of the committee’s unitemized contributions is attributed to each of the fictitious contributors.
+ The committee itemizes each fictitious contribution on a Schedule A, providing a real address for each fictitious name (such as the address of a committee employee). The committee then adjusts its subtotals for itemized and unitemized contributions accordingly on the Detailed Summary Page. If a solicitation or commercial mailing is sent to one of the fictitious names, the committee will know that someone has used the names of contributors disclosed on its reports and may file a complaint with the FEC.
+ When a committee uses fictitious names on a report, the list of fictitious contributions must be sent under separate cover directly to the Commission's Reports Analysis Division (RAD) on or before the date the report containing the fictitious names is filed. Committees may email the list to saltlists@fec.gov . That list will not become part of the public record.
+
+ Enforcement
+ Any person who believes the sale or use restriction has been violated may file a complaint with the FEC.
+
+ Get details about the complaint process 
+
+ Citations
+ Statute
+ 52 U.S.C. § 30104(a)(11)(B) 
+ Report accessibility on the Internet 
+ 52 U.S.C. § 30111(a)(4) 
+ Sale or use restriction; 48-hour public availability; use of pseudonyms 
+ 52 U.S.C. § 30112 
+ Making reports available online 
+ Regulations
+ 11 CFR 100.12 
+ Identification 
+ 11 CFR 104.3(a)(4) 
+ Reporting of receipts 
+ 11 CFR 104.3(e) 
+ Use of pseudonyms 
+ 11 CFR 104.7 
+ Best efforts 
+ 11 CFR 104.8 
+ Uniform reporting of receipts 
+ 11 CFR 104.15 
+ Sale or use restriction 
+ Advisory opinions
+ Permitted uses of information from FEC reports: 
+ AO 2017-08 
+ AO 2014-07 
+ AO 2013-16 
+ AO 2012-22 
+ AO 2011-19 
+ AO 2009-19 
+ AO 2004-24 (Permitting only use of political committee information)
+ AO 1998-04 
+ AO 1989-19 
+ AO 1988-02 
+ AO 1986-25 
+ AO 1984-02 
+ AO 1983-44 
+ AO 1981-38 (Permitting use of information from Schedule B (Disbursements))
+ AO 1981-05 
+ AO 1980-101 
+ AO 1980-78 
+ Prohibited uses of contributor information: 
+ AO 2004-24 (Prohibiting use of individual contributor information)
+ AO 2003-24 
+ AO 1995-05 
+ AO 1986-25 
+ AO 1985-16 
+ AO 1981-38 (Prohibiting use of individual contributor information)
+ AO 1979-03 
+
+ Author  
+
+ Paul Stoetzer
+
+ Sr. Communications Specialist
+
+ Read next:
+
+ Earmarked contributions 
+
+ Related:
+
+ Explore campaign finance data »
+
+ This information is not intended to replace the law or to change its meaning, nor does this information create or confer any rights for or on any person or bind the Federal Election Commission or the public.
+
+ The reader is encouraged also to consult the Federal Election Campaign Act of 1971, as amended (52 U.S.C. 30101 et seq.), Commission regulations (Title 11 of the Code of Federal Regulations), Commission advisory opinions and applicable court decisions.
+
+ About 
+
+ Careers 
+
+ Press 
+
+ Contact 
+
+ Privacy and security policy 
+
+ Plain language 
+
+ Accessibility statement 
+
+ Strategy, budget and performance 
+
+ No FEAR Act 
+
+ Open government 
+
+ USA.gov 
+
+ Inspector General 
+
+ FOIA 
+
+ OpenFEC API 
+
+ GitHub repository 
+
+ Release notes 
+
+ FEC.gov status 
+
+ Federal Election Commission
+
+ The FEC's Twitter page 
+
+ The FEC's YouTube page 
+
+ Sign up for FECMail 
+
+ This information is produced and disseminated at U.S. taxpayer expense.
+
+ Hide glossary 
+
+ Glossary
+
+ Search terms 
+
+ Examples: receipt; Hybrid PAC
