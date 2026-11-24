@@ -1,0 +1,8 @@
+URL: https://cde.ucr.cjis.gov/LATEST/webapp/
+Final-URL: https://cde.ucr.cjis.gov/LATEST/webapp/
+Retrieved: 2026-11-24T23:49:09+00:00
+HTTP-Status: 200
+Raw-SHA256: d9ba2796e35f1e03f5e6dd35acf5183457d5407f0843cc5527ffa331574a4fd5
+Raw-Bytes: 60799
+---
+Loading...

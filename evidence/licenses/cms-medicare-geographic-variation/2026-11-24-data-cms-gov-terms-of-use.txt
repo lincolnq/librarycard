@@ -1,0 +1,8 @@
+URL: https://data.cms.gov/terms-of-use
+Final-URL: https://data.cms.gov/terms-of-use
+Retrieved: 2026-11-24T23:46:12+00:00
+HTTP-Status: 200
+Raw-SHA256: 971a7734d4568d7122ca26741c66622a72af4c282fc5d02292df0ff4b20edd2d
+Raw-Bytes: 2974
+---
+

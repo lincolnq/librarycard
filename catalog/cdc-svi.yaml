@@ -1,0 +1,107 @@
+schema_version: 1
+id: cdc-svi
+name: CDC/ATSDR Social Vulnerability Index (SVI)
+publisher:
+  name: Centers for Disease Control and Prevention / Agency for Toxic Substances and Disease Registry (CDC/ATSDR), Geospatial Research, Analysis, and Services Program (GRASP)
+  url: https://www.atsdr.cdc.gov/place-health/php/svi/index.html
+  type: us_federal
+homepage: https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html
+description: >-
+  A place-based index ranking every US county, census tract and (from 2022) ZCTA on 16 social factors from the
+  American Community Survey — poverty, unemployment, housing cost burden, education, insurance, age, disability,
+  single parenthood, English proficiency, minority status, housing type, crowding, vehicle access, group quarters —
+  grouped into four themes plus an overall percentile rank. Built by CDC/ATSDR's GRASP every two years for emergency
+  preparedness and public-health planning. Each file includes the underlying ACS estimates, margins of error,
+  percentages and per-variable percentile ranks; available both ranked nationally and ranked within each state.
+domains: [health, demographics, income_poverty, disasters_emergency, social_mobility]
+tags: [cdc, atsdr, svi, social-vulnerability, vulnerability-index, emergency-preparedness, equity, acs, tract, county, zcta, grasp]
+coverage:
+  geography: United States — 50 states and DC (Puerto Rico in separate state-ranked files)
+  countries: [US]
+  geographic_granularity: [county, tract, zcta]
+  time_range:
+    start: "2014"
+    end: "2022"
+    notes: >-
+      Releases 2000, 2010, 2014, 2016, 2018, 2020 and 2022 exist; the adapter serves 2018, 2020 and 2022 (ACS 5-year
+      periods 2014-2018, 2016-2020, 2018-2022). ZCTA files only for 2022. 2022 is the latest release as of 2026-11-24.
+  temporal_granularity: biennial
+  unit_of_observation: County, census tract or ZCTA (one row per area per release)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://svi.cdc.gov/Documents/Data/{year}/csv/states_counties/SVI_{year}_US_county.csv
+      description: US-ranked county file (~2.3 MB). State-ranked variant states_counties/{StateName}_county.csv.
+    - url: https://svi.cdc.gov/Documents/Data/{year}/csv/states/SVI_{year}_US.csv
+      description: US-ranked census tract file (~61 MB for 2022). State-ranked variant states/{StateName}.csv (StateName without spaces, e.g. NewHampshire).
+    - url: https://svi.cdc.gov/Documents/Data/2022/csv/zcta/SVI_2022_US_ZCTA.csv
+      description: US-ranked ZCTA file (2022 only, ~25 MB). State-ranked variant zcta/{StateName}_ZCTA.csv.
+    - url: https://svi.cdc.gov/dataDownloads/data-download.html
+      description: Official download page (year list; its loadXML.js builds the file URLs above).
+  formats: [csv, esri-geodatabase]
+  rate_limits: None published.
+  auth: none
+  notes: Tribal-tract files (estimates only, unranked) and geodatabases are not served by the adapter.
+update:
+  cadence: biennial
+  expected_lag: ~2 years after the end of the ACS 5-year period (2022 SVI, from 2018-2022 ACS, published mid-2024).
+change_detection:
+  method: regex
+  url: https://svi.cdc.gov/dataDownloads/data-download.html
+  pattern: '<option value="(\d{4})"'
+  poll_interval_days: 14
+  notes: >-
+    Fingerprints the list of release years on the official download page; a new release (e.g. 2024) adds a year.
+    Add it to YEARS in the adapter after checking column names in the new documentation.
+license:
+  name: Public data, "available to the public at large with no constraints or limitations" (CDC/ATSDR)
+  spdx: null
+  url: https://www.arcgis.com/home/item.html?id=f2af3fd35858443293b75d5f73c7d4d3
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: >-
+    Centers for Disease Control and Prevention/ Agency for Toxic Substances and Disease Registry/ Geospatial Research,
+    Analysis, and Services Program. CDC/ATSDR Social Vulnerability Index <year> Database <U.S. or State>.
+    https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html. Source: CDC/ATSDR; available at
+    no charge; use does not imply endorsement by CDC, ATSDR, HHS or the U.S. Government.
+  evidence: evidence/licenses/cdc-svi/
+  checked_at: "2026-11-24"
+  notes: Publisher's own metadata for the official SVI 2022 dataset (CDC ArcGIS Online item, owner data_cdc) states no constraints; CDC agency-materials conditions (attribution, non-endorsement) are carried in the attribution. See NOTES.md.
+key_variables:
+  - name: FIPS
+    definition: Geographic id — 5-digit county FIPS, 11-digit tract FIPS, or 5-digit ZCTA (ZCTAs crossing states are assigned to the state with the largest overlap).
+  - name: ST_ABBR / LOCATION
+    definition: State postal code; area name.
+  - name: RPL_THEMES
+    unit: percentile rank 0-1
+    definition: Overall SVI — percentile rank of the sum of the four theme sums among all areas in the ranking universe (US or state). Higher = more socially vulnerable.
+  - name: RPL_THEME1 / RPL_THEME2 / RPL_THEME3 / RPL_THEME4
+    unit: percentile rank 0-1
+    definition: Theme ranks — 1 socioeconomic status, 2 household characteristics (age, disability, single parent, limited English), 3 racial & ethnic minority status, 4 housing type & transportation.
+  - name: E_TOTPOP / M_TOTPOP
+    unit: persons
+    definition: ACS 5-year total population estimate and its 90% margin of error.
+  - name: EP_POV150
+    unit: percent
+    definition: Percent of persons below 150% of the poverty line (2020+; 2018 uses EP_POV, below 100%).
+  - name: EP_* / MP_*
+    unit: percent
+    definition: Percentage for each SVI variable and its margin of error (e.g. EP_UNINSUR, EP_NOVEH, EP_AGE65).
+  - name: F_TOTAL
+    unit: count
+    definition: Number of flags — variables at or above the 90th percentile.
+caveats:
+  - Percentile ranks are relative to the ranking universe of that file — 'us' files rank against all US areas, 'state' files only within the state. Never mix the two, and never compare ranks across states using state-ranked files.
+  - Ranks are not comparable across release years (re-ranked each year, variables changed in 2020 — e.g. 150% poverty, housing cost burden and uninsured added, per-capita income dropped — and tract boundaries changed with the 2020 census). Compare underlying EP_* percentages with their MOEs instead, with care.
+  - The value -999 in the publisher files means data unavailable or not calculable (e.g. zero-population tracts); the adapter returns it as null. Zero-population tracts are unranked.
+  - Underlying data are ACS 5-year estimates with sampling error (M_*/MP_* are 90% margins of error); small tracts can have very wide MOEs, making ranks unstable.
+  - All variables and themes are weighted equally by design; SVI is a screening tool, not a measure of individual risk.
+  - Puerto Rico is not in the US-wide files (rank it with ranking='state', state='PR'); other territories are not covered.
+  - The US tract file is ~61 MB; filtering by state still downloads it (cached locally as the license allows). Use ranking='state' only if within-state ranks are what you want.
+related: [cdc-places, census-acs-summary-file, fema-disaster-declarations]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: cdc_svi
+adapter_version: 1.0.0

@@ -1,0 +1,59 @@
+URL: https://svi.cdc.gov/dataDownloads/data-download.html
+Final-URL: https://svi.cdc.gov/dataDownloads/data-download.html
+Retrieved: 2026-11-24T23:39:36+00:00
+HTTP-Status: 200
+Raw-SHA256: 3516222c549e4bcd55bc2471bf4c4ea04f3c589f519bb9fce67a400db44ff0de
+Raw-Bytes: 6692
+---
+﻿ 
+
+ Data
+
+ Year 
+
+ 2022 
+ 2020 
+ 2018 
+ 2016 
+ 2014 
+ 2010 
+ 2000 
+
+ Geography 
+
+ Geography Type 
+
+ -- Select Geography First -- 
+ Counties 
+ Census Tracts 
+ ZIP Code Tabulation Areas 
+
+ File Type 
+
+ CSV File (table data) 
+
+ ESRI Geodatabase (map data) 
+
+ If you choose "United States" as your option under Geography, all U.S. census tracts, or counties, are ranked against one another. Use “United States” for U.S.-wide or multi-state mapping and analysis. 
+
+ If you choose an individual state, or “District of Columbia,” or “Puerto Rico,” tracts or counties are ranked against other tracts or counties in that state/district/territory. 
+
+ If you choose Tribal Tracts, the database contains only estimates, percentages and their respective margins of error, and adjunct variables. Tribal tracts are not ranked against each other nor against standard census tracts and are not available for 2000 or 2010. 
+
+ ZIP Code Tabulation Areas are currently only available for 2022.
+
+ Documentation
+
+ CDC/ATSDR SVI Documentation 2022 
+
+ CDC/ATSDR SVI Documentation 2020 
+
+ CDC/ATSDR SVI Documentation 2018 
+
+ CDC/ATSDR SVI Documentation 2016 
+
+ CDC/ATSDR SVI Documentation 2014 
+
+ CDC/ATSDR SVI Documentation 2010 
+
+ CDC/ATSDR SVI Documentation 2000
