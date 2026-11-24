@@ -1,9 +1,11 @@
 # Sources considered but not (yet) onboarded. A future agent may pick these up.
-# reason: network | license | credentials | scope | low_priority | duplicate | format | unstable
+# reason: network | license | credentials | scope | low_priority | duplicate | format | unstable | publisher_blocked
 #   network      - domain blocked in the agent environment (see docs/POLICY.md#network-access)
 #   credentials  - needs a key/sign-up; give it a catalog-only `restricted` entry instead if useful
 #   format       - only available in formats we can't parse with stdlib (e.g. xlsx-only, PDF tables)
 #   low_priority - fine source, just not done yet
+#   publisher_blocked - publisher's bot protection / JS challenge with no keyless official alternative
+#   unstable     - endpoint exists but is not reliable or versioned enough to serve (see detail)
 # Remove an entry when the source is onboarded (odc validate enforces this).
 queued:
   - id: openstates-bulk-sessions

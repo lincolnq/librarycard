@@ -62,7 +62,10 @@ def _normalize(obj: Any) -> Any:
 
 
 def load_entry(path: Path) -> dict:
-    data = yaml.safe_load(path.read_text())
+    try:
+        data = yaml.safe_load(path.read_text())
+    except yaml.YAMLError as e:
+        raise CatalogError(f"{path}: YAML syntax error (quote values containing ': ' or starting with a special character): {e}") from None
     if not isinstance(data, dict):
         raise CatalogError(f"{path}: not a mapping")
     return _normalize(data)

@@ -81,3 +81,5 @@ odc-server                         # run the MCP server on stdio (odc-server --h
 - Commit messages: `<area>: <what>` e.g. `catalog: onboard bls-laus`, `adapter(census-acs-summary-file): handle 2025 layout`.
   Reference issues with `Fixes #N` in PR bodies.
 - Keep contract tests cheap (narrow filters, small limits) — they run daily in CI.
+- POST-only APIs: put the request body in `metadata.request_body`. Fallback endpoints count as endpoints (allowlist + offline test).
+- `ops/network-allowlist.txt`: append in the sources section; sort when convenient (merges are simpler).

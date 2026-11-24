@@ -14,6 +14,15 @@
 - `2026-11-24-s-gov-geographies-reference-files-time-series-geo-gazetteer-files-html.txt`: Gazetteer landing page; states no restrictions.
 
 ## Classification
-- redistribution: **allowed** — the Gazetteer is a U.S. Government work produced by the Census Geography Division from MAF/TIGER (no third-party content). The Bureau declares CC0 for all of its catalogued data, and the Geography Division's sibling products from the same database are CC0 / "free to use ... acknowledgement must be given". This is an agency-policy-level statement rather than a Gazetteer-specific one; judged clear enough because no source suggests any restriction. Re-check if the Gazetteer ever gets its own data.json/data.gov record.
-- commercial_use: **yes** — CC0 / free to use.
-- attribution: "U.S. Census Bureau, Geography Division, <YEAR> Gazetteer Files." (acknowledgement requested).
+- redistribution: **link_only** (reviewed 2026-11-24, superseding the onboarding agent's `allowed`, which is kept below for the record).
+  The Gazetteer has no dataset-level license statement: it is absent from census.gov/data.json and from data.gov.
+  The evidence for CC0 is inferred from *other* Census datasets (all catalogued Census datasets are CC0; sibling
+  TIGER products say "free to use"). Per docs/POLICY.md#licensing ("a federal dataset missing from the agency's
+  catalog = terms silent; do not infer from other datasets"), this is link_only. Almost certainly public domain in
+  fact — upgrade to `allowed` if a Gazetteer-specific statement is found (e.g. a data.gov record).
+- commercial_use: **unclear** (same reason).
+- attribution: "U.S. Census Bureau, Geography Division, <YEAR> Gazetteer Files."
+
+Superseded onboarding classification: "allowed — ... The Bureau declares CC0 for all of its catalogued data, and the
+Geography Division's sibling products from the same database are CC0 / 'free to use ... acknowledgement must be
+given'. This is an agency-policy-level statement rather than a Gazetteer-specific one."

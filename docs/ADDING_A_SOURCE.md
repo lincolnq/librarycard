@@ -9,6 +9,11 @@ is true. Expect 30–90 minutes per source. Worked examples to copy from:
 | Big bulk file(s), stream + filter | `src/odc/adapters/census_acs_summary_file.py` | `catalog/census-acs-summary-file.yaml` |
 | Public cloud bucket (S3/GCS over HTTPS) | `src/odc/adapters/noaa_nclimgrid_daily.py` | `catalog/noaa-nclimgrid-daily.yaml` |
 | Catalog-only (needs key / registration) | — (no adapter) | `catalog/census-data-api.yaml` |
+| Dataverse dataset (research archive) | `src/odc/adapters/mit_election_president_state.py` (+ `_medsl.py`) | `catalog/mit-election-president-state.yaml` |
+| POST-only JSON API | `src/odc/adapters/usaspending_spending_by_geography.py` | `catalog/usaspending-spending-by-geography.yaml` |
+| Fixed-width text files | `src/odc/adapters/census_saipe.py` | `catalog/census-saipe.yaml` |
+| Socrata portal, new dataset id per release | `src/odc/adapters/cdc_places.py` | `catalog/cdc-places.yaml` |
+| Bulk primary + API fallback | `src/odc/adapters/bls_laus.py` (+ `tests/test_bls_laus_api_fallback.py`) | `catalog/bls-laus.yaml` |
 
 ## 0. Before you start
 
@@ -22,6 +27,8 @@ Apply `docs/POLICY.md#scope`:
 - [ ] Does Google Data Commons (`data-commons`) already serve it? If yes, only proceed if we add something (finer geography, microdata, raw records, faster releases) — and say what in the description.
 - [ ] Network: can you reach the data host from here? `curl -sI <url>`. If the proxy/allowlist blocks it → add host to
       `ops/network-allowlist.txt`, add to `ops/queue.yaml` with `reason: network`, **stop** (don't work around it).
+- [ ] Publisher bot protection (JS challenge, WAF page) with no official keyless alternative, or download links that
+      exist only inside a web app? → see `docs/POLICY.md#publisher-side-blocks-not-our-allowlist`.
 - [ ] Needs a key, registration, a "guestbook" form, or a signed agreement? → write a **catalog-only** entry
       (`access.method: restricted`, `access.auth: credentials_required|registration_required|data_use_agreement`,
       `restricted_reason`, `adapter: null`, `adapter_version: null`, `change_detection.method: none`), do the
@@ -42,9 +49,18 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
 
 - [ ] Find the dataset-level terms (license field on the dataset page, a data-policy page, terms of use).
       For US federal agencies, the agency's Project Open Data catalog is often the clearest dataset-level statement:
-      `python scripts/pod_license_excerpt.py <id> https://<agency>/data.json "<title regex>"`.
+      `python scripts/pod_license_excerpt.py <id> https://<agency>/data.json "<anchored title regex>"` (checks dataset- and
+      distribution-level `license`/`licence`, keeps the newest 100 matches, appends a line to NOTES.md).
+      Other acceptable places are listed in `docs/POLICY.md#licensing` rule 8 (Socrata view metadata, catalog.data.gov,
+      agency ArcGIS items, the site's own source code, metadata shipped in the download).
+      If the dataset isn't in the agency catalog at all, its terms are silent → `link_only` (rule 9).
 - [ ] Snapshot every page you rely on: `python scripts/snapshot_license.py <id> <url> [<url> ...]`.
       This creates `evidence/licenses/<id>/<date>-*.txt` and `NOTES.md`.
+- [ ] If the script warns "only N chars of text", the page is a JavaScript app or a bot challenge: it is not evidence.
+      A `-unavailable.txt` file means the fetch failed; check whether it was a 404 (wrong URL: delete the file and
+      fix the URL) or a block (keep it as evidence that the terms were unfetchable).
+- [ ] Several datasets from one publisher with identical terms may share one evidence directory
+      (e.g. `evidence/licenses/mit-election-lab/`); say in NOTES.md which entries use it.
 - [ ] Read the snapshots. Fill in `NOTES.md` → **Operative terms** (quote the exact sentences, naming the snapshot file)
       and **Classification** (redistribution, commercial_use, attribution, and why).
 - [ ] Classify: clear + permissive → `allowed`; anything unclear, conditional, NC, or unfetchable → `link_only`.
@@ -52,15 +68,19 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
 ## 4. Adapter
 
 - [ ] Copy `src/odc/adapters/_template.py` to `src/odc/adapters/<id_with_underscores>.py`.
-- [ ] Reuse helpers in `_common.py` (`census_api`, `socrata`, `scan_csv`, `dataverse_*`, `openfema`, `state_fips`, ...).
-      If you write a helper a second source could use, put it in `_common.py`.
+- [ ] Reuse helpers in `_common.py` (`socrata`, `scan_csv`, `dataverse_*`, `openfema`, `state_fips`, ...).
+      Helpers shared by several datasets of one publisher go in a private module `src/odc/adapters/_<publisher>.py`
+      (e.g. `_medsl.py`); helpers any adapter could use go in `_common.py` (with a test).
+      Dataverse: anchor file-name patterns (`^\d{4}-\d{4}-president\.(csv|tab)$`, not `president\.tab$`, which also
+      matches `sources-president.tab`) and download with `original=True`.
 - [ ] Declare `filters` (`FilterSpec`): names agents will understand (`state`, `year`, `county_fips`, ...), types,
       `required`, `enum`, `example`. Validate inputs and raise `FilterError` with a message that says how to fix it.
       Accept state as postal code or FIPS via `state_fips()` / `state_abbr()`.
 - [ ] Write `usage`: 2–4 sentences an agent reads in `describe_source` (row grain, the key filter, a gotcha).
 - [ ] `_fetch` returns `FetchResult(rows, request_urls, notes, total_available, metadata)`:
   - rows: list of flat dicts, JSON-serialisable values; convert publisher sentinel codes to `None` (and say so in `notes`).
-  - request_urls: the actual URLs requested (these go into provenance — agents cite them).
+  - request_urls: the actual URLs requested (these go into provenance — agents cite them). For POST APIs also put the
+    exact request body in `metadata["request_body"]` so the request is reproducible.
   - Respect `limit` (stop collecting rows after `limit`; count the rest in `total_available` if cheap).
   - Bulk files: use `scan_csv(..., cache_allowed=cache_allowed)` / `http.download(...)`. **Never** cache yourself.
   - Raise `SourceError(kind=...)` (`http`, `parse`, `schema`, `empty`) when the publisher's response isn't what you expect —
@@ -76,24 +96,31 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
 - [ ] Copy `catalog/_TEMPLATE.yaml` to `catalog/<id>.yaml` and fill **every** field (see `docs/SCHEMA.md`):
   - `description`: 2–4 plain sentences — what it measures, how it's produced (survey/admin records/model), by whom.
   - `coverage`: be precise about granularity and time range; `time_range.end: null` only for continuously updated data.
-  - `access.endpoints`: the URLs/patterns the adapter uses (so a repair agent can find them).
+  - `access.endpoints`: the URLs/patterns the adapter (or its fallback) actually contacts — every host there must be
+    allowlisted. Informational links the adapter never calls (GitHub repos, docs) go in `access.notes` instead.
   - `update.cadence` + `expected_lag` from the publisher's release schedule.
   - `change_detection` (see `docs/SCHEMA.md#change_detection`): pick a signal that moves on **releases, schema or
-    methodology changes**, not on every routine refresh. Test it: `python monitor/detect_changes.py --only <id> --all --state /tmp/s.json --report /tmp/r.json` twice — the second run must report `changed=0`.
+    methodology changes**, not on every routine refresh. Test it: `python monitor/detect_changes.py --only <id> --all --state /tmp/odc-<id>-state.json --report /tmp/odc-<id>-changes.json` twice — the second run must report `changed=0`.
   - `license`: from step 3. `evidence: evidence/licenses/<id>/`, `checked_at` = today.
   - `key_variables`: the 4–10 most-used fields exactly as returned by `fetch`, with units and definitions.
   - `caveats`: everything that makes naive use wrong — weighting, MOEs, series breaks, definition changes,
     suppression/top-coding, geography vintages, double counting, coverage gaps. At least 3 for most sources.
   - `status: healthy`, `status_reason: Onboarded; contract tests pass.`, `status_since`/`last_verified` = today,
     `adapter`, `adapter_version` matching the adapter.
-- [ ] Add every host the adapter or change detection touches to `ops/network-allowlist.txt` (with a `# <id>` comment).
+- [ ] YAML: quote any value containing `": "` or starting with a special character (`- Legal: x` parses as a mapping!).
+- [ ] Add every host the adapter or change detection touches (including redirect targets, e.g. S3 hosts behind a
+      download URL) to `ops/network-allowlist.txt` with a `# <id>` comment. Appending at the end of the sources
+      section is fine; it gets sorted when branches are merged.
 - [ ] If it was in `ops/queue.yaml`, remove it from there.
 
 ## 6. Verify
 
 - [ ] `odc validate` → 0 problems.
 - [ ] `pytest -m "not live" -q` → all pass (includes offline checks of your contract filters).
-- [ ] `odc contract <id>` → all PASS. Run it twice if the data is cached, to exercise both paths.
+- [ ] `odc contract <id>` → all PASS, and `ODC_CACHE=0 odc contract <id>` → all PASS (exercises the uncached path).
+      For `link_only` bulk sources every fetch re-downloads the file: keep contract downloads small.
+- [ ] Fallback paths you can't exercise live (e.g. an API used only when the bulk host fails) need an offline test
+      with a mocked response (`tests/test_<id>_*.py`).
 - [ ] `odc describe <id>` reads well; `odc fetch <id> '<typical filters>' --limit 5` returns sensible rows with provenance.
 - [ ] `odc search "<words a user would type>"` ranks the source near the top.
 
@@ -113,14 +140,32 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
 
 ## Lessons learned (append as you go)
 
-- **Census Data API (api.census.gov) requires a key on every request** (since 2026). Use Census bulk files on
-  www2.census.gov instead (e.g. ACS table-based summary files, PEP and SAIPE CSVs); the API is a restricted entry.
-- **Harvard Dataverse "guestbook"**: some datasets (e.g. MIT Election Lab) return `"You may not download this file
-  without the required Guestbook response"`. A guestbook collects name/email → treat as registration → restricted.
-  Check with `curl https://dataverse.harvard.edu/api/access/datafile/<id>` before building an adapter.
-- **Live/continuous APIs** (OpenFEMA etc.) change data every few minutes: point change detection at dataset
-  *metadata* (definition modified date, deprecation fields), not at refresh timestamps.
-- **Geographic codes**: never assume FIPS. NOAA uses NCEI state numbering; convert and keep the original code column.
-- **Census GEO_IDs** contain geographic *components* (e.g. `04000A0US06` = part of California); filter to `GEO_ID[5:7] == "00"` for whole areas.
-- Some agency sites (www.bls.gov, www.noaa.gov) block non-browser clients with 403 "Request blocked". That's the
-  publisher's bot protection, not our allowlist: try the agency's API/bulk host instead; never spoof a browser.
+Access
+- **Census Data API (api.census.gov) requires a key on every request** (since 2026) → restricted. Use www2.census.gov
+  bulk files. www2.census.gov answers **401** (not 404) for files that don't exist; treat 401/403/404 as "not published".
+- **Census bulk files are mostly latin-1**; PEP file-name case varies by vintage (resolve names from the directory
+  listing); Gazetteer files switched from tab to pipe delimiters (and added GEOIDFQ) in 2025.
+- **Census GEO_IDs** contain geographic *components* (e.g. `04000A0US06` = part of California); keep `GEO_ID[5:7] == "00"`.
+- **Never assume FIPS.** NOAA uses NCEI state numbering; convert and keep the original code column.
+- **Harvard Dataverse "guestbook"**: `"You may not download this file without the required Guestbook response"` →
+  registration → restricted. Check `curl https://dataverse.harvard.edu/api/access/datafile/<id>` first.
+- **BLS** blocks curl's default user agent but serves our honest `ODC_USER_AGENT`. BLS API v1's daily quota is per egress
+  IP and is often already exhausted in shared environments; don't make it the primary path.
+- **HUD User** (www.huduser.gov) serves an AWS WAF JavaScript challenge to scripts; its API needs a token.
+- **FederalRegister.gov** policy pages serve a "Request Access" page to scripts; use GovInfo/NARA pages for evidence.
+- **Socrata portals that publish a new dataset id per release** (CDC PLACES): keep a release→id map in the adapter and
+  watch the portal catalog search (`/api/catalog/v1?q=...`) with a `regex` change detector.
+- **Take file URLs from the publisher's download page or its JavaScript**, not guessed patterns (CHR&R's 2025 file is
+  `analytic_data2025_v3.csv`; SVI state files are named like `NewHampshire.csv`). ERS `/media/<n>/` links carry a `?v=`
+  cache token — strip it in change-detection regexes.
+- **HTML error pages with status 200** (BEA for unknown tables): `http.download` now rejects HTML responses unless
+  `allow_html=True`, so they're never cached or parsed as data.
+
+Change detection
+- **Live/continuous APIs** (OpenFEMA): watch dataset *metadata* (definition modified date, deprecation fields), not
+  refresh timestamps. **Nightly-regenerated files**: watch a header line, a layout/description page or a version file.
+
+Licensing
+- FEC's data.json spells the field `licence`; CMS puts licenses only on distributions; CDC PLACES has it only in Socrata
+  view metadata; CDC SVI only on CDC's ArcGIS Online item. `pod_license_excerpt.py` handles the first two.
+- A LICENSE file in an agency's *code* repository is not a data license (FEC).

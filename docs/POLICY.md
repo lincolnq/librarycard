@@ -32,6 +32,8 @@ A source may be onboarded only if **all** of these hold:
    public-use microdata released by statistical agencies (e.g. ACS PUMS, CPS); records about
    **public officials acting in their official capacity** (roll-call votes, sponsored bills,
    committee assignments, campaign-committee totals); records about organisations.
+   For public officials, return official identifiers and official contact details only: reduce birth dates to the
+   year, and drop personal email/phone/home address, biography text and photos unless they are the official ones.
 4. **In domain** for this catalog (currently: US domestic policy research — elections & politics,
    demographics/Census, economy & labor, income/poverty, housing, health, education, public
    finance & spending, legislation/regulation, crime/justice, environment/disasters as they
@@ -74,7 +76,24 @@ direction.
    public-domain data.
 6. **Third-party content**: if a federal site states that some datasets contain third-party
    copyrighted material, and you can't confirm this dataset is free of it, use `link_only`.
-7. **Re-check** the license whenever the source is flagged `source-changed`, and at least once a
+7. **Conditions we can satisfy in `license.attribution`** — credit the agency, state non-endorsement, don't present
+   modified data as original — do **not** by themselves force `link_only`. Put the required wording in `attribution`
+   (it is returned in every fetch's provenance). Conditions on *purpose* ("research only"), on downstream users, or
+   letting the publisher demand deletion **do** force `link_only`.
+8. **Where to look for a dataset-level statement** (any of these counts as evidence if it comes from the publisher's
+   own account/domain): the agency's Project Open Data catalog (`/data.json`; check dataset-level **and**
+   distribution-level `license`/`licence` fields — `scripts/pod_license_excerpt.py` does both); the dataset's
+   catalog.data.gov page; Socrata view metadata (`https://<portal>/api/views/<id>.json` → `license`); the agency's
+   ArcGIS Online item; the publisher's own source code for the site (e.g. a licensing component on GitHub) when the
+   site itself is JavaScript-only; metadata files shipped inside the download (save an excerpt with the archive's
+   sha256). Save each as evidence.
+9. **A federal dataset that is missing from its agency's catalog** has silent terms → `link_only`. Do not infer a
+   license from the agency's *other* datasets, and do not use a code repository's LICENSE file as a data license.
+10. **Non-commercial-only terms** (e.g. "licensed for personal or non-profit purposes"): onboard as `link_only`,
+   `commercial_use: no`, and make the **first** caveat state the restriction in plain words so consuming agents see
+   it. Whether a given deployment of this service qualifies as non-commercial is the operator's decision, not an
+   agent's (see Escalation 3); the human operator has been asked about `county-health-rankings` (2026-11-24).
+11. **Re-check** the license whenever the source is flagged `source-changed`, and at least once a
    year (`license.checked_at` older than 365 days is a reason to re-check during any visit).
    Each re-check adds a new dated snapshot; never delete old snapshots.
 
@@ -124,6 +143,14 @@ This repo's agents may run in a cloud environment with a domain allowlist.
   data from elsewhere). Instead: add the host to `ops/network-allowlist.txt`, add/keep the source
   in `ops/queue.yaml` with `reason: network` and the exact error in `detail`, and move on.
 - A `network`-kind failure in a `needs-repair` issue should first be checked against this list.
+
+### Publisher-side blocks (not our allowlist)
+
+- A publisher's own bot protection (HTTP 202/403 JavaScript challenges, "Request blocked", WAF pages) is not a
+  network-allowlist problem. Never spoof a browser or solve challenges. Use an official API or bulk host if one exists;
+  otherwise queue the source with `reason: publisher_blocked` and quote the response in `detail`.
+- Download links that exist only inside a web app (signed URLs from undocumented internal endpoints) are not a
+  keyless public route. Treat the source as `restricted` (or queue it) rather than building on undocumented endpoints.
 
 ## Credentials
 

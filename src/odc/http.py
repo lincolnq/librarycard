@@ -124,8 +124,15 @@ def _cache_path(url: str) -> Path:
     return CACHE_DIR / f"{h}-{name}"
 
 
+def _looks_like_html(path: Path) -> bool:
+    with open(path, "rb") as f:
+        head = f.read(512).lstrip().lower()
+    return head.startswith((b"<!doctype html", b"<html"))
+
+
 @contextmanager
-def download(url: str, *, cache_allowed: bool, max_age_s: int = 7 * 86400, params: dict | None = None) -> Iterator[Path]:
+def download(url: str, *, cache_allowed: bool, max_age_s: int = 7 * 86400, params: dict | None = None,
+             allow_html: bool = False) -> Iterator[Path]:
     """Download ``url`` to a local file and yield its path.
 
     If ``cache_allowed`` (the adapter passes this from the catalog license:
@@ -142,6 +149,9 @@ def download(url: str, *, cache_allowed: bool, max_age_s: int = 7 * 86400, param
         p.parent.mkdir(parents=True, exist_ok=True)
         tmp = p.with_suffix(p.suffix + ".part")
         _stream_to(full, tmp)
+        if not allow_html and _looks_like_html(tmp):
+            tmp.unlink(missing_ok=True)
+            raise SourceError(f"{full} returned an HTML page instead of a data file (error page or moved file?)", kind="parse", url=full)
         tmp.replace(p)
         yield p
         return
@@ -150,6 +160,8 @@ def download(url: str, *, cache_allowed: bool, max_age_s: int = 7 * 86400, param
     tmp = Path(name)
     try:
         _stream_to(full, tmp)
+        if not allow_html and _looks_like_html(tmp):
+            raise SourceError(f"{full} returned an HTML page instead of a data file (error page or moved file?)", kind="parse", url=full)
         yield tmp
     finally:
         tmp.unlink(missing_ok=True)

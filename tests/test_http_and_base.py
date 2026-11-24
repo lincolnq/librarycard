@@ -51,3 +51,21 @@ def test_download_respects_license_gate(tmp_path, monkeypatch):
     with http.download("https://example.gov/a.csv", cache_allowed=True):
         pass
     assert len(calls) == 2, "second allowed download should hit the cache"
+
+
+def test_download_rejects_html_error_pages(tmp_path, monkeypatch):
+    monkeypatch.setattr(http, "_stream_to", lambda url, dest: dest.write_text("<!DOCTYPE html><html>Not found</html>"))
+    monkeypatch.setattr(http, "CACHE_DIR", tmp_path / "cache")
+    for allowed in (True, False):
+        with pytest.raises(http.SourceError):
+            with http.download("https://example.gov/x.csv", cache_allowed=allowed):
+                pass
+    assert not list((tmp_path / "cache").glob("*x.csv")), "error pages must not be cached"
+
+
+def test_yaml_error_names_file(tmp_path):
+    from odc.catalog import CatalogError, load_entry
+    p = tmp_path / "bad.yaml"
+    p.write_text("caveats:\n  - Legal: note: oops\n  x\n")
+    with pytest.raises(CatalogError, match="bad.yaml"):
+        load_entry(p)

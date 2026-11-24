@@ -5,6 +5,9 @@ intent. `odc validate` checks both the schema and cross-file consistency (`src/o
 
 ## Fields
 
+YAML gotcha: quote any string containing `": "` (or starting with `-`, `:`, `{`, `[`, `*`, `&`, `!`, `%`, `@`, `` ` ``),
+otherwise it is parsed as a mapping/other type and the entry fails validation.
+
 | Field | Meaning / rules |
 |---|---|
 | `schema_version` | Integer, currently `1`. See [Evolving the schema](#evolving-the-schema). |
@@ -22,7 +25,7 @@ intent. `odc validate` checks both the schema and cross-file consistency (`src/o
 | `coverage.temporal_granularity` | Controlled vocabulary (`$defs/period`). |
 | `coverage.unit_of_observation` | What one row represents. |
 | `access.method` | `api` \| `bulk_download` \| `cloud_bucket` \| `restricted`. |
-| `access.endpoints` | List of `{url, description}` — the URLs/patterns the adapter uses. |
+| `access.endpoints` | List of `{url, description}` — the URLs/patterns the adapter (including any fallback path) contacts. Every host must be allowlisted. Put informational links in `access.notes`. |
 | `access.formats`, `rate_limits`, `notes` | Free text. |
 | `access.auth` | `none` for anything with an adapter. Otherwise `credentials_required` / `registration_required` / `data_use_agreement` and method must be `restricted`. |
 | `access.restricted_reason` | Required when restricted: what blocks automated access. |
@@ -31,7 +34,7 @@ intent. `odc validate` checks both the schema and cross-file consistency (`src/o
 | `update.expected_lag` | Typical delay from end of reference period to publication. |
 | `change_detection` | See below. |
 | `license` | `name`, `spdx` (or null), `url`, `redistribution` (`allowed`\|`link_only`; `unknown` is rejected), `commercial_use` (`yes`\|`no`\|`unclear`), `attribution`, `evidence` (dir), `checked_at`, `notes`. Rules: `docs/POLICY.md#licensing`. |
-| `key_variables` | `{name, label?, unit?, definition}` — names exactly as returned by `fetch`. |
+| `key_variables` | `{name, label?, unit?, definition}` — names exactly as returned by `fetch`. For restricted entries whose codebook is itself gated, list a few from public documentation and say "per publisher documentation, not verified". |
 | `caveats` | ≥ 1 string, each ≥ 20 chars. Anything that makes naive use wrong. Returned with every `fetch`. |
 | `related` | Other catalog ids (validated to exist). |
 | `status` | `healthy` \| `degraded` \| `quarantined` \| `retired` (`docs/POLICY.md#status-transitions`). |
@@ -51,7 +54,7 @@ moved files or license changes** — not on every routine data refresh (that wou
 | `http_headers` | `url`, optional `headers` (default `[etag, last-modified]`) | selected response headers (HEAD, falls back to GET) | a single file that is replaced on release; a changelog/readme file |
 | `content_hash` | `url` | sha256 of the body | small, stable metadata files (a JSON manifest, a release-notes page **without** dynamic content) |
 | `json_field` | `url`, `json_path` (string or list), optional `params` | the selected values | APIs with dataset metadata (version, modified, deprecation fields) |
-| `regex` | `url`, `pattern` | sorted set of all matches (group 1 if present) | directory listings (`href="(20\d\d)/"`), version strings on a page |
+| `regex` | `url`, `pattern` | sorted set of all matches (group 1 if present) | directory listings (`href="(20\d\d)/"`), version strings on a page, the header line of a nightly-regenerated CSV (`\A([^\r\n]+)`), the list of download links on a data page |
 | `none` | — | never polled | **restricted entries only** |
 
 `json_path` mini-language: `a.b`, `a[0]`, `a[*].b` (all), `a[key=value].b` (select). Test with
@@ -77,4 +80,4 @@ The schema will change. Rules:
 
 ## Changelog
 
-- v1 (2026-11-24): initial schema. `change_detection.json_path` accepts a list.
+- v1 (2026-11-24): initial schema. `change_detection.json_path` accepts a list. Queue reason `publisher_blocked` added.

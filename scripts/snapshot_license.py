@@ -86,10 +86,15 @@ def main() -> int:
             (d / name).write_text(header + body + "\n")
             lines.append(f"- `{name}` — {url} — retrieved {ts} — sha256 {sha[:16]}…")
             print(f"saved {d / name} ({len(body)} chars of text)")
+            if len(body) < 300:
+                print(f"WARNING: only {len(body)} chars of text — probably a JavaScript app or a bot-challenge page. "
+                      "This snapshot does NOT show the terms; treat the terms as unfetchable (docs/POLICY.md#licensing) "
+                      "or find a dataset-level statement elsewhere (data.json, Socrata/ArcGIS metadata).")
         except Exception as e:  # noqa: BLE001
             name = f"{today}-{slug(url)}-unavailable.txt"
             (d / name).write_text(f"URL: {url}\nAttempted: {ts}\nError: {e}\n")
-            lines.append(f"- `{name}` — {url} — FETCH FAILED {ts}: {str(e)[:200]}")
+            err = " ".join(str(e).split())[:200]  # one line, so NOTES.md stays a clean list
+            lines.append(f"- `{name}` — {url} — FETCH FAILED {ts}: {err}")
             print(f"FAILED {url}: {e}")
     txt = notes.read_text()
     marker = "## Snapshots\n"

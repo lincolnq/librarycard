@@ -50,7 +50,10 @@ def entry_hosts(e: dict) -> set[str]:
 def load_queue() -> list[dict]:
     if not QUEUE.exists():
         return []
-    data = yaml.safe_load(QUEUE.read_text()) or {}
+    try:
+        data = yaml.safe_load(QUEUE.read_text()) or {}
+    except yaml.YAMLError as e:
+        raise ValueError(f"{QUEUE}: YAML syntax error: {e}") from None
     return data.get("queued", []) or []
 
 
@@ -96,6 +99,6 @@ def consistency_problems(cat: Catalog) -> list[str]:
         for k in ("id", "name", "reason", "detail", "added"):
             if k not in q:
                 problems.append(f"ops/queue.yaml: entry {q.get('id', '?')} missing '{k}'")
-        if q.get("reason") not in ("network", "license", "credentials", "scope", "low_priority", "duplicate", "format", "unstable"):
+        if q.get("reason") not in ("network", "license", "credentials", "scope", "low_priority", "duplicate", "format", "unstable", "publisher_blocked"):
             problems.append(f"ops/queue.yaml: entry {q.get('id', '?')} has unknown reason {q.get('reason')!r}")
     return problems

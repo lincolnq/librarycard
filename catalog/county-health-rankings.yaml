@@ -82,6 +82,7 @@ key_variables:
   - name: vNNN_numerator / _denominator / _cilow / _cihigh / _flag
     definition: Components of each measure; flag 1 = unreliable, 2 = suppressed. Race-specific values in vNNN_race_<group>.
 caveats:
+  - "LICENSE RESTRICTION: the publisher's terms grant use only for personal or non-profit purposes and prohibit commercial use (including training commercial AI models). Do not use this data commercially or republish it; cite and link to countyhealthrankings.org."
   - Proportions are returned as 0-1 fractions (not percentages); rates have measure-specific denominators — check metadata.variable_labels and the year's data dictionary.
   - Each release mixes data years by measure (e.g. 2025 release uses 2022 BRFSS-based estimates, 2019-2021 mortality, 2023 ACS); the `year` column is the release year, not the data year.
   - Measure definitions and sources change between releases (see the publisher's "Changes to Select Measures" documents); compare years only after checking definitions. The county ranks themselves are within-state and are NOT in this file.
