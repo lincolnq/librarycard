@@ -1,0 +1,456 @@
+URL: https://www.fec.gov/campaign-finance-data/all-candidates-file-description/
+Final-URL: https://www.fec.gov/campaign-finance-data/all-candidates-file-description/
+Retrieved: 2026-11-24T23:34:46+00:00
+HTTP-Status: 200
+Raw-SHA256: 0301968b8efed83a7a874de99facbce8474feb0bfd6b865b5eb9f3e9147bcddd
+Raw-Bytes: 32602
+---
+Your web browser is not supported
+
+ This site uses features that are not supported by this browser. For a better experience, please switch to a modern browser.
+
+ skip navigation 
+
+ Here's how you know 
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Federal Election Commission | United States of America 
+
+ Calendar 
+
+ Glossary 
+
+ Search 
+
+ Search 
+
+ Menu 
+
+ Menu
+
+ Home 
+
+ Campaign finance data 
+
+ All data 
+
+ Raising 
+
+ Spending 
+
+ Loans and debts 
+
+ Filings and reports 
+
+ Candidates 
+
+ Committees 
+
+ Bulk data 
+
+ Campaign finance statistics 
+
+ Find elections. Search by state or ZIP code 
+
+ Look up contributions from specific individuals 
+
+ Help for candidates and committees 
+
+ All compliance resources 
+
+ Guides 
+
+ Forms 
+
+ Dates and deadlines 
+
+ Trainings 
+
+ Learn about electronic filing 
+
+ Find and contact your committee's analyst 
+
+ Legal resources 
+
+ All legal resources 
+
+ Advisory opinions 
+
+ Enforcement 
+
+ Statutes 
+
+ Legislation 
+
+ Regulations and rulemakings
+
+ Court cases 
+
+ Policy and other guidance 
+
+ Search across legal resources 
+
+ Search guidance documents 
+
+ About 
+
+ All about the FEC 
+
+ News and announcements 
+
+ Commission meetings 
+
+ Mission and history 
+
+ Leadership and structure 
+
+ Reports about the FEC 
+
+ Careers 
+
+ Working with the FEC 
+
+ Contact 
+
+ Introduction to campaign finance and elections 
+
+ Federal Election Commission | United States of America 
+
+ Home 
+
+ › 
+ Campaign finance data 
+
+ › 
+ All candidates file description 
+
+ All candidates file description
+
+ The all candidates file contains summary financial information for each candidate who raised or spent money during the period, regardless of when they are up for election. 
+
+ The file has one record per candidate and shows information about the candidate, total receipts, transfers received from authorized committees, total disbursements, transfers given to authorized committees, cash-on-hand totals, loans and debts, and other financial summary information.  The end-of-line (EOL) marker is line feed '\n' (LF, 0x0A, 10 in decimal). 
+ Data timing 
+ This file is completely dependent on summary information reported by the campaign. The time period covered by this file may be more recent than other data files (like the post-cycle candidate summary file). During the primary election season, the period covered may be different for candidates in different states, depending on their primary dates. Since the data is timelier, some of the information in this file is less precise than information in the post-cycle candidate summary file. For example, breakouts by special interest group code are not possible. 
+ Double-counted financial activity 
+ A candidate’s financial summary may have double-counted financial activity. If a candidate has more than one committee authorized to raise and spend funds on their behalf, the activity in this file combines these committees. If the committees transfer funds back and forth to each other, this activity would be counted twice. Information about “transfers to authorized committees” and “transfers from authorized committees” is included in the file. If there are values in both of these fields, subtract these from the total receipts and total disbursements for a more accurate value of the candidate’s total activity. 
+
+ All candidates file format 
+
+ Column name 
+ Field name 
+ Position 
+ Null 
+ Data type 
+ Description 
+ Example data 
+
+ CAND_ID 
+ Candidate identification 
+ 1 
+ N 
+ VARCHAR2 (9) 
+
+ H8VA01233 
+
+ CAND_NAME 
+ Candidate name 
+ 2 
+ Y 
+ VARCHAR2(200) 
+
+ Martha Washington 
+
+ CAND_ICI 
+ Incumbent challenger status 
+ 3 
+ Y 
+ VARCHAR2(1) 
+
+ I 
+
+ PTY_CD 
+ Party code 
+ 4 
+ Y 
+ VARCHAR2(1) 
+
+ NON 
+
+ CAND_PTY_AFFILIATION 
+ Party affiliation 
+ 5 
+ Y 
+ VARCHAR2(3) 
+
+ NON 
+
+ TTL_RECEIPTS 
+ Total receipts 
+ 6 
+ Y 
+ Number(14,2) 
+
+ 345,456.34 
+
+ TRANS_FROM_AUTH 
+ Transfers from authorized committees 
+ 7 
+ Y 
+ Number(14,2) 
+
+ 4000.00 
+
+ TTL_DISB 
+ Total disbursements 
+ 8 
+ Y 
+ Number(14,2) 
+
+ 175645.21 
+
+ TRANS_TO_AUTH 
+ Transfers to authorized committees 
+ 9 
+ Y 
+ Number(14,2) 
+
+ 0.00 
+
+ COH_BOP 
+ Beginning cash 
+ 10 
+ Y 
+ Number(14,2) 
+
+ 845901.23 
+
+ COH_COP 
+ Ending cash 
+ 11 
+ Y 
+ Number(14,2) 
+
+ 915671.43 
+
+ CAND_CONTRIB 
+ Contributions from candidate 
+ 12 
+ Y 
+ Number(14,2) 
+
+ 500.00 
+
+ CAND_LOANS 
+ Loans from candidate 
+ 13 
+ Y 
+ Number(14,2) 
+
+ 250000.00 
+
+ OTHER_LOANS 
+ Other loans 
+ 14 
+ Y 
+ Number(14,2) 
+
+ 0.00 
+
+ CAND_LOAN_REPAY 
+ Candidate loan repayments 
+ 15 
+ Y 
+ Number(14,2) 
+
+ 100000.00 
+
+ OTHER_LOAN_REPAY 
+ Other loan repayments 
+ 16 
+ Y 
+ Number(14,2) 
+
+ 0.00 
+
+ DEBTS_OWED_BY 
+ Debts owed by 
+ 17 
+ Y 
+ Number(14,2) 
+
+ 250.00 
+
+ TTL_INDIV_CONTRIB 
+ Total individual contributions 
+ 18 
+ Y 
+ Number(14,2) 
+
+ 450000.00 
+
+ CAND_OFFICE_ST 
+ Candidate state 
+ 19 
+ Y 
+ VARCHAR2(2 
+
+ VA 
+
+ CAND_OFFICE_DISTRICT 
+ Candidate district 
+ 20 
+ Y 
+ VARCHAR2(2) 
+
+ 01 
+
+ SPEC_ELECTION 
+ Special election status 
+ 21 
+ Y 
+ VARCHAR2(1) 
+ Election result data included in 1996-2006 files only. 
+ W 
+
+ PRIM_ELECTION 
+ Primary election status 
+ 22 
+ Y 
+ VARCHAR2(1) 
+ Election result data included in 1996-2006 files only. 
+ L 
+
+ RUN_ELECTION 
+ Runoff election status 
+ 23 
+ Y 
+ VARCHAR2(1) 
+ Election result data included in 1996-2006 files only. 
+ L 
+
+ GEN_ELECTION 
+ General election status 
+ 24 
+ Y 
+ VARCHAR2(1) 
+ Election result data included in 1996-2006 files only. 
+ W 
+
+ GEN_ELECTION_PRECENT 
+ General election percentage 
+ 25 
+ Y 
+ Number(7,4) 
+ Election result data included in 1996-2006 files only. 
+ 63.2 
+
+ OTHER_POL_CMTE_CONTRIB 
+ Contributions from other political committees 
+ 26 
+ Y 
+ Number(14,2) 
+
+ 200000.00 
+
+ POL_PTY_CONTRIB 
+ Contributions from party committees 
+ 27 
+ Y 
+ Number(14,2) 
+
+ 200000.00 
+
+ CVG_END_DT 
+ Coverage end date 
+ 28 
+ Y 
+ DATE(MM/DD/YYYY) 
+ Through date 
+ 10/19/2018 
+
+ INDIV_REFUNDS 
+ Refunds to individuals 
+ 29 
+ Y 
+ Number(14,2) 
+
+ 4000.00 
+
+ CMTE_REFUNDS 
+ Refunds to committees 
+ 30 
+ Y 
+ Number(14,2) 
+
+ 100.00 
+
+ Need help?
+
+ Get help from the FEC by phone or email 
+
+ This information is not intended to replace the law or to change its meaning, nor does this information create or confer any rights for or on any person or bind the Federal Election Commission or the public.
+
+ The reader is encouraged also to consult the Federal Election Campaign Act of 1971, as amended (52 U.S.C. 30101 et seq.), Commission regulations (Title 11 of the Code of Federal Regulations), Commission advisory opinions and applicable court decisions.
+
+ About 
+
+ Careers 
+
+ Press 
+
+ Contact 
+
+ Privacy and security policy 
+
+ Plain language 
+
+ Accessibility statement 
+
+ Strategy, budget and performance 
+
+ No FEAR Act 
+
+ Open government 
+
+ USA.gov 
+
+ Inspector General 
+
+ FOIA 
+
+ OpenFEC API 
+
+ GitHub repository 
+
+ Release notes 
+
+ FEC.gov status 
+
+ Federal Election Commission
+
+ The FEC's Twitter page 
+
+ The FEC's YouTube page 
+
+ Sign up for FECMail 
+
+ This information is produced and disseminated at U.S. taxpayer expense.
+
+ Hide glossary 
+
+ Glossary
+
+ Search terms 
+
+ Examples: receipt; Hybrid PAC

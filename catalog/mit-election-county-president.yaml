@@ -1,0 +1,74 @@
+schema_version: 1
+id: mit-election-county-president
+name: County Presidential Election Returns 2000–2024
+publisher:
+  name: MIT Election Data + Science Lab (MEDSL)
+  url: https://electionlab.mit.edu
+  type: research_institution
+homepage: https://doi.org/10.7910/DVN/VOQCHQ
+description: >-
+  County-level vote counts for every presidential candidate in the general elections of 2000 through 2024, compiled
+  by MEDSL from official state and county sources and keyed by 5-digit county FIPS. It is the standard research file
+  for county presidential results (state totals are in mit-election-president-state). Listed here for awareness
+  only: the Dataverse files sit behind a guestbook form, so this server cannot fetch them.
+domains: [elections]
+tags: [president, presidential-election, county, county-results, election-returns, votes, fips, medsl, mit, dataverse, guestbook]
+coverage:
+  geography: United States — counties and county-equivalents of the 50 states and DC (Alaska reported by state house district / statewide in some years)
+  countries: [US]
+  geographic_granularity: [county]
+  time_range:
+    start: "2000"
+    end: "2024"
+    notes: Presidential general elections 2000, 2004, ..., 2024. Some recent years break votes down by voting mode.
+  temporal_granularity: quadrennial
+  unit_of_observation: Candidate × county × presidential general election (× vote mode where reported)
+access:
+  method: restricted
+  endpoints:
+    - url: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/VOQCHQ
+      description: Dataverse dataset metadata (public). File downloads (countypres_2000-2024.tab) require a guestbook response.
+  formats: [csv, tab]
+  auth: registration_required
+  restricted_reason: >-
+    Harvard Dataverse guestbook 458 must be completed (name, email, institution) before any file can be downloaded;
+    anonymous API downloads return "You may not download this file without the required Guestbook response for
+    guestbookID 458" (observed 2026-11-24). Per docs/POLICY.md a guestbook counts as registration, so no adapter.
+  notes: Humans can download it from the homepage after filling in the guestbook. State-level presidential returns without a guestbook are in mit-election-president-state.
+update:
+  cadence: quadrennial
+  expected_lag: ~3-12 months after the election; corrections are published as new Dataverse versions.
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: CC0 1.0 Universal (public domain dedication), declared on the Dataverse dataset
+  spdx: CC0-1.0
+  url: http://creativecommons.org/publicdomain/zero/1.0
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "MIT Election Data and Science Lab, 2018, \"County Presidential Election Returns 2000-2024\", https://doi.org/10.7910/DVN/VOQCHQ, Harvard Dataverse."
+  evidence: evidence/licenses/mit-election-lab/
+  checked_at: "2026-11-24"
+  notes: CC0 governs reuse of the data; the guestbook governs access. Shared MEDSL license evidence.
+key_variables:
+  - name: county_fips
+    definition: 5-digit county FIPS code (per MEDSL's public codebook; the codebook file is itself behind the guestbook, so field names were not re-verified here).
+  - name: candidatevotes
+    unit: votes
+    definition: Votes for the candidate in the county (per MEDSL's codebook).
+  - name: totalvotes
+    unit: votes
+    definition: Total presidential votes cast in the county (per MEDSL's codebook).
+caveats:
+  - Not fetchable through this server — downloads require a Harvard Dataverse guestbook response (treated as registration). Use mit-election-president-state for state totals, which needs no guestbook.
+  - In recent elections some states report votes by mode (election day, early, absentee, provisional) as separate rows; sum across modes (mode = TOTAL rows exist only where no breakdown is reported) to avoid double counting or undercounting.
+  - Alaska does not report presidential results by county (boroughs); its rows use state house districts or a statewide total depending on the year. Connecticut's 2022 switch from counties to planning regions affects FIPS joins for later Census data.
+  - County results are as reported by states and may be revised; MEDSL publishes corrections as new Dataverse versions.
+related: [mit-election-president-state, mit-election-house, mit-election-senate-state]
+status: healthy
+status_reason: Catalog-only entry; access restricted (Dataverse guestbook required).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

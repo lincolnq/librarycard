@@ -1,0 +1,372 @@
+URL: https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys
+Final-URL: https://www.eac.gov/research-and-data/studies-and-reports
+Retrieved: 2026-11-24T23:36:32+00:00
+HTTP-Status: 200
+Raw-SHA256: 64679c4a573ab7c94800289c4c626b8dd90a629fda5ce4cd8647017fcae4206b
+Raw-Bytes: 152901
+---
+Skip to main content
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Here's how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Need voter registration information?
+ Visit Vote.gov 
+
+ United States 
+ Election Assistance 
+ Commission 
+
+ Menu
+
+ United States
+
+ Election Assistance
+
+ Commission
+
+ Close
+
+ Election Admin 
+
+ Election Management Guidelines 
+
+ Election Official Toolkits 
+
+ Quick Start Guides 
+
+ Election Official Resources 
+
+ Language Access Resources 
+
+ UOCAVA Resources 
+
+ Secure Elections 
+
+ Accessibility 
+
+ VVSG Communication Resources 
+
+ Poll Worker Resources for Election Officials 
+
+ Clearinghouse Awards 
+
+ All Election Admin Resources 
+
+ Voting 
+
+ Voting in Your State 
+
+ National Mail Voter Registration Form 
+
+ Become A Poll Worker 
+
+ Voter FAQs 
+
+ Voting 101 
+
+ Overseas & Military 
+
+ Secure Voting 
+
+ Voter Accessibility 
+
+ Voter Registration Cancellations 
+
+ All Voting Resources 
+
+ Election Technology 
+
+ Voting System Testing & Certification Program (T&C) 
+
+ Election Supporting Technology Evaluation Program (ESTEP) 
+
+ Field Services Program (FSP) 
+
+ View All Election Technology Resources 
+
+ Research 
+
+ Election Administration and Voting Survey (EAVS) Reports 
+
+ Accessibility 
+
+ PCEA 
+
+ All Research Resources 
+
+ Grants 
+
+ Grants Management & Oversight 
+
+ Grants Guidance 
+
+ HAVA Grant Programs 
+
+ Grants Expenditure Reports 
+
+ HAVA Audits and Resolutions 
+
+ Reporting Requirements 
+
+ Election Security Funds 
+
+ State Administrative Complaints 
+
+ Help America Vote College Program 
+
+ All Grants Resources 
+
+ News & Events 
+
+ Blogs 
+
+ Events 
+
+ News 
+
+ EAC Newsletters 
+
+ EAC's YouTube Channel 
+
+ All News & Events 
+
+ About 
+
+ Advisory Boards 
+
+ EAC Commissioners 
+
+ Budget and Finance 
+
+ Congressional Affairs 
+
+ Help America Vote Act 
+
+ Careers 
+
+ Office of Inspector General 
+
+ Contact U.S. EAC 
+
+ About the EAC 
+
+ Breadcrumb
+
+ EAC Home 
+
+ Research & Data 
+
+ Studies and Reports 
+
+ Studies and Reports 
+
+ Thursday, November 19, 2026
+
+ Election Administration and Voting Survey (EAVS) Comprehensive Report
+ 2024 Election Administration and Voting Survey Report 
+
+ On June 30, 2025, the EAC published the biennial Election Administration and Voting Survey (EAVS) Comprehensive Report, an analysis of state-by-state data that covers various topics related to the administration of federal elections. Topics covered through EAVS data collection relate to voter registration and list maintenance, voting practices for overseas citizens and members of the armed forces serving away from home and other important issues related to voting and election administration. It is a survey of all 50 U.S. states, the District of Columbia, American Samoa, Guam, Northern Mariana Islands, Puerto Rico, and the U.S. Virgin Islands.
+ Prior to 2014, this data was reported in three different reports – the National Voter Registration Act (NVRA) report , the Uniformed and Overseas Citizens Absentee Voting Act (UOCAVA) report , and the Election Day Survey. In addition, for the 2018 administration of the EAVS, the EAC transitioned from the Statutory Overview, which asks states a series of open-ended questions about their election laws, definitions, and procedures, and now, administers the Policy Survey, a series of closed-ended questions that cover the same topics - allowing for cleaner data and that is more usable than the previous question type.
+ On this page, you will find links to all EAVS Comprehensive Reports, NVRA, UOCAVA, Data Interactives, State-by-State Briefs, and Statutory Overview datasets, codebooks, and survey instruments from 2004 - Present.
+ EAVS Data Resources
+ Report: The History, Evolution, and Future Directions of the Election Administration and Voting Survey (EAVS) This report and associated data show how the Election Administration and Voting Survey (EAVS) has emerged as the most comprehensive source of data on U.S. elections.
+
+ EAVS Data Interactive   The Election Administration and Voting Survey interactive allows users to examine and compare data at both the state and local levels, as well as look at any combination of jurisdictions side by side.  
+ Our related  guide  provides details on how to use the tool. 
+
+ EAVS Reports and Materials by Reporting Year
+
+ 2026
+
+ 2026 Election Administration and Voting Survey Instrument 
+ 2026 Election Administration Policy Survey Instrument 
+ 2026 EAVS At-a-Glance 
+ 2026 EAVS Glossary 
+ A Guide to the Election Administration and Voting Survey (Updated July 24, 2024)
+ 2026 EAVS portal ( https://eavsportal.com/ )
+ The first public comment period for the 2026 Election Administration and Policy Survey closed on March 16, 2026. The second public comment period closed on May 25, 2026. 
+
+ 2024
+
+ 2024 Election Administration and Voting Survey Report 
+ Eratta Note  (released July 17, 2025)
+ EAVS One-Page Infographic 
+ EAVS: Data Codebook 
+ Policy Survey: Data Codebook 
+ EAVS Datasets Version 2.0 (released February 12, 2026): Excel , Stata , CSV , SPSS , SAS Errata Note  (released February 12, 2026) 
+
+ EAVS Datasets Version 1.0 (released June 30, 2025): Excel , Stata , CSV , SPSS , SAS 
+ Policy Survey Version 2.0 (released February 12, 2026): Excel , Stata , CSV , SPSS , SAS Errata Note  (released February 12, 2026) 
+
+ Policy Survey Version 1.0 (released June 30, 2025): Excel , Stata , CSV , SPSS , SAS 
+ 2024 Election Administration and Voting Survey Instrument 
+ 2024 Election Administration Policy Survey Instrument 
+ The first public comment period for the 2024 Election Administration and Policy Survey closed on January 15, 2024. The second public comment period closed on April 3, 2024.
+ Planned Changes to 2024 EAVS 
+ 2024 EAVS portal ( https://eavsportal.com/ )
+ State Data Briefs 
+ Alabama | Alaska | American Samoa | Arkansas | Arizona | California | Colorado | Connecticut | Delaware | District of Columbia | Florida | Georgia | Guam | Hawaii | Idaho | Illinois | Indiana | Iowa | Kansas | Kentucky | Louisiana | Maine | Maryland | Massachusetts | Michigan | Minnesota | Mississippi | Missouri | Montana | Nebraska | Nevada | New Hampshire | New Jersey | New Mexico | New York | North Carolina | North Dakota | Northern Mariana Islands | Ohio | Oklahoma | Oregon | Pennsylvania | Puerto Rico | Rhode Island | South Carolina | South Dakota | Tennessee | Texas | U.S. Virgin Islands | Utah | Vermont | Virginia | Washington | West Virginia | Wisconsin | Wyoming | United States 
+
+ 2022
+
+ 2022 Election Administration and Voting Survey Report 
+ Errata Note (released November 8, 2024)
+ 2022 Data Interactive (Download the PowerBI file) How to Use Guide 
+ 2022 Data Interactive  (Excel)
+
+ EAVS: Data Codebook 
+ Policy Survey: Data Codebook 
+ EAVS Dataset Version 1.1 (released December 18, 2023): CSV , Excel , SPSS , Stata , SAS Errata Note (released December 18, 2023)
+
+ EAVS Datasets Version 1.0 (released June 29, 2023):  Excel , Stata , CSV ,  SPSS ,  SAS 
+ Policy Survey Version 1.1 (released December 18, 2023): CSV , Excel , SPSS , Stata , SAS Errata Note (released December 18, 2023)
+
+ Policy Survey Version 1.0 (released June 29, 2023):  Excel , Stata , CSV ,  SPSS ,  SAS 
+ 2022 Election Administration and Voting Survey Instrument 
+ 2022 Election Administration Policy Survey Instrument 
+ The first public comment period for the 2022 Election Administration and Policy Survey closed on January 28, 2022. The second public comment period closed on April 4, 2022.
+ A Guide to the Election Administration and Voting Survey (Updated July 20, 2022)
+ 2022 EAVS Glossary 
+ State Data Briefs 
+ Alabama  | Alaska  | American Samoa | Arkansas  | Arizona  | California  | Colorado | Connecticut  | Delaware  |  District of Columbia |  Florida  | Georgia | Guam  | Hawaii  | Idaho  | Illinois  | Indiana  | Iowa  | Kansas  | Kentucky  | Louisiana | Maine  | Maryland  | Massachusetts  | Michigan  | Minnesota  | Mississippi  | Missouri  | Montana  | Nebraska  | Nevada  | New Hampshire | New Jersey | New Mexico | New York | North Carolina | North Dakota | Northern Mariana Islands | Ohio  | Oklahoma  | Oregon  | Pennsylvania  | Puerto Rico | Rhode Island | South Carolina | South Dakota | Tennessee  | Texas  | U.S. Virgin Islands | Utah   | Vermont  | Virginia  | Washington  | West Virginia | Wisconsin | Wyoming | United States   
+
+ 2020
+
+ 2020 Election Administration and Voting Survey Report 
+ 2020 Data Interactive  (Download the PowerBI file) How to Use Guide 
+ EAVS: Data Codebook 
+ Policy Survey: Data Codebook 
+ EAVS Datasets Version 1.2 (released December 18, 2023):  CSV ,  Excel ,  SPSS ,  Stata , SAS Errata Note (released December 18, 2023)
+
+ EAVS Datasets Version 1.1 (released October 8, 2021):  CSV ,  Excel ,  SPSS ,  Stata , SAS Errata Note (released October 8, 2021)
+
+ EAVS Datasets Version 1.0 (released August 16, 2021):  CSV ,  Excel ,  SPSS ,  Stata , SAS  
+ Policy Survey:  CSV ,  Excel ,  SPSS ,  Stata ,  SAS 
+ The first public comment period for the 2020 Election Administration and Policy Survey closed on December 6, 2019. The second public comment period closed on March 12, 2020.
+ 2020 Election Administration and Voting Survey Instrument 
+ 2020 Election Administration Policy Survey Instrument 
+ A Guide to the Election Administration and Voting Survey 
+ State Data Briefs 
+ Alabama  |  Alaska  |  American Samoa |  Arkansas  |  Arizona  |  California  |  Colorado  |  Connecticut  |  Delaware  |  District of Columbia  |  Florida  |  Georgia  |  Guam  |  Hawaii  |  Idaho  |  Illinois  |  Indiana  |  Iowa  |  Kansas  |  Kentucky  |  Louisiana  |  Maine  |  Maryland  |  Massachusetts  |  Michigan  |  Minnesota  |  Mississippi  |  Missouri  |  Montana  |  Nebraska  |  Nevada  |  New Hampshire  |  New Jersey  |  New Mexico  |  New York  |  North Carolina  |  North Dakota  | Northern Mariana Islands |  Ohio  |  Oklahoma  |  Oregon  |  Pennsylvania  |  Puerto Rico  |  Rhode Island  |  South Carolina  |  South Dakota  |  Tennessee  |  Texas  |  U.S. Virgin Islands  |  Utah   |  Vermont  |  Virginia  |  Washington  |  West Virginia  |  Wisconsin  |  Wyoming 
+
+ 2018
+
+ 2018 Election Administration and Voting Survey Report 
+ ​2018 EAVS and Policy Survey Online Appendices - Descriptive Tables 
+ 2018  Data Interactive  (External Webpage)  how to use guide  (Video)
+ EAVS: Data Codebook 
+ Policy Survey: Data Codebook 
+ EAVS Datasets Version 1.3 (released July 15, 2020):  CSV ,  Excel ,  SPSS ,  Stata   Errata Note  (February 18, 2020) 
+ Errata Note  (July 15, 2020)
+
+ EAVS Datasets Version 1.2 (released February 18, 2020):  CSV ,  Excel ,  SPSS ,  Stata ,  SAS 
+ EAVS Datasets Version 1.1 (released October 22, 2019): CSV , Excel , SPSS ,  Stata , SAS   Errata Note (October 22, 2019)
+
+ EAVS Datasets Version 1.0 (released June 27, 2019): CSV , Excel , SPSS ,  Stata , SAS  
+ Policy Survey: CSV , Excel, SPSS , Stata , SAS 
+ 2018 Election Administration and Voting Survey Instrument 
+ 2018 Election Administration Policy Survey Instrument  (formerly the Statutory Overview) Download PDF 
+ State Data Briefs 
+ Alabama  |  Alaska  |  Arkansas  |  Arizona   |  California  |  Colorado  |  Connecticut  | Delaware |  District of Columbia  |  Florida  |  Georgia  |  Guam  |  Hawaii  |  Idaho  |  Illinois  |  Indiana  |  Iowa  |  Kansas  |  Kentucky  |  Louisiana  |  Maine  |  Maryland  |  Massachusetts  |  Michigan  |  Minnesota  |  Mississippi  |  Missouri  |  Montana  |  Nebraska  |  Nevada  |  New Hampshire  |  New Jersey  |  New Mexico  |  New York |  North Carolina  |  North Dakota  |  Ohio  |  Oklahoma  |  Oregon  |  Pennsylvania  | Puerto Rico |  Rhode Island  |  South Carolina  |  South Dakota  |  Tennessee  |  Texas  |  U.S. Virgin Islands  |  Utah   |  Vermont  |  Virginia  |  Washington  |  West Virginia  |  Wisconsin  |  Wyoming 
+
+ 2016
+
+ 2016 Election Administration and Voting Survey Report 
+ 2016  Data Interactive  (External Webpage) EAVS 2016 -  How to Guide on Data Interactive 
+
+ Dataset Version 1.1 (released December 18, 2023): Excel , SPSS , CSV , Stata Errata Note (released December 18, 2023)
+
+ Datasets Version 1.0 (released June 29, 2017):  Excel ,  SPSS ,  CSV ,  Stata Dataset Notes  (Archived)
+
+ Data Codebook 
+ Survey Instrument 
+ Statutory Overview Dataset:  AK - KS ;  KY - NY ;  OH - WY 
+ Statutory Overview Survey Instrument 
+ State Data Briefs 
+ Alabama  |  Alaska  |  Arkansas  |  Arizona   |  California  |  Colorado  |  Connecticut  |  Delaware  |  District of Columbia  |  Florida  |  Georgia  |  Guam  |  Hawaii  |  Idaho  |  Illinois  |  Indiana  |  Iowa  |  Kansas  |  Kentucky  |  Louisiana  |  Maine  |  Maryland  |  Massachusetts  |  Michigan  |  Minnesota  |  Mississippi  |  Missouri  |  Montana  |  Nebraska  |  Nevada  |  New Hampshire  |  New Jersey  |  New Mexico  |  New York  |  North Carolina  |  North Dakota  |  Ohio  |  Oklahoma  |  Oregon  |  Pennsylvania  |  Puerto Rico   Rhode Island  |  South Carolina  |  South Dakota  |  Tennessee  |  Texas  |  U.S. Virgin Islands  |  Utah   |  Vermont  |  Virginia  |  Washington  |  West Virginia  |  Wisconsin  |  Wyoming 
+
+ 2014
+
+ 2014 Election Administration and Voting Survey Report 
+ Datasets:  Excel ,  SPSS ,  DBF 
+ Dataset Notes 
+ Data Codebook 
+ Survey Instrument 
+ Statutory Overview Dataset:  A-I ,  J-N ,  O-Z 
+ Statutory Overview Survey Instrument  
+
+ 2012
+
+ 2012 Election Administration and Voting Survey Report 
+ NVRA Datasets: Excel ,  SPSS,   DBF Part 1 ,  DBF Part II 
+ NVRA Data Codebook 
+ UOCAVA Datasets: Excel , SPSS , DBF part I ,  DBF part II 
+ UOCAVA Data Codebook  
+ Election Day Survey Datasets: Excel – Sections C, D, E ,  Excel – Section F ,  SPSS ,  DB 
+ Survey Instrument : NVRA, UOCAVA, and Election Day Survey
+ Statutory Overview Dataset: A-I ,  J-N ,  O-Z 
+ Statutory Overview Survey Instrument  
+
+ 2010
+
+ 2010 Election Administration and Voting Survey Report 
+ NVRA Datasets:  Excel ,  SPSS,   DBF Part 1 ,  DBF Part II 
+ Texas Revised NVRA Data (per the State's Request - XLS)  
+ Illinois Revised NVRA Data (per the State's Request - XLS)     
+ California’s same-day registration data for Alameda County (question A4a) is incorrect, and, according to the state, no revised data is available. The number of same-day registration applications in California is not 1,897,328 as previously reported. Readers of the report and users of California’s data should exercise caution when interpreting and analyzing data for question A4a. Additionally, readers should note that the total number of same-day registrations for the 16 states that received these types of applications is likely to be far less than 2,376,178, as previously reported.  Revised NVRA Table 5 . 
+ NVRA Data Codebook 
+ UOCAVA Datasets  Excel ,  SPSS ,  DBF part I ,  DBF part II ,  DBF part III , 
+ UOCAVA Data Codebook 
+ Election Day Survey Datasets:  Excel ,  SPSS ,  DBF 
+ Survey Instrument : NVRA, UOCAVA, and Election Day Survey
+ Statutory Overview Dataset:  A-M,   N-Z 
+ Statutory Overview Survey Instrument 
+
+ 2008
+
+ 2008 Election Administration and Voting Survey Report 
+ NVRA, UOCAVA, and Election Day Survey Datasets:  Excel ,  SAS ,  DBF ,  Kentucky ,  Illinois  (The data submitted by Kentucky and Illinois were mistakenly excluded from the dataset.)
+ Survey Instrument : NVRA, UOCAVA, and Election Day Survey
+ Statutory Overview Dataset 
+ Statutory Overview Survey Instrument  (last section of Statutory Overview report)
+
+ 2006
+
+ 2006 Election Administration and Voting Survey Report 
+ NVRA, UOCAVA, and Election Day Survey Datasets:  Excel 
+ Data Codebook : NVRA, UOCAVA, and Election Day Survey
+ Survey Instrument : NVRA, UOCAVA, and Election Day Survey
+
+ 2004
+
+ 2004 Election Administration and Voting Survey Report 
+ NVRA, UOCAVA, and Election Day Survey Datasets:  Excel 
+ Survey Instrument  (Appendix 1): NVRA, UOCAVA, and Election Day Survey
+
+ U.S. Election Assistance Commission
+
+ 633 3rd Street NW, Suite 200,
+
+ Washington, DC 20001 
+
+ Contact the EAC
+
+ Stay Informed
+
+ Get the latest on elections, resources, and events
+
+ delivered straight to your inbox.

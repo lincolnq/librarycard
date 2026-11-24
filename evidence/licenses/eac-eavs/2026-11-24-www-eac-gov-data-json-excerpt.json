@@ -1,0 +1,423 @@
+{
+ "_source_url": "https://www.eac.gov/data.json",
+ "_retrieved": "2026-11-24T23:36:33+00:00",
+ "_pattern": "Election Administration and Voting Survey",
+ "_catalog_license_counts": {
+  "null": 11
+ },
+ "entries": [
+  {
+   "@type": "dcat:Dataset",
+   "title": "2018 Election Administration and Voting Survey",
+   "modified": "2022-06-28T20:36:08.196Z",
+   "accessLevel": "public",
+   "identifier": "EAVS2018",
+   "dataQuality": true,
+   "rights": "true",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:RSweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "format": "CSV, Excel, SPSS, Stata, SAS",
+     "title": "2018-election-administration-and-voting-survey",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2018 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2018 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys"
+    }
+   ],
+   "keyword": [
+    "domestic absentee voting",
+    "election administration",
+    "elections",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "000:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "us-EN"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2016 Election Administration and Voting Survey",
+   "modified": "2017-06-30",
+   "accessLevel": "public",
+   "identifier": "EAVS2016",
+   "issued": "2017-06-01",
+   "landingPage": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:RSweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "format": "CSV, Excel, SPSS, Stata",
+     "title": "2016 Election Administration and Voting Survey",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2016 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2016 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys"
+    }
+   ],
+   "keyword": [
+    "domestic absentee voting",
+    "election administration",
+    "elections",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "525:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "us-EN"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2014 Election Administration and Voting Survey",
+   "modified": "2015-06-30",
+   "accessLevel": "public",
+   "identifier": "EAVS2014",
+   "issued": "2015-06-30",
+   "landingPage": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:RSweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "format": "Excel, SPSS, DBF",
+     "title": "2014 Election Administration and Voting Survey",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2014 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2014 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys"
+    }
+   ],
+   "keyword": [
+    "domestic absentee voting",
+    "election administration",
+    "elections",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "525:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "us-EN"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2012 Election Administration and Voting Survey",
+   "modified": "2013-09-01",
+   "accessLevel": "public",
+   "identifier": "EAVS2012",
+   "issued": "2013-09-01",
+   "landingPage": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:RSweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "format": "Excel, SPSS, DBF",
+     "title": "2012 Election Administration and Voting Survey",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2012 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2012 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys"
+    }
+   ],
+   "keyword": [
+    "domestic absentee voting",
+    "election administration",
+    "elections",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "525:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "us-EN"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2020 Election Administration and Voting Survey",
+   "modified": "2023-11-27T20:54:55.432Z",
+   "accessLevel": "public",
+   "identifier": "EAVS2020",
+   "dataQuality": true,
+   "issued": "2021-08-16",
+   "landingPage": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys",
+   "rights": "true",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:RSweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "format": "CSV, Excel, SPSS, Stata, SAS",
+     "title": "2020 Election Administration and Voting Survey",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2020 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2020 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys"
+    }
+   ],
+   "keyword": [
+    "domestic absentee voting",
+    "election administration",
+    "elections",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "000:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "en-US"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "2022 Election Administration and Voting Survey",
+   "modified": "2024-04-05T19:55:41.146Z",
+   "accessLevel": "public",
+   "identifier": "EAVS2022",
+   "dataQuality": true,
+   "issued": "2023-06-01",
+   "landingPage": "https://www.eac.gov/research-and-data/studies-and-reports",
+   "rights": "true",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:RSweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "text/html",
+     "title": "2022 Election Administration and Voting Survey",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2022 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2018 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/studies-and-reports"
+    }
+   ],
+   "keyword": [
+    "Elections",
+    "civilian absentee voting",
+    "election administration",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voter registration",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "000:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "en-US"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "The History, Evolution, and Future Directions of the Election Administration and Voting Survey (EAVS)",
+   "modified": "2025-09-18T20:35:18.816Z",
+   "accessLevel": "public",
+   "identifier": "eavshist",
+   "dataQuality": true,
+   "issued": "2025-05-28",
+   "landingPage": "https://www.eac.gov/research-and-data/eavs-retrospective",
+   "rights": "true",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Election Assistance Commission"
+   },
+   "accrualPeriodicity": "irregular",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:rsweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/pdf",
+     "title": "the history evolution and future directions of the election administration and voting survey",
+     "description": "Shows how the Election Administration and Voting Survey emerged as the comprehensive source of information on U.S. elections."
+    }
+   ],
+   "keyword": [
+    "domestic absentee voting",
+    "domestic elections",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voter registration",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "000:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "en-US"
+   ],
+   "references": [
+    "https://www.eac.gov/research-and-data/eavs-retrospective"
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "Election Administration and Voting Survey 2024 Comprehensive Report",
+   "modified": "2025-09-19T15:22:00.840Z",
+   "accessLevel": "public",
+   "identifier": "2024EAVS",
+   "dataQuality": true,
+   "issued": "2025-06-01",
+   "landingPage": "https://www.eac.gov/research-and-data/studies-and-reports",
+   "rights": "true",
+   "temporal": "2022-11-09/2024-11-05",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Election Assistance Commission"
+   },
+   "accrualPeriodicity": "R/P2Y",
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Robert Sweeney",
+    "hasEmail": "mailto:rsweeney@eac.gov"
+   },
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "mediaType": "application/pdf",
+     "title": "Election Administration and Voting Survey 2024 Comprehensive Report",
+     "description": "This dataset contains data about domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2024 election cycle. The corresponding comprehensive report addresses voter registration, uniformed and overseas citizen voting, domestic absentee voting, provisional balloting, poll books, polling place, precincts, poll workers, and voting technology used in the 2024 election. The Election Administration and Voting Survey report is part of EAC's Election Administration and Voting Survey biennial project.",
+     "downloadURL": "https://www.eac.gov/research-and-data/studies-and-reports"
+    }
+   ],
+   "keyword": [
+    "Elections",
+    "civilian absentee voting",
+    "election administration",
+    "military absentee voting",
+    "overseas citizen voting",
+    "poll workers",
+    "polling places",
+    "precinct",
+    "provisional ballots",
+    "voter registration",
+    "voting technology"
+   ],
+   "bureauCode": [
+    "000:00"
+   ],
+   "programCode": [
+    "000:000"
+   ],
+   "language": [
+    "en-US"
+   ],
+   "references": [
+    "https://www.eac.gov/research-and-data/studies-and-reports"
+   ]
+  }
+ ]
+}

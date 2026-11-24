@@ -8,6 +8,11 @@ pypi.org                             # pip install
 files.pythonhosted.org               # pip install
 
 # --- sources
+cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com   # fec-all-candidates (www.fec.gov/files/bulk-downloads redirects here)
+dataverse.harvard.edu                # mit-election-president-state, mit-election-senate-state
+dvn-cloud-iqss.s3.amazonaws.com      # mit-election-president-state, mit-election-senate-state (Dataverse download redirects)
 noaa-nclimgrid-daily-pds.s3.amazonaws.com   # noaa-nclimgrid-daily
+www.eac.gov                          # eac-eavs
+www.fec.gov                          # fec-all-candidates
 www.fema.gov                         # fema-disaster-declarations
 www2.census.gov                      # census-acs-summary-file (+ other Census bulk files)

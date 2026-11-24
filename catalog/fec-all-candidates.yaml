@@ -1,0 +1,98 @@
+schema_version: 1
+id: fec-all-candidates
+name: FEC All Candidates File (candidate financial summaries, weball)
+publisher:
+  name: Federal Election Commission (FEC)
+  url: https://www.fec.gov
+  type: us_federal
+homepage: https://www.fec.gov/campaign-finance-data/all-candidates-file-description/
+description: >-
+  Campaign-finance totals for every candidate for President, Senate and House who raised or spent money in a
+  two-year election cycle, one record per candidate with all of the candidate's authorized committees combined:
+  total receipts and disbursements, cash on hand, candidate contributions and loans, debts, and contributions from
+  individuals (aggregate only), PACs and parties. The FEC builds it from the financial reports campaigns are required
+  to file under the Federal Election Campaign Act and regenerates it daily. Candidate-level totals only — no
+  itemized contributions or donor names.
+domains: [elections, politics_legislation]
+tags: [fec, campaign-finance, fundraising, money-in-politics, receipts, disbursements, cash-on-hand, candidates, congress, president, bulk-data, weball]
+coverage:
+  geography: United States — federal offices (states and congressional districts for House/Senate; national for President)
+  countries: [US]
+  geographic_granularity: [nation, state, congressional_district, person]
+  time_range:
+    start: "1980"
+    end: null
+    notes: Two-year cycles 1979-80 through the current cycle (2025-26 as of 2026-11). Election outcome columns are populated only in the 1996-2006 files.
+  temporal_granularity: biennial
+  unit_of_observation: Federal candidate × two-year election cycle (all authorized committees combined)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www.fec.gov/files/bulk-downloads/{CYCLE}/weball{YY}.zip
+      description: Zip with one header-less pipe-delimited file weball<YY>.txt (30 columns, ~0.2 MB zipped). Redirects (302) to FEC's S3 bucket cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com.
+    - url: https://www.fec.gov/campaign-finance-data/all-candidates-file-description/
+      description: Column layout (names, positions, types); the adapter hard-codes this list and fails loudly if the field count changes.
+  formats: [pipe-delimited text (zip)]
+  rate_limits: None published for bulk downloads. Cached for 1 day (public domain; file is regenerated daily).
+  auth: none
+  notes: The OpenFEC API (api.open.fec.gov) serves the same totals but requires an API key, so it is not used.
+update:
+  cadence: daily
+  expected_lag: ~1 day after reports are processed; campaign reports themselves are filed quarterly/monthly and pre-/post-election.
+change_detection:
+  method: regex
+  url: https://www.fec.gov/campaign-finance-data/all-candidates-file-description/
+  pattern: '<tr>\s*<td[^>]*>(?:\s*<[^>]+>)*\s*([A-Z][A-Z_]+)\s*<'
+  poll_interval_days: 7
+  notes: Fingerprints the set of column names on FEC's file-description page, so it fires on a layout change (the adapter's hard-coded column list must then be updated), not on the daily data regeneration (which changes the zip's ETag every day).
+license:
+  name: Public domain (U.S. Government work) / CC0 1.0, per FEC's data licence; statutory sale-or-use restriction on individual contributor information does not apply to this file
+  spdx: CC0-1.0
+  url: https://github.com/fecgov/FEC/blob/master/LICENSE.md
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "Federal Election Commission, All candidates file (weball), FEC bulk data, https://www.fec.gov/data/browse-data/?tab=bulk-data."
+  evidence: evidence/licenses/fec-all-candidates/
+  checked_at: "2026-11-24"
+  notes: See NOTES.md — licence named in fec.gov/data.json; FEC says the sale-or-use restriction (52 U.S.C. 30111(a)(4)) "applies only to the use of individual contributor information".
+key_variables:
+  - name: CAND_ID
+    definition: FEC candidate id; first letter is the office (H/S/P), then election-cycle digit, state and sequence, e.g. H8NY15148. Stable across cycles for the same office.
+  - name: CAND_OFFICE
+    definition: Added by the adapter — H (House), S (Senate), P (President), from the first letter of CAND_ID.
+  - name: CAND_NAME
+    definition: Candidate name, "LAST, FIRST".
+  - name: CAND_PTY_AFFILIATION
+    definition: 3-letter party code (DEM, REP, LIB, GRE, IND, ...).
+  - name: CAND_ICI
+    definition: I = incumbent, C = challenger, O = open seat.
+  - name: TTL_RECEIPTS
+    unit: USD (nominal)
+    definition: Total receipts for the cycle (through CVG_END_DT), all authorized committees combined; includes transfers between them (TRANS_FROM_AUTH).
+  - name: TTL_DISB
+    unit: USD (nominal)
+    definition: Total disbursements; includes transfers to other authorized committees (TRANS_TO_AUTH).
+  - name: COH_COP
+    unit: USD (nominal)
+    definition: Cash on hand at the close of the coverage period (COH_BOP = at the beginning of the cycle).
+  - name: TTL_INDIV_CONTRIB
+    unit: USD (nominal)
+    definition: Total contributions from individuals (aggregate; no donor detail). OTHER_POL_CMTE_CONTRIB = from PACs/other committees; POL_PTY_CONTRIB = from party committees; CAND_CONTRIB / CAND_LOANS = from the candidate.
+  - name: CVG_END_DT
+    unit: ISO date
+    definition: Coverage end date — totals run through this date (varies by candidate). Converted from MM/DD/YYYY.
+caveats:
+  - Totals combine all of a candidate's authorized committees, so money transferred between them is counted twice. FEC advises subtracting TRANS_FROM_AUTH from TTL_RECEIPTS and TRANS_TO_AUTH from TTL_DISB for the candidate's net activity.
+  - Coverage periods differ by candidate (see CVG_END_DT), especially during primaries and in the current cycle; compare candidates only over comparable coverage dates. For final, more precise cycle totals FEC recommends its post-cycle candidate summary file.
+  - The file is regenerated daily from reports as filed and amended; current-cycle values change constantly and past cycles can change after amendments. Record retrieved_at from provenance.
+  - Many rows are paper candidates who registered but raised little or nothing (all zeros); filter with min_receipts. A candidate who runs for a different office gets a different CAND_ID.
+  - Excludes outside spending (super PACs, independent expenditures, party coordinated spending) and joint fundraising committees; it is not a measure of all money spent on a race.
+  - Election outcome columns (SPEC_ELECTION, PRIM_ELECTION, RUN_ELECTION, GEN_ELECTION, GEN_ELECTION_PRECENT — FEC's spelling) are only populated in the 1996-2006 files; use an election-returns source (e.g. mit-election-senate-state) for results.
+  - Legal restriction — under 52 U.S.C. 30111(a)(4), information about individual contributors copied from FEC reports may not be sold or used to solicit contributions or for commercial purposes. This file holds no contributor names, but do not join it with itemized contribution data for those purposes. Amounts are nominal dollars (not inflation-adjusted).
+related: [mit-election-senate-state, mit-election-president-state, mit-election-house]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: fec_all_candidates
+adapter_version: 1.0.0

@@ -1,0 +1,97 @@
+schema_version: 1
+id: mit-election-senate-state
+name: U.S. Senate statewide 1976–2024
+publisher:
+  name: MIT Election Data + Science Lab (MEDSL)
+  url: https://electionlab.mit.edu
+  type: research_institution
+homepage: https://doi.org/10.7910/DVN/PEJ5QU
+description: >-
+  Statewide vote counts for every candidate in U.S. Senate elections from 1976 to 2024, including special
+  elections and runoffs, one row per candidate per party line per race, with the total votes cast in the race.
+  MEDSL compiles it from the Clerk of the U.S. House election-statistics reports and official state sources,
+  harmonises party labels and adds FIPS/ICPSR state codes. It provides candidate-level returns, including minor and
+  write-in candidates, that Data Commons does not expose.
+domains: [elections]
+tags: [senate, us-senate, congressional-election, election-results, election-returns, votes, runoff, special-election, medsl, mit, dataverse]
+coverage:
+  geography: United States — 50 states (DC has no senators)
+  countries: [US]
+  geographic_granularity: [state]
+  time_range:
+    start: "1976"
+    end: "2024"
+    notes: Even-year general elections plus specials and runoffs (including odd-year rows such as the January 2021 Georgia runoffs). Primaries are not covered.
+  temporal_granularity: biennial
+  unit_of_observation: Candidate × party line × Senate race (state, year, regular/special, stage)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/PEJ5QU
+      description: Dataverse dataset metadata; the adapter reads latestVersion.files to find the current file id of <YYYY>-<YYYY>-senate-state.(csv|tab)
+    - url: https://dataverse.harvard.edu/api/access/datafile/{file_id}?format=original
+      description: Original CSV (~0.6 MB; Dataverse also serves an ingested .tab by default, which we don't use). Redirects to a signed URL on dvn-cloud-iqss.s3.amazonaws.com.
+  formats: [csv]
+  rate_limits: None published for Harvard Dataverse anonymous access. File cached for 7 days (CC0).
+  auth: none
+  notes: Dataset has no guestbook (anonymous download allowed).
+update:
+  cadence: biennial
+  expected_lag: ~6-18 months after the election (2024 data published 2026); corrections appear as new Dataverse versions.
+change_detection:
+  method: json_field
+  url: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/PEJ5QU
+  json_path:
+    - data.latestVersion.versionNumber
+    - data.latestVersion.versionMinorNumber
+    - data.latestVersion.license.name
+    - data.latestVersion.files[*].dataFile.filename
+  poll_interval_days: 14
+  notes: Moves when MEDSL publishes a new Dataverse version (new election, corrections), renames files, or changes the license.
+license:
+  name: CC0 1.0 Universal (public domain dedication), declared on the Dataverse dataset
+  spdx: CC0-1.0
+  url: http://creativecommons.org/publicdomain/zero/1.0
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "MIT Election Data and Science Lab, 2017, \"U.S. Senate statewide 1976–2024\", https://doi.org/10.7910/DVN/PEJ5QU, Harvard Dataverse (cite the version in metadata.dataverse_version)."
+  evidence: evidence/licenses/mit-election-lab/
+  checked_at: "2026-11-24"
+  notes: License evidence is shared by all MEDSL entries (see NOTES.md there).
+key_variables:
+  - name: year
+    definition: Election year (integer). Odd years occur for runoffs/specials.
+  - name: state_po
+    definition: State postal abbreviation. state_fips is the 2-digit FIPS code as a zero-padded string (padded by the adapter).
+  - name: special
+    definition: true for special elections (boolean). A state can have a regular and a special race in the same year; group by (year, state_po, special, stage).
+  - name: stage
+    definition: Electoral stage as published — 'gen' / 'GEN' (general), 'runoff', 'GEN RUNOFF', 'pre' (Georgia 1992 and 2008 November first rounds that went to a runoff). Case is inconsistent upstream; the stage filter matches case-insensitively.
+  - name: candidate
+    definition: Candidate name as printed (upper case); null for blank/scattering/other entries.
+  - name: party_simplified
+    definition: MEDSL harmonised party, one of DEMOCRAT, REPUBLICAN, LIBERTARIAN, OTHER (party_detailed has the ballot label).
+  - name: candidatevotes
+    unit: votes
+    definition: Votes for this candidate on this party line; null for uncontested races (see uncontested).
+  - name: totalvotes
+    unit: votes
+    definition: Total votes cast in the race; null for uncontested races.
+  - name: uncontested
+    definition: Added by the adapter — true where the publisher's sentinel totalvotes = 1 marks an uncontested race with no vote held (both vote columns are then null).
+  - name: unofficial
+    definition: true where MEDSL marked the result unofficial at compilation time (boolean).
+caveats:
+  - "The codebook marks uncontested races (no vote held, e.g. Louisiana 1978, 1984, 1990, 1992) with a vote total of 1. The adapter converts that sentinel to null candidatevotes/totalvotes and sets uncontested=true. Isolated candidatevotes = 1 with a real totalvotes (e.g. MO 1994, TN 2006) are left as published: they may be real 1-vote write-ins or placeholders."
+  - Two Senate races can occur in one state and year (a regular and a special election, e.g. Georgia 2020 and its January 2021 runoffs); always group by year, state_po, special and stage before computing shares or winners.
+  - Fusion voting puts one candidate on several party lines (one row per line); sum candidatevotes by candidate for the candidate's total.
+  - "Stage coding is inconsistent: values are mixed case (gen/GEN, and total/TOTAL in mode); runoffs appear as 'runoff' (GA 2021) or 'GEN RUNOFF' (GA 2022); and for Georgia 1992 and 2008 the November first round is coded 'pre' while the later runoff is coded 'gen'. Louisiana's open ('jungle') elections are coded 'gen'. Check stage before treating 'gen' rows as the deciding election."
+  - Some rows are flagged unofficial=true (e.g. the 2021 Georgia runoffs) even though certified results exist; MEDSL updates values in later Dataverse versions without changing the row grain.
+  - Rows with a null candidate are blank/void/scattering/other aggregates, not missing data. The `version` column format varies (20210114, 11/20/25).
+related: [mit-election-president-state, mit-election-house, mit-election-county-president]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: mit_election_senate_state
+adapter_version: 1.0.0
