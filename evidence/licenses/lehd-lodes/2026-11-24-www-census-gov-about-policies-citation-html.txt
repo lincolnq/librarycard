@@ -1,0 +1,951 @@
+URL: https://www.census.gov/about/policies/citation.html
+Final-URL: https://www.census.gov/about/policies/citation.html
+Retrieved: 2026-11-24T23:38:25+00:00
+HTTP-Status: 200
+Raw-SHA256: 871b206b5006502a6c0bc7bdf9411400c40ed25597ee990fd8fc2f20419483ea
+Raw-Bytes: 369047
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ About the Bureau 
+
+ / 
+
+ Policies and Notices 
+
+ / 
+
+ Citing our Data, Tools, Technical Documents and Research 
+
+ Citing our Data, Tools, Technical Documents and Research
+
+ Skip Navigation 
+
+ Within About the U.S. Census Bureau
+
+ Who We Are 
+
+ What We Do 
+
+ Advisors, Centers and Research Programs 
+
+ Census Careers 
+
+ Census Advisory Committees (CAC) 
+
+ Business Opportunities 
+
+ Congressional & Intergovernmental Affairs 
+
+ History 
+
+ Our Research 
+
+ Policies and Notices 
+
+ Regional Offices 
+
+ National Processing Center (NPC) 
+
+ FAQs 
+
+ Our Surveys & Programs 
+
+ Executive Leadership 
+
+ Contact Us 
+
+ Within About the U.S. Census Bureau
+
+ Within About the U.S. Census Bureau 
+
+ Who We Are 
+
+ What We Do 
+
+ Advisors, Centers and Research Programs 
+
+ Census Careers 
+
+ Census Advisory Committees (CAC) 
+
+ Business Opportunities 
+
+ Congressional & Intergovernmental Affairs 
+
+ History 
+
+ Our Research 
+
+ Policies and Notices 
+
+ Regional Offices 
+
+ National Processing Center (NPC) 
+
+ FAQs 
+
+ Our Surveys & Programs 
+
+ Executive Leadership 
+
+ Contact Us 
+
+ -->
+
+ Citing our Data, Tools, Technical Documents and Research
+
+ Public-Use Statement
+
+ Proper citation ensures that Census Bureau statistical products and research can be discovered, reused, replicated for verification, and credited for recognition to measure usage and impact.
+
+ Data users who create their own estimates using data from disseminated tables and other data should cite the Census Bureau as the source of the original data only. Conclusions drawn from any analysis of these data are the sole responsibility of the performing party.
+
+ Citation Information and Examples
+
+ Use the suggested citation if one is provided with the publication, data, code, or tool.
+
+ Citations formatting and structure vary based on audience and publisher, such as Chicago, MLA, APA. The Census Bureau emphasizes that the following citation components are important for Census Bureau Statistical Products:
+
+ Publications 
+ Data 
+ Code 
+ Tools 
+
+ 1 If no author names are attached, the U.S. Census Bureau and any sponsoring agencies should be listed as the Author/s.
+
+ 2 If available.
+
+ Author/s 1 
+ Author/s 1 
+ Author/s 1 
+ Author/s 1 
+
+ Title 
+ Title (Includes survey or product and subtitle) 
+ Title 
+ Title 
+
+ Program / Publication / Series 
+ Table or File Name / Number 2 
+ Date of Release 
+ Persistent Identifiers 2 
+
+ Persistent Identifiers 2 
+ Vintage 
+ Version or Date Accessed 
+ URL 
+
+ Version or Date Accessed 
+ Persistent Identifiers 2 
+ Persistent Identifiers 2 
+ Date Accessed 
+
+ URL 
+ URL 
+ URL 
+
+ Date Accessed 
+
+ To unify our communications materials, the Census Bureau uses The Gregg Reference Manual (Eleventh Edition) by William A. Sabin (New York: McGraw-Hill, 2011). The citation examples follow this style. Others may need to edit suggested citations to meet their style guide needs. Guidance on citing restricted-use datasets can be found on our  Citations for Restricted-Use Data  page.
+
+ Statistics From data.census.gov 
+
+ Author/s, “Table Name,” Full Product Name, Vintage, <URL>, accessed on date.
+
+ Example: 
+
+ U.S. Census Bureau, "Age and Sex," American Community Survey 5-Year Estimates Subject Tables, Table S0101, 2022, <https://data.census.gov/table/ACSST5Y2022.S0101?q=people>, accessed on July 1, 2024.
+
+ Please Note: 
+
+ Author/s include “U.S. Census Bureau” and all sponsors of the product.
+
+ When using data.census.gov, click on the “Cite” tool to retrieve a recommended citation for the displayed table.
+
+ Top of Section 
+
+ Statistics From the Census Data API 
+
+ Author/s, “Dataset Title,” Vintage, <API Base URL>, accessed on date.
+
+ Example: 
+
+ U.S. Census Bureau, “American Community Survey 5-Year Estimates: Comparison Profiles 5-Year,” 2022, <http://api.census.gov/data/2022/acs/acs5>, accessed on July 1, 2024.
+
+ Please Note: 
+
+ Author/s include “U.S. Census Bureau” and all sponsors of the product.
+
+ The Dataset Title can be found in the metadata under the base URL.
+
+ Top of Section 
+
+ Data Files and Geographic Products from Census.gov, the FTP, and External Data Platforms 
+
+ Author/s, “Table or File Name/Number,” Full Product Name, Vintage, <URL>, accessed on date.
+
+ Author/s, “Full Product Name,” Vintage, <URL>, accessed on date.
+
+ Examples: 
+
+ U.S. Census Bureau, “Firm Age,” 2021 Business Dynamics Statistics, <https://www.census.gov/data/datasets/time-series/econ/bds/bds-datasets.html>, accessed on July 1, 2024.
+
+ U.S. Census Bureau and U.S. Department of Housing and Urban Development, “2021 National Public Use File (PUF),” https://www.census.gov/programs-surveys/ahs/data/2021/ahs-2021-public-use-file--puf-/ahs-2021-national-public-use-file--puf-.html>, accessed on July 1, 2024.
+
+ U.S. Census Bureau, “tl_2023_us_state”, TIGER/Line Shapefiles, 2023, https://www2.census.gov/geo/tiger/TIGER2023/STATE/, accessed on July 16, 2024.
+
+ U.S. Census Bureau. 2010 Census Production Settings Redistricting Data (P.L. 94-171) Demonstration Noisy Measurement File, <https://aws.amazon.com/marketplace/pp/prodview-krnfluihbyhqi?sr=0-1&ref_=beagle&applicationId=AWSMPContessa>, accessed on November 15, 2024 
+
+ Please Note: 
+
+ Author/s include “U.S. Census Bureau” and all sponsors of the product.
+
+ Sponsors of the product can typically be found in the about the survey or program page for that data file.
+
+ Include the table or file name/number if it is available.
+
+ In some files, the vintage is incorporated into the Full Product Name. If this is the case, a separate vintage does not need to be included.
+
+ Top of Section 
+
+ Experimental Data Products 
+
+ Author/s, “Table or File Name/Number”, Full Product Name [Experimental], Vintage, <URL>, accessed on date.
+
+ Author/s, “Full Product Name [Experimental],” Vintage, <URL>, accessed on date.
+
+ Example: 
+
+ U.S. Census Bureau. “Tract”, Community Resilience Estimates (CRE) for Heat” [Experimental], 2022, <https://www.census.gov/data/experimental-data-products/cre-heat.html>, accessed on August 27, 2004.
+
+ Please Note: 
+
+ Author/s include “U.S. Census Bureau” and all sponsors of the product.
+
+ Include the table or file name/number if it is available.
+
+ In some files, the vintage is incorporated into the Full Product Name. If this is the case, a separate vintage does not need to be included.
+
+ Top of Section 
+
+ Database 
+
+ Author/s, “Name of Database,” <URL>, accessed on date.
+
+ Example: 
+
+ U.S. Census Bureau, “USA Trade Online,” <https://usatrade.census.gov>, accessed on July 1, 2024.
+
+ Please Note: 
+
+ Author/s include “U.S. Census Bureau” and all sponsors of the product.
+
+ Top of Section 
+
+ Data Tools (use along with citation for underlaying data files) 
+
+ Author/s, “Tool Name,” <URL>, accessed on date.
+
+ Examples: 
+
+ U.S. Census Bureau, “Household Pulse Survey Interactive Tool,” <https://www.census.gov/data-tools/demo/hhp/#/>, accessed on July 1, 2024.
+
+ U.S. Census Bureau. “Household Pulse Survey PUF” [Experimental], October 18 - October 30, <https://www.census.gov/programs-surveys/household-pulse-survey/datasets.html#phase3.10> accessed on July 1, 2024.
+
+ Please Note: 
+
+ Author/s include “U.S. Census Bureau” and all sponsors of the product.
+
+ A separate citation for the underlaying data file should also be included.
+
+ Top of Section 
+
+ Data Visualizations and Infographics 
+
+ Author/s, “Title of Visualization” [Data Visualization], date published, <URL>.
+
+ Example: 
+
+ U.S. Census Bureau, “Percent Change in the Hispanic or Latino Population by County: July 1, 2022, to July 1, 2023” [Data Visualization], June 27, 2024, <https://www.census.gov/library/visualizations/2024/comm/hispanic-population-change.html>.
+
+ Please Note: 
+
+ For visualizations and infographics without a listed author/s, use “U.S. Census Bureau.”
+
+ Top of Section 
+
+ Software and Code 
+
+ U.S. Census Bureau, “Software/Code Title,” version [Type of Product], year, <URL>, accessed on date.
+
+ Author(s), “Software/Code Title,” version [Type of Product], year, <URL>, accessed on date.
+
+ Examples: 
+
+ U.S. Census Bureau, “Census and Survey Processing System (CSPro),” version 8.0.0 [Software], 2024, <https://www.census.gov/data/software/cspro.html>, accessed on July 1, 2024.
+
+ U.S. Census Bureau, “DAS 2020 DDHCA Production Code,” [GitHub], 2023, <https://github.com/uscensusbureau/DAS_2020_DDHCA_Production_Code>, accessed on July 1, 2024.
+
+ Please Note: 
+
+ Example [Types of Product] are: [Software], [Code], and [GitHub].
+
+ Use the recommended citation if provided in the repository’s README file.
+
+ Use author names if the code or software are related to a research project and/or paper. Otherwise, use U.S. Census Bureau.
+
+ Top of Section 
+
+ News Releases 
+
+ U.S. Census Bureau, “Title of Press Release,” press release number, date of posting, <URL>, accessed on date.
+
+ Example: 
+
+ U.S. Census Bureau, “Census Bureau Announces New Post-Secondary Employment Outcomes Partners,” CB24-TPS.65, June 27, 2024, <https://www.census.gov/newsroom/press-releases/2024/post-secondary-employment-outcomes-partner.html>, accessed on July 1, 2024.
+
+ Please Note: 
+
+ Include press release number if available.
+
+ Top of Section 
+
+ Technical Documentation 
+
+ Author/s, “Title of Publication” (Technical Documentation), U.S. Census Bureau, Washington, DC, year, <URL if available>.
+
+ Please Note: 
+
+ For publications without a listed Author/s, use “U.S. Census Bureau.”
+
+ If there is no date of publication, use the vintage year that the documentation covers.
+
+ Top of Section 
+
+ Working Papers 
+
+ Author/s, “Title of the Paper,” Working Paper Series Name, Working Paper Number, U.S. Census Bureau, Washington, DC, year published, <URL>.
+
+ Example: 
+
+ Jennifer Benard, Kelsey Drotning, and Katie R. Genadek, “Where Are Your Parents? Exploring Potential Bias in Administrative Records on Children,” Center of Economic Studies (CES) Working Paper Series, CES-24-16, U.S. Census Bureau, Washington, DC, 2004, <https://www.census.gov/library/working-papers/2024/adrm/CES-WP-24-18.html>.
+
+ Please Note: 
+
+ Working papers are research papers and analytical presentations that may later be developed into formal papers or presentations.
+
+ The views expressed in these papers are solely those of the Author/s and not necessarily those of the Census Bureau or the U.S. Department of Commerce.
+
+ Top of Section 
+
+ Peer-Reviewed Scholarly Publications 
+
+ Author/s, “Article Title,” Title of Journal, Series Number [if given], Volume number [if given], Issue Number [if given], Date, Page Number, DOI (as a hyperlink).
+
+ Example: 
+
+ Sallie Ann Keller and John M. Abowd, "Database reconstruction does compromise confidentiality." Proceedings of the National Academy of Sciences, 120, 12, 2023, e2300976120.
+
+ Please Note: 
+
+ In some cases, working papers are subsequently published as a peer-reviewed scholarly publication. During the process, changes in content and formatting may differ from the original working paper.
+
+ Cite the latest version in lieu of the original working paper.
+
+ The views expressed in these papers are solely those of the Author/s and not necessarily those of the Census Bureau or the U.S. Department of Commerce.
+
+ Top of Section 
+
+ Reports and Other Publications 
+
+ Author/s, “Title of Publication,” Type of publication , publication number, U.S. Census Bureau, Washington, DC, year, <URL if available>.
+
+ Examples: 
+
+ Brittany King, “Monthly and Episodic Poverty: 2022,” Current Population Reports, P70BR-196, U.S. Census Bureau, Washington, DC, 2024, <https://www2.census.gov/library/publications/2024/demo/p70br-196.pdf>.
+
+ Amogh U. Bandekar and Lisa N. Bunch, “Changes in Children’s Health Coverage Varied by Poverty Status From 2018 to 2020,” America Counts, U.S. Census Bureau, Washington, DC, 2021, <https://www.census.gov/library/stories/2021/09/uninsured-rates-for-children-in-poverty-increased-2018-2020.html>.
+
+ Please Note: 
+
+ For publications without a listed Author/s, use “U.S. Census Bureau.”
+
+ Top of Section 
+
+ Presentations, Webinars, and Slide Decks 
+
+ Author/s, “Title" [Type of Presentation], Name of Conference/Workshop/Meeting, date presented, <URL if available>.
+
+ Author/s, “Title" [Webinar], Name of Webinar Series if available, U.S. Census Bureau, Washington, DC, date of posting, <URL if available>.
+
+ Author/s, “Title" [PowerPoint Slides], U.S. Census Bureau, Washington, DC, year, <URL if available>.
+
+ Author/s, “Title" [Slide Deck], U.S. Census Bureau, Washington, DC, year, <URL if available>.
+
+ Examples: 
+
+ Emily Molfino, “Open Census Initiative” [Presentation], National Advisory Committee Fall Meeting, November 8, 2024, <https://www.census.gov/about/cac/nac/meetings/2024-11-meeting.html>.
+
+ Michael Hawes and Luke Rogers, “A Principled Framework for Disclosure Avoidance” [Webinar], Disclosure Avoidance Webinar Series, U.S. Census Bureau, Washington, DC, January 28, 2025, <https://www.census.gov/data/academy/webinars/2025/principled-framework-for-disclosure-avoidance.html>.
+
+ Please Note: 
+
+ Types of [Type of Presentation] include [Conference Presentation], [Webinar], [Keynote Address], and [Workshop].
+
+ Date presentation should be in Month Day, Year format.
+
+ Top of Section 
+
+ Videos 
+
+ U.S. Census Bureau, “Title of Video” [Video], date of posting, <URL>.
+
+ Example: 
+
+ U.S. Census Bureau, “Data Gem: Exploring the Economic Census: Local Business Data by Geography & Industry” [Video], December 05, 2024, <https://www.census.gov/data/academy/data-gems/2024/exploring-the-economic-census.html>.
+
+ Top of Section 
+
+ Other Internet Information 
+
+ U.S. Census Bureau, “Title of Webpage” date of posting or last revised, <URL>, accessed on date.
+
+ Example: 
+
+ U.S. Census Bureau, “About the 2020 Census,” November 23, 2021, <https://www.census.gov/programs-surveys/decennial-census/decade/2020/about.html>, accessed on August 27, 2024.
+
+ Please Note: 
+
+ Include date of posting or last revised if available.
+
+ Top of Section 
+
+ Page Last Revised - February 24, 2026 
+
+ The content on this page includes a link to a non-government website. Our linking to these sites does not constitute an endorsement of any products, services or the information found on them. Once you link to another site you are subject to the policies of the new site.
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy

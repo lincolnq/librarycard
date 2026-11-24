@@ -1,0 +1,198 @@
+{
+ "_source_url": "https://www.census.gov/data.json",
+ "_retrieved": "2026-11-24T23:37:53+00:00",
+ "_pattern": "LODES|LEHD|Origin-Destination|OnTheMap|Longitudinal Employer",
+ "_catalog_license_counts": {
+  "https://creativecommons.org/publicdomain/zero/1.0/": 1550,
+  "http://creativecommons.org/publicdomain/zero/1.0/": 200,
+  "https://creativecommons.org/publicdomain/zero/1.0/unidentified": 50
+ },
+ "entries": [
+  {
+   "c_dataset": [
+    "timeseries",
+    "qwi",
+    "rh"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/timeseries/qwi/rh/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/timeseries/qwi/rh/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/timeseries/qwi/rh/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/timeseries/qwi/rh/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/timeseries/qwi/rh/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/timeseries/qwi/rh/sorts.json",
+   "c_documentationLink": "http://www.census.gov/developer/",
+   "c_isTimeseries": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Time Series Longitudinal Employer-Household Dynamics - QWI: Race by Ethnicity",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/timeseries/qwi/rh",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Local Employment Dynamics Staff",
+    "hasEmail": "mailto:CES.Local.Employment.Dynamics@census.gov"
+   },
+   "identifier": "http://api.census.gov/data/id/QWIRE",
+   "keyword": [
+    "census"
+   ],
+   "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2015-04-16",
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "http://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_dataset": [
+    "timeseries",
+    "qwi",
+    "sa"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/timeseries/qwi/sa/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/timeseries/qwi/sa/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/timeseries/qwi/sa/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/timeseries/qwi/sa/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/timeseries/qwi/sa/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/timeseries/qwi/sa/sorts.json",
+   "c_documentationLink": "http://www.census.gov/developer/",
+   "c_isTimeseries": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Time Series Longitudinal Employer-Household Dynamics - QWI: Sex by Age",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/timeseries/qwi/sa",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Local Employment Dynamics Staff",
+    "hasEmail": "mailto:CES.Local.Employment.Dynamics@census.gov"
+   },
+   "identifier": "http://api.census.gov/data/id/QWISA",
+   "keyword": [
+    "census"
+   ],
+   "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2015-04-16",
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "http://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_dataset": [
+    "timeseries",
+    "qwi",
+    "se"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/timeseries/qwi/se/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/timeseries/qwi/se/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/timeseries/qwi/se/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/timeseries/qwi/se/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/timeseries/qwi/se/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/timeseries/qwi/se/sorts.json",
+   "c_documentationLink": "http://www.census.gov/developer/",
+   "c_isTimeseries": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Time Series Longitudinal Employer-Household Dynamics - QWI: Sex by Education",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/timeseries/qwi/se",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Local Employment Dynamics Staff",
+    "hasEmail": "mailto:CES.Local.Employment.Dynamics@census.gov"
+   },
+   "identifier": "http://api.census.gov/data/id/QWISE",
+   "keyword": [
+    "census"
+   ],
+   "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2015-04-16",
+   "programCode": [
+    "000:000"
+   ],
+   "references": [
+    "http://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  }
+ ]
+}

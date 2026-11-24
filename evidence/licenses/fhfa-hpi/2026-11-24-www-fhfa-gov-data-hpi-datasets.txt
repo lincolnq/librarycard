@@ -1,0 +1,2980 @@
+URL: https://www.fhfa.gov/data/hpi/datasets
+Final-URL: https://www.fhfa.gov/data/hpi/datasets
+Retrieved: 2026-11-24T23:38:37+00:00
+HTTP-Status: 200
+Raw-SHA256: 6345dbd94c9f3aa1805af9dece38827e3b6ed484e432301fe3bb84218619f830
+Raw-Bytes: 544496
+---
+Skip to main content
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Here's how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ U.S. FEDERAL HOUSING
+
+ About 
+
+ About FHFA 
+
+ Mission & Core Values 
+
+ Leadership 
+
+ Conservatorship 
+
+ About Fannie Mae & Freddie Mac 
+
+ About the Federal Home Loan Bank System 
+
+ Budget, Finances, and Performance 
+
+ FHFA Policies 
+
+ FOIA & Privacy 
+
+ Information Quality 
+
+ Do Business with Us 
+
+ Ombudsman 
+
+ Equal Employment Opportunity 
+
+ Careers 
+
+ Contact Us 
+
+ Supervision & Regulation 
+
+ Advisory Bulletins 
+
+ Dodd-Frank Act Stress Tests (DFAST) 
+
+ FHFA Examinations 
+
+ Legal Documents & Suspensions 
+
+ Rulemaking and Federal Register 
+
+ Suspended Counterparty Program 
+
+ Policy & Programs 
+
+ Policy 
+
+ Affordable Housing Allocations 
+
+ Common Securitization Platform 
+
+ Credit Risk Transfer 
+
+ Credit Scores 
+
+ Deemed-Issuance Ratio 
+
+ Executive Compensation 
+
+ Guarantee Fees 
+
+ Language Access 
+
+ Non-Performing and Re-Performing Loan Sales 
+
+ Pilot Transparency 
+
+ Private Mortgage Insurer Eligibility Requirements 
+
+ Representation and Warranty Framework 
+
+ Programs 
+
+ Affordable Housing & Community Investment 
+
+ Duty to Serve 
+
+ Enterprise Housing Goals 
+
+ Fraud Prevention 
+
+ Loss Mitigation 
+
+ National Mortgage Database 
+
+ Natural Disaster Risk 
+
+ Suspended Counterparty Program 
+
+ Data & Research 
+
+ Data 
+
+ Borrower Assistance Map 
+
+ Conforming Loan Limit 
+
+ Dashboards 
+
+ Data Governance 
+
+ Duty to Serve Eligibility Data 
+
+ Duty to Serve Performance Data 
+
+ ​Enterprise Housing Goals 
+
+ FHFA House Price Index® 
+
+ FHLB Membership Data 
+
+ NMDB® Aggregate Statistics 
+
+ NSMO Public Use File 
+
+ Public Use Databases 
+
+ FHLB Stress Tests 
+
+ Market Data 
+
+ Market Risk Scenarios 
+
+ MIRS Transition Index 
+
+ UAD Appraisal-Level Public Use File 
+
+ UAD Aggregate Statistics 
+
+ Underserved Areas Data 
+
+ Research 
+
+ Briefs, Notes & White Papers 
+
+ NMDB Staff Working Papers 
+
+ Staff Working Papers 
+
+ Resources 
+
+ Reports 
+
+ All Reports 
+
+ Annual Housing Report 
+
+ Annual Report to Congress 
+
+ Chief FOIA Officer Report 
+
+ Collateral Pledged to FHLBanks 
+
+ Conservatorship Scorecard 
+
+ Credit Risk Transfer Progress Report 
+
+ Enterprise Non-Performing Loan Sales Report 
+
+ FAIR Act Inventory 
+
+ FHFA Annual Performance Plan 
+
+ FHFA House Price Index® 
+
+ FHFA Performance and Accountability Report 
+
+ FHFA SI Compliance Plan 
+
+ FHLBank System at 100 
+
+ FHLBank Targeted Mission Activities 
+
+ FOIA Annual Report 
+
+ Foreclosure Prevention, Refinance, and FPM Report 
+
+ Housing Mission Report 
+
+ Information Resources Management Strategic Plan 
+
+ No FEAR Report 
+
+ Plain Language Report 
+
+ Prepayment Monitoring Report 
+
+ Single-Family Guarantee Fees Report 
+
+ Stress Tests Reports 
+
+ Mortgage Translations 
+
+ About Mortgage Translations 
+
+ Borrower Education Materials 
+
+ COVID-19 Resources 
+
+ Interpretive Services 
+
+ Language Translation Disclosure 
+
+ Search Documents 
+
+ News 
+
+ Public Affairs 
+
+ News Releases 
+
+ Statements 
+
+ Speeches 
+
+ Testimonies 
+
+ Public Input 
+
+ Fact Sheets 
+
+ FAQs 
+
+ Partner Agency Engagements 
+
+ Public Engagements 
+
+ Videos 
+
+ Social Media 
+
+ Facebook 
+
+ LinkedIn 
+
+ YouTube 
+
+ X (formerly Twitter) 
+
+ Search
+
+ Close search form 
+
+ Search FHFA.gov
+
+ Search 
+
+ Filter by Topic
+
+ Advisory Bulletins 
+
+ Federal Register Notice 
+
+ Federal Register Publication 
+
+ News Releases 
+
+ Public Input 
+
+ Reports 
+
+ Research Papers 
+
+ Press ESC or click outside to close
+
+ Menu 
+
+ FHFA House Price Index® Datasets
+
+ The FHFA HPI® is a comprehensive​ collection of publicly available house price indexes that measure changes in single-family home values based on data that extend back to the mid-1970s from all 50 states and over 400 American cities.
+
+ Breadcrumb
+
+ Home 
+
+ FHFA Data 
+
+ FHFA House Price Index® 
+
+ FHFA House Price Index® Datasets 
+
+ HPI Datasets 
+ HPI Summary Table 
+ HPI Calculator 
+
+ Master HPI Data 
+ Monthly Data 
+ Quarterly Data 
+ Annual Data 
+ Additional Data 
+
+ Master HPI Data (Appends Quarterly and Monthly Data) Format 
+ Data [CSV]  /  [JSON]  / [XML]  /  [SQL] 
+ Dictionary [XLSX] 
+ Specifications (layouts) for the downloadable files listed below [ XLSX] 
+
+ Monthly Purchase-Only Indexes (Estimated using Sales Price Data) Format 
+ U.S. and Census Division (Seasonally Adjusted and Not Adjusted) January 1991 - Latest Month     [XLSX] 
+ U.S. and Census Division (Seasonally Adjusted): Latest 18-Month Summary [XLSX] 
+ U.S. and Census Division (Not Seasonally Adjusted): Latest 18-Month Summary [XLSX] 
+
+ Purchase-Only Indexes (Estimated using Sales Price Data) Format 
+ U.S. Summary [XLSX] 
+ U.S. and Census Divisions (Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ States (Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ 100 Largest Metropolitan Statistical Areas and Divisions (Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ 13 MSAs with two or more Metropolitan Divisions (MSADs) (Seasonally Adjusted and Not Adjusted) [XLSX] 
+ Select Metropolitan Areas—Distress-Free Measures (Developmental Index; Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ Puerto Rico (Developmental Index; Seasonally Adjusted and Not Adjusted) [XLSX] 
+ Manufactured Homes (Developmental Index, Not Seasonally Adjusted) [XLSX] 
+
+ All-Transactions Indexes (Estimated using Sales Prices and Appraisal Data) Format 
+ U.S. and Census Divisions (Not Seasonally Adjusted) [TXT]  /  [CSV] / [XLSX] 
+ States (Not Seasonally Adjusted) [TXT]  /  [CSV] / [XLSX] 
+ Metropolitan Statistical Areas and Divisions (Not Seasonally Adjusted) [TXT]  /  [CSV] / [XLSX] 
+ 13 MSAs with two or more Metropolitan Divisions (MSADs) (Not Seasonally Adjusted) [XLSX] 
+ State Nonmetropolitan Areas (Not Seasonally Adjusted) [XLSX] 
+ Puerto Rico (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ ​Three-Digit ZIP Codes (Developmental Index; Not Seasonally Adjusted) [XLSX]​ 
+ Manufactured Homes (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ House Price Changes in Largest MSAs (Ranked and Unranked) [PDF] 
+
+ Expanded-Data Indexes (Estimated using Enterprise, FHA, and Real Property County Recorder Data from a Licensed Vendor for sales below the annual loan limit ceiling) Format 
+ ​U.S. (Not Seasonally Adjusted) 1975Q1 – Present [XLSX​] 
+ U.S. and Census Divisions (Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ States (Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ Metropolitan Statistical Areas and Divisions (Seasonally Adjusted and Not Adjusted) [TXT]  /  [XLSX] 
+ 13 MSAs with two or more Metropolitan Divisions (MSADs) (Seasonally Adjusted and Not Adjusted) [XLSX] 
+
+ Summary Statistics for House Prices Format 
+ Median Prices for Manufactured Homes (Developmental Index, Purchase-Only, Not Seasonally Adjusted) [XLS​X] 
+ Median Prices for Manufactured Homes (Developmental Index; All-Transactions, Not Seasonally Adjusted) [XLSX] 
+ Loan Purposes by Quarter (Contains Refinance Share) [XLSX] 
+
+ State Volatility Parameters Format 
+ Purchase-Only Indexes Volatility (Estimated using Sales Price Data) [TXT]  /  [XLSX] 
+ All-Transactions Indexes Volatility (Estimated using Sales Prices and Appraisal Data) [TXT]  /  [XLSX] 
+
+ Annual House Price Indexes (see Working Papers  16-01 ,  16-02 , and  16-04 ) Format 
+ U.S. (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ States (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ CBSAs (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ Counties (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ Three-Digit ZIP Codes (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ Five-Digit ZIP Codes (Developmental Index; Not Seasonally Adjusted) [XLSX] 
+ Census Tracts (Developmental Index; Not Seasonally Adjusted) [CSV] 
+
+ Summary Statistics for House Prices Format 
+ Quarterly Average and Median Prices for States and U.S.: 2000Q1-2010Q2 [XLS] 
+
+ Utility Files and Background Information for Index Construction Format 
+ Expanded-Data indexes for 410 metro areas and relative standard errors, as of 2025Q3 (supplements Technical Note in 2025-01 Monthly HPI report) [XLSX] 
+ Lookup Tables for 2023 Metropolitan Area Codes (from Technical Note in 2025Q1 Quarterly HPI report) [XLSX] 
+ Lookup Tables for 2018 Metropolitan Area Codes (from Technical Note in 2018Q4 Quarterly HPI report) [XLS] 
+ Metropolitan Statistical Areas and Divisions (Not Seasonally Adjusted) using 2009 and 2013 delineations (see Technical Note in 2​013Q3 Quarterly HPI report) [CSV] 
+ Lookup Table for 2009 and 2013 Metropolitan Area Codes (from Technical Note in 2013Q2 Quarterly HPI report) [XLS] 
+ State Shares of Detached Housing Stock by Year (Weights Used in Index Construction beginning in February 2014) [XLSX] 
+
+ Related Data​ Format 
+ Comparisons of HPI and S&P/Case-Shiller Indexes [XLS] 
+
+ State HPI 
+ City HPI 
+ Regional HPI 
+
+ Change in FHFA State House Price Indexes 
+(Seasonally Adjusted, Purchase-Only Index, 2026Q3)
+ CSV 
+ JSON 
+
+ State 
+ Rank 
+ 1 Quarter 
+ 1 Year 
+ 5 Year 
+ Since 1991 
+
+ Alaska 
+ 1 
+ 1.13 
+ 8.23 
+ 31.91 
+ 308.26 
+
+ Connecticut 
+ 2 
+ 1.34 
+ 5.41 
+ 47.13 
+ 224.12 
+
+ Wisconsin 
+ 3 
+ 1.39 
+ 5.28 
+ 43.33 
+ 381.04 
+
+ Indiana 
+ 4 
+ 1.90 
+ 5.26 
+ 37.22 
+ 280.48 
+
+ North Dakota 
+ 5 
+ 1.24 
+ 5.21 
+ 29.64 
+ 369.35 
+
+ New Jersey 
+ 6 
+ 0.98 
+ 5.14 
+ 47.24 
+ 346.36 
+
+ Illinois 
+ 7 
+ 1.01 
+ 5.13 
+ 40.77 
+ 238.13 
+
+ Pennsylvania 
+ 8 
+ 1.90 
+ 5.02 
+ 35.50 
+ 285.63 
+
+ Wyoming 
+ 9 
+ 0.92 
+ 4.86 
+ 30.86 
+ 466.96 
+
+ New York 
+ 10 
+ 1.55 
+ 4.71 
+ 42.06 
+ 335.99 
+
+ West Virginia 
+ 11 
+ -0.03 
+ 4.57 
+ 34.45 
+ 245.34 
+
+ Missouri 
+ 12 
+ 0.86 
+ 4.05 
+ 34.64 
+ 312.78 
+
+ Kansas 
+ 13 
+ 1.38 
+ 4.05 
+ 35.23 
+ 321.57 
+
+ Rhode Island 
+ 14 
+ -0.34 
+ 4.05 
+ 40.54 
+ 340.66 
+
+ Ohio 
+ 15 
+ 0.82 
+ 3.64 
+ 38.54 
+ 261.43 
+
+ New Hampshire 
+ 16 
+ 0.67 
+ 3.58 
+ 40.63 
+ 387.67 
+
+ Kentucky 
+ 17 
+ 0.41 
+ 3.41 
+ 33.78 
+ 310.23 
+
+ Alabama 
+ 18 
+ 0.33 
+ 3.35 
+ 30.13 
+ 277.19 
+
+ Michigan 
+ 19 
+ 0.50 
+ 3.31 
+ 34.50 
+ 294.50 
+
+ Iowa 
+ 20 
+ 1.31 
+ 3.29 
+ 30.65 
+ 286.05 
+
+ Vermont 
+ 21 
+ -2.63 
+ 3.28 
+ 38.73 
+ 334.58 
+
+ New Mexico 
+ 22 
+ 2.20 
+ 3.05 
+ 31.17 
+ 318.31 
+
+ Massachusetts 
+ 23 
+ 0.04 
+ 3.01 
+ 30.18 
+ 381.55 
+
+ Idaho 
+ 24 
+ 0.04 
+ 2.73 
+ 17.06 
+ 554.46 
+
+ Nebraska 
+ 25 
+ 1.13 
+ 2.63 
+ 30.61 
+ 342.61 
+
+ Virginia 
+ 26 
+ 0.44 
+ 2.49 
+ 33.13 
+ 332.72 
+
+ North Carolina 
+ 27 
+ 1.40 
+ 2.35 
+ 35.18 
+ 345.66 
+
+ Louisiana 
+ 28 
+ 1.17 
+ 2.29 
+ 14.10 
+ 271.18 
+
+ Florida 
+ 29 
+ 0.29 
+ 2.13 
+ 28.41 
+ 448.18 
+
+ South Carolina 
+ 30 
+ 0.30 
+ 2.05 
+ 40.02 
+ 351.44 
+
+ Delaware 
+ 31 
+ 0.15 
+ 2.01 
+ 34.17 
+ 249.17 
+
+ Minnesota 
+ 32 
+ 0.22 
+ 1.87 
+ 21.81 
+ 335.91 
+
+ Tennessee 
+ 33 
+ 0.66 
+ 1.74 
+ 31.44 
+ 382.04 
+
+ Arkansas 
+ 34 
+ 0.21 
+ 1.72 
+ 31.91 
+ 270.33 
+
+ Utah 
+ 35 
+ 0.51 
+ 1.72 
+ 17.03 
+ 627.51 
+
+ Maine 
+ 36 
+ 0.40 
+ 1.69 
+ 41.35 
+ 399.70 
+
+ South Dakota 
+ 37 
+ 0.60 
+ 1.68 
+ 28.94 
+ 400.54 
+
+ Texas 
+ 38 
+ 0.71 
+ 1.45 
+ 19.92 
+ 346.84 
+
+ Maryland 
+ 39 
+ 0.64 
+ 1.40 
+ 22.93 
+ 270.85 
+
+ Montana 
+ 40 
+ -0.56 
+ 1.13 
+ 29.10 
+ 637.64 
+
+ Georgia 
+ 41 
+ -0.02 
+ 1.09 
+ 31.17 
+ 324.38 
+
+ Oklahoma 
+ 42 
+ -0.14 
+ 1.04 
+ 25.58 
+ 280.97 
+
+ Mississippi 
+ 43 
+ -0.23 
+ 0.69 
+ 29.38 
+ 226.38 
+
+ Colorado 
+ 44 
+ 1.06 
+ 0.64 
+ 12.03 
+ 582.57 
+
+ California 
+ 45 
+ 0.49 
+ 0.62 
+ 12.59 
+ 319.97 
+
+ Hawaii 
+ 46 
+ -0.40 
+ 0.42 
+ 28.35 
+ 320.15 
+
+ Arizona 
+ 47 
+ -0.28 
+ 0.29 
+ 18.54 
+ 461.81 
+
+ Nevada 
+ 48 
+ -1.30 
+ 0.10 
+ 18.29 
+ 323.51 
+
+ Oregon 
+ 49 
+ -0.38 
+ -0.06 
+ 10.87 
+ 525.37 
+
+ Washington 
+ 50 
+ -0.21 
+ -0.44 
+ 14.71 
+ 481.25 
+
+ District of Columbia 
+ 51 
+ -2.21 
+ -4.24 
+ -4.92 
+ 484.71 
+
+ Rankings are based on the 1-year change in the HPI values. 
+
+ Change in FHFA Metropolitan Area House Price Indexes 
+(Not Seasonally Adjusted, All-Transactions Index, 2026Q3)
+ CSV 
+ JSON 
+
+ Metropolitan Area 
+ Rank 
+ 1 Quarter 
+ 1 Year 
+ 5 Year 
+ Since 1991 
+
+ Niles, MI 
+ 1 
+ 6.14 
+ 12.58 
+ 51.24 
+ 370.15 
+
+ Racine-Mount Pleasant, WI 
+ 2 
+ 2.85 
+ 9.08 
+ 52.27 
+ 331.97 
+
+ Reading, PA 
+ 3 
+ 3.39 
+ 8.79 
+ 51.75 
+ 240.47 
+
+ Anchorage, AK 
+ 4 
+ 4.80 
+ 8.69 
+ 38.56 
+ 325.54 
+
+ Scranton--Wilkes-Barre, PA 
+ 5 
+ 4.25 
+ 8.61 
+ 54.51 
+ 260.92 
+
+ Oshkosh-Neenah, WI 
+ 6 
+ 5.48 
+ 8.29 
+ 59.06 
+ 344.73 
+
+ South Bend-Mishawaka, IN-MI 
+ 7 
+ 2.02 
+ 7.96 
+ 49.23 
+ 302.51 
+
+ Norwich-New London-Willimantic, CT 
+ 8 
+ 2.22 
+ 7.81 
+ 54.48 
+ 220.71 
+
+ Rockford, IL 
+ 9 
+ 2.25 
+ 7.80 
+ 58.02 
+ 212.84 
+
+ Kenosha, WI 
+ 10 
+ -0.02 
+ 7.46 
+ 47.32 
+ 311.03 
+
+ Peoria, IL 
+ 11 
+ 1.81 
+ 6.94 
+ 43.50 
+ 234.18 
+
+ Rochester, NY 
+ 12 
+ 0.84 
+ 6.89 
+ 55.35 
+ 228.91 
+
+ Montgomery, AL 
+ 13 
+ 3.23 
+ 6.73 
+ 37.55 
+ 171.45 
+
+ Lake County-Kenosha County, IL (MSAD) 
+ 14 
+ 2.70 
+ 6.68 
+ 51.53 
+ 196.17 
+
+ Elgin, IL (MSAD) 
+ 15 
+ 1.94 
+ 6.68 
+ 48.68 
+ 212.30 
+
+ Janesville-Beloit, WI 
+ 16 
+ 3.69 
+ 6.67 
+ 51.18 
+ 386.20 
+
+ Eau Claire, WI 
+ 17 
+ 4.06 
+ 6.67 
+ 44.06 
+ 455.17 
+
+ Elkhart-Goshen, IN 
+ 18 
+ 2.81 
+ 6.52 
+ 43.51 
+ 289.06 
+
+ Waterbury-Shelton, CT 
+ 19 
+ 3.84 
+ 6.50 
+ 51.53 
+ 190.27 
+
+ Hartford-West Hartford-East Hartford, CT 
+ 20 
+ 1.12 
+ 6.48 
+ 51.91 
+ 183.60 
+
+ Roanoke, VA 
+ 21 
+ 2.87 
+ 6.34 
+ 47.31 
+ 313.38 
+
+ Atlantic City-Hammonton, NJ 
+ 22 
+ 0.77 
+ 6.33 
+ 60.28 
+ 369.13 
+
+ Appleton, WI 
+ 23 
+ 2.62 
+ 6.31 
+ 54.64 
+ 328.38 
+
+ New Haven, CT 
+ 24 
+ 1.87 
+ 6.24 
+ 49.26 
+ 220.86 
+
+ Nassau County-Suffolk County, NY (MSAD) 
+ 25 
+ 1.74 
+ 6.20 
+ 44.22 
+ 414.71 
+
+ Syracuse, NY 
+ 26 
+ 1.72 
+ 6.19 
+ 58.19 
+ 237.81 
+
+ Milwaukee-Waukesha, WI 
+ 27 
+ 0.91 
+ 6.17 
+ 46.82 
+ 342.05 
+
+ Chicago-Naperville-Schaumburg, IL (MSAD) 
+ 28 
+ 1.04 
+ 6.14 
+ 42.43 
+ 244.42 
+
+ Green Bay, WI 
+ 29 
+ 2.70 
+ 6.12 
+ 56.65 
+ 354.94 
+
+ Youngstown-Warren, OH 
+ 30 
+ 2.22 
+ 6.10 
+ 49.68 
+ 242.92 
+
+ Newark, NJ (MSAD) 
+ 31 
+ 0.11 
+ 6.08 
+ 48.48 
+ 322.12 
+
+ La Crosse-Onalaska, WI-MN 
+ 32 
+ 1.22 
+ 6.03 
+ 43.61 
+ 404.95 
+
+ Canton-Massillon, OH 
+ 33 
+ 0.84 
+ 5.91 
+ 41.93 
+ 257.37 
+
+ Wichita, KS 
+ 34 
+ 2.04 
+ 5.89 
+ 41.16 
+ 269.96 
+
+ Springfield, IL 
+ 35 
+ 3.17 
+ 5.79 
+ 43.23 
+ 183.10 
+
+ Fort Wayne, IN 
+ 36 
+ 1.97 
+ 5.77 
+ 47.99 
+ 266.00 
+
+ Toledo, OH 
+ 37 
+ 3.55 
+ 5.73 
+ 41.92 
+ 213.87 
+
+ Evansville, IN 
+ 38 
+ 3.14 
+ 5.73 
+ 37.88 
+ 275.06 
+
+ Logan, UT-ID 
+ 39 
+ 4.71 
+ 5.72 
+ 30.91 
+ 562.60 
+
+ Amarillo, TX 
+ 40 
+ 2.79 
+ 5.72 
+ 31.17 
+ 307.94 
+
+ Camden, NJ (MSAD) 
+ 41 
+ 2.53 
+ 5.69 
+ 57.35 
+ 276.01 
+
+ Jefferson City, MO 
+ 42 
+ 4.47 
+ 5.63 
+ 56.04 
+ 329.07 
+
+ Hagerstown-Martinsburg, MD-WV 
+ 43 
+ 7.77 
+ 5.63 
+ 43.10 
+ 264.65 
+
+ Fargo, ND-MN 
+ 44 
+ 0.90 
+ 5.54 
+ 31.41 
+ 324.76 
+
+ Buffalo-Cheektowaga, NY 
+ 45 
+ 2.33 
+ 5.50 
+ 44.04 
+ 284.62 
+
+ Muskegon-Norton Shores, MI 
+ 46 
+ 3.73 
+ 5.49 
+ 52.44 
+ 374.70 
+
+ Albany-Schenectady-Troy, NY 
+ 47 
+ 0.78 
+ 5.47 
+ 43.28 
+ 240.81 
+
+ West Palm Beach-Boca Raton-Delray Beach, FL (MSAD) 
+ 48 
+ 2.50 
+ 5.34 
+ 51.32 
+ 504.56 
+
+ Lafayette-West Lafayette, IN 
+ 49 
+ 2.02 
+ 5.32 
+ 45.95 
+ 270.58 
+
+ Cleveland, OH 
+ 50 
+ 1.78 
+ 5.31 
+ 43.49 
+ 226.12 
+
+ Harrisburg-Carlisle, PA 
+ 51 
+ 1.25 
+ 5.23 
+ 42.96 
+ 259.91 
+
+ Springfield, MO 
+ 52 
+ 0.98 
+ 5.22 
+ 41.59 
+ 299.91 
+
+ Lexington-Fayette, KY 
+ 53 
+ 1.41 
+ 5.22 
+ 46.52 
+ 318.00 
+
+ Lakewood-New Brunswick, NJ (MSAD) 
+ 54 
+ 1.45 
+ 5.15 
+ 52.53 
+ 357.16 
+
+ Grand Rapids-Wyoming-Kentwood, MI 
+ 55 
+ 0.92 
+ 5.13 
+ 44.06 
+ 357.07 
+
+ Lancaster, PA 
+ 56 
+ 0.50 
+ 5.10 
+ 45.35 
+ 279.28 
+
+ Jackson, MS 
+ 57 
+ 4.20 
+ 5.10 
+ 28.77 
+ 193.63 
+
+ Monroe, MI 
+ 58 
+ 5.91 
+ 5.08 
+ 38.53 
+ 253.02 
+
+ Montgomery County-Bucks County-Chester County, PA (MSAD) 
+ 59 
+ 1.47 
+ 5.02 
+ 41.67 
+ 276.07 
+
+ Greensboro-High Point, NC 
+ 60 
+ 1.32 
+ 4.99 
+ 48.23 
+ 249.31 
+
+ Virginia Beach-Chesapeake-Norfolk, VA-NC 
+ 61 
+ 1.99 
+ 4.99 
+ 39.56 
+ 321.57 
+
+ Bloomington, IL 
+ 62 
+ -1.38 
+ 4.88 
+ 45.15 
+ 211.24 
+
+ Akron, OH 
+ 63 
+ 2.18 
+ 4.81 
+ 41.65 
+ 239.38 
+
+ Cedar Rapids, IA 
+ 64 
+ 0.41 
+ 4.79 
+ 29.54 
+ 229.88 
+
+ Detroit-Dearborn-Livonia, MI (MSAD) 
+ 65 
+ 0.54 
+ 4.78 
+ 37.66 
+ 254.99 
+
+ Columbia, SC 
+ 66 
+ 1.54 
+ 4.72 
+ 45.81 
+ 271.07 
+
+ Cincinnati, OH-KY-IN 
+ 67 
+ 1.34 
+ 4.71 
+ 44.29 
+ 274.47 
+
+ Bridgeport-Stamford-Danbury, CT 
+ 68 
+ 0.12 
+ 4.65 
+ 46.77 
+ 254.61 
+
+ Flint, MI 
+ 69 
+ 2.05 
+ 4.60 
+ 35.42 
+ 244.72 
+
+ Springfield, MA 
+ 70 
+ 0.76 
+ 4.58 
+ 37.54 
+ 217.89 
+
+ Worcester, MA 
+ 71 
+ 1.94 
+ 4.56 
+ 38.81 
+ 304.42 
+
+ Coeur d'Alene, ID 
+ 72 
+ 1.73 
+ 4.52 
+ 27.33 
+ 655.02 
+
+ Kalamazoo-Portage, MI 
+ 73 
+ 2.71 
+ 4.50 
+ 37.37 
+ 281.96 
+
+ New York-Jersey City-White Plains, NY-NJ (MSAD) 
+ 74 
+ -0.36 
+ 4.40 
+ 38.67 
+ 347.76 
+
+ Reno, NV 
+ 75 
+ 1.25 
+ 4.36 
+ 23.01 
+ 386.45 
+
+ Kansas City, MO-KS 
+ 76 
+ 1.95 
+ 4.32 
+ 39.43 
+ 333.11 
+
+ York-Hanover, PA 
+ 77 
+ 1.24 
+ 4.24 
+ 42.35 
+ 236.65 
+
+ St. Louis, MO-IL 
+ 78 
+ 1.19 
+ 4.23 
+ 37.14 
+ 261.08 
+
+ Portland-South Portland, ME 
+ 79 
+ 1.13 
+ 4.17 
+ 47.46 
+ 404.84 
+
+ Lansing-East Lansing, MI 
+ 80 
+ 0.24 
+ 4.14 
+ 37.70 
+ 234.59 
+
+ Philadelphia, PA (MSAD) 
+ 81 
+ 0.48 
+ 4.09 
+ 28.27 
+ 313.42 
+
+ Chattanooga, TN-GA 
+ 82 
+ 2.40 
+ 3.99 
+ 45.54 
+ 383.77 
+
+ El Paso, TX 
+ 83 
+ 1.40 
+ 3.96 
+ 44.54 
+ 253.81 
+
+ Dayton-Kettering-Beavercreek, OH 
+ 84 
+ 0.06 
+ 3.92 
+ 42.01 
+ 214.08 
+
+ Hickory-Lenoir-Morganton, NC 
+ 85 
+ 3.39 
+ 3.84 
+ 48.26 
+ 311.71 
+
+ Charleston-North Charleston, SC 
+ 86 
+ -1.40 
+ 3.79 
+ 49.91 
+ 560.63 
+
+ Allentown-Bethlehem-Easton, PA-NJ 
+ 87 
+ 0.83 
+ 3.73 
+ 47.19 
+ 239.19 
+
+ Wilmington, DE-MD-NJ (MSAD) 
+ 88 
+ 0.06 
+ 3.72 
+ 39.80 
+ 238.30 
+
+ Augusta-Richmond County, GA-SC 
+ 89 
+ 1.88 
+ 3.70 
+ 44.58 
+ 253.41 
+
+ Knoxville, TN 
+ 90 
+ 2.20 
+ 3.68 
+ 56.26 
+ 423.04 
+
+ Miami-Miami Beach-Kendall, FL (MSAD) 
+ 91 
+ 0.42 
+ 3.65 
+ 58.05 
+ 690.78 
+
+ Madison, WI 
+ 92 
+ -0.08 
+ 3.65 
+ 42.36 
+ 408.11 
+
+ Redding, CA 
+ 93 
+ -0.55 
+ 3.64 
+ 13.03 
+ 238.47 
+
+ Pittsburgh, PA 
+ 94 
+ 0.51 
+ 3.59 
+ 31.25 
+ 286.78 
+
+ Providence-Warwick, RI-MA 
+ 95 
+ -0.31 
+ 3.49 
+ 43.15 
+ 318.62 
+
+ Winston-Salem, NC 
+ 96 
+ 1.11 
+ 3.49 
+ 46.31 
+ 265.79 
+
+ Santa Cruz-Watsonville, CA 
+ 97 
+ 2.92 
+ 3.47 
+ 18.31 
+ 350.17 
+
+ Columbus, OH 
+ 98 
+ 0.63 
+ 3.46 
+ 39.50 
+ 315.36 
+
+ Richmond, VA 
+ 99 
+ 0.45 
+ 3.45 
+ 41.23 
+ 331.70 
+
+ Boise City, ID 
+ 100 
+ 0.54 
+ 3.42 
+ 16.98 
+ 581.96 
+
+ Santa Rosa-Petaluma, CA 
+ 101 
+ 1.45 
+ 3.35 
+ 14.72 
+ 309.96 
+
+ Rockingham County-Strafford County, NH (MSAD) 
+ 102 
+ 0.07 
+ 3.32 
+ 45.70 
+ 378.61 
+
+ Lake County-Porter County-Jasper County, IN (MSAD) 
+ 103 
+ 0.29 
+ 3.30 
+ 33.97 
+ 261.55 
+
+ Birmingham, AL 
+ 104 
+ -0.67 
+ 3.29 
+ 31.84 
+ 281.01 
+
+ Pensacola-Ferry Pass-Brent, FL 
+ 105 
+ -0.86 
+ 3.28 
+ 30.75 
+ 382.01 
+
+ Davenport-Moline-Rock Island, IA-IL 
+ 106 
+ -0.61 
+ 3.27 
+ 29.55 
+ 259.12 
+
+ Charlotte-Concord-Gastonia, NC-SC 
+ 107 
+ 1.96 
+ 3.26 
+ 43.22 
+ 372.40 
+
+ Arlington-Alexandria-Reston, VA-WV (MSAD) 
+ 108 
+ 0.24 
+ 3.21 
+ 29.70 
+ 316.97 
+
+ Omaha, NE-IA 
+ 109 
+ 0.48 
+ 3.19 
+ 34.70 
+ 319.18 
+
+ Waco, TX 
+ 110 
+ 2.92 
+ 3.19 
+ 32.13 
+ 370.74 
+
+ Merced, CA 
+ 111 
+ 3.59 
+ 3.18 
+ 22.57 
+ 267.20 
+
+ Billings, MT 
+ 112 
+ 0.29 
+ 3.16 
+ 31.42 
+ 460.61 
+
+ Indianapolis-Carmel-Greenwood, IN 
+ 113 
+ 0.58 
+ 3.14 
+ 37.41 
+ 265.96 
+
+ Traverse City, MI 
+ 114 
+ 0.22 
+ 3.13 
+ 50.69 
+ 520.17 
+
+ Lincoln, NE 
+ 115 
+ 1.60 
+ 3.09 
+ 34.08 
+ 324.63 
+
+ Little Rock-North Little Rock-Conway, AR 
+ 116 
+ 1.60 
+ 3.07 
+ 32.82 
+ 238.23 
+
+ Sioux Falls, SD-MN 
+ 117 
+ 1.64 
+ 3.03 
+ 31.59 
+ 367.71 
+
+ Lakeland-Winter Haven, FL 
+ 118 
+ 1.21 
+ 2.96 
+ 32.86 
+ 361.44 
+
+ Louisville/Jefferson County, KY-IN 
+ 119 
+ -0.10 
+ 2.96 
+ 33.72 
+ 314.06 
+
+ Santa Maria-Santa Barbara, CA 
+ 120 
+ 2.52 
+ 2.94 
+ 40.22 
+ 362.08 
+
+ Palm Bay-Melbourne-Titusville, FL 
+ 121 
+ 1.06 
+ 2.92 
+ 31.79 
+ 374.71 
+
+ Manchester-Nashua, NH 
+ 122 
+ -0.64 
+ 2.91 
+ 42.57 
+ 338.71 
+
+ Wilmington, NC 
+ 123 
+ 0.22 
+ 2.89 
+ 49.25 
+ 463.17 
+
+ Topeka, KS 
+ 124 
+ -0.95 
+ 2.83 
+ 39.25 
+ 254.22 
+
+ Lynchburg, VA 
+ 125 
+ -0.02 
+ 2.80 
+ 42.96 
+ 303.27 
+
+ Warren-Troy-Farmington Hills, MI (MSAD) 
+ 126 
+ 0.14 
+ 2.80 
+ 33.12 
+ 259.46 
+
+ Fayetteville-Springdale-Rogers, AR 
+ 127 
+ -0.16 
+ 2.79 
+ 46.97 
+ 385.83 
+
+ Duluth, MN-WI 
+ 128 
+ 0.75 
+ 2.74 
+ 43.29 
+ 461.68 
+
+ Idaho Falls, ID 
+ 129 
+ -0.25 
+ 2.74 
+ 21.74 
+ 409.05 
+
+ Albuquerque, NM 
+ 130 
+ -0.48 
+ 2.72 
+ 35.90 
+ 309.54 
+
+ Huntsville, AL 
+ 131 
+ -0.84 
+ 2.69 
+ 32.62 
+ 246.96 
+
+ Albany, OR 
+ 132 
+ 0.58 
+ 2.68 
+ 21.46 
+ 608.55 
+
+ Champaign-Urbana, IL 
+ 133 
+ 0.31 
+ 2.64 
+ 42.63 
+ 232.18 
+
+ Kiryas Joel-Poughkeepsie-Newburgh, NY 
+ 134 
+ -0.12 
+ 2.62 
+ 41.47 
+ 255.91 
+
+ Boston, MA (MSAD) 
+ 135 
+ 0.06 
+ 2.54 
+ 33.08 
+ 390.28 
+
+ Baton Rouge, LA 
+ 136 
+ 0.11 
+ 2.52 
+ 19.94 
+ 268.60 
+
+ Anaheim-Santa Ana-Irvine, CA (MSAD) 
+ 137 
+ -0.21 
+ 2.52 
+ 39.34 
+ 396.05 
+
+ Durham-Chapel Hill, NC 
+ 138 
+ 1.61 
+ 2.48 
+ 40.22 
+ 362.99 
+
+ Baltimore-Columbia-Towson, MD 
+ 139 
+ -0.14 
+ 2.42 
+ 26.91 
+ 260.71 
+
+ Des Moines-West Des Moines, IA 
+ 140 
+ 0.47 
+ 2.42 
+ 29.90 
+ 268.13 
+
+ Yuba City, CA 
+ 141 
+ 4.40 
+ 2.39 
+ 16.67 
+ 280.08 
+
+ Tulsa, OK 
+ 142 
+ -1.79 
+ 2.38 
+ 35.53 
+ 285.89 
+
+ Visalia, CA 
+ 143 
+ 0.50 
+ 2.36 
+ 30.81 
+ 270.68 
+
+ Chico, CA 
+ 144 
+ 2.29 
+ 2.36 
+ 10.87 
+ 282.03 
+
+ Mobile, AL 
+ 145 
+ -1.44 
+ 2.33 
+ 30.95 
+ 273.49 
+
+ Minneapolis-St. Paul-Bloomington, MN-WI 
+ 146 
+ -0.07 
+ 2.33 
+ 21.51 
+ 321.37 
+
+ Provo-Orem-Lehi, UT 
+ 147 
+ -0.26 
+ 2.32 
+ 24.42 
+ 576.23 
+
+ Rochester, MN 
+ 148 
+ 0.80 
+ 2.20 
+ 28.01 
+ 296.24 
+
+ Napa, CA 
+ 149 
+ -0.14 
+ 2.14 
+ 11.39 
+ 328.87 
+
+ San Diego-Chula Vista-Carlsbad, CA 
+ 150 
+ -0.24 
+ 2.11 
+ 32.68 
+ 416.91 
+
+ Columbia, MO 
+ 151 
+ 0.12 
+ 2.09 
+ 41.37 
+ 298.21 
+
+ Cambridge-Newton-Framingham, MA (MSAD) 
+ 152 
+ -0.56 
+ 2.07 
+ 32.41 
+ 383.02 
+
+ San Luis Obispo-Paso Robles, CA 
+ 153 
+ 0.47 
+ 2.05 
+ 29.34 
+ 340.38 
+
+ Yakima, WA 
+ 154 
+ -0.62 
+ 1.99 
+ 26.12 
+ 433.00 
+
+ Eugene-Springfield, OR 
+ 155 
+ -0.37 
+ 1.99 
+ 19.71 
+ 482.75 
+
+ Orlando-Kissimmee-Sanford, FL 
+ 156 
+ 0.35 
+ 1.98 
+ 37.23 
+ 372.35 
+
+ Punta Gorda, FL 
+ 157 
+ 0.50 
+ 1.97 
+ 16.08 
+ 285.93 
+
+ New Orleans-Metairie, LA 
+ 158 
+ 0.22 
+ 1.97 
+ 9.91 
+ 313.49 
+
+ Barnstable Town, MA 
+ 159 
+ -1.46 
+ 1.94 
+ 39.77 
+ 447.29 
+
+ Bremerton-Silverdale-Port Orchard, WA 
+ 160 
+ -0.18 
+ 1.90 
+ 19.38 
+ 436.56 
+
+ Trenton-Princeton, NJ 
+ 161 
+ -1.72 
+ 1.82 
+ 52.80 
+ 263.80 
+
+ Medford, OR 
+ 162 
+ -3.08 
+ 1.77 
+ 12.60 
+ 411.45 
+
+ Ogden, UT 
+ 163 
+ -1.24 
+ 1.75 
+ 22.26 
+ 545.01 
+
+ Oxnard-Thousand Oaks-Ventura, CA 
+ 164 
+ 2.77 
+ 1.69 
+ 25.61 
+ 307.67 
+
+ Deltona-Daytona Beach-Ormond Beach, FL 
+ 165 
+ -0.34 
+ 1.68 
+ 29.11 
+ 360.34 
+
+ Nashville-Davidson--Murfreesboro--Franklin, TN 
+ 166 
+ 0.16 
+ 1.68 
+ 36.04 
+ 480.52 
+
+ St. Cloud, MN 
+ 167 
+ -0.05 
+ 1.68 
+ 29.29 
+ 317.70 
+
+ Fort Worth-Arlington-Grapevine, TX (MSAD) 
+ 168 
+ 0.54 
+ 1.61 
+ 26.11 
+ 327.43 
+
+ Lafayette, LA 
+ 169 
+ 0.17 
+ 1.61 
+ 20.27 
+ 257.73 
+
+ Lubbock, TX 
+ 170 
+ 0.67 
+ 1.59 
+ 22.34 
+ 242.52 
+
+ Prescott Valley-Prescott, AZ 
+ 171 
+ 2.56 
+ 1.58 
+ 28.52 
+ 464.45 
+
+ Greenville-Anderson-Greer, SC 
+ 172 
+ -0.37 
+ 1.51 
+ 46.79 
+ 363.99 
+
+ North Port-Bradenton-Sarasota, FL 
+ 173 
+ 1.17 
+ 1.48 
+ 27.66 
+ 418.79 
+
+ San Antonio-New Braunfels, TX 
+ 174 
+ 1.31 
+ 1.40 
+ 22.73 
+ 351.56 
+
+ Riverside-San Bernardino-Ontario, CA 
+ 175 
+ -0.20 
+ 1.29 
+ 27.07 
+ 307.93 
+
+ Houston-Pasadena-The Woodlands, TX 
+ 176 
+ -0.19 
+ 1.28 
+ 26.66 
+ 333.97 
+
+ Oklahoma City, OK 
+ 177 
+ -0.99 
+ 1.21 
+ 28.64 
+ 297.84 
+
+ Salem, OR 
+ 178 
+ -0.12 
+ 1.13 
+ 20.27 
+ 505.10 
+
+ Port St. Lucie, FL 
+ 179 
+ -0.48 
+ 1.13 
+ 32.55 
+ 384.78 
+
+ Marietta, GA (MSAD) 
+ 180 
+ 0.69 
+ 1.11 
+ 37.99 
+ 337.47 
+
+ Tacoma-Lakewood, WA (MSAD) 
+ 181 
+ -0.41 
+ 1.09 
+ 20.87 
+ 472.01 
+
+ Greeley, CO 
+ 182 
+ 0.82 
+ 1.06 
+ 19.39 
+ 493.02 
+
+ Atlanta-Sandy Springs-Roswell, GA (MSAD) 
+ 183 
+ 0.71 
+ 1.04 
+ 35.47 
+ 309.84 
+
+ Bakersfield-Delano, CA 
+ 184 
+ 0.54 
+ 0.85 
+ 28.57 
+ 248.67 
+
+ Fort Lauderdale-Pompano Beach-Sunrise, FL (MSAD) 
+ 185 
+ 0.16 
+ 0.80 
+ 41.69 
+ 489.28 
+
+ Modesto, CA 
+ 186 
+ -1.22 
+ 0.79 
+ 16.51 
+ 253.48 
+
+ Frederick-Gaithersburg-Bethesda, MD (MSAD) 
+ 187 
+ -1.02 
+ 0.77 
+ 23.50 
+ 255.80 
+
+ Bellingham, WA 
+ 188 
+ -0.60 
+ 0.76 
+ 25.17 
+ 491.58 
+
+ Pueblo, CO 
+ 189 
+ -0.62 
+ 0.74 
+ 13.36 
+ 384.03 
+
+ Sacramento-Roseville-Folsom, CA 
+ 190 
+ -0.03 
+ 0.63 
+ 12.61 
+ 252.49 
+
+ Raleigh-Cary, NC 
+ 191 
+ 0.13 
+ 0.49 
+ 34.63 
+ 341.28 
+
+ Los Angeles-Long Beach-Glendale, CA (MSAD) 
+ 192 
+ -0.60 
+ 0.46 
+ 25.06 
+ 343.19 
+
+ Jacksonville, FL 
+ 193 
+ 0.33 
+ 0.46 
+ 30.14 
+ 398.09 
+
+ Fort Collins-Loveland, CO 
+ 194 
+ 0.49 
+ 0.42 
+ 22.65 
+ 551.48 
+
+ Longview-Kelso, WA 
+ 195 
+ -2.74 
+ 0.39 
+ 20.63 
+ 459.30 
+
+ St. George, UT 
+ 196 
+ -0.01 
+ 0.35 
+ 19.43 
+ 434.31 
+
+ Portland-Vancouver-Hillsboro, OR-WA 
+ 197 
+ -1.38 
+ 0.34 
+ 12.96 
+ 524.45 
+
+ Spokane-Spokane Valley, WA 
+ 198 
+ 0.15 
+ 0.29 
+ 19.68 
+ 483.01 
+
+ Tampa, FL (MSAD) 
+ 199 
+ -1.19 
+ 0.23 
+ 35.76 
+ 431.54 
+
+ Ann Arbor, MI 
+ 200 
+ -2.87 
+ 0.14 
+ 30.30 
+ 278.72 
+
+ Salt Lake City-Murray, UT 
+ 201 
+ -1.87 
+ 0.10 
+ 21.86 
+ 655.89 
+
+ Kennewick-Richland, WA 
+ 202 
+ -0.78 
+ 0.10 
+ 23.07 
+ 389.66 
+
+ Phoenix-Mesa-Chandler, AZ 
+ 203 
+ -1.10 
+ 0.08 
+ 23.49 
+ 484.48 
+
+ Asheville, NC 
+ 204 
+ -3.54 
+ 0.08 
+ 31.67 
+ 490.34 
+
+ Dallas-Plano-Irving, TX (MSAD) 
+ 205 
+ -0.37 
+ 0.02 
+ 26.25 
+ 343.81 
+
+ Spartanburg, SC 
+ 206 
+ -2.02 
+ 0.01 
+ 42.06 
+ 295.85 
+
+ Las Vegas-Henderson-North Las Vegas, NV 
+ 207 
+ -1.29 
+ -0.02 
+ 26.95 
+ 294.34 
+
+ Colorado Springs, CO 
+ 208 
+ 0.13 
+ -0.11 
+ 15.26 
+ 451.02 
+
+ Memphis, TN-MS-AR 
+ 209 
+ -2.87 
+ -0.19 
+ 22.05 
+ 206.50 
+
+ Boulder, CO 
+ 210 
+ 0.48 
+ -0.18 
+ 15.55 
+ 606.12 
+
+ Olympia-Lacey-Tumwater, WA 
+ 211 
+ -0.75 
+ -0.26 
+ 23.32 
+ 451.35 
+
+ Vallejo, CA 
+ 212 
+ -0.20 
+ -0.34 
+ 6.79 
+ 247.23 
+
+ Tucson, AZ 
+ 213 
+ -0.24 
+ -0.36 
+ 28.95 
+ 368.28 
+
+ Salinas, CA 
+ 214 
+ -1.53 
+ -0.36 
+ 21.75 
+ 335.92 
+
+ Slidell-Mandeville-Covington, LA 
+ 215 
+ -2.22 
+ -0.37 
+ 19.73 
+ 246.89 
+
+ Burlington-South Burlington, VT 
+ 216 
+ -0.57 
+ -0.39 
+ 38.81 
+ 327.14 
+
+ Fresno, CA 
+ 217 
+ -0.87 
+ -0.47 
+ 26.16 
+ 293.07 
+
+ Seattle-Bellevue-Kent, WA (MSAD) 
+ 218 
+ -1.12 
+ -0.48 
+ 17.99 
+ 494.83 
+
+ Bend, OR 
+ 219 
+ -1.05 
+ -0.59 
+ 17.75 
+ 603.64 
+
+ Denver-Aurora-Centennial, CO 
+ 220 
+ -0.51 
+ -0.62 
+ 14.31 
+ 569.02 
+
+ St. Petersburg-Clearwater-Largo, FL (MSAD) 
+ 221 
+ -0.59 
+ -0.71 
+ 32.93 
+ 518.74 
+
+ Savannah, GA 
+ 222 
+ -0.35 
+ -0.76 
+ 53.96 
+ 456.11 
+
+ Lake Havasu City-Kingman, AZ 
+ 223 
+ 0.76 
+ -0.96 
+ 19.19 
+ 304.04 
+
+ Everett, WA (MSAD) 
+ 224 
+ -1.91 
+ -0.99 
+ 21.33 
+ 442.50 
+
+ Ocala, FL 
+ 225 
+ -0.89 
+ -1.00 
+ 36.75 
+ 298.71 
+
+ Washington, DC-MD (MSAD) 
+ 226 
+ -0.73 
+ -1.36 
+ 11.89 
+ 281.39 
+
+ Cape Coral-Fort Myers, FL 
+ 227 
+ -0.20 
+ -1.61 
+ 16.88 
+ 311.99 
+
+ San Francisco-San Mateo-Redwood City, CA (MSAD) 
+ 228 
+ -1.31 
+ -1.76 
+ 16.31 
+ 368.42 
+
+ Stockton-Lodi, CA 
+ 229 
+ -0.42 
+ -2.08 
+ 10.44 
+ 241.60 
+
+ San Jose-Sunnyvale-Santa Clara, CA 
+ 230 
+ -2.48 
+ -2.15 
+ 22.34 
+ 413.37 
+
+ Austin-Round Rock-San Marcos, TX 
+ 231 
+ -2.45 
+ -2.21 
+ 1.81 
+ 556.72 
+
+ Oakland-Fremont-Berkeley, CA (MSAD) 
+ 232 
+ -4.07 
+ -4.78 
+ 3.37 
+ 318.57 
+
+ San Rafael, CA (MSAD) 
+ 233 
+ -8.08 
+ -4.85 
+ 9.48 
+ 272.23 
+
+ Urban Honolulu, HI 
+ 234 
+ -12.43 
+ -8.78 
+ 15.82 
+ 218.12 
+
+ MSAs are defined by the Office of Management and Budget (OMB). If specified criteria are met and an MSA contains a single core population greater than 2.5 million, the MSA is divided into Metropolitan Divisions. The following MSAs have been divided into Metropolitan Divisions: Boston-Cambridge-Quincy, MA-NH; Chicago-Naperville-Joliet, IL-IN-WI; Dallas-Fort Worth- Arlington, TX; Detroit-Warren-Livonia, MI; Los Angeles-Long Beach-Santa Ana, CA; Miami- Fort Lauderdale-Miami Beach, FL; New York-Northern New Jersey-Long Island, NY-NJ-PA; Philadelphia-Camden-Wilmington, PA-NJ-DE-MD; San Francisco-Oakland-Fremont, CA; Seattle-Tacoma-Bellevue, WA; and Washington-Arlington-Alexandria, DC-VA-MD-WV. For these MSAs, FHFA reports data for each Division, rather than the MSA as a whole. FHFA requires that an MSA (or Metropolitan Division) must have at least 1,000 total transactions before it may be published. Additionally, an MSA or Division must have had at least 10 transactions in any given quarter for that quarterly value to be published. Blanks are displayed where this criterion is not met. 
+
+ FHFA uses the revised Metropolitan Statistical Areas (MSAs) and Divisions as defined by the Office of Management and Budget (OMB) in the latest year. These MSAs and Divisions are based on Census data. According to OMB, an MSA comprises the central county or counties containing the core, plus adjacent outlying counties having a high degree of social and economic integration with the central county as measured through commuting. 
+
+ For information about the current MSAs, please visit:
+
+ https://www.census.gov/programs-surveys/metro-micro/about/omb-bulletins.html 
+
+ Change in FHFA Metropolitan Area House Price Indexes
+(Seasonally Adjusted, Purchase-Only Index, 2026Q3)
+ CSV 
+ JSON 
+
+ Name 
+ Rank 
+ 1 Quarter 
+ 1 Year 
+ 5 Year 
+ Since 1991 
+
+ United States 
+
+ 0.66 
+ 2.52 
+ 28.50 
+ 338.31 
+
+ Middle Atlantic Division 
+ 1 
+ 1.55 
+ 4.92 
+ 40.73 
+ 319.43 
+
+ East North Central Division 
+ 2 
+ 1.03 
+ 4.36 
+ 38.51 
+ 280.83 
+
+ New England Division 
+ 3 
+ 0.27 
+ 3.54 
+ 37.91 
+ 338.06 
+
+ West North Central Division 
+ 4 
+ 0.87 
+ 3.20 
+ 30.08 
+ 323.81 
+
+ Eastern South Central Division 
+ 5 
+ 0.38 
+ 2.38 
+ 31.43 
+ 310.67 
+
+ South Atlantic Division 
+ 6 
+ 0.46 
+ 2.05 
+ 31.50 
+ 360.60 
+
+ West South Central Division 
+ 7 
+ 0.63 
+ 1.53 
+ 20.81 
+ 323.70 
+
+ Mountain Division 
+ 8 
+ 0.26 
+ 1.13 
+ 18.67 
+ 497.84 
+
+ Pacific Division 
+ 9 
+ 0.27 
+ 0.51 
+ 13.52 
+ 361.49 
+
+ States in Each Census Division
+
+ Pacific Census Division: Hawaii, Alaska, Washington, Oregon, California 
+
+ Mountain Census Division: Montana, Idaho, Wyoming, Nevada, Utah, Colorado, Arizona, New Mexico
+
+ West North Central: North Dakota, South Dakota, Minnesota, Nebraska, Iowa, Kansas, Missouri
+
+ West South Central: Oklahoma, Arkansas, Texas, Louisiana
+
+ East North Central: Michigan, Wisconsin, Illinois, Indiana, Ohio
+
+ East South Central: Kentucky, Tennessee, Mississippi, Alabama
+
+ New England: Maine, New Hampshire, Vermont, Massachusetts, Rhode Island, Connecticut
+
+ Middle Atlantic: New York, New Jersey, Pennsylvania
+
+ South Atlantic: Delaware, Maryland, District of Columbia, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida
+
+ State Purchased 
+
+ - Select - 
+ Alabama 
+ Alaska 
+ Arizona 
+ Arkansas 
+ California 
+ Colorado 
+ Connecticut 
+ Delaware 
+ District of Columbia 
+ Florida 
+ Georgia 
+ Hawaii 
+ Idaho 
+ Illinois 
+ Indiana 
+ Iowa 
+ Kansas 
+ Kentucky 
+ Louisiana 
+ Maine 
+ Maryland 
+ Massachusetts 
+ Michigan 
+ Minnesota 
+ Mississippi 
+ Missouri 
+ Montana 
+ Nebraska 
+ Nevada 
+ New Hampshire 
+ New Jersey 
+ New Mexico 
+ New York 
+ North Carolina 
+ North Dakota 
+ Ohio 
+ Oklahoma 
+ Oregon 
+ Pennsylvania 
+ Rhode Island 
+ South Carolina 
+ South Dakota 
+ Tennessee 
+ Texas 
+ Utah 
+ Vermont 
+ Virginia 
+ Washington 
+ West Virginia 
+ Wisconsin 
+ Wyoming 
+
+ Available MSAs 
+
+ Purchase Quarter 
+
+ - Select - 
+ 2026Q2 
+ 2026Q1 
+ 2025Q4 
+ 2025Q3 
+ 2025Q2 
+ 2025Q1 
+ 2024Q4 
+ 2024Q3 
+ 2024Q2 
+ 2024Q1 
+ 2023Q4 
+ 2023Q3 
+ 2023Q2 
+ 2023Q1 
+ 2022Q4 
+ 2022Q3 
+ 2022Q2 
+ 2022Q1 
+ 2021Q4 
+ 2021Q3 
+ 2021Q2 
+ 2021Q1 
+ 2020Q4 
+ 2020Q3 
+ 2020Q2 
+ 2020Q1 
+ 2019Q4 
+ 2019Q3 
+ 2019Q2 
+ 2019Q1 
+ 2018Q4 
+ 2018Q3 
+ 2018Q2 
+ 2018Q1 
+ 2017Q4 
+ 2017Q3 
+ 2017Q2 
+ 2017Q1 
+ 2016Q4 
+ 2016Q3 
+ 2016Q2 
+ 2016Q1 
+ 2015Q4 
+ 2015Q3 
+ 2015Q2 
+ 2015Q1 
+ 2014Q4 
+ 2014Q3 
+ 2014Q2 
+ 2014Q1 
+ 2013Q4 
+ 2013Q3 
+ 2013Q2 
+ 2013Q1 
+ 2012Q4 
+ 2012Q3 
+ 2012Q2 
+ 2012Q1 
+ 2011Q4 
+ 2011Q3 
+ 2011Q2 
+ 2011Q1 
+ 2010Q4 
+ 2010Q3 
+ 2010Q2 
+ 2010Q1 
+ 2009Q4 
+ 2009Q3 
+ 2009Q2 
+ 2009Q1 
+ 2008Q4 
+ 2008Q3 
+ 2008Q2 
+ 2008Q1 
+ 2007Q4 
+ 2007Q3 
+ 2007Q2 
+ 2007Q1 
+ 2006Q4 
+ 2006Q3 
+ 2006Q2 
+ 2006Q1 
+ 2005Q4 
+ 2005Q3 
+ 2005Q2 
+ 2005Q1 
+ 2004Q4 
+ 2004Q3 
+ 2004Q2 
+ 2004Q1 
+ 2003Q4 
+ 2003Q3 
+ 2003Q2 
+ 2003Q1 
+ 2002Q4 
+ 2002Q3 
+ 2002Q2 
+ 2002Q1 
+ 2001Q4 
+ 2001Q3 
+ 2001Q2 
+ 2001Q1 
+ 2000Q4 
+ 2000Q3 
+ 2000Q2 
+ 2000Q1 
+ 1999Q4 
+ 1999Q3 
+ 1999Q2 
+ 1999Q1 
+ 1998Q4 
+ 1998Q3 
+ 1998Q2 
+ 1998Q1 
+ 1997Q4 
+ 1997Q3 
+ 1997Q2 
+ 1997Q1 
+ 1996Q4 
+ 1996Q3 
+ 1996Q2 
+ 1996Q1 
+ 1995Q4 
+ 1995Q3 
+ 1995Q2 
+ 1995Q1 
+ 1994Q4 
+ 1994Q3 
+ 1994Q2 
+ 1994Q1 
+ 1993Q4 
+ 1993Q3 
+ 1993Q2 
+ 1993Q1 
+ 1992Q4 
+ 1992Q3 
+ 1992Q2 
+ 1992Q1 
+ 1991Q4 
+ 1991Q3 
+ 1991Q2 
+ 1991Q1 
+
+ Valuation Quarter 
+
+ 2026Q3 
+ 2026Q2 
+ 2026Q1 
+ 2025Q4 
+ 2025Q3 
+ 2025Q2 
+ 2025Q1 
+ 2024Q4 
+ 2024Q3 
+ 2024Q2 
+ 2024Q1 
+ 2023Q4 
+ 2023Q3 
+ 2023Q2 
+ 2023Q1 
+ 2022Q4 
+ 2022Q3 
+ 2022Q2 
+ 2022Q1 
+ 2021Q4 
+ 2021Q3 
+ 2021Q2 
+ 2021Q1 
+ 2020Q4 
+ 2020Q3 
+ 2020Q2 
+ 2020Q1 
+ 2019Q4 
+ 2019Q3 
+ 2019Q2 
+ 2019Q1 
+ 2018Q4 
+ 2018Q3 
+ 2018Q2 
+ 2018Q1 
+ 2017Q4 
+ 2017Q3 
+ 2017Q2 
+ 2017Q1 
+ 2016Q4 
+ 2016Q3 
+ 2016Q2 
+ 2016Q1 
+ 2015Q4 
+ 2015Q3 
+ 2015Q2 
+ 2015Q1 
+ 2014Q4 
+ 2014Q3 
+ 2014Q2 
+ 2014Q1 
+ 2013Q4 
+ 2013Q3 
+ 2013Q2 
+ 2013Q1 
+ 2012Q4 
+ 2012Q3 
+ 2012Q2 
+ 2012Q1 
+ 2011Q4 
+ 2011Q3 
+ 2011Q2 
+ 2011Q1 
+ 2010Q4 
+ 2010Q3 
+ 2010Q2 
+ 2010Q1 
+ 2009Q4 
+ 2009Q3 
+ 2009Q2 
+ 2009Q1 
+ 2008Q4 
+ 2008Q3 
+ 2008Q2 
+ 2008Q1 
+ 2007Q4 
+ 2007Q3 
+ 2007Q2 
+ 2007Q1 
+ 2006Q4 
+ 2006Q3 
+ 2006Q2 
+ 2006Q1 
+ 2005Q4 
+ 2005Q3 
+ 2005Q2 
+ 2005Q1 
+ 2004Q4 
+ 2004Q3 
+ 2004Q2 
+ 2004Q1 
+ 2003Q4 
+ 2003Q3 
+ 2003Q2 
+ 2003Q1 
+ 2002Q4 
+ 2002Q3 
+ 2002Q2 
+ 2002Q1 
+ 2001Q4 
+ 2001Q3 
+ 2001Q2 
+ 2001Q1 
+ 2000Q4 
+ 2000Q3 
+ 2000Q2 
+ 2000Q1 
+ 1999Q4 
+ 1999Q3 
+ 1999Q2 
+ 1999Q1 
+ 1998Q4 
+ 1998Q3 
+ 1998Q2 
+ 1998Q1 
+ 1997Q4 
+ 1997Q3 
+ 1997Q2 
+ 1997Q1 
+ 1996Q4 
+ 1996Q3 
+ 1996Q2 
+ 1996Q1 
+ 1995Q4 
+ 1995Q3 
+ 1995Q2 
+ 1995Q1 
+ 1994Q4 
+ 1994Q3 
+ 1994Q2 
+ 1994Q1 
+ 1993Q4 
+ 1993Q3 
+ 1993Q2 
+ 1993Q1 
+ 1992Q4 
+ 1992Q3 
+ 1992Q2 
+ 1992Q1 
+ 1991Q4 
+ 1991Q3 
+ 1991Q2 
+ 1991Q1 
+ 1990Q4 
+ 1990Q3 
+ 1990Q2 
+ 1990Q1 
+ 1989Q4 
+ 1989Q3 
+ 1989Q2 
+ 1989Q1 
+ 1988Q4 
+ 1988Q3 
+ 1988Q2 
+ 1988Q1 
+ 1987Q4 
+ 1987Q3 
+ 1987Q2 
+ 1987Q1 
+ 1986Q4 
+ 1986Q3 
+ 1986Q2 
+ 1986Q1 
+ 1985Q4 
+ 1985Q3 
+ 1985Q2 
+ 1985Q1 
+ 1984Q4 
+ 1984Q3 
+ 1984Q2 
+ 1984Q1 
+ 1983Q4 
+ 1983Q3 
+ 1983Q2 
+ 1983Q1 
+ 1982Q4 
+ 1982Q3 
+ 1982Q2 
+ 1982Q1 
+ 1981Q4 
+ 1981Q3 
+ 1981Q2 
+ 1981Q1 
+ 1980Q4 
+ 1980Q3 
+ 1980Q2 
+ 1980Q1 
+ 1979Q4 
+ 1979Q3 
+ 1979Q2 
+ 1979Q1 
+ 1978Q4 
+ 1978Q3 
+ 1978Q2 
+ 1978Q1 
+ 1977Q4 
+ 1977Q3 
+ 1977Q2 
+ 1977Q1 
+ 1976Q4 
+ 1976Q3 
+ 1976Q2 
+ 1976Q1 
+ 1975Q4 
+ 1975Q3 
+ 1975Q2 
+ 1975Q1 
+
+ Purchase Price 
+
+ When using the FHFA House Price Calculator, please note that it does not project the actual value of any particular house. Rather, it projects what a given house purchased at a point in time would be worth today if it appreciated at the average appreciation rate of all homes in the area. The actual value of any house will depend on the local real estate market, house condition and age, home improvements made and needed, and many other factors. Consult a qualified real estate appraiser in your area to obtain a professional estimate of the current value of your home. Title XI of the Financial Institutions Reform, Recovery, and Enforcement Act of 1989 requires that any appraisal used in connection with a federally related transaction must be performed by a competent individual whose professional conduct is subject to supervision and regulation. Appraisers must be licensed or certified according to state law.
+
+ The FHFA House Price Calculator uses the FHFA Purchase-Only House Price Index (not seasonally adjusted) for all states, including the District of Columbia, and for the largest 100 Metropolitan Statistical Areas and Divisions. For all other Metropolitan Statistical Areas and Divisions the FHFA All-Transactions Index is used. For a list of the largest 100 Metropolitan Statistical Areas and Divisions, click here . For a discussion of the differences between the Purchase-Only Index and the All-Transactions Index, click here. 
+
+ Leave this field blank 
+
+ Sign up for email updates
+
+ Leave this field blank 
+
+ U.S. FEDERAL HOUSING
+
+ Footer Highlighted
+
+ About 
+
+ Careers 
+
+ Sitemap 
+
+ Contact Us 
+
+ Footer
+
+ Accessibility 
+
+ Budget, Finances, and Performance​ 
+
+ FOIA 
+
+ No FEAR Act Data 
+
+ Office of the Inspector General 
+
+ Privacy Policy 
+
+ USA.gov 
+
+ Back to top

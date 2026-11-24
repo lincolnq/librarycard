@@ -1,0 +1,473 @@
+URL: https://www.fhfa.gov/about/fhfa-policies/website-privacy-policy
+Final-URL: https://www.fhfa.gov/about/fhfa-policies/website-privacy-policy
+Retrieved: 2026-11-24T23:38:37+00:00
+HTTP-Status: 200
+Raw-SHA256: ee48a5036367d1a538a04e761ee8f7c53edb5f442bc7ef2f2684b19ddca416dc
+Raw-Bytes: 99730
+---
+Skip to main content
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Here's how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ U.S. FEDERAL HOUSING
+
+ About 
+
+ About FHFA 
+
+ Mission & Core Values 
+
+ Leadership 
+
+ Conservatorship 
+
+ About Fannie Mae & Freddie Mac 
+
+ About the Federal Home Loan Bank System 
+
+ Budget, Finances, and Performance 
+
+ FHFA Policies 
+
+ FOIA & Privacy 
+
+ Information Quality 
+
+ Do Business with Us 
+
+ Ombudsman 
+
+ Equal Employment Opportunity 
+
+ Careers 
+
+ Contact Us 
+
+ Supervision & Regulation 
+
+ Advisory Bulletins 
+
+ Dodd-Frank Act Stress Tests (DFAST) 
+
+ FHFA Examinations 
+
+ Legal Documents & Suspensions 
+
+ Rulemaking and Federal Register 
+
+ Suspended Counterparty Program 
+
+ Policy & Programs 
+
+ Policy 
+
+ Affordable Housing Allocations 
+
+ Common Securitization Platform 
+
+ Credit Risk Transfer 
+
+ Credit Scores 
+
+ Deemed-Issuance Ratio 
+
+ Executive Compensation 
+
+ Guarantee Fees 
+
+ Language Access 
+
+ Non-Performing and Re-Performing Loan Sales 
+
+ Pilot Transparency 
+
+ Private Mortgage Insurer Eligibility Requirements 
+
+ Representation and Warranty Framework 
+
+ Programs 
+
+ Affordable Housing & Community Investment 
+
+ Duty to Serve 
+
+ Enterprise Housing Goals 
+
+ Fraud Prevention 
+
+ Loss Mitigation 
+
+ National Mortgage Database 
+
+ Natural Disaster Risk 
+
+ Suspended Counterparty Program 
+
+ Data & Research 
+
+ Data 
+
+ Borrower Assistance Map 
+
+ Conforming Loan Limit 
+
+ Dashboards 
+
+ Data Governance 
+
+ Duty to Serve Eligibility Data 
+
+ Duty to Serve Performance Data 
+
+ ​Enterprise Housing Goals 
+
+ FHFA House Price Index® 
+
+ FHLB Membership Data 
+
+ NMDB® Aggregate Statistics 
+
+ NSMO Public Use File 
+
+ Public Use Databases 
+
+ FHLB Stress Tests 
+
+ Market Data 
+
+ Market Risk Scenarios 
+
+ MIRS Transition Index 
+
+ UAD Appraisal-Level Public Use File 
+
+ UAD Aggregate Statistics 
+
+ Underserved Areas Data 
+
+ Research 
+
+ Briefs, Notes & White Papers 
+
+ NMDB Staff Working Papers 
+
+ Staff Working Papers 
+
+ Resources 
+
+ Reports 
+
+ All Reports 
+
+ Annual Housing Report 
+
+ Annual Report to Congress 
+
+ Chief FOIA Officer Report 
+
+ Collateral Pledged to FHLBanks 
+
+ Conservatorship Scorecard 
+
+ Credit Risk Transfer Progress Report 
+
+ Enterprise Non-Performing Loan Sales Report 
+
+ FAIR Act Inventory 
+
+ FHFA Annual Performance Plan 
+
+ FHFA House Price Index® 
+
+ FHFA Performance and Accountability Report 
+
+ FHFA SI Compliance Plan 
+
+ FHLBank System at 100 
+
+ FHLBank Targeted Mission Activities 
+
+ FOIA Annual Report 
+
+ Foreclosure Prevention, Refinance, and FPM Report 
+
+ Housing Mission Report 
+
+ Information Resources Management Strategic Plan 
+
+ No FEAR Report 
+
+ Plain Language Report 
+
+ Prepayment Monitoring Report 
+
+ Single-Family Guarantee Fees Report 
+
+ Stress Tests Reports 
+
+ Mortgage Translations 
+
+ About Mortgage Translations 
+
+ Borrower Education Materials 
+
+ COVID-19 Resources 
+
+ Interpretive Services 
+
+ Language Translation Disclosure 
+
+ Search Documents 
+
+ News 
+
+ Public Affairs 
+
+ News Releases 
+
+ Statements 
+
+ Speeches 
+
+ Testimonies 
+
+ Public Input 
+
+ Fact Sheets 
+
+ FAQs 
+
+ Partner Agency Engagements 
+
+ Public Engagements 
+
+ Videos 
+
+ Social Media 
+
+ Facebook 
+
+ LinkedIn 
+
+ YouTube 
+
+ X (formerly Twitter) 
+
+ Search
+
+ Close search form 
+
+ Search FHFA.gov
+
+ Search 
+
+ Filter by Topic
+
+ Advisory Bulletins 
+
+ Federal Register Notice 
+
+ Federal Register Publication 
+
+ News Releases 
+
+ Public Input 
+
+ Reports 
+
+ Research Papers 
+
+ Press ESC or click outside to close
+
+ Menu 
+
+ Breadcrumb
+
+ Home 
+
+ About FHFA 
+
+ FHFA Policies 
+
+ FHFA Website Privacy Policy 
+
+FHFA Website Privacy Policy
+
+ Thank you for visiting the Federal Housing Finance Agency's (FHFA) website and reviewing our Privacy Policy. The privacy of visitors to our website is of the utmost importance to FHFA. To learn more about how we handle personal information you may choose to submit to us, as well as non-personal information that is automatically collected about your visit, please click on the following links.
+ Our Privacy Policy Is Clear 
+ Information Collected and Stored Automatically 
+ Website Measurement and Customization Technologies (e.  g.  Cookies) Policy 
+ If You Send Us Personal Information 
+ E-Mail Policy 
+ What are Your Rights under the Privacy Act of 1974? 
+ Principal Purpose and Routine Uses of Information 
+ Authority for Collecting Information 
+ Information from Children 
+ Copyright 
+ Agency Name and Official Seal Permissions 
+ Links to other Websites 
+ Social Media 
+ Internet Security 
+ False Statements and Documents 
+ Liability 
+ Questions about Privacy 
+
+ 1.  Our Privacy Policy is Clear
+ You do not have to provide personal information to use this website. We will not collect any personal information about you when you visit our website unless you voluntarily choose to provide such information to us. We respect your right to privacy and will protect it when you visit our website.
+
+ 2.  Information Collected and Stored Automatically
+ If, during your visit to FHFA.gov, you only browse through the website, read pages, or download information, we automatically collect and store the following information:
+ The Internet domain (for example, "xcompany.com" if you use a private Internet access account, or "yourschool.edu" if you connect from a university's domain), and IP address (an IP address is a number that is assigned automatically to your computer whenever you are surfing the Web) from which you accessed our website;
+ The type of browser and operating system you used to access our site;
+ The date and time you accessed our site;
+ The pages you visited;
+ The type of actions you performed, such as information requests, and the searches you performed;
+ The number of bytes of information, if any, sent by our server; and
+ If you linked to our website from another website, the address of that website.
+ This information does not identify you personally. We use this information to help make our site more useful to visitors. This data is used in summary form for statistical purposes: (i) to learn about the number of visitors to our site and the types of technology our users use to access our site; (ii) to assess system performance; (iii) to identify problems with agency systems; and (iv) to improve the site for users. In the event of a computer security incident, such data may be further refined to allow computer security specialists to identify Internet service providers and, in certain cases, individuals or entities attacking FHFA.
+
+ 3.  Website Measurement and Customization Technologies (e. g. Cookies) Policy   
+ FHFA uses web measurement and customization technologies, commonly known as “cookies,” to collect information about user visits to our site. Use of these technologies makes our website function better for you and allows us to better understand how the public is using the website. Cookies are files placed on your hard drive by a website that allows the website to monitor your use of that site, usually without your express knowledge. Some cookies collect personal information to recognize your computer in the future. We do not use these types of cookies on our website. Instead, we use non-persistent cookies or “per-session cookies,” which are also known as “Tier 1 web measurement and customization technologies.” These types of “cookies” do not collect personal information on users and they are not stored on your computer's hard drive. These types of “cookies” are stored only in your computer's memory during an active browser session. They are deleted or erased as soon as you close your browser after visiting our website.
+
+FHFA uses a third-party analytics provider (currently Google Analytics) to analyze the data collected through the non-persistent cookies or per-session cookies. Google Analytics does not receive personally identifiable information through these cookies and does not combine, match, or cross-reference fhfa.gov information with any other information. The data is automatically sent from a cookie on your machine or device to Google Analytics’ system, which immediately aggregates that data. The cookie and any data related to a particular visit to our website are deleted from your computer immediately after you close your browser. FHFA uses the aggregated data for internal purposes and discloses it to FHFA employees and contractors who have a “need-to-know” this information in the performance of their official duties.
+
+Please refer to the following policies on Google's website for more information:
+ Google's main privacy policy 
+ Cookies on Websites 
+ Opt out of Google Analytics Cookies 
+ You may opt out of having cookies installed on your machine or device by changing the settings of your browser to disable them. For instructions on how to disable cookies from common browsers, please visit: https://www.usa.gov/optout-instructions .
+ If you choose to disable cookies you will continue to have access to FHFA’s website, and you will receive comparable information and services. However, your experience may be different than those who enable cookies.
+
+ 4.  If You Send Us Personal Information
+ We do not collect personal information for any purpose other than to respond to your inquiries or complaints. Any personally identifiable information (such as name, address, phone number, and email address) that you provide is voluntary.
+
+If you voluntarily choose to provide us with personal information by filling out a form and submitting it to us through our website, we may use the information to: 1) respond to complaints, appeals, inquires, and requests for information; 2) review and post comments on proposed rules/regulations; 3) review feedback received on FHFA proposed or implemented initiatives; and/or 4) compile a list of potential vendors and contractors. Forms available through FHFA’s website may also assist FHFA and those who will respond to the submitter with consumer issues involving Fannie Mae, Freddie Mac, or the Federal Home Loan Banks. We may share or disclose that information consistent with FHFA's System of Records Notice ( FHFA-22 - Online Forms ). In some circumstances, including responding to requests from Congress or private individuals, we may be required by law to disclose the information you submit. We do not collect or use your information or create individual profiles for commercial marketing purposes.
+
+We employ physical, technical, and administrative safeguards to maintain the security, confidentiality, and integrity of the information we collect on our website. To view a listing of our Privacy Impact Assessments for our electronic systems and collections, please visit our privacy page at https://www.fhfa.gov/about/privacy/privacy-impact-assessment .
+
+While you must provide certain information about yourself ( e.g. , name, address, and email address) for a personal response to any incoming questions or comments to FHFA, we strongly recommend that you DO NOT include other personal information, especially your Social Security Number, mortgage loan numbers and amounts, or other financial account information.
+
+ For guidance on how to protect your Social Security Number visit the Social Security Administration's website . 
+
+ 5.  E-Mail Policy
+ You may send us electronic mail (email) that contains your personal information, comment, question, or complaint. If you send us email, we may store your name, email address and other personal information in order to respond to you. With the exception of comments made specifically in response to a Request for Comments issued by FHFA for rulemaking purposes, we do not share your email with any other outside organizations except: (i) as set forth in our SORNs; (ii) for authorized law enforcement investigations; or (iii) with our regulated entities in order to assist in responding to complaints and inquiries. Comments made in response to a Request for Comments related to a rulemaking are public information and are posted on the website in the rulemaking section without change and will include any personal information you provide, such as your name, address, telephone number and email address.
+
+ 6.  What are Your Rights under the Privacy Act of 1974?
+ Under the Privacy Act of 1974 , federal agencies must not disclose any “record” which is contained in a “system of records” to any person, or to another agency, except at the written request of, or with the prior written consent of, the person to whom the record relates. There are exceptions for certain disclosures within the Government and disclosures required by statute.
+
+A “record” is any item, collection, or grouping of information about a person that an agency maintains and that contains the person's name, or some other identifying number, symbol, or feature assigned to the person by the agency ( e.g. , a fingerprint or a photograph).
+
+A “system of records” means a group of “records” under the control of an agency from which the agency retrieves information by a person’s name or by the identifying number, symbol, or feature that the agency has assigned to the person. Because of this retrieval requirement, not all personal information collected online is covered by the Privacy Act. 
+
+Other major provisions of the Privacy Act require the FHFA to:
+ Publish a system of records notice in the Federal Register explaining the existence, character, and uses of any new or revised system of records ( click here to access FHFA's Systems of Records Notices );
+ Maintain in its records only information about you that is relevant and necessary to accomplish a purpose of the agency required by law;
+ Keep information about you accurate, relevant, timely, and complete to assure fairness in dealing with you; and
+ Allow you, upon request, to access, review, and request amendment of your information held in a system of records.
+
+ 7.  Principal Purpose and Routine Uses of Information
+ Our principal purposes in collecting information via forms available on FHFA’s website are to respond to complaints, appeals, inquiries and requests for information; to review and post comments on proposed rules/regulations; to review feedback received on FHFA proposed or implemented initiatives; and/or to compile a list of potential vendors and contractors. The forms available on FHFA’s website may also assist FHFA and those who will respond to the submitter with consumer issues involving Fannie Mae, Freddie Mac, and the Federal Home Loan Banks.
+
+As required by the Privacy Act of 1974, all routine uses are published in FHFA Systems of Records Notices, found on the FHFA Privacy Office website . As stated in the routine uses in FHFA Systems of Records Notices (where applicable), FHFA may also use your information to determine whether a person has violated, is violating, or is about to violate the laws or rules that FHFA enforces. FHFA may use the information you provide in legal proceedings. If the information indicates violations of other laws or regulations, we may turn it over to other government agencies, including United States Attorneys and state prosecutors. In order to preserve the integrity of the investigation, we generally do not disclose to you whether we have done so or not. 
+
+FHFA will not agree to limit its use of your information in any way not required by law, unless FHFA or an authorized staff explicitly agrees to do so in writing. 
+
+ 8.  Authority for Collecting Information
+ 12 U.S.C. § 4501  et seq.  authorizes FHFA to request information from you. 
+
+ 9.  Information from Children
+ Sections of FHFA’s Website may offer educational content to children, parents, and teachers. In compliance with the Children's Online Privacy Protection Act (COPPA), FHFA does not require children to reveal any information that could personally identify them. If, however, a child chooses to provide us with personally identifying information, through an email, Web form or other means, that information will only be used to respond to the writer’s question(s) or request(s). The information will not be retained, used for another purpose, or shared with third parties.
+
+ 10.  Copyright and Trademark Notice
+ Generally, information and materials produced by Federal agencies, including FHFA, are in the public domain and may be copied and distributed without permission. This excludes the FHFA seal, other Federal agency seals, and marks for which there is a federal trademark as denoted by the ® symbol, which are protected by law.
+
+Some of the information contained on this website is not in the public domain because it may have been trademarked, purchased, licensed, or donated by third parties. This information may be subject to copyright or trademark protection. It is your responsibility to identify such protected information and obtain permission from the copyright or trademark holders before use in anyway.
+
+If you are the copyright owner of material on this website that you believe has not been properly attributed to you or has been used without your permission, please contact us and include a link to the relevant material in your message.
+
+ 11.  Agency Name and Official Seal Permissions
+ Federal law prohibits the use of any symbol, emblem, seal, insignia or badge of FHFA or any colorable imitation of such words, initials, symbols, emblems, or seals in connection with any advertisement, solicitation, business activity, or product where such use could be interpreted as conveying the impression that such advertisement, solicitation, business activity, or product is in any manner approved, endorsed, sponsored, or authorized by, or associated with FHFA.
+
+All services that use data developed by FHFA must prominently display the following notice with the application: “This product uses FHFA data but is neither endorsed nor certified by FHFA.” You may use FHFA’s name or logos ( e.g. , “Source: FHFA®”) to identify the source of the content, subject to this Privacy Policy. 
+
+ 12.  Links to Other Websites
+ This website contains hypertext links to information created and maintained by other organizations. These links to external websites are provided for your convenience. FHFA does not control nor guarantee the accuracy, relevance, timeliness, or completeness of any information on these other links/websites. If you go to other websites through these links, our privacy and security policy will no longer apply and you will be subject to the privacy and security policy of the new websites. If you click a link to a non-government external website, you will be notified by an exit message/pop up message.
+
+ 13.  Social Media
+ In order to encourage greater public participation, collaboration, and transparency, FHFA currently maintains official accounts on commercial social media sites, including Facebook, YouTube, LinkedIn, and X (formerly known as Twitter). FHFA does not own or operate these sites. These sites are owned, controlled, and operated by non-government third parties. FHFA does not collect, maintain, or disseminate information posted by visitors to these sites. Additionally, FHFA does not endorse or control the comments or opinions provided by visitors to these sites. FHFA may, however, remove posts that do not meet the agency’s guidelines for social media comments.
+ Please note that the FHFA Website Privacy Policy does not extend to, apply to, or have authority over the privacy policy of any commercial social media sites you may visit. Therefore, if you choose to interact with FHFA on a commercial third-party site, please review carefully the third-party’s privacy policy. Click on the following to view the privacy policies of Facebook , YouTube , LinkedIn and X .
+
+ 14.  Internet Security
+ By using this site, you are agreeing to security monitoring and auditing. For security purposes and to ensure that the public service remains available to users, this government computer system employs programs to monitor network traffic to identify unauthorized attempts to upload or change information or to otherwise cause damage, including attempts to deny service to users. 
+
+Unauthorized attempts to upload information and/or change information on any portion of this site are strictly prohibited and are subject to prosecution under the Computer Fraud and Abuse Act of 1986 and the National Information Infrastructure Protection Act of 1996 (18 U.S.C. § 1030) .
+
+ 15.  False Statements and Documents
+ If you furnish FHFA with information that you know to be false or misleading, you are subject to prosecution under federal law, specifically 18 U.S.C. § 1001 . 
+
+The information you give FHFA may be used against you in any federal, state, local or foreign administrative, civil, or criminal proceeding brought by FHFA or any other agency. You may refuse, in accordance with the rights guaranteed to you by the Fifth Amendment to the Constitution of the United States, to give any information that may tend to incriminate you or subject you to fine, penalty or forfeiture. 
+
+ 16.  Liability
+ FHFA makes no express or implied warranty, nor assumes any legal liability or responsibility for the accuracy, completeness, or usefulness of any information, apparatus, product, or process described or depicted on this website or posted on the agency's social media pages. FHFA does not represent that the use of any such information, apparatus, product, or process would not infringe privately owned rights.
+
+ 17.  Questions about Privacy
+ If you have questions about FHFA’s privacy policy and information practice, email us at  privacy@fhfa.gov , or contact us at:
+
+Senior Agency Official for Privacy
+Office of General Counsel
+Federal Housing Finance Agency
+400 7th Street SW
+Washington, DC 20219
+(202) 649-3803
+
+ If you would like more information about FHFA's Privacy Program, please visit our Privacy Program Webpage at  www.fhfa.gov/privacy .
+
+ Last Reviewed: August 15, 2025
+
+ Sign up for email updates
+
+ Leave this field blank 
+
+ U.S. FEDERAL HOUSING
+
+ Footer Highlighted
+
+ About 
+
+ Careers 
+
+ Sitemap 
+
+ Contact Us 
+
+ Footer
+
+ Accessibility 
+
+ Budget, Finances, and Performance​ 
+
+ FOIA 
+
+ No FEAR Act Data 
+
+ Office of the Inspector General 
+
+ Privacy Policy 
+
+ USA.gov 
+
+ Back to top

@@ -1,0 +1,184 @@
+URL: https://apps.bea.gov/regional/downloadzip.htm
+Final-URL: https://apps.bea.gov/regional/downloadzip.htm
+Retrieved: 2026-11-24T23:37:31+00:00
+HTTP-Status: 200
+Raw-SHA256: ca06e3aff2bc3bfb8956515a248be168b8ff878acf28df8c3bb0c07c1853078c
+Raw-Bytes: 27926
+---
+Skip to main content 
+
+ An official website of the United States government
+
+ Toggle navigation 
+
+ Main navigation
+
+ Data 
+
+ by Topic 
+
+ by Place 
+
+ by Economic Account 
+
+ Tools 
+
+ Interactive Data 
+
+ Application Programming Interface (API) 
+
+ Global Value Chain Analyzer 
+
+ Income Distribution Analysis Tool (IDAT) 
+
+ Country Facts 
+
+ BEARFACTS 
+
+ Industry Facts 
+
+ GDP & Personal Income Mapping 
+
+ RIMS II 
+
+ eFile 
+
+ News 
+
+ Economy at a Glance 
+
+ News Releases 
+
+ Release Schedule 
+
+ The BEA Wire | BEA's Official Blog 
+
+ Survey of Current Business 
+
+ Archive 
+
+ For Journalists 
+
+ Research 
+
+ Offices of Research 
+
+ Meet the Researchers 
+
+ Papers 
+
+ Special Sworn Researcher Program 
+
+ Research Using Company-Level Data 
+
+ Fellowship Program 
+
+ Resources 
+
+ Learning Center 
+
+ Methodologies 
+
+ Multimedia 
+
+ Article Collections 
+
+ For Congressional Users 
+
+ For Developers 
+
+ For Students 
+
+ About 
+
+ Who We Are 
+
+ BEA Leadership 
+
+ Innovation at BEA 
+
+ Advisory Committees 
+
+ Budget and Performance 
+
+ Policies and Information 
+
+ Working at BEA 
+
+ Help 
+
+ Contact Us 
+
+ Ask an Expert 
+
+ For Survey Respondents 
+
+ Frequently Asked Questions (FAQ) 
+
+ Glossary 
+
+ Guidelines for Citing BEA 
+
+ Notice
+
+ Due to a lapse in appropriations, this website is not being updated.
+
+--> 
+
+ BEA: Download ZIP Files 
+
+ Home 
+
+ Regional 
+
+ Download ZIP Files
+
+ Regional Economic Accounts: Download ZIP Files
+
+ Comma-separated-value files (CSVs) for all regional data sets are available for download as compressed archives (ZIP). The CSV files are readily imported into spreadsheet programs like MS Excel.
+
+ Choose a category: 
+
+ --------------------------------------------- 
+ Gross domestic product (GDP) 
+ Personal income (state and local) 
+ Personal consumption expenditures (PCE) by state 
+ Outdoor recreation and arts and culture 
+
+---> 
+
+ Bureau of Economic Analysis 4600 Silver Hill Road • Suitland, MD 20746 
+
+ Contact Us 
+
+ Working at BEA 
+
+ Frequently Asked Questions 
+
+ Our Policies 
+
+ Privacy 
+
+ Commitment to Scientific Integrity 
+
+ Data Dissemination Practices 
+
+ Open Data 
+
+ USA.gov 
+
+ Business USA 
+
+ No FEAR Act 
+
+ FOIA 
+
+ U.S. Department of Commerce 
+
+ Emergency Status 
+
+ The BEA Wire | BEA's Official Blog 
+
+ News Release Feed (RSS) 
+
+ Sign up for Email Notifications

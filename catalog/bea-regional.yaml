@@ -1,0 +1,90 @@
+schema_version: 1
+id: bea-regional
+name: BEA Regional Economic Accounts (GDP and personal income by state, county and metro area)
+publisher:
+  name: U.S. Bureau of Economic Analysis (BEA)
+  url: https://www.bea.gov
+  type: us_federal
+homepage: https://www.bea.gov/data/economic-accounts/regional
+description: >-
+  BEA's regional accounts estimate gross domestic product (total and by industry, real and current dollars),
+  personal income and its components (wages, transfers, dividends/interest/rent), per-capita income,
+  employment and compensation for states (annual and quarterly), counties and metropolitan areas. They are
+  built from administrative records (BLS QCEW, IRS, SSA, Census) benchmarked to the national accounts. BEA's
+  API needs a key, but every regional table is published as a keyless ZIP of CSVs, which this source reads;
+  it adds county-level detail and industry breakdowns that headline Data Commons series lack.
+domains: [economy, income_poverty, labor]
+tags: [bea, gdp, gross-domestic-product, personal-income, per-capita-income, regional-accounts, county-gdp, state-gdp, cainc, cagdp, sagdp, sainc, sqinc, transfer-receipts, compensation]
+coverage:
+  geography: United States — nation, BEA regions, 50 states and DC, counties (with BEA county combinations, e.g. Virginia independent cities), metropolitan areas in county tables
+  countries: [US]
+  geographic_granularity: [nation, state, county, other]
+  time_range:
+    start: "1929"
+    end: null
+    notes: State personal income from 1929 (annual) / 1948 (quarterly); county personal income from 1969; state GDP from 1997 (NAICS); county GDP from 2001. Latest - 2025 (state annual), 2026:Q2 (state quarterly), 2024 (county) as of 2026-11-24.
+  temporal_granularity: annual
+  unit_of_observation: Geographic area x table line (statistic or industry) x period (year or quarter)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://apps.bea.gov/regional/zip/
+      description: <TABLE>.zip for county tables (CAINC1, CAINC4, CAINC30, CAGDP1, CAGDP2, CAGDP9, ...); grouped SAGDP.zip, SAINC.zip, SQINC.zip, SQGDP.zip, SAPCE.zip for state tables. Each holds <TABLE>__ALL_AREAS_<first>_<last>.csv.
+    - url: https://apps.bea.gov/regional/downloadzip.htm
+      description: Human index of available ZIPs (list is populated by JavaScript).
+  formats: [csv (zipped, wide by year)]
+  rate_limits: None published for the ZIP downloads. Files are 2-25 MB; the adapter caches them 7 days (license allows).
+  auth: none
+  notes: The BEA API (apps.bea.gov/api, needs a UserID key) serves the same tables plus metro (MAINC/MAGDP) tables; not usable here. The zip files are the keyless path.
+update:
+  cadence: quarterly
+  expected_lag: State quarterly personal income and GDP ~3 months after the quarter; county personal income ~11 months and county GDP ~12 months after the reference year.
+  notes: Release schedule at https://www.bea.gov/news/schedule. Each release revises several prior years.
+change_detection:
+  method: http_headers
+  url: https://apps.bea.gov/regional/zip/SAINC.zip
+  headers: [etag, last-modified]
+  poll_interval_days: 7
+  notes: The grouped state personal income zip is replaced on each state income release (quarterly) and on annual revisions; it signals new vintages and layout changes. A change means re-run the contract and check headers/years; it is expected about four times a year.
+license:
+  name: Public domain (U.S. Government work; BEA FAQ 145/147)
+  spdx: null
+  url: https://www.bea.gov/help/faq/147
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "Source: U.S. Bureau of Economic Analysis, Regional Economic Accounts, table <TABLE> (last updated <date>)."
+  evidence: evidence/licenses/bea-regional/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: GeoFIPS
+    label: Area code
+    definition: 5-digit code — '00000' United States; 'SS000' state; '91000'-'98000' BEA regions; otherwise county FIPS or BEA county combination code (e.g. 51901 for combined Virginia areas).
+  - name: GeoName
+    definition: Area name as published (BEA adds '*' to some combined/changed areas; see footnotes).
+  - name: LineCode
+    definition: Line number within the table; with Description identifies the statistic or industry (e.g. CAINC1 line 1 personal income, 2 population, 3 per-capita personal income).
+  - name: Description
+    definition: Line label, including footnote markers like '1/'.
+  - name: Unit
+    definition: Unit of the line, e.g. 'Thousands of dollars', 'Millions of current dollars', 'Millions of chained 2017 dollars', 'Number of persons', 'Dollars'.
+  - name: period
+    definition: Year ('2024') or quarter ('2026:Q2'). Renamed from the publisher's wide year columns (the adapter reshapes wide to long).
+  - name: value
+    definition: Numeric value in `Unit`; null when BEA published a code instead (see value_note).
+  - name: value_note
+    definition: BEA cell code when no number is published — (D) suppressed to avoid disclosure, (NA) not available, (NM) not meaningful, (L) below display threshold, (T) included in higher totals.
+caveats:
+  - Every release revises prior years (annual updates revise 3-5+ years; comprehensive updates revise the whole history). Always record `metadata.last_updated` and do not mix vintages.
+  - Units differ by line and table — personal income is in thousands of dollars, GDP in millions; real GDP is in chained dollars of a base year, and chained-dollar industry components do not add to the total.
+  - County GDP by industry (CAGDP2/9) has many (D) cells suppressed to avoid disclosing individual employers; nulls are not zeros, and state/US totals include the suppressed amounts.
+  - Personal income is by place of residence, while GDP, earnings by industry and employment (CAINC5/30) are by place of work; mixing them (e.g. GDP per resident) is distorted by commuting.
+  - Virginia independent cities are combined with surrounding counties in BEA county tables (codes 51901-51958), and Connecticut is still published by its 8 legacy counties (marked '*') rather than the planning regions Census uses from 2022; county codes do not always match current Census FIPS.
+  - Quarterly state figures are seasonally adjusted at annual rates; do not sum quarters to get an annual total.
+  - State tables do not include counties; county tables (CA*) include the US, regions, states and counties for the same statistic.
+related: [census-cbp]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: bea_regional
+adapter_version: 1.0.0

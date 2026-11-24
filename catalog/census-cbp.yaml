@@ -1,0 +1,102 @@
+schema_version: 1
+id: census-cbp
+name: County Business Patterns (CBP)
+publisher:
+  name: U.S. Census Bureau
+  url: https://www.census.gov
+  type: us_federal
+homepage: https://www.census.gov/programs-surveys/cbp.html
+description: >-
+  County Business Patterns is the Census Bureau's annual count of employer establishments, mid-March
+  employment, first-quarter payroll and annual payroll by detailed NAICS industry for the nation, states,
+  counties and metro/micro areas. It is compiled from the Business Register (administrative records from IRS,
+  SSA and BLS plus the Economic Census and Company Organization Survey), not from a sample survey. Unlike
+  headline indicators in Data Commons, it gives 6-digit industry detail for every county and establishment
+  counts by employment-size class.
+domains: [economy, labor]
+tags: [cbp, county-business-patterns, establishments, employment, payroll, naics, industry, business-register, small-business, employer-businesses]
+coverage:
+  geography: United States — nation, 50 states and DC, counties, metropolitan and micropolitan statistical areas (Puerto Rico and Island Areas are separate files, not served)
+  countries: [US]
+  geographic_granularity: [nation, state, county, metro_area]
+  time_range:
+    start: "2008"
+    end: "2023"
+    notes: Files back to 1986 exist on www2.census.gov; the adapter serves 2008+ (NAICS-based layouts it understands). 2023 is the latest release as of 2026-11-24.
+  temporal_granularity: annual
+  unit_of_observation: Geographic area x NAICS industry (x legal form of organization for nation/state files), one reference year
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www2.census.gov/programs-surveys/cbp/datasets/
+      description: Year directories; <YYYY>/cbp<yy>{us,st,co,msa}.zip, each a single quoted CSV (.txt). County zip ~12 MB (~110 MB unzipped).
+  formats: [csv (zipped)]
+  rate_limits: None published. The adapter caches files for 30 days (license allows) to avoid re-downloading.
+  auth: none
+  notes: ZIP Code Business Patterns (zbp<yy>detail/totals) and congressional-district files are in the same directories but not served by this adapter.
+update:
+  cadence: annual
+  expected_lag: ~17-18 months after the reference year (e.g. 2023 data released mid-2025).
+  notes: Release schedule at https://www.census.gov/programs-surveys/cbp/about/release-schedule.html
+change_detection:
+  method: regex
+  url: https://www2.census.gov/programs-surveys/cbp/datasets/
+  pattern: 'href="(20\d\d)/"'
+  poll_interval_days: 7
+  notes: Fires when a new year directory is listed. Then check the record layout for column changes and update coverage.time_range.end.
+license:
+  name: Creative Commons Zero 1.0 (public domain dedication), per census.gov data.json
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Census Bureau, County Business Patterns <year>."
+  evidence: evidence/licenses/census-cbp/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: fips
+    label: County FIPS
+    definition: 5-digit state+county FIPS (county level only; derived from fipstate + fipscty). County code 999 = statewide, establishments with no fixed county location.
+  - name: naics
+    label: NAICS code
+    definition: 2017/2022 NAICS code with publisher padding — '------' all industries, '23----' sector, '236///' subsector, '2361//' group, '23611/' industry, '236115' national industry.
+  - name: est
+    label: Establishments
+    unit: count
+    definition: Number of employer establishments (single physical locations with paid employees) during the year.
+  - name: emp
+    label: Employment
+    unit: persons
+    definition: Paid employees for the pay period including March 12.
+  - name: qp1
+    label: First-quarter payroll
+    unit: thousands of dollars
+    definition: Payroll for January-March.
+  - name: ap
+    label: Annual payroll
+    unit: thousands of dollars
+    definition: Total annual payroll (wages, tips, bonuses, etc.) before deductions.
+  - name: emp_nf
+    label: Employment noise flag
+    definition: 2017+ noise-infusion flag — G low (<2%), H moderate (2-5%), J high (>=5%). Same pattern for qp1_nf and ap_nf.
+  - name: empflag
+    label: Withholding flag (2008-2016)
+    definition: Set when employment/payroll were withheld for disclosure; letter gives the employment size range (e.g. A = 0-19). Withheld emp/qp1/ap are returned as null.
+  - name: lfo
+    label: Legal form of organization
+    definition: Nation/state files only. '-' all, C C-corporations, Z S-corporations, S sole proprietorships, P partnerships, N non-profits, G government, O other.
+caveats:
+  - Covers only employer establishments in the private non-farm economy (plus some government-owned establishments in private-sector industries). It excludes self-employed/nonemployer businesses (see Nonemployer Statistics), most government employees, crop and animal production, railroads and private households.
+  - "Employment is a single mid-March snapshot, not an annual average: seasonal industries (tourism, agriculture services, retail around holidays) are badly represented."
+  - Disclosure protection changed over time. CBP has used noise infusion since 2007 (*_nf flags G/H/J); before 2015 high-noise cells were suppressed with flag 'D'. Through 2017, cells withheld for disclosure carried an employment size-range EMPFLAG and zero emp/payroll; the adapter returns those emp/qp1/ap as null, not 0. From 2017 on, county x industry cells with fewer than 3 establishments are dropped entirely (the row is absent, not zero).
+  - Sums across counties or detailed industries do not equal published totals exactly (noise, 'statewide' county 999 records, and suppressed detail). Use the published total row (naics '------') rather than summing.
+  - NAICS versions change (2012 → 2017 in the 2017 data; 2022 NAICS from the 2022 data), so some detailed codes are not comparable across years. Compare at the sector level or use NAICS concordances.
+  - Payroll is in thousands of nominal dollars; deflate before comparing across years.
+  - Data are by place of work (establishment location), not where employees live; compare carefully with LAUS or ACS (residence-based).
+related: [census-data-api, bls-laus, lehd-lodes, bea-regional]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: census_cbp
+adapter_version: 1.0.0
