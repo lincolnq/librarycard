@@ -1,0 +1,109 @@
+schema_version: 1
+id: cms-medicare-geographic-variation
+name: Medicare Geographic Variation - by National, State & County
+publisher:
+  name: Centers for Medicare & Medicaid Services (CMS), Office of Enterprise Data and Analytics (OEDA)
+  url: https://data.cms.gov/
+  type: us_federal
+homepage: https://data.cms.gov/summary-statistics-on-use-and-payments/medicare-geographic-comparisons/medicare-geographic-variation-by-national-state-county
+description: >-
+  Annual national, state and county summaries of Original (fee-for-service) Medicare computed by CMS from 100% of
+  Medicare claims and enrollment data: beneficiary counts and demographics, Medicare Advantage participation, total
+  and price-standardized Medicare payments per capita and per user by service type (inpatient, outpatient, skilled
+  nursing, home health, hospice, physician E&M, imaging, tests, DME, ...), utilization rates, readmissions, ER visits
+  and AHRQ prevention-quality (avoidable hospitalization) indicators, for all beneficiaries and by age group. The
+  standardized payments remove geographic price differences, making it the standard source for regional Medicare
+  spending comparisons.
+domains: [health, government_spending, public_finance]
+tags: [cms, medicare, geographic-variation, medicare-spending, per-capita-spending, fee-for-service, ffs, utilization, readmissions, pqi, medicare-advantage, county, health-care-costs]
+coverage:
+  geography: United States — national, 50 states, DC, Puerto Rico and other territories, counties
+  countries: [US]
+  geographic_granularity: [nation, state, county]
+  time_range:
+    start: "2014"
+    end: "2024"
+    notes: The current release (2014-2024 file) restates all years with current methods; earlier releases with 2007-2013 data exist on data.cms.gov but are not served.
+  temporal_granularity: annual
+  unit_of_observation: Geography (nation, state or county) x calendar year x beneficiary age group (All, <65, >=65)
+access:
+  method: api
+  endpoints:
+    - url: https://data.cms.gov/data-api/v1/dataset/6219697b-8f6c-4164-bed4-cd9317c58ebc/data
+      description: >-
+        data.cms.gov data API ("latest" distribution of the series per data.cms.gov/data.json). filter[COL]=value,
+        filter[k][condition][path/operator/value] (STARTS_WITH, IN), column=, size<=5000, offset; /data/stats gives row counts.
+    - url: https://data.cms.gov/data-api/v1/dataset/6219697b-8f6c-4164-bed4-cd9317c58ebc/data-viewer?size=1
+      description: Dataset metadata (file name, headers, column types) used for change detection.
+    - url: https://data.cms.gov/data.json
+      description: CMS Project Open Data catalog (find the dataset uuids and license under the series title).
+  formats: [json, csv]
+  rate_limits: None published; size max 5,000 rows per request.
+  auth: none
+  notes: Data dictionary and methods paper are linked from the homepage (2014-2024 Original Medicare Geographic Variation Data Dictionary PDF).
+update:
+  cadence: annual
+  expected_lag: ~15-18 months after the end of the calendar year (2024 data released spring 2026).
+change_detection:
+  method: json_field
+  url: https://data.cms.gov/data-api/v1/dataset/6219697b-8f6c-4164-bed4-cd9317c58ebc/data-viewer?size=1
+  json_path:
+    - meta.data_file_name
+    - meta.headers
+  poll_interval_days: 14
+  notes: >-
+    The data file name carries the year span (e.g. "2014-2024 ... Public Use File.csv") and changes on each annual
+    release; headers catch column changes. If the "latest" uuid stops resolving, look up the series title in
+    data.cms.gov/data.json and update UUID in the adapter.
+license:
+  name: U.S. Government Works (public domain)
+  spdx: null
+  url: https://www.usa.gov/government-works
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: >-
+    Centers for Medicare & Medicaid Services, Office of Enterprise Data and Analytics. Medicare Geographic Variation -
+    by National, State & County (<release>). data.cms.gov. Use does not imply endorsement by CMS or HHS.
+  evidence: evidence/licenses/cms-medicare-geographic-variation/
+  checked_at: "2026-11-24"
+  notes: >-
+    Each distribution of this dataset in CMS's Project Open Data catalog carries license https://www.usa.gov/government-works.
+    The data.cms.gov terms-of-use page is a JavaScript app whose text could not be captured. See NOTES.md.
+key_variables:
+  - name: YEAR
+    definition: Calendar year of claims.
+  - name: BENE_GEO_LVL / BENE_GEO_CD / BENE_GEO_DESC
+    definition: Level (National, State, County), FIPS code (2-digit state, 5-digit county; blank for national) and name ('DE-Kent'; 'XX-UNKNOWN' rows hold beneficiaries with unknown county).
+  - name: BENE_AGE_LVL
+    definition: Beneficiary age group — All, <65, >=65.
+  - name: BENES_TOTAL_CNT / BENES_OM_CNT / BENES_MA_CNT
+    unit: beneficiaries
+    definition: All Medicare beneficiaries / Original Medicare (Parts A and B FFS) / Medicare Advantage enrollees.
+  - name: MA_PRTCPTN_RATE
+    unit: proportion (0-1)
+    definition: Medicare Advantage participation rate.
+  - name: TOT_MDCR_PYMT_PC
+    unit: US dollars per FFS beneficiary
+    definition: Actual total Medicare payments per capita.
+  - name: TOT_MDCR_STDZD_PYMT_PC
+    unit: US dollars per FFS beneficiary
+    definition: Price-standardized total Medicare payments per capita (removes geographic wage/price adjustments and add-on payments).
+  - name: IP_MDCR_STDZD_PYMT_PC / OP_* / SNF_* / HH_* / HOSPC_* / EM_* / IMGNG_*
+    unit: US dollars
+    definition: Standardized payments by service type (inpatient, outpatient, SNF, home health, hospice, E&M, imaging), with _PCT, _PER_USER, user counts and events per 1,000.
+  - name: ACUTE_HOSP_READMSN_PCT / ER_VISITS_PER_1000_BENES / PQI*_*
+    definition: 30-day readmission rate, ER visits per 1,000, and AHRQ prevention-quality indicator rates by age band.
+caveats:
+  - Spending and use measures cover Original (fee-for-service) Medicare only; in counties with high Medicare Advantage enrollment (MA_PRTCPTN_RATE often > 0.5) the FFS population is a shrinking, selected subset.
+  - Compare areas using standardized (_STDZD_) payments; actual payments include geographic price adjustments, IME/DSH and other add-ons.
+  - Values are not risk-adjusted for beneficiary health status; differences reflect population health as well as practice patterns.
+  - Cells with small counts are suppressed by CMS ('*'), converted to null — common for small counties, age-group rows and territories.
+  - Each annual release restates prior years with current methods; values for the same year can differ from those in earlier releases. Cite the release (file name in change detection) with the data.
+  - County rows include 'XX-UNKNOWN' (code SS000) entries for beneficiaries whose county is unknown; don't treat them as a county.
+related: [cdc-places, county-health-rankings]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: cms_medicare_geographic_variation
+adapter_version: 1.0.0

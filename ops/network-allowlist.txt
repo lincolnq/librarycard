@@ -11,3 +11,8 @@ files.pythonhosted.org               # pip install
 noaa-nclimgrid-daily-pds.s3.amazonaws.com   # noaa-nclimgrid-daily
 www.fema.gov                         # fema-disaster-declarations
 www2.census.gov                      # census-acs-summary-file (+ other Census bulk files)
+data.cdc.gov                         # cdc-places
+data.cms.gov                         # cms-medicare-geographic-variation
+educationdata.urban.org              # urban-education-data-ccd
+svi.cdc.gov                          # cdc-svi
+www.countyhealthrankings.org         # county-health-rankings

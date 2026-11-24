@@ -1,0 +1,432 @@
+URL: https://www.cdc.gov/places/about/index.html
+Final-URL: https://www.cdc.gov/places/about/index.html
+Retrieved: 2026-11-24T23:36:10+00:00
+HTTP-Status: 200
+Raw-SHA256: 0985610c8c68b9045647738cdf89b66a21572f835ce679df99c6f873b83ec281
+Raw-Bytes: 49916
+---
+Skip directly to site content 
+ Skip directly to search 
+
+ An official website of the United States government 
+
+ Here's how you know 
+
+ Official websites use .gov 
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+ A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ PLACES: Local Data for Better Health 
+
+ Explore This Topic 
+
+ Search 
+
+ Search 
+
+ Clear 
+
+ Search 
+
+ For Everyone 
+
+ About PLACES: Local Data for Better Health 
+
+ Methodology 
+
+ FAQs 
+
+ Online Data Tools 
+
+ Measure Definitions 
+
+ Communication Resources 
+
+ Publications and Resources 
+
+ Current Release Notes 
+
+ View all 
+
+ Home 
+
+ search 
+
+ clear 
+
+ search 
+
+ PLACES 
+
+ Menu 
+
+ clear 
+
+ search 
+
+ For Everyone 
+
+ About PLACES: Local Data for Better Health 
+
+ Methodology 
+
+ FAQs 
+
+ Online Data Tools 
+
+ Measure Definitions 
+
+ Communication Resources 
+
+ Publications and Resources 
+
+ Current Release Notes 
+
+ View All 
+
+ Home 
+
+ PLACES 
+
+ About PLACES: Local Data for Better Health 
+
+ Methodology 
+
+ FAQs 
+
+ Online Data Tools 
+
+ Measure Definitions 
+
+ Communication Resources 
+
+ Publications and Resources 
+
+ Current Release Notes 
+
+ View Menu 
+
+ About PLACES: Local Data for Better Health
+
+ Dec. 7, 2025 
+
+ Key points
+
+ PLACES provides health and health-related data using small area estimation for counties, incorporated and census designated places, census tracts, and ZIP Code Tabulation Areas (ZCTAs) across the United States. This project, which started in 2015, is a partnership between CDC, the Robert Wood Johnson Foundation, and the CDC Foundation. 
+
+ Overview
+
+ PLACES is a free, interactive CDC web tool that provides chronic disease and other health-related data for all U.S. counties, incorporated and census designated places, census tracts, and ZIP Code Tabulation Areas (ZCTAs). 
+
+ Users can view, explore, and download data for all areas of the United States with 50 or more adult residents.
+
+ This system complements existing surveillance data. It provides estimates necessary to understand the health issues affecting the residents of local areas of all sizes, regardless of urban or rural status.
+
+ How PLACES can improve your health efforts
+
+ PLACES is a powerful tool for anyone working to build healthier and more equitable communities throughout the United States. It provides data for communities of all sizes, from large, urban communities to smaller, rural communities. 
+
+ PLACES helps state and local health officials, policymakers, community planners, and nonprofit groups better understand the health of their communities by identifying:
+
+ Local health problems and priority health risk behaviors for action.
+
+ Communities with health disparities to help prioritize investments in areas with the greatest need.
+
+ Overlapping health and social needs in an area.
+
+ Areas that need access to resources and services to support basic health.
+
+ PLACES data can be used to help: 
+
+ Establish key health objectives, based on identified problems or needs in an area.
+
+ Develop and implement effective and targeted prevention activities.
+
+ PLACES data
+
+ Data sources:
+
+ PLACES provides model-based estimates based on data from the Behavioral Risk Factor Surveillance System (BRFSS), Census decennial population counts and annual county population estimates, and the American Community Survey (ACS) 5-year estimates. 
+
+ A small area estimation methodology is used to obtain data on 40 chronic disease and other health-related measures for the entire United States.
+
+ In addition, 9 non-medical factor measures are downloaded from the ACS.
+
+ Measures include:
+
+ 12 health outcomes
+
+ 7 prevention practices
+
+ 7 disabilities
+
+ 7 health-related social needs factors
+
+ 4 health risk behaviors
+
+ 3 health statuses
+
+ 9 non-medical factors (or community factors) derived from the ACS
+
+ Geographic coverage
+
+ Starting from the 2024 release, PLACES uses geographies from the 2020 Census (which includes Connecticut planning regions as a county equivalent).
+
+ County: 3,144 counties in 50 states and the District of Columbia (DC), including 8 county and city consolidated cities.
+
+ Place: 29,923 of 31,617 Places or Census Designated Places (CDP) with 2020 Census adult population count (≥18 years) of ≥50.
+
+ Census tract: 83,522 of 84,112 census tracts in the 50 states and DC that have a 2020 Census adult population count (≥18 years) of ≥50.
+
+ ZCTA: 32,520 of 33,642 ZCTAs in the 50 states and DC with a 2020 Census adult population count (≥18 years) of ≥50.
+
+ Unique value of PLACES
+
+ PLACES reflects innovations in generating valid small area estimates for population health. It provides data uniformly across the urban-rural spectrum.
+
+ PLACES is the first project to provide local area data at multiple levels, including at the county-, place-, census tract-, and ZCTA-level. Data can be viewed by geographic level and by health measure. Users can also download data for secondary analysis.
+
+ PLACES enables retrieval, visualization, and exploration of uniformly defined local area data in the 50 states and the District of Columbia for conditions, behaviors, and risk factors that have a substantial effect on population health.
+
+ History
+
+ PLACES began in 2015 as the 500 Cities Project, which was launched by CDC, the Robert Wood Johnson Foundation, and the CDC Foundation.
+
+ The 500 Cities Project (2016–2019) provided city and census tract estimates for 27 chronic disease measures across the largest 500 U.S. cities, using 2010 Census data. It represented over 103 million people, or about 33% of the U.S. population.
+
+ In December 2020, the 500 Cities Project expanded to become PLACES, offering population-level health estimates for all U.S. counties, places, census tracts, and ZCTAs.
+
+ On This Page 
+
+ Overview 
+
+ How PLACES can improve your health efforts 
+
+ PLACES data 
+
+ Geographic coverage 
+
+ Unique value of PLACES 
+
+ History 
+
+ Dec. 7, 2025 
+
+ Sources 
+ Print 
+ Share 
+
+ Facebook 
+
+ LinkedIn 
+
+ Twitter 
+
+ Syndicate 
+
+ Content Source:
+
+ National Center for Chronic Disease Prevention and Health Promotion 
+
+ PLACES  
+
+ CDC PLACES
+
+ View All 
+
+ About PLACES: Local Data for Better Health 
+
+ Methodology 
+
+ FAQs 
+
+ Online Data Tools 
+
+ Measure Definitions 
+
+ Communication Resources 
+
+ Publications and Resources 
+
+ Current Release Notes 
+
+ View All 
+
+ Sign up for Email Updates 
+
+ Contact Us 
+
+ Contact Us 
+
+ Call 800-232-4636 
+
+ Contact CDC 
+
+ About CDC 
+
+ About CDC 
+
+ Pressroom 
+
+ Organization 
+
+ Budget & Funding 
+
+ Careers & Jobs 
+
+ Policies 
+
+ Accessibility 
+
+ External Links 
+
+ Privacy 
+
+ Web Policies 
+
+ FOIA 
+
+ OIG 
+
+ No Fear Act 
+
+ Nondiscrimination 
+
+ Vulnerability Disclosure Policy 
+
+ Languages 
+
+ Languages 
+
+ Español 
+
+ Language Assistance 
+
+ Español 
+
+ 繁體中文 
+
+ Tiếng Việt 
+
+ 한국어 
+
+ Tagalog 
+
+ Русский 
+
+ العربية 
+
+ Kreyòl Ayisyen 
+
+ Français 
+
+ Polski 
+
+ Português 
+
+ Italiano 
+
+ Deutsch 
+
+ 日本語 
+
+ فارسی 
+
+ English 
+
+ Archive 
+
+ CDC Archive 
+
+ Public Health Publications 
+
+ Contact Us 
+
+ Contact Us 
+
+ Call 800-232-4636 
+
+ Contact CDC 
+
+ About CDC 
+
+ Pressroom 
+
+ Organization 
+
+ Budget & Funding 
+
+ Careers & Jobs 
+
+ About CDC 
+
+ Policies 
+
+ Accessibility 
+
+ External Links 
+
+ Privacy 
+
+ Web Policies 
+
+ FOIA 
+
+ OIG 
+
+ No Fear Act 
+
+ Nondiscrimination 
+
+ Vulnerability Disclosure Policy 
+
+ Languages 
+
+ Languages 
+
+ Español 
+
+ Language Assistance 
+
+ Español 
+
+ 繁體中文 
+
+ Tiếng Việt 
+
+ 한국어 
+
+ Tagalog 
+
+ Русский 
+
+ العربية 
+
+ Kreyòl Ayisyen 
+
+ Français 
+
+ Polski 
+
+ Português 
+
+ Italiano 
+
+ Deutsch 
+
+ 日本語 
+
+ فارسی 
+
+ English 
+
+ Archive 
+
+ CDC Archive 
+
+ Public Health Publications 
+
+ HHS.gov 
+ USA.gov

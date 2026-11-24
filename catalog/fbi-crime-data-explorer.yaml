@@ -1,0 +1,87 @@
+schema_version: 1
+id: fbi-crime-data-explorer
+name: FBI Crime Data Explorer (Uniform Crime Reporting Program — SRS, NIBRS, hate crime, LEOKA, use of force)
+publisher:
+  name: Federal Bureau of Investigation (FBI), Criminal Justice Information Services Division, Uniform Crime Reporting Program
+  url: https://cde.ucr.cjis.gov/
+  type: us_federal
+homepage: https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/home
+description: >-
+  The FBI's portal and API for Uniform Crime Reporting data voluntarily submitted by ~19,000 law enforcement
+  agencies: offenses known to police and clearances (Summary Reporting System), incident-based NIBRS data on
+  offenses, victims, offenders and arrestees, arrests, hate crimes, law enforcement officers killed and assaulted
+  (LEOKA), police employee counts, and use-of-force reporting, at agency, state and national level, plus FBI national
+  estimates. The official API requires an api.data.gov key, so this catalog lists it for awareness only.
+domains: [crime_justice]
+tags: [fbi, ucr, uniform-crime-reporting, nibrs, srs, crime-data-explorer, cde, violent-crime, property-crime, arrests, hate-crime, leoka, police, law-enforcement, agency, ori]
+coverage:
+  geography: United States — reporting law enforcement agencies, states and nation
+  countries: [US]
+  geographic_granularity: [nation, state, site]
+  time_range:
+    start: "1985"
+    end: null
+    notes: >-
+      Agency-level summary data from 1985; NIBRS from 1991 (limited participation until ~2015). 2021 is the first year
+      the FBI accepted only NIBRS submissions, so many large agencies (incl. most of California, Florida, New York City,
+      Los Angeles at the time) are missing for 2021 and partially for 2022; national 2021 figures are estimates.
+  temporal_granularity: annual
+  unit_of_observation: Law enforcement agency (ORI) x year (or month) x offense; NIBRS incident records
+access:
+  method: restricted
+  endpoints:
+    - url: https://api.usa.gov/crime/fbi/cde/
+      description: Official CDE REST API (agency, summarized offense, arrest, NIBRS, hate crime, LEOKA, participation endpoints). Every request needs an api.data.gov API key.
+    - url: https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads
+      description: Interactive downloads page (NIBRS master/state files, SRS return A, arrests, hate crime, LEOKA). Files are issued through the web app, not stable direct URLs.
+  formats: [json, csv, fixed-width]
+  auth: credentials_required
+  restricted_reason: >-
+    The official API (api.usa.gov/crime/fbi/cde) rejects every request without an api.data.gov key (HTTP 403
+    API_KEY_MISSING, observed 2026-11-24). Bulk files are only offered through the CDE single-page app (signed
+    download links behind undocumented internal endpoints), with no stable, documented keyless file URL to build an
+    adapter on. This repo stores no credentials and does not use undocumented endpoints.
+  notes: >-
+    A key is free at https://api.data.gov/signup/. Researchers often use the downloads page manually, or harmonised
+    re-releases (e.g. NACJD/ICPSR UCR files, Jacob Kaplan's UCR concatenations on openICPSR). County-level crime
+    measures also appear in county-health-rankings (violent crime rate).
+update:
+  cadence: annual
+  expected_lag: Annual data released ~9-10 months after year end (September-October); quarterly and monthly updates in the app.
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: U.S. Public Domain (federal government work)
+  spdx: null
+  url: http://www.usa.gov/publicdomain/label/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: Federal Bureau of Investigation, Uniform Crime Reporting Program, Crime Data Explorer (https://cde.ucr.cjis.gov/).
+  evidence: evidence/licenses/fbi-crime-data-explorer/
+  checked_at: "2026-11-24"
+  notes: DOJ Project Open Data catalog labels the UCR, NIBRS, NIBRS Estimates and Crime in the United States datasets public domain. Access, not licence, is the blocker.
+key_variables:
+  - name: ori
+    definition: Originating Agency Identifier — 9-character id of the reporting law enforcement agency.
+  - name: offense / actual / cleared
+    definition: Offense category (e.g. violent-crime, homicide, robbery, aggravated-assault, burglary, motor-vehicle-theft) with counts of offenses known to police and cleared by arrest or exceptional means.
+  - name: population
+    unit: persons
+    definition: Population covered by the agency, as estimated by the FBI.
+  - name: months_reported
+    definition: Number of months the agency reported data in the year (partial reporting is common).
+caveats:
+  - Not fetchable through this server (API key required). Listed so agents know the authoritative source and its pitfalls.
+  - 2021 series break — the FBI retired the Summary Reporting System and accepted only NIBRS data for 2021; agencies covering ~35% of the population (incl. many large cities) did not report, so 2021 agency and state counts are incomplete and national/state 2021 numbers are FBI estimates. 2022+ participation recovered (SRS submissions re-accepted) but trends across 2020-2022 must be handled carefully.
+  - Reporting is voluntary and agencies report a varying number of months; never sum agency counts into totals without checking months_reported and participation, and prefer FBI estimates for state/national trends.
+  - NIBRS and SRS count differently (NIBRS records every offense in an incident, SRS applies the hierarchy rule), so NIBRS-based totals are slightly higher than SRS for the same agency.
+  - The definition of rape changed in 2013 (revised vs legacy definition); hate crime counts depend heavily on agency participation.
+  - Crime reported to police only — not victimisation (see BJS NCVS for unreported crime).
+related: [county-health-rankings]
+status: healthy
+status_reason: Catalog-only entry; access restricted (api.data.gov API key required).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

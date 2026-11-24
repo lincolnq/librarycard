@@ -1,0 +1,261 @@
+URL: https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation
+Final-URL: https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation
+Retrieved: 2026-11-24T23:42:12+00:00
+HTTP-Status: 200
+Raw-SHA256: add3b036c2a9aa501efa81e4a4a38b7cd9969a5db29d2ebc3aaf604a2843cf14
+Raw-Bytes: 50578
+---
+Skip to main content 
+
+ County Health Rankings & Roadmaps 
+
+ Main Menu
+
+ What Impacts Health 
+
+ What Shapes Health and Equity 
+
+ Explore Health Topics 
+
+ Health Data 
+
+ Health Data by Location 
+
+ Making the Most of Your Data 
+
+ 2025 Measures 
+
+ Methodology and Sources 
+
+ Strategies and Solutions 
+
+ Solutions for Healthier Communities 
+
+ What Works for Health 
+
+ All What Works for Health Strategies 
+
+ Narratives for Health 
+
+ Findings and Insights 
+
+ Findings from the Data 
+
+ 2025 Report 
+
+ Webinars 
+
+ Podcast: In Solidarity 
+
+ Blog 
+
+ Newsletter sign-up 
+
+ About Us 
+
+ About Us 
+
+ The Team 
+
+ Scientific Advisory Group 
+
+ Who We Work With 
+
+ Research Grants 
+
+ Careers 
+
+ Contact Us 
+
+ Search 
+
+ Search
+
+ Home 
+ Health Data 
+ Methodology and Sources 
+
+ Data & Documentation
+
+ Share on LinkedIn Share on LinkedIn 
+
+ Data Sources
+
+ Health Data 
+
+ Making the Most of Your Data 
+
+ 2025 Measures 
+
+ Methodology and Sources 
+
+ Measuring Progress & Change 
+
+ Frequently Asked Questions 
+
+ Data & Documentation
+
+ Find national statistics, state-level data and technical documentation including changes to our measures, guidelines for comparing data across states, information about data years and sources and more.
+ Check out County Health Rankings & Roadmaps on GitHub to access select datasets and measure calculation codes.  This is part of our Open Source Project designed to preserve, update and extend CHRR data assets beyond 2026.
+ National data & documentation
+ 2025 Annual Data Release
+ SUPPLEMENTAL DATA RELEASE (March 2026)    
+ CHR CVS Analytic Data – Supplemental Release (March 2026) CHR SAS Analytic Data – Supplemental Release (March 2026) 
+ CHR&R Analytic Data Documentation – Supplemental Release (March 2026)   
+ NATIONAL DATA TREND DATA 
+ 2025 County Health Release National Data 2025 CHR CSV Trends Data 
+ 2025 CHR CSV Analytic Data 2025 CHR SAS Trends Data 
+ 2025 CHR SAS Analytic Data 2025 CHR Trends Data Documentation 
+ 2025 CHR CSV/SAS Analytic Data Documentation   
+ 2025 Data Dictionary (PDF)   
+ 2025 Data Dictionary (XLSX)   
+ 2025 Comparability Across States   
+ 2025 Technical Document   
+ 2024 Annual Data Release
+ NATIONAL DATA TREND DATA 
+ 2024 County Health Release National Data 2024 CHR CSV Trends Data 
+ 2024 CHR CSV Analytic Data 2024 CHR SAS Trends Data 
+ 2024 CHR SAS Analytic Data 2024 CHR Trends Data Documentation 
+ 2024 CHR CSV/SAS Analytic Data Documentation 2010-2024 Select Measures 
+ 2024 Data Dictionary (PDF)   
+ 2024 Data Dictionary (XLSX)   
+ 2024 Comparability Across States   
+ Measure Changes (2023-2024)   
+ 2024 Technical Document   
+
+ Download national data and documentation from previous years .
+
+ State Data & Reports
+
+ Alabama 
+
+ Alaska 
+
+ Arizona 
+
+ Arkansas 
+
+ California 
+
+ Colorado 
+
+ Connecticut 
+
+ Delaware 
+
+ District of Columbia 
+
+ Florida 
+
+ Georgia 
+
+ Hawaii 
+
+ Idaho 
+
+ Illinois 
+
+ Indiana 
+
+ Iowa 
+
+ Kansas 
+
+ Kentucky 
+
+ Louisiana 
+
+ Maine 
+
+ Maryland 
+
+ Massachusetts 
+
+ Michigan 
+
+ Minnesota 
+
+ Mississippi 
+
+ Missouri 
+
+ Montana 
+
+ Nebraska 
+
+ Nevada 
+
+ New Hampshire 
+
+ New Jersey 
+
+ New Mexico 
+
+ New York 
+
+ North Carolina 
+
+ North Dakota 
+
+ Ohio 
+
+ Oklahoma 
+
+ Oregon 
+
+ Pennsylvania 
+
+ Rhode Island 
+
+ South Carolina 
+
+ South Dakota 
+
+ Tennessee 
+
+ Texas 
+
+ Utah 
+
+ Vermont 
+
+ Virginia 
+
+ Washington 
+
+ West Virginia 
+
+ Wisconsin 
+
+ Wyoming 
+
+ Ready to take action, but not sure where to start?
+
+ Contact us 
+
+ Footer menu
+
+ Health Data 
+
+ Strategies and Solutions 
+
+ Findings and Insights 
+
+ About Us 
+
+ FAQ 
+
+ Credits 
+
+ Privacy Policy 
+
+ Terms of Use 
+
+ Stay In Touch
+
+ Sign up for our emails 
+
+ YouTube 
+ LinkedIn 
+
+ © 2026 County Health Rankings. All rights reserved.

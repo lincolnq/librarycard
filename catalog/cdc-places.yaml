@@ -1,0 +1,111 @@
+schema_version: 1
+id: cdc-places
+name: "PLACES: Local Data for Better Health"
+publisher:
+  name: Centers for Disease Control and Prevention (CDC), Division of Population Health
+  url: https://www.cdc.gov/places/
+  type: us_federal
+homepage: https://www.cdc.gov/places/
+description: >-
+  Model-based estimates of 40 chronic-disease, health-risk-behavior, prevention, disability, health-status and
+  health-related social need measures (e.g. obesity, diabetes, smoking, depression, lack of health insurance,
+  food insecurity) for every US county, Census place, census tract and ZIP Code Tabulation Area. CDC produces them
+  with multilevel regression and poststratification of the Behavioral Risk Factor Surveillance System (BRFSS) and
+  Census population data, published annually on data.cdc.gov. Adds what Data Commons largely lacks: tract- and
+  ZCTA-level estimates with confidence limits, release by release.
+domains: [health, social_mobility]
+tags: [cdc, places, 500-cities, brfss, chronic-disease, obesity, diabetes, smoking, depression, small-area-estimates, tract, zcta, county, health-related-social-needs, food-insecurity, socrata]
+coverage:
+  geography: United States — 50 states and DC (no territories)
+  countries: [US]
+  geographic_granularity: [nation, state, county, place, tract, zcta]
+  time_range:
+    start: "2018"
+    end: "2023"
+    notes: >-
+      Releases 2020-2025 are fetchable (data years ~2018-2023; each release mostly uses BRFSS data from two years
+      earlier, some measures from three years earlier). The predecessor 500 Cities project (2016-2019 releases,
+      city/tract only) is not served by this adapter.
+  temporal_granularity: annual
+  unit_of_observation: Location (county, place, tract or ZCTA) x measure x data value type (crude or age-adjusted prevalence)
+access:
+  method: api
+  endpoints:
+    - url: https://data.cdc.gov/resource/{dataset_id}.json
+      description: >-
+        Socrata SODA endpoint, one dataset per release x geography. 2025 release — county swc5-untb, place
+        eav7-hnsx, tract cwsq-ngmh, ZCTA qnzd-25i4; earlier releases' ids are listed in the adapter (RELEASES).
+        Filtered with $where on stateabbr, measureid, datavaluetypeid, year, locationid.
+    - url: https://data.cdc.gov/api/views/swc5-untb.json
+      description: Socrata dataset metadata (license, columns, update times) for the 2025 county dataset.
+    - url: https://data.cdc.gov/api/catalog/v1?q=PLACES%20Local%20Data%20for%20Better%20Health&only=datasets&limit=100
+      description: Socrata catalog search used to discover new release dataset ids (change detection).
+  formats: [json, csv]
+  rate_limits: Anonymous SODA requests are throttled per IP (no fixed published number); adapter makes 1-2 requests per fetch.
+  auth: none
+  notes: GIS-friendly wide-format versions (one row per location) also exist on data.cdc.gov but are not used.
+update:
+  cadence: annual
+  expected_lag: ~2 years from BRFSS data year to release (e.g. 2025 release = mostly 2023 BRFSS); released around August-December.
+change_detection:
+  method: regex
+  url: https://data.cdc.gov/api/catalog/v1?q=PLACES%20Local%20Data%20for%20Better%20Health&only=datasets&limit=100
+  pattern: '"name" ?: ?"(PLACES: Local Data for Better Health, [^"]*release)"'
+  poll_interval_days: 14
+  notes: >-
+    Fingerprints the set of PLACES dataset names on data.cdc.gov. A new release (e.g. "County Data, 2026 release")
+    appears as new datasets with new ids — add them to RELEASES in the adapter and bump the default. Not affected by
+    routine metadata refreshes of existing datasets.
+license:
+  name: Public Domain (data.cdc.gov dataset license); CDC "Use of Agency Materials" conditions
+  spdx: null
+  url: https://www.cdc.gov/other/agencymaterials.html
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: >-
+    Centers for Disease Control and Prevention, National Center for Chronic Disease Prevention and Health Promotion,
+    Division of Population Health. PLACES: Local Data for Better Health, <release> release. Source: CDC; available at
+    no charge from https://www.cdc.gov/places/. Use does not imply endorsement by CDC, HHS or the U.S. Government.
+  evidence: evidence/licenses/cdc-places/
+  checked_at: "2026-11-24"
+  notes: >-
+    Dataset-level license on data.cdc.gov is "Public Domain" (licenseId PUBLIC_DOMAIN). CDC's agency-materials page
+    asks for attribution, a non-endorsement disclaimer, no substantive changes, and a statement that the material is
+    free from CDC — all carried in the attribution above. See NOTES.md.
+key_variables:
+  - name: locationid
+    definition: Geographic id — 5-digit county FIPS, 7-digit place FIPS, 11-digit tract FIPS, 5-digit ZCTA; '59' for the US row.
+  - name: locationname
+    definition: County name, place name, tract FIPS or ZCTA (by level).
+  - name: measureid
+    definition: Short measure code, e.g. OBESITY, DIABETES, CSMOKING, BPHIGH, DEPRESSION, ACCESS2 (no health insurance, 18-64), FOODINSECU.
+  - name: datavaluetypeid
+    definition: CrdPrv (crude prevalence) or AgeAdjPrv (age-adjusted prevalence; county and place only).
+  - name: data_value
+    unit: percent of adults (18+) unless the measure says otherwise
+    definition: Model-based prevalence estimate.
+  - name: low_confidence_limit / high_confidence_limit
+    unit: percent
+    definition: 95% confidence interval of the model-based estimate.
+  - name: year
+    definition: BRFSS data year the estimate refers to (differs between measures in the same release).
+  - name: totalpopulation / totalpop18plus
+    unit: persons
+    definition: Census population (total / adults) used for the location. totalpop18plus present from the 2024 release.
+  - name: lon / lat
+    unit: degrees (WGS84)
+    definition: Location centroid, flattened from the publisher's geolocation GeoJSON point.
+caveats:
+  - Estimates are model-based (MRP from BRFSS + ACS/Census), not direct survey measurements; small-area values largely reflect each area's demographic composition and county/state effects. Do not use them to evaluate local programs or to detect local changes.
+  - Estimates from different releases are not strictly comparable — methods, BRFSS years, population vintages and measure definitions change between releases (e.g. new health-related social needs measures from the 2024 release; 2020-census geographies from the 2024 release). Compare across years only with care.
+  - Within one release, measures come from different BRFSS years (the `year` column), e.g. the 2025 release mixes 2023 data for most measures with 2022 data for biennial measures (screenings, dental, sleep).
+  - In the 2025 release, 2023-year measures are missing for all counties in Kentucky and Pennsylvania (observed 2026-11-24; those states lack 2023 BRFSS data in the model), and health-related social needs measures cover fewer counties (~2,300 vs ~2,960).
+  - Tract and ZCTA rows have crude prevalence only; ZCTA rows have no state column (use location_id).
+  - Blank data_value with a footnote means the estimate was suppressed (e.g. small population) — the adapter returns null.
+related: [cdc-svi, county-health-rankings]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: cdc_places
+adapter_version: 1.0.0

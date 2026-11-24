@@ -1,0 +1,663 @@
+{
+ "_source_url": "https://data.cdc.gov/data.json",
+ "_retrieved": "2026-11-24T23:36:03+00:00",
+ "_pattern": "PLACES: Local Data for Better Health.*20(24|25) release",
+ "_catalog_license_counts": {
+  "null": 860,
+  "https://www.usa.gov/government-works": 483,
+  "http://opendatacommons.org/licenses/by/1.0/": 59,
+  "http://opendatacommons.org/licenses/odbl/1.0/": 4,
+  "http://creativecommons.org/publicdomain/zero/1.0/legalcode": 3,
+  "http://creativecommons.org/licenses/by/4.0/legalcode": 1
+ },
+ "entries": [
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2026-03-09",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "risk",
+    "status",
+    "zcta",
+    "zip code",
+    "disability",
+    "brfss",
+    "behaviors",
+    "health",
+    "outcomes",
+    "places",
+    "prevalence",
+    "prevention"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/4r2x-hcfq",
+   "title": "PLACES: Local Data for Better Health, ZCTA Data 2024 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/4r2x-hcfq/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/4r2x-hcfq/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/4r2x-hcfq/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/4r2x-hcfq/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/4r2x-hcfq/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/4r2x-hcfq/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/4r2x-hcfq/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/4r2x-hcfq/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-ZCTA-Data-2020/qnzd-25i4",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2025-12-04",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "health",
+    "outcomes",
+    "places",
+    "prevalence",
+    "prevention",
+    "risk",
+    "status",
+    "behaviors",
+    "brfss",
+    "census tract",
+    "disability"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/ai6z-tcin",
+   "title": "PLACES: Local Data for Better Health, Census Tract Data 2024 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/ai6z-tcin/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/ai6z-tcin/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/ai6z-tcin/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/ai6z-tcin/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/ai6z-tcin/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/ai6z-tcin/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/ai6z-tcin/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/ai6z-tcin/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-Census-Tract-D/cwsq-ngmh",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2024-08-23",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "disability",
+    "prevalence",
+    "prevention",
+    "risk",
+    "social needs",
+    "status",
+    "census tract",
+    "brfss",
+    "places",
+    "behaviors",
+    "outcomes",
+    "health"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/cwsq-ngmh",
+   "title": "PLACES: Local Data for Better Health, Census Tract Data, 2025 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/cwsq-ngmh/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/cwsq-ngmh/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/cwsq-ngmh/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/cwsq-ngmh/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/cwsq-ngmh/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/cwsq-ngmh/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/cwsq-ngmh/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/cwsq-ngmh/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-Census-Tract-D/cwsq-ngmh",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2024-08-23",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "place",
+    "places",
+    "social needs",
+    "risk",
+    "prevention",
+    "prevalence",
+    "status",
+    "behaviors",
+    "brfss",
+    "city",
+    "disability",
+    "health",
+    "outcomes"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/eav7-hnsx",
+   "title": "PLACES: Local Data for Better Health, Place Data, 2025 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/eav7-hnsx/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/eav7-hnsx/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/eav7-hnsx/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/eav7-hnsx/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/eav7-hnsx/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/eav7-hnsx/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/eav7-hnsx/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/eav7-hnsx/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-Place-Data-202/eav7-hnsx",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2025-12-04",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "brfss",
+    "prevention",
+    "risk",
+    "disability",
+    "county",
+    "prevalence",
+    "behaviors",
+    "health",
+    "status",
+    "outcomes",
+    "places"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/fu4u-a9bh",
+   "title": "PLACES: Local Data for Better Health, County Data 2024 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/fu4u-a9bh/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/fu4u-a9bh/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/fu4u-a9bh/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/fu4u-a9bh/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/fu4u-a9bh/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/fu4u-a9bh/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/fu4u-a9bh/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/fu4u-a9bh/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2024-08-23",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "zip code",
+    "status",
+    "behaviors",
+    "brfss",
+    "disability",
+    "health",
+    "outcomes",
+    "places",
+    "prevalence",
+    "prevention",
+    "risk",
+    "social needs",
+    "zcta"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/qnzd-25i4",
+   "title": "PLACES: Local Data for Better Health, ZCTA Data, 2025 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/qnzd-25i4/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/qnzd-25i4/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/qnzd-25i4/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/qnzd-25i4/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/qnzd-25i4/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/qnzd-25i4/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/qnzd-25i4/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/qnzd-25i4/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-ZCTA-Data-2020/qnzd-25i4",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2025-12-04",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-23",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "brfss",
+    "places",
+    "outcomes",
+    "health",
+    "behaviors",
+    "risk",
+    "prevention",
+    "status",
+    "city",
+    "disability",
+    "place",
+    "prevalence"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/sd8v-uq83",
+   "title": "PLACES: Local Data for Better Health, Place Data 2024 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/sd8v-uq83/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/sd8v-uq83/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/sd8v-uq83/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/sd8v-uq83/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/sd8v-uq83/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/sd8v-uq83/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/sd8v-uq83/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/sd8v-uq83/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-Place-Data-202/eav7-hnsx",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  },
+  {
+   "accessLevel": "public",
+   "landingPage": "http://www.cdc.gov/nccdphp/dph/",
+   "bureauCode": [
+    "009:20"
+   ],
+   "issued": "2024-08-23",
+   "@type": "dcat:Dataset",
+   "modified": "2026-09-22",
+   "references": [
+    "https://www.cdc.gov/places/measure-definitions/index.html"
+   ],
+   "keyword": [
+    "prevalence",
+    "status",
+    "social needs",
+    "risk",
+    "prevention",
+    "places",
+    "outcomes",
+    "health",
+    "disability",
+    "county",
+    "brfss",
+    "behaviors"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "PLACES Public Inquiries",
+    "hasEmail": "mailto:places@cdc.gov"
+   },
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "Centers for Disease Control and Prevention"
+   },
+   "identifier": "https://data.cdc.gov/api/views/swc5-untb",
+   "title": "PLACES: Local Data for Better Health, County Data, 2025 release",
+   "programCode": [
+    "009:020"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/swc5-untb/export.csv?accessType=DOWNLOAD",
+     "mediaType": "text/csv"
+    },
+    {
+     "mediaType": "application/json",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/swc5-untb/query.json?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/swc5-untb/columns.json",
+     "describedByType": "application/json",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "mediaType": "application/xml",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/swc5-untb/query.xml?accessType=DOWNLOAD",
+     "describedBy": "https://data.cdc.gov/api/views/swc5-untb/columns.xml",
+     "describedByType": "application/xml",
+     "@type": "dcat:Distribution"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/swc5-untb/query.geojson?accessType=DOWNLOAD",
+     "mediaType": "application/geo+json"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/swc5-untb/export.kml?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kml+xml"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "downloadURL": "https://data.cdc.gov/api/v3/views/swc5-untb/export.kmz?accessType=DOWNLOAD",
+     "mediaType": "application/vnd.google-earth.kmz"
+    }
+   ],
+   "describedBy": "https://chronicdata.cdc.gov/dataset/PLACES-Local-Data-for-Better-Health-County-Data-20/swc5-untb",
+   "theme": [
+    "500 Cities & Places"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,319 @@
+{
+ "_source_url": "https://www.justice.gov/data.json",
+ "_retrieved": "2026-11-24T23:49:08+00:00",
+ "_pattern": "^(Uniform Crime Reporting \\(UCR\\) Program|National Incident-Based Reporting System \\(NIBRS\\)( Estimates)?|Crime in the United States)$",
+ "_catalog_license_counts": {
+  "null": 6,
+  "http://www.usa.gov/publicdomain/label/1.0/": 3261
+ },
+ "entries": [
+  {
+   "@type": "dcat:Dataset",
+   "title": "Crime in the United States",
+   "modified": "2025-08-12T00:00:00",
+   "accessLevel": "public",
+   "identifier": "502",
+   "publisher": {
+    "name": "Federal Bureau of Investigation",
+    "@type": "org:Organization",
+    "subOrganizationOf": {
+     "id": 10,
+     "acronym": "DOJ",
+     "name": "Department of Justice"
+    }
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Criminal Justice Information Services Division Federal Bureau of Investigation (USDOJ)",
+    "hasEmail": "mailto:CRIMESTATSINFO@fbi.gov"
+   },
+   "keyword": [
+    "crime reporting",
+    "aggravated assault",
+    "arrests",
+    "arson",
+    "assault",
+    "auto theft",
+    "burglary",
+    "counties",
+    "crime rates",
+    "crime statistics",
+    "drug abuse",
+    "embezzlement",
+    "fraud",
+    "gambling",
+    "larceny",
+    "law enforcement",
+    "murder",
+    "offenses",
+    "rape",
+    "robbery",
+    "sex offenses",
+    "Uniform Crime Reporting Program",
+    "NIBRS",
+    "SRS"
+   ],
+   "bureauCode": [
+    "011:10"
+   ],
+   "programCode": [
+    "011:000"
+   ],
+   "license": "http://www.usa.gov/publicdomain/label/1.0/",
+   "accrualPeriodicity": "R/P1Y",
+   "dataQuality": true,
+   "issued": "2017-02-27T00:00:00",
+   "language": [
+    "eng"
+   ],
+   "landingPage": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/home",
+   "references": [
+    "https://ucr.fbi.gov/"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://forms.fbi.gov/assistance-with-uniform-crime-statistics-information",
+     "description": "Web form to submit requests for earlier Uniform Crime Reporting (UCR) data that is not available in the FBI Crime Data Explorer (CDE) or FBI.gov archive. Requests for Crime in the United States data can be submitted for data for years 1960 to 1994.",
+     "mediaType": "text/html",
+     "title": "1960 to 1994: By Request"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "description": "Historical Uniform Crime Reporting (UCR) publications are maintained in an archive on FBI.gov. The FBI.gov archive provides Crime in the United States data for years 1995 to 2019.",
+     "downloadURL": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/ucr/publications#Crime-in%20the%20U.S.",
+     "mediaType": "application/zip",
+     "title": "1995 to 2019: FBI.gov archive"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "description": "The Crime Data Explorer (CDE) offers downloadable Uniform Crime Reporting (UCR) data files. The CDE provides Crime in the United States Annual Reports for years 2020 to present.",
+     "downloadURL": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads",
+     "mediaType": "application/zip",
+     "title": "2020 to Present: Crime Data Explorer"
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "National Incident-Based Reporting System (NIBRS)",
+   "modified": "2026-03-15T00:00:00",
+   "accessLevel": "public",
+   "identifier": "543",
+   "publisher": {
+    "name": "Federal Bureau of Investigation",
+    "@type": "org:Organization",
+    "subOrganizationOf": {
+     "id": 10,
+     "acronym": "DOJ",
+     "name": "Department of Justice"
+    }
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Criminal Justice Information Services Division Federal Bureau of Investigation (USDOJ)",
+    "hasEmail": "mailto:CRIMESTATSINFO@fbi.gov"
+   },
+   "keyword": [
+    "incident based",
+    "NIBRS",
+    "crimes against persons",
+    "crimes against property",
+    "crimes against society",
+    "aggravated assault",
+    "arrests",
+    "arson",
+    "assault",
+    "crime statistics",
+    "drug abuse",
+    "embezzlement",
+    "fraud",
+    "gambling",
+    "larceny",
+    "law enforcement",
+    "murder",
+    "offenses",
+    "rape",
+    "robbery",
+    "Uniform Crime Reporting Program",
+    "UCR Program"
+   ],
+   "bureauCode": [
+    "011:10"
+   ],
+   "programCode": [
+    "011:000"
+   ],
+   "license": "http://www.usa.gov/publicdomain/label/1.0/",
+   "isPartOf": "543",
+   "accrualPeriodicity": "R/P1M",
+   "dataQuality": true,
+   "issued": "2017-02-27T00:00:00",
+   "language": [
+    "eng"
+   ],
+   "landingPage": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/home",
+   "references": [
+    "https://ucr.fbi.gov/"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "description": "Historical Uniform Crime Reporting (UCR) publications are maintained in an archive on FBI.gov. The FBI.gov archive provides National Incident-Based Reporting System (NIBRS) data for years 2011 to 2019.",
+     "downloadURL": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/ucr/publications#NIBRS",
+     "mediaType": "application/zip",
+     "title": "2011 to 2019: FBI.gov archive"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "description": "The Crime Data Explorer (CDE) offers downloadable Uniform Crime Reporting (UCR) data files. The CDE provides National Incident-Based Reporting System (NIBRS) Tables for years 2020 to present.",
+     "downloadURL": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads",
+     "mediaType": "application/zip",
+     "title": "2020 to Present: Crime Data Explorer"
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "Uniform Crime Reporting (UCR) Program",
+   "modified": "2026-03-15T00:00:00",
+   "accessLevel": "public",
+   "identifier": "547",
+   "publisher": {
+    "name": "Federal Bureau of Investigation",
+    "@type": "org:Organization",
+    "subOrganizationOf": {
+     "id": 10,
+     "acronym": "DOJ",
+     "name": "Department of Justice"
+    }
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Criminal Justice Information Services Division Federal Bureau of Investigation (USDOJ)",
+    "hasEmail": "mailto:CRIMESTATSINFO@fbi.gov"
+   },
+   "keyword": [
+    "crime statistics",
+    "crime report",
+    "nationwide crime",
+    "Crime in the United States",
+    "hate crime",
+    "Law Enforcement Officers Killed and Assaulted",
+    "LEOKA",
+    "arrested person",
+    "homicide",
+    "police employees",
+    "arson",
+    "NIBRS"
+   ],
+   "bureauCode": [
+    "011:10"
+   ],
+   "programCode": [
+    "011:000"
+   ],
+   "license": "http://www.usa.gov/publicdomain/label/1.0/",
+   "accrualPeriodicity": "R/P1M",
+   "dataQuality": true,
+   "issued": "2017-02-27T00:00:00",
+   "language": [
+    "eng"
+   ],
+   "landingPage": "https://ucr.fbi.gov/",
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://forms.fbi.gov/assistance-with-uniform-crime-statistics-information",
+     "description": "Web form to submit requests for earlier Uniform Crime Reporting (UCR) data that is not available in the FBI Crime Data Explorer (CDE) or FBI.gov archive.",
+     "title": "By Request"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "description": "The Crime Data Explorer (CDE) offers downloadable Uniform Crime Reporting (UCR) data files.",
+     "downloadURL": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads",
+     "mediaType": "application/zip",
+     "title": "Crime Data Explorer"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/home",
+     "description": "The Crime Data Explorer (CDE) is an online interactive data tool to access, view, and understand the massive amounts of Uniform Crime Reporting (UCR) data.",
+     "title": "Crime Data Explorer Interactive"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/docApi",
+     "description": "The FBI Crime Data API is a read-only web service that returns Uniform Crime Reporting (UCR) data as JSON or CSV.",
+     "format": "Api",
+     "title": "FBI Crime Data API"
+    },
+    {
+     "@type": "dcat:Distribution",
+     "description": "Historical Uniform Crime Reporting (UCR) publications are maintained in an archive on FBI.gov.",
+     "downloadURL": "https://www.fbi.gov/how-we-can-help-you/more-fbi-services-and-information/ucr/publications",
+     "mediaType": "application/zip",
+     "title": "FBI.gov archive"
+    }
+   ]
+  },
+  {
+   "@type": "dcat:Dataset",
+   "title": "National Incident-Based Reporting System (NIBRS) Estimates",
+   "modified": "2025-12-18T00:00:00",
+   "accessLevel": "public",
+   "identifier": "4315",
+   "publisher": {
+    "name": "Federal Bureau of Investigation",
+    "@type": "org:Organization",
+    "subOrganizationOf": {
+     "id": 10,
+     "acronym": "DOJ",
+     "name": "Department of Justice"
+    }
+   },
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Criminal Justice Information Services Division Federal Bureau of Investigation (USDOJ)",
+    "hasEmail": "mailto:CRIMESTATSINFO@fbi.gov"
+   },
+   "keyword": [
+    "Estimation",
+    "incident based estimates",
+    "NIBRS estimation",
+    "crimes against persons estimates",
+    "crimes against property estimates",
+    "crimes against society estimates",
+    "crime statistics",
+    "drug crime estimates",
+    "Uniform Crime Reporting Program"
+   ],
+   "bureauCode": [
+    "011:10"
+   ],
+   "programCode": [
+    "011:000"
+   ],
+   "license": "http://www.usa.gov/publicdomain/label/1.0/",
+   "accrualPeriodicity": "R/P1Y",
+   "dataQuality": true,
+   "issued": "2022-10-05T00:00:00",
+   "language": [
+    "eng"
+   ],
+   "landingPage": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/home",
+   "references": [
+    "https://ucr.fbi.gov/"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "description": "The Crime Data Explorer (CDE) offers downloadable Uniform Crime Reporting (UCR) data files. The CDE provides downloadable NIBRS Estimation Tables for years 2021 to present.",
+     "downloadURL": "https://cde.ucr.cjis.gov/LATEST/webapp/#/pages/downloads",
+     "mediaType": "application/zip",
+     "title": "2021 to Present: Crime Data Explorer"
+    }
+   ]
+  }
+ ]
+}
