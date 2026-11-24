@@ -1,0 +1,674 @@
+URL: https://electionlab.mit.edu/data
+Final-URL: https://electionlab.mit.edu/data
+Retrieved: 2026-11-24T23:30:10+00:00
+HTTP-Status: 200
+Raw-SHA256: 7254ceafe8e6d782611f161c2f029c203da47bb4899a70778d3755faa50befd4
+Raw-Bytes: 117288
+---
+Skip to main content
+
+ × 
+
+ Search
+
+ Fulltext search 
+
+ Main navigation
+
+ Research 
+
+ Projects 
+
+ Papers + Reports 
+
+ Explainers 
+
+ Data 
+
+ Our Data 
+
+ Tools + Resources 
+
+ Find an Expert 
+
+ About 
+
+ Engage 
+
+ News 
+
+ Open Search 
+
+ Find us on Facebook 
+
+ Find us on Twitter 
+
+ Data 
+
+ Our lab is a clearinghouse for data sets that can fuel studies on elections and how they're conducted. Find election data and research tools produced by us and others.
+
+ Our Data 
+
+ Tools + Resources 
+
+ Data
+
+ all datasets 
+
+ Federal Elections 
+
+ State Elections 
+
+ Local Elections 
+
+ all units 
+
+ by state 
+
+ by district 
+
+ by county 
+
+ by precinct 
+
+ 35 results 
+
+ Nov 3, 2022 
+
+ MIT Election Data and Science Lab
+
+ State Precinct-Level Returns 2018 
+
+ This dataset contains precinct-level returns for state elections on November 6, 2018.
+
+ Nov 3, 2022 
+
+ MIT Election Data and Science Lab
+
+ Precinct-Level Returns 2018 by Individual State 
+
+ This dataset contains precinct-level returns, state by state, for local, state and federal elections on November 6, 2018.
+
+ Nov 3, 2022 
+
+ MIT Election Data and Science Lab
+
+ U.S. Senate Precinct-Level Returns 2018 
+
+ This dataset contains precinct-level returns for US Senate elections on November 6, 2018.
+
+ Jul 25, 2023 
+
+ MIT Election Data and Science Lab
+
+ U.S. Senate county-level results 2022 
+
+ U.S. Senate election results at the county level, 2022. Dataset created by Fernanda Gonzalez, Samuel Baltz, and Charles Stewart III for the MIT Election Data and Science Lab.
+
+ Mar 17, 2022 
+
+ MIT Election Data and Science Lab
+
+ U.S. Senate Precinct-Level Returns 2020 
+
+ This dataset contains precinct-level returns for US Senate elections on November 3, 2020.
+
+ Nov 3, 2022 
+
+ MIT Election Data and Science Lab
+
+ U.S. House of Representatives Precinct-Level Returns 2018 
+
+ This dataset contains precinct-level returns for US House elections on November 6, 2018.
+
+ Nov 3, 2022 
+
+ MIT Election Data and Science Lab
+
+ Local Precinct-Level Returns 2018 
+
+ This dataset contains precinct-level returns for local elections on November 6, 2018.
+
+ Jul 17, 2023 
+
+ MIT Election Data and Science Lab
+
+ U.S. President 1976–2020 
+
+ This data file contains constituency (state-level) returns for elections to the U.S. presidency from 1976 to 2020.
+
+ Federal Elections
+
+ by state
+
+ General Election
+
+ Sep 3, 2024 
+
+ Harvard Dataverse
+
+ Cast Vote Records: A Database of Ballots from the 2020 U.S. Election 
+
+ A database of cast vote records from the 2020 U.S. general election, created by downloading publicly available unstandardized cast vote records, standardizing them into a multi-state database, and extensively comparing their totals to certified election results.
+
+ Federal Elections
+
+ by state
+
+ General Election
+
+ Nov 14, 2022 
+
+ MIT Election Data and Science Lab
+
+ U.S. Senate statewide 1976–2020 
+
+ This data file contains constituency (state-level) returns for elections to the U.S. Senate from 1976 to 2020.
+
+ Federal Elections
+
+ by state
+
+ General Election
+
+ Jan 1, 2019 
+
+ MIT Election Data and Science Lab
+
+ State Constituency-Level Returns 2018 
+
+ This repository contains official constituency (state-level) for the 2018 midterm elections, including data for the U.S. House, U.S. Senate, state offices and county-level returns.
+
+ Federal Elections
+
+ by state
+
+ General Election
+
+ Sep 10, 2025 
+
+ MIT Election Data and Science Lab
+
+ U.S. House 1976–2024 
+
+ This data file contains constituency (district) returns for elections to the U.S. House of Representatives from 1976 to 2024.
+
+ Federal Elections
+
+ by district
+
+ General Election
+
+ Nov 7, 2018 
+
+ MIT Election Data and Science Lab
+
+ U.S. General Elections 2018 - Analysis Dataset 
+
+ This repository includes demographic and past election data that can easily be merged with 2018 election returns to analyze the 2018 election. 
+
+ Federal Elections
+
+ by county
+
+ General Election
+
+ Aug 21, 2025 
+
+ MIT Election Data and Science Lab
+
+ County Presidential Election Returns 2000-2024 
+
+ This dataset contains county-level returns for presidential elections from 2000 to 2024.
+
+ Federal Elections
+
+ by county
+
+ General Election
+
+ Nov 6, 2018 
+
+ MIT Election Data and Science Lab
+
+ U.S. General Elections 2018 - Unofficial Returns 
+
+ Unofficial returns for the 2018 midterm general elections. 
+
+ Federal Elections
+
+ by county
+
+ General Election
+
+ Aug 15, 2018 
+
+ MIT Election Data and Science Lab
+
+ U.S. Primary Elections 2018 
+
+ This is a repository for unofficial 2018 primary election returns. 
+
+ Federal Elections
+
+ by county
+
+ Primary Election
+
+ May 1, 2026 
+
+ MIT Election Data and Science Lab 
+
+ U.S. Senate Precinct-Level Returns 2024 
+
+ This dataset contains precinct-level returns for US Senate elections on November 5, 2024.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Apr 1, 2019 
+
+ MIT Election Data and Science Lab
+
+ State Precinct-Level Returns 2018 
+
+ This repository contains official precinct-level returns for all offices for the 2018 midterm elections. It is incomplete, but will be updated biweekly until completion. 
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Aug 5, 2022 
+
+ MIT Election Data and Science Lab
+
+ U.S. House of Representatives Precinct-Level Returns 2016 
+
+ This dataset contains precinct-level returns for elections to the U.S. House of Representatives on November 8, 2016.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Jan 17, 2019 
+
+ MIT Election Data and Science Lab
+
+ U.S. President Precinct-Level Returns 2016 
+
+ This dataset contains precinct-level returns for elections to the U.S. presidency on November 8, 2016.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Mar 7, 2023 
+
+ MIT Election Data and Science Lab
+
+ Precinct-Level Returns 2020 by Individual State 
+
+ This dataset contains precinct-level returns, state by state, for state and federal elections on November 3, 2020.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Mar 7, 2023 
+
+ MIT Election Data and Science Lab
+
+ U.S. House of Representatives Precinct-Level Returns 2020 
+
+ This dataset contains precinct-level returns for US House elections on November 3, 2020.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Nov 14, 2024 
+
+ MIT Election Data and Science Lab
+
+ 2024 Precinct-Level Returns 
+
+ Repository for the results of the 2024 U.S. general election, mostly at the precinct level.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Mar 7, 2023 
+
+ MIT Election Data and Science Lab
+
+ U.S. President Precinct-Level Returns 2020 
+
+ This dataset contains precinct-level returns for the US President election on November 3, 2020.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Jan 17, 2019 
+
+ MIT Election Data and Science Lab
+
+ U.S. Senate Precinct-Level Returns 2016 
+
+ This dataset contains precinct-level returns for elections to the U.S. Senate on November 8, 2016.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Jan 31, 2024 
+
+ MIT Election Data and Science Lab
+
+ 2022 Precinct-Level Returns 
+
+ Repository for the results of the 2022 U.S. general election, mostly at the precinct level. 
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Mar 7, 2023 
+
+ MIT Election Data and Science Lab
+
+ State Precinct-Level Returns 2020 
+
+ This dataset contains precinct-level returns for state elections on November 3, 2020.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ May 1, 2026 
+
+ MIT Election Data and Science Lab 
+
+ U.S. President Precinct-Level Returns 2024 
+
+ This dataset contains precinct-level returns for the US President election on November 5, 2024. 
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ Mar 17, 2022 
+
+ MIT Election Data + Science Lab
+
+ Local Precinct-Level Returns 2020 
+
+ This repository contains precinct-level returns for the local office elections on November 3, 2020.
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ May 1, 2026 
+
+ MIT Election Data and Science Lab 
+
+ U.S. House of Representatives Precinct-Level Returns 2024 
+
+ This dataset contains precinct-level returns for US House elections on November 5, 2024. 
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ May 1, 2026 
+
+ MIT Election Data and Science Lab 
+
+ Precinct-Level Returns 2024 by Individual State 
+
+ This dataset contains precinct-level returns, state by state, for state and federal elections on November 5, 2024. 
+
+ Federal Elections
+
+ by precinct
+
+ General Election
+
+ May 5, 2020 
+
+ MIT Election Data and Science Lab
+
+ State Office-Level Returns 2016 
+
+ This dataset contains office-level returns for state elections on November 8, 2016.
+
+ State Elections
+
+ by state
+
+ General Election
+
+ Jan 17, 2019 
+
+ MIT Election Data and Science Lab
+
+ State Precinct-Level Returns 2016 
+
+ This dataset contains precinct-level returns for state elections on November 8, 2016.
+
+ State Elections
+
+ by precinct
+
+ General Election
+
+ May 1, 2026 
+
+ MIT Election Data and Science Lab 
+
+ State Precinct-Level Returns 2024 
+
+ This dataset contains precinct-level returns for state elections on November 5, 2024.
+
+ State Elections
+
+ by precinct
+
+ General Election
+
+ Jan 17, 2019 
+
+ MIT Election Data and Science Lab
+
+ Local Precinct-Level Returns 2016 
+
+ This dataset contains precinct-level returns for local elections on November 8, 2016.
+
+ Local Elections
+
+ by precinct
+
+ General Election
+
+ Tools + Resources
+
+ Software tools
+
+ Software tools developed by MEDSL
+
+ MEDSL GitHub 
+
+ This is our GitHub repository where you can find software tools for working with elections data. 
+
+ Other data sources
+
+ This is a list of open data sources recommended by MEDSL.
+
+ 2010 Voting Districts Codes 
+
+ National and state files containing codes for Voting Districts are available for download from the U.S. Census Bureau. Voting Districts were not provided by every state and are therefore not available for every state.
+
+ A New Nation Votes 
+
+ This is a searchable collection of election returns from the earliest years of American democracy.
+
+ Constituency-Level Elections Archive (CLEA) 
+
+ The Constituency-Level Elections Archive (CLEA) is a repository of detailed election results at the constituency level for lower house legislative elections from around the world—including the U.S.
+
+ Daily Kos Elections' datasets 
+
+ The ultimate guide to Daily Kos Elections datasets
+
+ Dave Leip’s Atlas of U.S. Presidential Elections 
+
+ This is a resource for U.S. Presidential Election results and other types of election data.
+
+ Election Administration and Voting Survey (EAVS) 
+
+ This is the biennial Election Administration and Voting Survey (EAVS) which collects state-by-state data on the administration of federal elections. It is conducted by the Election Assistance Commission.
+
+ Election Geodata 
+
+ This github provices precinct shapes (and vote results) for U.S. elections past, present, and future.
+
+ Federal Voting Assistance Program 
+
+ FVAP's reports and surveys provide unique insight into UOCAVA voting.
+
+ Harvard Election Data Archive 
+
+ This archive contains data on election results, voting behavior, and electoral politics, with particular focus on the United States. 
+
+ Klarnerpolitics Dataverse 
+
+ Harvard Dataverse collection by Carl Klarner with useful data and tools, including state legislative election returns from 1967 to 2012.
+
+ Mapping Early American Elections 
+
+ This project offers a window into the formative era of American politics by producing interactive maps and visualizations of Congressional and state legislative elections from 1787 to 1825.
+
+ MEDSL Hosted Election Science Data 
+
+ This Dataverse contains data that is collected by affiliates and external scholars that MEDSL is hosting and archiving.
+
+ MEDSL New Initiatives Grants Dataverse 
+
+ This dataverse contains the datasets produced by the New Intitiatives Grants Program sponsored by MEDSL and the Hewlett Foundation. 
+
+ Metric Geometry and Gerrymandering Group 
+
+ The MGGG Redistricting Lab studies applications of geometry and computing to U.S. redistricting, and builds open-source tools and resources that create public access and analytical power for better understanding districts and their consequences.
+
+ OpenElections 
+
+ OpenElections is working to create the first free, comprehensive, standardized, linked set of election data for the United States, including federal and statewide offices.
+
+ PlanScore 
+
+ PlanScore presents a comprehensive historical database of partisan gerrymandering.
+
+ Princeton Gerrymandering Project 
+
+ This project researches gerrymandering across the states.
+
+ Quantifying Gerrymandering 
+
+ A nonpartisan research group centered @ Duke Math and producing data and analysis on redistricting in the U.S.
+
+ Redistricting Data Hub 
+
+ A portal to access redistricting data, tools, training, and educational resources.
+
+ Stephen Pettigrew's 2018 County Returns 
+
+ November 2018 county-level election returns for US Senate, US House, and governor elections in each state. Also state legislative and local results in many states.
+
+ Survey of the Performance of American Elections (SPAE) 
+
+ This is a survey conducted in conjunction with the Elections Performance Index which gauges the quality of the election experience in the U.S.
+
+ The Elections Archive (THEA) 
+
+ This is a repository of subnational election results and associated materials. These data are preserved and consolidated in one comprehensive and reliable resource that is ready for analysis and publicly available at no cost. 
+
+ The United States Election Project 
+
+ This is a source for time-series voter turnout data at the national and state levels. The site also includes information on redistircting and voter lists.
+
+ Voting Information Project 
+
+ The Voting Information Project (VIP) works with states to provide official information to voters about where to vote and what’s on their ballots.
+
+ Back to top 
+
+ 77 Massachusetts Avenue
+
+ Cambridge, MA 02139
+
+ 617 258 5885 
+
+ mitelectionlab@mit.edu 
+
+ Open Search 
+
+ Find us on Facebook 
+
+ Find us on Twitter 
+
+ Main menu for Footer
+
+ Research 
+
+ Projects 
+
+ Papers + Reports 
+
+ Explainers 
+
+ Data 
+
+ Our Data 
+
+ Tools + Resources 
+
+ Find an Expert 
+
+ About 
+
+ Engage 
+
+ News 
+
+ © 2026 Massachusetts Institute of Technology Election Data + Science Lab | Accessibility
