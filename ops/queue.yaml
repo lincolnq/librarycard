@@ -1,0 +1,8 @@
+# Sources considered but not (yet) onboarded. A future agent may pick these up.
+# reason: network | license | credentials | scope | low_priority | duplicate | format | unstable
+#   network      - domain blocked in the agent environment (see docs/POLICY.md#network-access)
+#   credentials  - needs a key/sign-up; give it a catalog-only `restricted` entry instead if useful
+#   format       - only available in formats we can't parse with stdlib (e.g. xlsx-only, PDF tables)
+#   low_priority - fine source, just not done yet
+# Remove an entry when the source is onboarded (odc validate enforces this).
+queued: []
