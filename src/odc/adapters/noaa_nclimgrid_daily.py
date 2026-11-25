@@ -153,7 +153,11 @@ class NoaaNclimgridDaily(SourceAdapter):
     # Scope: state + county files, all four variables, MIRROR_START_YEAR..current year; one unit per
     # (variable, year) = 24 monthly files (~1.1M rows), streamed so memory stays at one month.
     # Scaled (final) files where published, else prelim; the row's `version` says which.
-    MIRROR_START_YEAR = 2000
+    # Start year: ingest is ~28 s per (variable, year) unit (~112 s per year, ~32 MB compressed per year) and a run
+    # cannot resume, so the first publish (2026-11) was scoped to 2024+ to finish in one ~10-minute run. The CI
+    # mirror workflow has no such limit: to widen, lower this (2000 -> ~50 min), update the catalog access.notes and
+    # caveat, and run `odc mirror noaa-nclimgrid-daily`.
+    MIRROR_START_YEAR = 2024
     mirror_partition_keys = ["variable", "year", "level", "state"]
     mirror_required = ["variable", "year"]
     mirror_semantics = {"state": "state_postal", "year": "year", "date": "date"}

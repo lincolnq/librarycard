@@ -24,6 +24,7 @@ def _ncg_file(lvl: str) -> str:
 def ncg(monkeypatch):
     """Fake bucket: scaled files for Jan-Mar, prelim only for April, nothing later."""
     monkeypatch.setattr(noaa_nclimgrid_daily, "_ncei_to_fips", None)
+    monkeypatch.setattr(noaa_nclimgrid_daily.NoaaNclimgridDaily, "MIRROR_START_YEAR", 2023)  # tests use 2023 units
     requested = []
 
     def fake_get_text(url, **kw):
