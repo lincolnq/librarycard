@@ -89,7 +89,7 @@ caveats:
   - Excludes outside spending (super PACs, independent expenditures, party coordinated spending) and joint fundraising committees; it is not a measure of all money spent on a race.
   - Election outcome columns (SPEC_ELECTION, PRIM_ELECTION, RUN_ELECTION, GEN_ELECTION, GEN_ELECTION_PRECENT — FEC's spelling) are only populated in the 1996-2006 files; use an election-returns source (e.g. mit-election-senate-state) for results.
   - Legal restriction — under 52 U.S.C. 30111(a)(4), information about individual contributors copied from FEC reports may not be sold or used to solicit contributions or for commercial purposes. This file holds no contributor names, but do not join it with itemized contribution data for those purposes. Amounts are nominal dollars (not inflation-adjusted).
-related: [mit-election-senate-state, mit-election-president-state, mit-election-house]
+related: [mit-election-senate-state, mit-election-president-state, mit-election-house, fec-individual-contributions]
 status: healthy
 status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"

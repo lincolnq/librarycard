@@ -11,7 +11,7 @@ files.pythonhosted.org               # pip install
 api.bls.gov                          # bls-laus (API v1 fallback)
 api.usaspending.gov                  # usaspending-spending-by-geography
 apps.bea.gov                         # bea-regional
-cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com   # fec-all-candidates (www.fec.gov/files/bulk-downloads redirects here)
+cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com   # fec-all-candidates, fec-individual-contributions (www.fec.gov/files/bulk-downloads redirects here)
 data.cdc.gov                         # cdc-places
 data.cms.gov                         # cms-medicare-geographic-variation
 dataverse.harvard.edu                # mit-election-president-state, mit-election-senate-state
@@ -27,7 +27,7 @@ voteview.com                         # voteview-congress
 www.countyhealthrankings.org         # county-health-rankings
 www.eac.gov                          # eac-eavs
 www.ers.usda.gov                     # usda-ers-rural-urban-codes
-www.fec.gov                          # fec-all-candidates
+www.fec.gov                          # fec-all-candidates, fec-individual-contributions
 www.federalregister.gov              # federal-register-documents
 www.fema.gov                         # fema-disaster-declarations
 www.fhfa.gov                         # fhfa-hpi
