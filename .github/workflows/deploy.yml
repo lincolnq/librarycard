@@ -26,8 +26,9 @@ jobs:
           node-version: "22"
           cache: npm
           cache-dependency-path: worker/package-lock.json
-      - run: pip install -e .
+      - run: pip install -e ".[dev]"
       - run: odc validate
+      - run: pytest -m "not live" -q
       - working-directory: worker
         run: npm ci && npm run export && npm test
       - name: Deploy

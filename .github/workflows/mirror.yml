@@ -36,9 +36,15 @@ jobs:
       - run: pip install -e .
       - name: Build and publish mirrors
         continue-on-error: true
+        env:
+          SOURCES: ${{ inputs.sources }}   # via env, never interpolated into the script
         run: |
-          if [ -n "${{ inputs.sources }}" ]; then
-            odc mirror ${{ inputs.sources }} --report reports/mirror.json
+          if [ -n "$SOURCES" ]; then
+            if ! printf '%s' "$SOURCES" | grep -Eq '^[a-z0-9 -]+$'; then
+              echo "::error::sources must be space-separated catalog ids"; exit 2
+            fi
+            # shellcheck disable=SC2086 # word-splitting the validated id list is intended
+            odc mirror $SOURCES --report reports/mirror.json
           else
             odc mirror --due --report reports/mirror.json
           fi
@@ -46,6 +52,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python monitor/file_issues.py --changes /dev/null --contracts /dev/null --mirror reports/mirror.json
+      - name: Fail if the mirror run produced no report
+        # Per-source failures are filed as issues above; a crash before the report (missing secrets, bad input,
+        # import error) would otherwise leave a green run that mirrored nothing.
+        run: test -s reports/mirror.json || { echo "::error::odc mirror did not write reports/mirror.json; see the build step log"; exit 1; }
       - uses: actions/upload-artifact@v4
         if: always()
         with:
