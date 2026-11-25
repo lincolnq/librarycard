@@ -6,6 +6,7 @@ Layout (checked 2026-11-24):
   Each zip holds one quoted CSV (cbp<yy><level>.txt). Header (2017+ county file):
     fipstate,fipscty,naics,emp_nf,emp,qp1_nf,qp1,ap_nf,ap,est,n<5,n5_9,...,n1000_4
   State/US files add lfo and per-size-class e*/q*/a* columns; MSA files key on msa.
+  cbp15us.txt has upper-case headers (normalised to lower case here).
   2008-2016 files add `empflag` (A-M size-range code when emp/payroll are withheld; emp/qp1/ap = 0 then)
   and per-size-class `f*` flags. 2017+ files use noise flags (*_nf: G low, H moderate, J high noise) and
   no withholding. "N" in size-class columns = not available. County code 999 = "statewide" (establishments
@@ -70,6 +71,13 @@ def naics_depth(code: str) -> int:
     return 0 if code == "------" else len(code.rstrip("-/"))
 
 
+def _lower_keys(r: dict) -> None:
+    """Some files use upper-case headers (2015 us: USCODE,NAICS,...); normalise in place to the usual lower case."""
+    if "naics" not in r and "NAICS" in r:
+        for k in list(r):
+            r[k.lower()] = r.pop(k)
+
+
 def _num(v):
     if v is None:
         return None
@@ -87,7 +95,7 @@ def _num(v):
 
 class CensusCbp(SourceAdapter):
     source_id = "census-cbp"
-    version = "1.1.0"
+    version = "1.1.1"
     usage = ("One row per area x NAICS code (x legal form of organization for level us/state): establishments (est), "
              "mid-March employment (emp), Q1 payroll (qp1) and annual payroll (ap), both in $1,000. Pick a level "
              "(county, state, msa, us), a year (default latest), and narrow with state / county_fips / naics. "
@@ -175,6 +183,7 @@ class CensusCbp(SourceAdapter):
         lfo = f.get("lfo", "-")
 
         def keep(r: dict) -> bool:
+            _lower_keys(r)
             if st and r.get("fipstate") != st:
                 return False
             if cty and r.get("fipscty") != cty:
@@ -247,7 +256,7 @@ class CensusCbp(SourceAdapter):
             with http.download(url, cache_allowed=True, max_age_s=30 * 86400) as path:
                 with http.open_text(path) as fh:
                     reader = csv.DictReader(fh)
-                    reader.fieldnames = [c.strip() for c in reader.fieldnames or []]
+                    reader.fieldnames = [c.strip().lower() for c in reader.fieldnames or []]
                     require("naics" in reader.fieldnames and "est" in reader.fieldnames,
                             f"{url}: expected naics/est columns, got {reader.fieldnames[:15]}")
                     n = 0
