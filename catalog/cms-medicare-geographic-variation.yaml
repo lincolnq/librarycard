@@ -40,7 +40,10 @@ access:
   formats: [json, csv]
   rate_limits: None published; size max 5,000 rows per request.
   auth: none
-  notes: Data dictionary and methods paper are linked from the homepage (2014-2024 Original Medicare Geographic Variation Data Dictionary PDF).
+  notes: >-
+    Data dictionary and methods paper are linked from the homepage (2014-2024 Original Medicare Geographic Variation
+    Data Dictionary PDF). Mirror (docs/MIRROR.md): the whole current release — every year, level (National, State,
+    County) and age group (36,994 rows on 2026-11-25) — partitioned by BENE_GEO_LVL and YEAR.
 update:
   cadence: annual
   expected_lag: ~15-18 months after the end of the calendar year (2024 data released spring 2026).
@@ -99,6 +102,7 @@ caveats:
   - Values are not risk-adjusted for beneficiary health status; differences reflect population health as well as practice patterns.
   - Cells with small counts are suppressed by CMS ('*'), converted to null — common for small counties, age-group rows and territories.
   - Each annual release restates prior years with current methods; values for the same year can differ from those in earlier releases. Cite the release (file name in change detection) with the data.
+  - In the mirror (production server) national and state rows for all three age groups are returned unless you filter BENE_AGE_LVL ('All', '<65', '>=65'; county rows are 'All' only); filter on BENE_GEO_LVL and YEAR to read only the slices you need.
   - County rows include 'XX-UNKNOWN' (code SS000) entries for beneficiaries whose county is unknown; don't treat them as a county.
 related: [cdc-places, county-health-rankings]
 status: healthy
@@ -106,4 +110,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: cms_medicare_geographic_variation
-adapter_version: 1.0.0
+adapter_version: 1.1.0

@@ -150,6 +150,14 @@ def socrata(domain: str, dataset_id: str, *, where: str | None = None, select: s
     return r.json(), str(r.request.url)
 
 
+def polite_pause(response, seconds: float = 1.0) -> None:
+    """Between pages of a bulk (mirror) pull: sleep briefly if the publisher sends rate-limit headers."""
+    import time
+    names = [k.lower() for k in response.headers.keys()]
+    if any("ratelimit" in k or k == "retry-after" for k in names):
+        time.sleep(seconds)
+
+
 def soql_quote(v: str) -> str:
     return "'" + str(v).replace("'", "''") + "'"
 
