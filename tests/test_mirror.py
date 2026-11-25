@@ -77,3 +77,38 @@ def test_mirrorable_requires_allowed_license(cat):
     for sid, e in cat.entries.items():
         if mirror.mirrorable(e):
             assert e["license"]["redistribution"] == "allowed", sid
+
+
+def test_resume_after_interruption(stub_entry, tmp_path, monkeypatch):
+    full = mirror.ingest(stub_entry, tmp_path / "full", log=lambda *a: None)
+
+    calls = {"n": 0}
+    real = StubAdapter.mirror_rows
+
+    def flaky(self, unit):
+        calls["n"] += 1
+        if calls["n"] == 2:
+            raise KeyboardInterrupt  # killed while ingesting the second unit
+        return real(self, unit)
+
+    out = tmp_path / "resumed"
+    monkeypatch.setattr(StubAdapter, "mirror_rows", flaky)
+    with pytest.raises(KeyboardInterrupt):
+        mirror.ingest(stub_entry, out, log=lambda *a: None, resume=True)
+    ckpt = json.loads((out / mirror.CHECKPOINT).read_text())
+    assert ckpt["done"] == 1
+    with open(out / "pack-0.bin", "ab") as fh:  # bytes written after the checkpoint must be dropped
+        fh.write(b"partial")
+
+    m = mirror.ingest(stub_entry, out, log=lambda *a: None, resume=True)
+    assert calls["n"] == 3, "the finished unit is not re-run"
+    assert not (out / mirror.CHECKPOINT).exists()
+    assert m["release"] == ckpt["release"]
+    assert m["row_count"] == full["row_count"] and m["columns"] == full["columns"]
+    assert [p["k"] for p in m["partitions"]] == [p["k"] for p in full["partitions"]]
+    assert m["pack_bytes"] == full["pack_bytes"]
+    for p, q in zip(m["partitions"], full["partitions"]):
+        assert read_part(out, m, p) == read_part(tmp_path / "full", full, q)
+    # a finished out_dir is reused as is (lets a publish that was cut off be retried)
+    assert mirror.ingest(stub_entry, out, log=lambda *a: None, resume=True)["release"] == m["release"]
+    assert calls["n"] == 3
