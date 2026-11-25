@@ -16,3 +16,8 @@
 - commercial_use: **unclear** — not prohibited, not clearly permitted.
 - attribution: "U.S. Election Assistance Commission, Election Administration and Voting Survey (EAVS) <year> public-release data." (EAC requests that it be cited as the source.)
 - Re-check if EAC publishes a data license (e.g. adds `license` to data.json).
+
+## Reclassification 2026-11-25 → allowed / commercial_use yes
+Applied docs/POLICY.md §Licensing rule 9 (US federal works are public domain under 17 U.S.C. §105 unless conditions,
+third-party content or licensed data apply; adopted 2026-11-25 under the operator's delegation). Published by the U.S. Election Assistance Commission, a federal agency, which conducts the survey; the only conditions found (cite EAC, do not imply endorsement) are attribution conditions satisfiable via license.attribution (POLICY rule 7).
+The earlier `link_only` classification above was made under the superseded "silent terms → link_only" rule.

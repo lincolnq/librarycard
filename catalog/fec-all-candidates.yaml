@@ -46,15 +46,15 @@ change_detection:
   poll_interval_days: 7
   notes: Fingerprints the set of column names on FEC's file-description page, so it fires on a layout change (the adapter's hard-coded column list must then be updated), not on the daily data regeneration (which changes the zip's ETag every day).
 license:
-  name: Public domain (U.S. Government work) / CC0 1.0, per FEC's data licence; statutory sale-or-use restriction on individual contributor information does not apply to this file
-  spdx: CC0-1.0
+  name: "Public domain (U.S. Government work, 17 U.S.C. \xA7105); statutory sale-or-use restriction applies to individual contributor information only"
+  spdx: null
   url: https://github.com/fecgov/FEC/blob/master/LICENSE.md
-  redistribution: link_only
-  commercial_use: unclear
+  redistribution: allowed
+  commercial_use: "yes"
   attribution: "Federal Election Commission, All candidates file (weball), FEC bulk data, https://www.fec.gov/data/browse-data/?tab=bulk-data."
   evidence: evidence/licenses/fec-all-candidates/
-  checked_at: "2026-11-24"
-  notes: "Reclassified to link_only on review: the only CC0/public-domain statement found (fecgov/FEC LICENSE.md, linked from data.json's API entry) licenses FEC's website source code, not the bulk data files. No dataset-level data license was found. See NOTES.md."
+  checked_at: "2026-11-25"
+  notes: "Public domain as a US federal work (POLICY \xA7Licensing rule 9, adopted 2026-11-25). The 52 U.S.C. 30111(a)(4) sale-or-use restriction applies to individual contributor information, which this file does not contain. See NOTES.md."
 key_variables:
   - name: CAND_ID
     definition: FEC candidate id; first letter is the office (H/S/P), then election-cycle digit, state and sequence, e.g. H8NY15148. Stable across cycles for the same office.

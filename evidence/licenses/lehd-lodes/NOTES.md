@@ -18,3 +18,8 @@
 - redistribution: **link_only** — the data are freely downloadable public-use files from a federal agency, but no dataset-level license or explicit public-domain statement covers LODES (it is absent from data.json, and the LEHD pages are silent). POLICY.md: silent/unclear terms → link_only; do not infer CC0 from other Census datasets. LODES also incorporates state UI wage records supplied under LED partnership agreements, another reason not to assume.
 - commercial_use: **unclear** — not stated.
 - attribution: LEHD's requested citation format (see catalog entry).
+
+## Reclassification 2026-11-25 → allowed / commercial_use yes
+Applied docs/POLICY.md §Licensing rule 9 (US federal works are public domain under 17 U.S.C. §105 unless conditions,
+third-party content or licensed data apply; adopted 2026-11-25 under the operator's delegation). Produced by the Census Bureau's LEHD program (a federal statistical product, published by Census with confidentiality protection applied); no use conditions or third-party-content warning on the LEHD pages; the LED state partnership supplies inputs but the published product is the Census Bureau's.
+The earlier `link_only` classification above was made under the superseded "silent terms → link_only" rule.

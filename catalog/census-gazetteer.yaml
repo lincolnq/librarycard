@@ -51,11 +51,11 @@ license:
   name: Creative Commons Zero 1.0 (public domain dedication) — Census Bureau open-data license; see NOTES.md for how it applies to the Gazetteer
   spdx: CC0-1.0
   url: https://creativecommons.org/publicdomain/zero/1.0/
-  redistribution: link_only
-  commercial_use: unclear
+  redistribution: allowed
+  commercial_use: "yes"
   attribution: "U.S. Census Bureau, Geography Division, <YEAR> Gazetteer Files."
   evidence: evidence/licenses/census-gazetteer/
-  checked_at: "2026-11-24"
+  checked_at: "2026-11-25"
   notes: The Gazetteer itself is not listed in census.gov/data.json; the classification rests on the Bureau-wide CC0 declaration (all 1,800 catalogued datasets) and the CC0 / "free to use ... acknowledgement must be given" terms on sibling Geography Division products. See NOTES.md.
 key_variables:
   - name: GEOID

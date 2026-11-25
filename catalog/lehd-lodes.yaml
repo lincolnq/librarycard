@@ -47,15 +47,15 @@ change_detection:
   poll_interval_days: 7
   notes: version.txt is rewritten only when a new LODES vintage (new year or correction) is published; a change means check new years, the tech doc revision, and the coverage table.
 license:
-  name: No explicit license (U.S. Census Bureau public-use data; no dataset-level terms found)
+  name: "Public domain (U.S. Government work, 17 U.S.C. \xA7105)"
   spdx: null
   url: https://lehd.ces.census.gov/data/
-  redistribution: link_only
-  commercial_use: unclear
+  redistribution: allowed
+  commercial_use: "yes"
   attribution: "U.S. Census Bureau. LEHD Origin-Destination Employment Statistics (LODES8) <file name>, <data vintage>. Washington, DC: U.S. Census Bureau, Longitudinal-Employer Household Dynamics Program, accessed <date> at https://lehd.ces.census.gov/data/#lodes."
   evidence: evidence/licenses/lehd-lodes/
-  checked_at: "2026-11-24"
-  notes: LODES is not listed in census.gov/data.json (only LEHD QWI is, as CC0) and the LEHD pages give a citation format but no license; classified link_only per POLICY (terms silent). Re-check if a dataset-level license appears.
+  checked_at: "2026-11-25"
+  notes: "Public domain as a US federal work (POLICY \xA7Licensing rule 9, adopted 2026-11-25); LODES is not separately listed in census.gov/data.json. See NOTES.md."
 key_variables:
   - name: w_geocode
     definition: Workplace 2020 census block (15 digits), or its prefix when aggregated (12 block group, 11 tract, 5 county, 2 state).

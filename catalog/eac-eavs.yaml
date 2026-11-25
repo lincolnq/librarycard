@@ -45,15 +45,15 @@ change_detection:
   poll_interval_days: 14
   notes: Fingerprints the set of EAVS "nolabel" CSV file names linked from the data page. Fires when a new survey year or a new version (e.g. V2 -> V3) is posted; then add/update the URL in DATA_FILES (and CODEBOOKS) and coverage.time_range.
 license:
-  name: No license stated (U.S. federal agency data; EAC site terms ask for citation and no implied endorsement)
+  name: "Public domain (U.S. Government work, 17 U.S.C. \xA7105); EAC asks for citation and no implied endorsement"
   spdx: null
   url: https://www.eac.gov/main/privacy-statement
-  redistribution: link_only
-  commercial_use: unclear
+  redistribution: allowed
+  commercial_use: "yes"
   attribution: "U.S. Election Assistance Commission, Election Administration and Voting Survey (EAVS) public-release data, https://www.eac.gov/research-and-data/datasets-codebooks-and-surveys."
   evidence: evidence/licenses/eac-eavs/
-  checked_at: "2026-11-24"
-  notes: No public-domain or license statement found for EAVS data (data.json has no license field); classified link_only per POLICY. EAC products may not be used to imply EAC endorsement.
+  checked_at: "2026-11-25"
+  notes: "Public domain as a US federal work (POLICY \xA7Licensing rule 9, adopted 2026-11-25). Citation and no-endorsement conditions are carried in attribution. See NOTES.md."
 key_variables:
   - name: FIPSCode
     definition: 10-digit jurisdiction code, state(2)+county(3)+county subdivision(5), zero-padded by the adapter where the file dropped the leading zero. Wisconsin municipalities use 5-digit non-FIPS codes; Maine has a statewide UOCAVA pseudo-jurisdiction.

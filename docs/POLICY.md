@@ -26,14 +26,25 @@ A source may be onboarded only if **all** of these hold:
 2. **Public and free**: retrievable without sign-up, API key, payment, or a signed data-use
    agreement. Sources failing this get a catalog-only entry with `access.method: restricted`
    and `adapter: null` (so agents know they exist) — never an adapter.
-3. **No personal data about identifiable private individuals.** Not allowed: voter files,
-   individual-level donor lists (FEC itemized contributions name private donors — exclude them),
-   addresses, case records naming private people. Allowed: aggregate statistics; anonymised
+3. **No personal data about identifiable private individuals**, with one exception below. Not allowed: voter files,
+   addresses, case records naming private people, anything scraped or enriched about individuals. Allowed: aggregate statistics; anonymised
    public-use microdata released by statistical agencies (e.g. ACS PUMS, CPS); records about
    **public officials acting in their official capacity** (roll-call votes, sponsored bills,
    committee assignments, campaign-committee totals); records about organisations.
    For public officials, return official identifiers and official contact details only: reduce birth dates to the
    year, and drop personal email/phone/home address, biography text and photos unless they are the official ones.
+
+   **Exception: statutory public disclosure of political contributions** (operator decision, 2026-11-25). Records that
+   a government publishes *by law* about individuals' political contributions, chiefly FEC itemized individual
+   contributions, may be served, under these guardrails:
+   - Threshold: only what the agency itself itemizes (FEC: contributors aggregating more than $200 to a committee in
+     an election cycle). Never add contributions the agency did not itemize.
+   - Fields: only fields the agency publishes (FEC: name, city, state, ZIP, employer, occupation, date, amount,
+     recipient committee). Never join, enrich or geocode them with other personal data.
+   - The first caveat must state the legal use restriction (FEC: 52 U.S.C. 30111(a)(4), no use for soliciting
+     contributions or any commercial purpose). Keep the agency's "salted" decoy entries as published.
+   - No tools or filters whose purpose is profiling one private person beyond what the agency's own search offers.
+   - Remove a record within one batch cycle if the agency removes or amends it (the mirror is rebuilt per release).
 4. **In domain** for this catalog (currently: US domestic policy research — elections & politics,
    demographics/Census, economy & labor, income/poverty, housing, health, education, public
    finance & spending, legislation/regulation, crime/justice, environment/disasters as they
@@ -87,8 +98,15 @@ direction.
    ArcGIS Online item; the publisher's own source code for the site (e.g. a licensing component on GitHub) when the
    site itself is JavaScript-only; metadata files shipped inside the download (save an excerpt with the archive's
    sha256). Save each as evidence.
-9. **A federal dataset that is missing from its agency's catalog** has silent terms → `link_only`. Do not infer a
-   license from the agency's *other* datasets, and do not use a code repository's LICENSE file as a data license.
+9. **US federal works are public domain** (17 U.S.C. §105; decided 2026-11-25 by the maintainer under the operator's delegation, superseding the earlier
+   "silent terms → link_only" rule for this case). Data produced and published by a US federal agency is
+   `redistribution: allowed`, `commercial_use: yes`, **even without an explicit license statement**, unless:
+   (a) its terms add conditions on use, purpose or deletion (e.g. OpenFEMA), (b) the agency warns it may contain
+   third-party copyrighted or licensed content and we can't rule that out for this dataset (e.g. FHFA, Federal
+   Register), (c) it includes licensed third-party data (e.g. USAspending's Dun & Bradstreet fields), or (d) it
+   isn't actually produced by the federal government (contractor-owned, university-hosted, state data relayed).
+   In those cases use `link_only`. Record which rule applied in NOTES.md. Do not use a code repository's LICENSE
+   file as a data license.
 10. **Non-commercial-only terms** (e.g. "licensed for personal or non-profit purposes"): onboard as `link_only`,
    `commercial_use: no`, and make the **first** caveat state the restriction in plain words so consuming agents see
    it. Whether a given deployment of this service qualifies as non-commercial is the operator's decision, not an
