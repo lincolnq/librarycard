@@ -35,7 +35,13 @@ access:
   formats: [csv (zipped, wide by year)]
   rate_limits: None published for the ZIP downloads. Files are 2-25 MB; the adapter caches them 7 days (license allows).
   auth: none
-  notes: The BEA API (apps.bea.gov/api, needs a UserID key) serves the same tables plus metro (MAINC/MAGDP) tables; not usable here. The zip files are the keyless path.
+  notes: >-
+    The BEA API (apps.bea.gov/api, needs a UserID key) serves the same tables plus metro (MAINC/MAGDP) tables; not
+    usable here. The zip files are the keyless path. Mirror scope (production server): every table in the county zips
+    (CAINC1/4/5N/5S/6N/6S/30/91, CAGDP1/2/8/9/11) and the grouped state zips (SAINC, SQINC, SAGDP, SQGDP, SAPCE), all
+    areas and periods, partitioned by table and state ('00' = US, '91'-'98' = BEA regions). Not mirrored - SASUMMARY,
+    SARPP/MARPP/PARPP, SAACPSA, SAOR, TASUMMARY, PRGDP and SIC-era SAGDP_SIC; to widen, add zips to MIRROR_ZIPS in the
+    adapter (tables must be fetchable by the adapter).
 update:
   cadence: quarterly
   expected_lag: State quarterly personal income and GDP ~3 months after the quarter; county personal income ~11 months and county GDP ~12 months after the reference year.
@@ -67,6 +73,12 @@ key_variables:
     definition: Line label, including footnote markers like '1/'.
   - name: Unit
     definition: Unit of the line, e.g. 'Thousands of dollars', 'Millions of current dollars', 'Millions of chained 2017 dollars', 'Number of persons', 'Dollars'.
+  - name: table
+    definition: Table id as passed to the `table` filter (same as TableName; added in adapter 1.1.0).
+  - name: state
+    definition: First two digits of GeoFIPS - state FIPS, '00' for the United States, '91'-'98' for BEA regions (added in adapter 1.1.0).
+  - name: geo_level
+    definition: us, region, state or county, derived from GeoFIPS (added in adapter 1.1.0).
   - name: period
     definition: Year ('2024') or quarter ('2026:Q2'). Renamed from the publisher's wide year columns (the adapter reshapes wide to long).
   - name: value
@@ -74,6 +86,7 @@ key_variables:
   - name: value_note
     definition: BEA cell code when no number is published — (D) suppressed to avoid disclosure, (NA) not available, (NM) not meaningful, (L) below display threshold, (T) included in higher totals.
 caveats:
+  - The production mirror holds the county (CA*) and state (SA*/SQ* income, GDP and PCE) tables only; always filter on `table`, and on `state` (2-digit FIPS or postal) when you can, so only the needed slices are read.
   - Every release revises prior years (annual updates revise 3-5+ years; comprehensive updates revise the whole history). Always record `metadata.last_updated` and do not mix vintages.
   - Units differ by line and table — personal income is in thousands of dollars, GDP in millions; real GDP is in chained dollars of a base year, and chained-dollar industry components do not add to the total.
   - County GDP by industry (CAGDP2/9) has many (D) cells suppressed to avoid disclosing individual employers; nulls are not zeros, and state/US totals include the suppressed amounts.
@@ -87,4 +100,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: bea_regional
-adapter_version: 1.0.0
+adapter_version: 1.1.0

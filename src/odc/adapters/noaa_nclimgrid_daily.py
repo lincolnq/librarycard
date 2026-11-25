@@ -10,7 +10,9 @@ Files:  access/averages/<YYYY>/<var>-<YYYYMM>-<cty|ste>-<scaled|prelim>.csv
 from __future__ import annotations
 
 import csv
+import datetime as dt
 import io
+import time
 
 from .. import http
 from ..http import SourceError
@@ -21,6 +23,8 @@ BUCKET = "https://noaa-nclimgrid-daily-pds.s3.amazonaws.com"
 VARIABLES = {"tmax": "°C", "tmin": "°C", "tavg": "°C", "prcp": "mm"}
 LEVELS = {"county": "cty", "state": "ste"}
 MISSING = "-999.99"
+RETRY_BASE_S = 5
+DC_NCEI_CODE = "18511"  # "DC: District of Columbia" in the county files
 
 _ncei_to_fips: dict[str, tuple[str, str]] | None = None
 
@@ -42,10 +46,11 @@ def _assert_extreme_heat(rows: list[dict]) -> None:
 
 class NoaaNclimgridDaily(SourceAdapter):
     source_id = "noaa-nclimgrid-daily"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("Daily county- or state-average temperature (°C) and precipitation (mm) for one variable and one "
              "calendar month per call. Rows are long format: one row per area per day. 'scaled' files are final; "
-             "the most recent ~2 months exist only as 'prelim' and are revised later.")
+             "the most recent ~2 months exist only as 'prelim' and are revised later; the `version` column says which file "
+             "each row came from.")
     filters = [
         FilterSpec("variable", "string", "tmax, tmin, tavg (°C) or prcp (mm).", required=True, enum=sorted(VARIABLES), example="tmax"),
         FilterSpec("year", "integer", "Year, 1951 or later.", required=True, example=2024),
@@ -118,6 +123,8 @@ class NoaaNclimgridDaily(SourceAdapter):
             if postal is None:
                 continue  # regions without a state mapping (e.g. CONUS aggregate) are skipped
             fips = fips_state + code[2:] if lvl == "cty" else fips_state
+            if lvl == "cty" and code == DC_NCEI_CODE:
+                fips, postal = "11001", "DC"  # NCEI files DC under Maryland's state number (18511)
             if want_state and postal != want_state:
                 continue
             if want_county and fips != want_county:
@@ -133,13 +140,68 @@ class NoaaNclimgridDaily(SourceAdapter):
                     out.append({
                         "level": "county" if lvl == "cty" else "state",
                         "fips": fips, "ncei_code": code, "state": postal, "region_name": name,
-                        "date": f"{year}-{month:02d}-{d:02d}", "variable": var, "value": float(raw), "unit": unit,
+                        "date": f"{year}-{month:02d}-{d:02d}", "year": year, "variable": var, "value": float(raw),
+                        "unit": unit, "version": used,
                     })
         if matched == 0 and (want_county or want_state):
             raise FilterError("no rows matched; check state/county_fips (county_fips must be a real 5-digit FIPS)")
         notes = [f"Using '{used}' file." + (" Preliminary values are revised when the scaled (final) file is published." if used == "prelim" else ""),
                  "Area averages of a 5 km (nClimGrid) grid; not station observations."]
         return FetchResult(out, [url, f"{BUCKET}/doc/us-state-codes_ncei-to-fips.csv"], notes, total_available=matched)
+
+    # ------------------------------------------------------------ mirror (docs/MIRROR.md)
+    # Scope: state + county files, all four variables, MIRROR_START_YEAR..current year; one unit per
+    # (variable, year) = 24 monthly files (~1.1M rows), streamed so memory stays at one month.
+    # Scaled (final) files where published, else prelim; the row's `version` says which.
+    # Start year: ingest is ~28 s per (variable, year) unit (~112 s per year, ~32 MB compressed per year) and a run
+    # cannot resume, so the first publish (2026-11) was scoped to 2024+ to finish in one ~10-minute run. The CI
+    # mirror workflow has no such limit: to widen, lower this (2000 -> ~50 min), update the catalog access.notes and
+    # caveat, and run `odc mirror noaa-nclimgrid-daily`.
+    MIRROR_START_YEAR = 2024
+    mirror_partition_keys = ["variable", "year", "level", "state"]
+    mirror_required = ["variable", "year"]
+    mirror_semantics = {"state": "state_postal", "year": "year", "date": "date"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for year in range(self.MIRROR_START_YEAR, dt.date.today().year + 1):
+            for var in sorted(VARIABLES):
+                yield MirrorUnit(partition={"variable": var, "year": str(year)},
+                                 filters={"variable": var, "year": year, "month": 1}, split_by=["level", "state"])
+
+    def mirror_rows(self, unit):
+        var, year = unit.filters["variable"], unit.filters["year"]
+        urls: list[str] = []
+        recent = dt.date.today() - dt.timedelta(days=100)
+
+        def rows():
+            for level in ("state", "county"):
+                for month in range(1, 13):
+                    try:
+                        res = self._fetch_retrying({"variable": var, "year": year, "month": month, "level": level,
+                                                    "version": "scaled"})
+                    except FilterError:
+                        if dt.date(year, month, 1) > recent:
+                            continue  # not published yet
+                        raise
+                    urls.append(res.request_urls[0])
+                    yield from res.rows
+
+        notes = ["Mirror scope: state and county area averages, tmax/tmin/tavg/prcp, "
+                 f"{self.MIRROR_START_YEAR} to the latest published month. Each month is the scaled (final) file "
+                 "where NCEI has published it, else the prelim file; the `version` column says which."]
+        return rows(), urls, notes, {"units": VARIABLES}
+
+    def _fetch_retrying(self, f: dict, attempts: int = 4) -> FetchResult:
+        """A mirror ingest reads ~2,600 files; retry transient network/5xx errors with backoff instead of failing."""
+        for i in range(attempts):
+            try:
+                return self._fetch(f, 10**9, True)
+            except SourceError as e:
+                if i == attempts - 1 or not (e.kind == "network" or (e.status or 0) >= 500):
+                    raise
+                time.sleep(RETRY_BASE_S * 2 ** i)
+        raise AssertionError("unreachable")
 
 
 ADAPTER = NoaaNclimgridDaily()

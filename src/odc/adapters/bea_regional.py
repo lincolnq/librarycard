@@ -63,7 +63,7 @@ def _assert_de_counties(rows: list[dict]) -> None:
 
 class BeaRegional(SourceAdapter):
     source_id = "bea-regional"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("Pick a BEA regional table (e.g. CAINC1 = county personal income/population/per-capita income, "
              "CAGDP1/CAGDP2 = county GDP total/by industry, SAGDP1/SAGDP2 = state GDP, SAINC1 = state personal "
              "income, SQINC1/SQGDP1 = state quarterly). Rows are long: one per area x line x period, with `value` "
@@ -111,11 +111,38 @@ class BeaRegional(SourceAdapter):
         lines = {str(x).strip() for x in (f.get("line_code") or [])}
         y0 = f.get("start_year", f.get("year"))
         y1 = f.get("end_year", f.get("year"))
-        url = f"{BASE}/{zip_name(table)}.zip"
+
+        def keep(rec: dict) -> bool:
+            g = rec["GeoFIPS"]
+            return not ((geo_ids and g not in geo_ids) or (st and g[:2] != st)
+                        or (level and geo_level(g) != level) or (lines and rec["LineCode"] not in lines))
+
+        info: dict = {}
         out: list[dict] = []
         matched = 0
         suppressed = 0
-        updated = None
+        for rec, period, raw in self._cells(table, cache_allowed, keep, y0, y1, info):
+            matched += 1
+            if len(out) >= limit:
+                continue
+            row = _row(table, rec, period, raw)
+            suppressed += row["value_note"] is not None
+            out.append(row)
+        url, members, updated = info["url"], [info["member"]], info.get("updated")
+        notes = ["BEA cell codes ((D) suppressed, (NA) not available, (NM) not meaningful, (L) below display threshold, "
+                 "(T) in higher totals) are returned as value=null with the code in value_note."]
+        if suppressed:
+            notes.append(f"{suppressed} returned cells are null with a BEA code.")
+        if updated:
+            notes.append(updated.strip())
+        if matched == 0:
+            notes.append("No rows matched: check state/geo_level (state tables have no counties) and line_code.")
+        return FetchResult(out, [url], notes, total_available=matched,
+                           metadata={"table": table, "file": members[0], "last_updated": updated})
+
+    def _cells(self, table: str, cache_allowed: bool, keep, y0, y1, info: dict):
+        """Stream (id columns, period, raw cell) for one table's ALL_AREAS csv; fills info[url, member, updated]."""
+        url = info["url"] = f"{BASE}/{zip_name(table)}.zip"
         with http.download(url, cache_allowed=cache_allowed, max_age_s=7 * 86400) as path:
             with open(path, "rb") as fh:
                 is_zip = fh.read(4) == b"PK\x03\x04"
@@ -127,6 +154,7 @@ class BeaRegional(SourceAdapter):
             if not members:
                 avail = sorted({n.split("__", 1)[0] for n in zf.namelist() if "__ALL_AREAS_" in n})
                 raise FilterError(f"table {table} not in {url}; tables there: {avail}")
+            info["member"] = members[0]
             with io.TextIOWrapper(zf.open(members[0]), encoding="latin-1", newline="") as text:
                 reader = csv.reader(text, skipinitialspace=True)
                 header = [h.strip() for h in next(reader)]
@@ -137,37 +165,69 @@ class BeaRegional(SourceAdapter):
                 for row in reader:
                     if len(row) < 9:
                         if row and row[0].startswith("Last updated"):
-                            updated = row[0]
+                            info["updated"] = row[0]
                         continue
                     rec = {k: row[i].strip() for i, k in enumerate(ID_COLS)}
-                    g = rec["GeoFIPS"]
-                    if geo_ids and g not in geo_ids:
-                        continue
-                    if st and g[:2] != st:
-                        continue
-                    if level and geo_level(g) != level:
-                        continue
-                    if lines and rec["LineCode"] not in lines:
+                    if not keep(rec):
                         continue
                     for i in keep_idx:
-                        matched += 1
-                        if len(out) >= limit:
-                            continue
-                        val, note = _num(row[i]) if i < len(row) else (None, "(missing)")
-                        if note:
-                            suppressed += 1
-                        out.append({**rec, "Region": rec["Region"] or None, "period": periods[i - 8],
-                                    "value": val, "value_note": note})
-        notes = ["BEA cell codes ((D) suppressed, (NA) not available, (NM) not meaningful, (L) below display threshold, "
-                 "(T) in higher totals) are returned as value=null with the code in value_note."]
-        if suppressed:
-            notes.append(f"{suppressed} returned cells are null with a BEA code.")
-        if updated:
-            notes.append(updated.strip())
-        if matched == 0:
-            notes.append("No rows matched: check state/geo_level (state tables have no counties) and line_code.")
-        return FetchResult(out, [url], notes, total_available=matched,
-                           metadata={"table": table, "file": members[0], "last_updated": updated})
+                        yield rec, periods[i - 8], row[i] if i < len(row) else None
+
+    # ------------------------------------------------------------ mirror (docs/MIRROR.md)
+    # Every table in the county zips and the grouped state zips that this adapter can fetch, one unit per table
+    # (streamed), split by the 2-digit state part of GeoFIPS ('00' = US, '91'-'98' = BEA regions).
+    mirror_partition_keys = ["table", "state"]
+    mirror_semantics = {"state": "state_fips", "GeoFIPS": "county_fips"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for table in mirror_tables():
+            yield MirrorUnit(partition={"table": table}, filters={"table": table}, split_by=["state"])
+
+    def mirror_rows(self, unit):
+        table = unit.partition["table"]
+        info: dict = {}
+        meta: dict = {"last_updated": {}}
+
+        def rows():
+            for rec, period, raw in self._cells(table, True, lambda rec: True, None, None, info):
+                yield _row(table, rec, period, raw)
+            meta["last_updated"][table] = (info.get("updated") or "").strip() or None  # trailer follows the data
+
+        return rows(), [f"{BASE}/{zip_name(table)}.zip"], list(MIRROR_NOTES), meta
+
+
+MIRROR_ZIPS = ["CAINC1", "CAINC4", "CAINC5N", "CAINC5S", "CAINC6N", "CAINC6S", "CAINC30", "CAINC91",
+               "CAGDP1", "CAGDP2", "CAGDP8", "CAGDP9", "CAGDP11", "SAINC", "SQINC", "SAGDP", "SQGDP", "SAPCE"]
+MIRROR_NOTES = [
+    "Mirror scope: every table in BEA's county zips (CAINC*, CAGDP*) and grouped state zips (SAINC, SQINC, SAGDP, "
+    "SQGDP, SAPCE), all areas and periods, partitioned by table and state ('00' = United States, '91'-'98' = BEA "
+    "regions). Metro/portion tables (MARPP, PARPP), SASUMMARY, SARPP, arts/outdoor-recreation and territory tables "
+    "are not mirrored.",
+    "BEA cell codes ((D) suppressed, (NA) not available, (NM) not meaningful, (L) below display threshold, "
+    "(T) in higher totals) are value=null with the code in value_note.",
+]
+
+
+def mirror_tables() -> list[str]:
+    """Tables to mirror: each mirror zip's <TABLE>__ALL_AREAS_*.csv members that fetch can address."""
+    out = []
+    for z in MIRROR_ZIPS:
+        url = f"{BASE}/{z}.zip"
+        with http.download(url, cache_allowed=True, max_age_s=7 * 86400) as path:
+            names = zipfile.ZipFile(path).namelist()
+        tables = sorted({n.split("__", 1)[0] for n in names if "__ALL_AREAS_" in n and n.endswith(".csv")},
+                        key=lambda t: (len(t), t))
+        require(tables, f"{url}: no __ALL_AREAS_ csv members")
+        out += [t for t in tables if _TABLE_RE.match(t) and zip_name(t) == z]
+    return out
+
+
+def _row(table: str, rec: dict, period: str, raw: str | None) -> dict:
+    val, note = _num(raw) if raw is not None else (None, "(missing)")
+    g = rec["GeoFIPS"]
+    return {"table": table, **rec, "Region": rec["Region"] or None, "state": g[:2], "geo_level": geo_level(g),
+            "period": period, "value": val, "value_note": note}
 
 
 ADAPTER = BeaRegional()
