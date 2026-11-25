@@ -143,6 +143,9 @@ def test_publish_resume_skips_uploaded_packs(stub_entry, tmp_path, monkeypatch):
         def delete(self, key):
             self.objects.pop(key, None)
 
+        def get(self, key):
+            return self.objects.get(key)
+
     r2 = FakeR2()
     prefix = f"mirror/stub/{m['release']}/"
     r2.objects[prefix + m["packs"][0]] = b"uploaded before the cut-off"
@@ -161,3 +164,25 @@ def test_private_columns_hide_example_values(stub_entry, tmp_path, monkeypatch):
     assert not {"min", "max", "values"} & set(m["columns"]["state"]), m["columns"]["state"]
     assert m["columns"]["state"]["type"] == "string"
     assert "min" in m["columns"]["value"]
+
+
+def test_cleanup_never_deletes_live_release():
+    """A resumed ingest can publish a release id that sorts before newer ones; it must survive cleanup."""
+    class FakeR2:
+        def __init__(self):
+            self.objects = {f"mirror/s/{r}/manifest.json": b"{}" for r in ("20260101T000000Z", "20260201T000000Z", "20260301T000000Z")}
+            self.objects["mirror/s/current.json"] = json.dumps({"release": "20260101T000000Z"}).encode()
+
+        def list(self, prefix):
+            return [k for k in self.objects if k.startswith(prefix)]
+
+        def delete(self, key):
+            self.objects.pop(key)
+
+        def get(self, key):
+            return self.objects.get(key)
+
+    r2 = FakeR2()
+    mirror._cleanup("s", r2, log=lambda *a: None)
+    left = sorted(k.split("/")[2] for k in r2.objects if k.endswith("manifest.json"))
+    assert left == ["20260101T000000Z", "20260301T000000Z"], left

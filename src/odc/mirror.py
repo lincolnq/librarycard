@@ -396,9 +396,19 @@ def publish(entry: dict, out_dir: Path, r2: R2, log=print, resume: bool = False)
 
 
 def _cleanup(sid: str, r2: R2, log=print) -> None:
+    """Delete old releases, keeping the live one (whatever current.json points to) plus the newest others.
+
+    Release ids sort by ingest start time, not publish time: a resumed ingest published late can be the live
+    release while sorting before newer ones, so the live release is excluded explicitly."""
     keys = r2.list(f"mirror/{sid}/")
     releases = sorted({k.split("/")[2] for k in keys if k.count("/") >= 3})
-    for old in releases[:-KEEP_RELEASES]:
+    cur = current(sid, r2)
+    live = cur["release"] if cur else None
+    others = [r for r in releases if r != live]
+    keep = set(others[-(KEEP_RELEASES - 1):]) if KEEP_RELEASES > 1 else set()
+    for old in others:
+        if old in keep:
+            continue
         for k in keys:
             if k.startswith(f"mirror/{sid}/{old}/"):
                 r2.delete(k)
