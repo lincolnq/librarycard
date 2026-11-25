@@ -86,7 +86,7 @@ def parse_line(line: str, layout: list[tuple[str, int, int]]) -> dict:
 
 class CensusSaipe(SourceAdapter):
     source_id = "census-saipe"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("geography=nation|state|county gives poverty counts and rates (all ages, 0-17, related children 5-17, "
              "and 0-4 for nation/state only) plus median household income, each with a 90% confidence interval "
              "(_LB90/_UB90); geography=school_district gives total population, relevant children 5-17 and related "
@@ -189,6 +189,35 @@ class CensusSaipe(SourceAdapter):
         if geo == "school_district":
             notes.append("POV_5_17_RELATED counts children 5-17 related to the householder in poverty; divide by POP_5_17 for a rate.")
         return FetchResult(out, [url], notes, total_available=matched, metadata={"year": year, "geography": geo})
+
+    # -------------------------------------------------------- mirror
+    # Every year FIRST_YEAR..latest for all four geographies, partitioned by geography and state (STATE; '00' for
+    # the nation). Years are not a partition key (each state partition is small), so one unit per geography loops
+    # over the years. Rows gain a `geography` column.
+    mirror_partition_keys = ["geography", "STATE"]
+    mirror_semantics = {"STATE": "state_fips", "STABREV": "state_postal", "YEAR": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for geo in ("nation", "state", "county", "school_district"):
+            yield MirrorUnit(partition={"geography": geo}, filters={"geography": geo}, split_by=["STATE"])
+
+    def mirror_rows(self, unit):
+        geo = unit.partition["geography"]
+        rows: list[dict] = []
+        urls: list[str] = []
+        notes: list[str] = []
+        years = []
+        for year in range(FIRST_YEAR, latest_year() + 1):
+            res = self._fetch(self.validate_filters({"geography": geo, "year": year}), 10**12, True)
+            require(bool(res.rows), f"SAIPE {geo} {year}: no rows")
+            rows += [{"geography": geo, **r} for r in res.rows]
+            urls += res.request_urls
+            notes += [n for n in res.notes if not n.startswith("SAIPE ")]
+            years.append(year)
+        notes = [f"SAIPE estimates {years[0]}-{years[-1]} (YEAR column), parsed from the published fixed-width files."] + \
+            list(dict.fromkeys(notes))
+        return rows, urls, notes, {"years": years}
 
 
 ADAPTER = CensusSaipe()

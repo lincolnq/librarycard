@@ -37,7 +37,7 @@ def _la_uncontested(rows: list[dict]) -> None:
 
 class MitElectionSenateState(SourceAdapter):
     source_id = "mit-election-senate-state"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per candidate per party line per U.S. Senate race (statewide), 1976-2024, including special "
              "elections and runoffs. Filter by year/state; use `special` to separate a special election held the same "
              "year as a regular one (two races in one state-year), and `stage` for runoffs ('gen', 'runoff'). Sum "
@@ -103,6 +103,14 @@ class MitElectionSenateState(SourceAdapter):
                  "Uncontested-race sentinel (totalvotes = 1) converted to null vote counts with uncontested=true."
                  + (f" {n_unc} such row(s) in this result." if n_unc else "")]
         return FetchResult(rows, urls, notes, total_available=matched, metadata=meta)
+
+    # Mirror: one small file (~3,900 rows); partition by state for fast state queries.
+    mirror_partition_keys = ["state_po"]
+    mirror_semantics = {"state_po": "state_postal", "state_fips": "state_fips", "year": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        yield MirrorUnit(partition={}, filters={}, split_by=["state_po"])
 
 
 ADAPTER = MitElectionSenateState()

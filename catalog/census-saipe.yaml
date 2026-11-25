@@ -39,6 +39,7 @@ access:
   formats: [fixed-width text]
   rate_limits: None published. Files are ~1-2 MB; cached 30 days (license allows).
   auth: none
+  notes: Mirror (R2) holds every year the adapter serves (2010 onward) for nation, state, county and school_district, partitioned by geography and STATE (rows carry geography and YEAR columns; filter both).
 update:
   cadence: annual
   expected_lag: ~13-14 months after the reference year (state/county in December/January, school districts ~February).
@@ -100,4 +101,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: census_saipe
-adapter_version: 1.0.0
+adapter_version: 1.1.0
