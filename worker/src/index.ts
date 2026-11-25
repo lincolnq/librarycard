@@ -85,7 +85,12 @@ export async function handleMcp(request: Request, tools: Tools): Promise<Respons
     if (body.length === 0 || body.length > MAX_BATCH) {
       return json({ jsonrpc: "2.0", id: null, error: { code: -32600, message: `Invalid Request: batches must have 1-${MAX_BATCH} messages` } }, 400);
     }
-    const out = (await Promise.all(body.map((m) => handleRpc(m, tools)))).filter((x) => x !== null);
+    // Sequential, not Promise.all: each fetch may gunzip up to 16 MB chunks, and concurrent ones share one isolate's 128 MB.
+    const out: Record<string, any>[] = [];
+    for (const m of body) {
+      const r = await handleRpc(m, tools);
+      if (r !== null) out.push(r);
+    }
     return out.length ? json(out) : new Response(null, { status: 202, headers: CORS });
   }
   const out = await handleRpc(body, tools);
