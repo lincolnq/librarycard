@@ -41,7 +41,13 @@ access:
     (midnight US Eastern); observed exhausted on 2026-11-24. API v2 raises limits but requires a registration key
     (not usable here).
   auth: none
-  notes: The per-state flat files are small (1-57 MB) and hold every area in the state; national county/city files are ~340 MB, so the adapter reads the state file whenever a state is given.
+  notes: >-
+    The per-state flat files are small (1-57 MB) and hold every area in the state; national county/city files are ~340
+    MB, so the adapter reads the state file whenever a state is given. Mirror scope (production server): states (NSA and
+    SA), counties, metro areas, metro divisions, micro areas and combined areas, every measure, from the national bulk
+    files (never the API), partitioned by area_type and state (a metro's principal state). Cities/towns and census
+    regions/divisions are not mirrored; the local odc-server reads them from download.bls.gov. To widen, add area types
+    to MIRROR_FILES in the adapter.
 update:
   cadence: monthly
   expected_lag: State data ~3 weeks after the reference month (State Employment and Unemployment release); metro and county data ~1 month after. Annual benchmark revisions (5 years) in March/April.
@@ -63,6 +69,10 @@ license:
 key_variables:
   - name: series_id
     definition: 20-character BLS series id = 'LA' + seasonal (U/S) + area_code + measure_code, e.g. LAUCN100010000000003 (Kent County, DE, unemployment rate, NSA).
+  - name: area_type
+    definition: Area type as named by the area_type filter (state, county, metro, metro_division, micro, combined, city, region_division), from la.area (added in adapter 1.1.0).
+  - name: state
+    definition: Postal code of the state in the LAUS area code (a metro's principal state); null for regions/divisions (added in adapter 1.1.0).
   - name: area_code
     definition: 15-character LAUS area code; prefix gives type (ST state, CN county, MT metro, MC micro, DV metro division, CA combined area, CT/CS city/town, RD region/division) followed by state FIPS.
   - name: fips
@@ -79,6 +89,7 @@ key_variables:
   - name: footnote_codes
     definition: BLS footnote codes, e.g. P preliminary, X unavailable due to the 2025 appropriations lapse, G 2025 annual average excludes October; footnote_text spells them out.
 caveats:
+  - The production mirror covers states, counties, metro/micro/combined areas and metro divisions only (no cities/towns or regions/divisions); filter on `area_type` and `state` (metros sit under their principal state, e.g. Philadelphia under PA) so only the needed slices are read.
   - Estimates are model-based (state and large-area models; substate areas are mostly disaggregated from state totals using claims and ACS shares), not direct survey counts. County and city rates have substantial error, especially for small areas.
   - Data are by place of residence (where people live), not where they work; compare with payroll (CES, QCEW, CBP) or LODES workplace data carefully.
   - The latest month is preliminary (footnote P) and revised the next month; every March/April an annual benchmark revises up to five years. Record the retrieval date.
@@ -92,4 +103,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: bls_laus
-adapter_version: 1.0.0
+adapter_version: 1.1.0
