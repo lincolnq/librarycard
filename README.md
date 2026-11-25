@@ -46,6 +46,7 @@ Tools:
 | `search_catalog(query, domain?, geography?, time_range?, limit?)` | Ranked source summaries, including status and whether each is fetchable |
 | `describe_source(source_id)` | Full entry: coverage, key variables, **caveats**, license, status, and `fetch_parameters` |
 | `fetch(source_id, filters, limit?)` | `rows` + `provenance` (publisher, request URLs, retrieval time, license, citation) + caveats + warnings. Refuses quarantined, retired and restricted sources; warns on degraded ones |
+| `request_data(data, use_case, ...)` | A prefilled GitHub issue link for the user to submit when the catalog lacks something. Requests are triaged weekly ([docs/REQUESTS.md](docs/REQUESTS.md)) |
 | `catalog_status()` | Counts by status, recent status changes, catalog-only entries, entries not re-verified in 90 days |
 
 ## How it stays healthy

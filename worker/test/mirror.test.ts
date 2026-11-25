@@ -108,10 +108,23 @@ test("MCP JSON-RPC: initialize, tools/list, tools/call, notifications", async ()
   assert.equal(future.result.protocolVersion, "2025-11-25");
   assert.equal(await handleRpc({ jsonrpc: "2.0", method: "notifications/initialized" }, tools), null);
   const list: any = await handleRpc({ jsonrpc: "2.0", id: 2, method: "tools/list" }, tools);
-  assert.deepEqual(list.result.tools.map((t: any) => t.name).sort(), ["catalog_status", "describe_source", "fetch", "search_catalog"]);
+  assert.deepEqual(list.result.tools.map((t: any) => t.name).sort(), ["catalog_status", "describe_source", "fetch", "request_data", "search_catalog"]);
   const call: any = await handleRpc({ jsonrpc: "2.0", id: 3, method: "tools/call", params: { name: "fetch", arguments: { source_id: "fake-src", filters: { state_po: "WY" } } } }, tools);
   assert.equal(call.result.structuredContent.row_count, 1);
   assert.equal(call.result.isError, false);
   const bad: any = await handleRpc({ jsonrpc: "2.0", id: 4, method: "nope" }, tools);
   assert.equal(bad.error.code, -32601);
+});
+
+test("request_data builds a prefilled issue link and stores nothing", async () => {
+  const { tools, reads } = await fixture();
+  const before = reads.length;
+  const out: any = await tools.call("request_data", { data: "Precinct-level 2024 general election results for Wisconsin", use_case: "Which precincts swung most between 2020 and 2024?", geography: "Wisconsin precincts" });
+  const u = new URL(out.issue_url);
+  assert.equal(u.origin + u.pathname, "https://github.com/lincolnq/librarycard/issues/new");
+  assert.equal(u.searchParams.get("template"), "data-request.yml");
+  assert.equal(u.searchParams.get("geography"), "Wisconsin precincts");
+  assert.match(u.searchParams.get("title")!, /^\[data request\] Precinct-level/);
+  assert.equal(reads.length, before);
+  assert.match((await tools.call("request_data", { data: "x", use_case: "y" }) as any).error, /required/);
 });

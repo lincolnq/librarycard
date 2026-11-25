@@ -66,6 +66,26 @@ export const TOOLS = [
     },
   },
   {
+    name: "request_data",
+    description:
+      "Draft a request for a dataset this catalog doesn't have yet. Returns a prefilled GitHub issue link for YOUR USER to " +
+      "review and submit under their own GitHub account (nothing is sent by this call). Only use it after search_catalog " +
+      "found nothing suitable and your user wants to ask for it. The issue is PUBLIC: leave out private context, client " +
+      "names and personal data. Requests are reviewed in weekly batches; the maintainers reply on the issue.",
+    inputSchema: {
+      type: "object",
+      properties: {
+        data: { type: "string", description: "What data is needed (measures, records, tables), specifically." },
+        use_case: { type: "string", description: "One or two example questions it would answer (no private context)." },
+        geography: { type: "string", description: "Geography and granularity, e.g. 'all US counties'." },
+        time_range: { type: "string", description: "e.g. '2010-present, annual'." },
+        sources: { type: "string", description: "Known publisher pages or download links (optional)." },
+        title: { type: "string", description: "Short issue title (optional)." },
+      },
+      required: ["data", "use_case"],
+    },
+  },
+  {
     name: "catalog_status",
     description:
       "Health of the catalog: sources by status (healthy/degraded/quarantined/retired), recent status changes, sources not " +
@@ -129,6 +149,8 @@ export class Tools {
         return this.fetch(args.source_id, args.filters ?? {}, args.columns, args.limit);
       case "catalog_status":
         return statusReport(this.entries, args.recent_days ?? 30);
+      case "request_data":
+        return requestData(args);
       default:
         throw new Error(`unknown tool ${name}`);
     }
@@ -218,4 +240,26 @@ export class Tools {
       },
     };
   }
+}
+
+export const REQUEST_REPO = "https://github.com/lincolnq/librarycard";
+const FIELD_MAX = 1500;
+
+/** Build a prefilled GitHub issue-form link. Nothing is stored or sent: the user submits it themselves. */
+export function requestData(a: Record<string, any>) {
+  const clean = (v: any) => String(v ?? "").trim().slice(0, FIELD_MAX);
+  const data = clean(a.data);
+  const useCase = clean(a.use_case);
+  if (data.length < 10 || useCase.length < 10) return err("data and use_case are required (at least a sentence each)");
+  const title = clean(a.title).slice(0, 120) || data.split(/[.\n]/)[0].slice(0, 100);
+  const params = new URLSearchParams({ template: "data-request.yml", title: `[data request] ${title}`, data, use_case: useCase });
+  for (const k of ["geography", "time_range", "sources"]) if (a[k]) params.set(k, clean(a[k]));
+  const url = `${REQUEST_REPO}/issues/new?${params.toString()}`;
+  return {
+    issue_url: url,
+    instructions:
+      "Show this link to your user. Opening it shows a prefilled GitHub issue they can edit and submit under their own " +
+      "account (a GitHub login is required). It is public. Requests are triaged weekly; check the issue for the decision.",
+    existing_requests: `${REQUEST_REPO}/issues?q=is%3Aissue+label%3Adata-request`,
+  };
 }

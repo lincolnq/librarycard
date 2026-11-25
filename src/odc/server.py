@@ -123,6 +123,32 @@ def fetch(source_id: str, filters: dict | None = None, limit: int | None = None)
     return out
 
 
+REQUEST_REPO = "https://github.com/lincolnq/librarycard"
+
+
+def request_data(data: str, use_case: str, geography: str | None = None, time_range: str | None = None,
+                 sources: str | None = None, title: str | None = None) -> dict:
+    """Build a prefilled GitHub issue-form link (same behaviour as worker/src/tools.ts requestData)."""
+    from urllib.parse import urlencode
+
+    def clean(v):
+        return str(v or "").strip()[:1500]
+    data, use_case = clean(data), clean(use_case)
+    if len(data) < 10 or len(use_case) < 10:
+        return _err("data and use_case are required (at least a sentence each)")
+    t = clean(title)[:120] or data.replace("\n", ".").split(".")[0][:100]
+    params = {"template": "data-request.yml", "title": f"[data request] {t}", "data": data, "use_case": use_case}
+    for k, v in (("geography", geography), ("time_range", time_range), ("sources", sources)):
+        if v:
+            params[k] = clean(v)
+    return {
+        "issue_url": f"{REQUEST_REPO}/issues/new?{urlencode(params)}",
+        "instructions": "Show this link to your user. Opening it shows a prefilled GitHub issue they can edit and submit under "
+                        "their own account. It is public. Requests are triaged weekly; check the issue for the decision.",
+        "existing_requests": f"{REQUEST_REPO}/issues?q=is%3Aissue+label%3Adata-request",
+    }
+
+
 def catalog_status_tool(recent_days: int = 30) -> dict:
     return status_report(catalog(), recent_days=recent_days)
 
@@ -182,6 +208,24 @@ def build_server() -> MCPServer:
         sources whose status changed in the last `recent_days`, catalog-only restricted entries,
         and entries not re-verified in 90 days."""
         return catalog_status_tool(recent_days)
+
+    @mcp.tool(name="request_data")
+    def _request_data(data: str, use_case: str, geography: str | None = None, time_range: str | None = None,
+                      sources: str | None = None, title: str | None = None) -> dict[str, Any]:
+        """Draft a request for a dataset this catalog doesn't have yet. Returns a prefilled GitHub issue link for YOUR
+        USER to review and submit under their own GitHub account (nothing is sent by this call). Only use it after
+        search_catalog found nothing suitable and your user wants to ask for it. The issue is PUBLIC: leave out private
+        context, client names and personal data. Requests are reviewed in weekly batches.
+
+        Args:
+            data: what data is needed (measures, records, tables), specifically.
+            use_case: one or two example questions it would answer (no private context).
+            geography: geography and granularity, e.g. "all US counties".
+            time_range: e.g. "2010-present, annual".
+            sources: known publisher pages or download links.
+            title: short issue title.
+        """
+        return request_data(data, use_case, geography, time_range, sources, title)
 
     return mcp
 
