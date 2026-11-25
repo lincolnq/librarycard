@@ -14,7 +14,7 @@ description: >-
 domains: [environment_climate, health, agriculture_food]
 tags: [climate, temperature, precipitation, heat, county, daily, aws, s3]
 coverage:
-  geography: Contiguous United States (48 states + DC); no Alaska, Hawaii or territories
+  geography: Contiguous United States (48 states; DC as a county-level area only); no Alaska, Hawaii or territories
   countries: [US]
   geographic_granularity: [state, county]
   time_range:
@@ -33,6 +33,12 @@ access:
   formats: [csv]
   rate_limits: None (public S3 bucket).
   auth: none
+  notes: >-
+    Mirror scope (production server): state and county files for all four variables from 2000-01-01 to the latest
+    published month, partitioned by variable, year, level and state; `variable` and `year` are required filters there.
+    Each month is the scaled (final) file where published, else prelim (row column `version`). 1951-1999 is not
+    mirrored (ingest time: ~2 minutes per year); the local odc-server fetches any month from 1951 from the bucket. To widen,
+    lower MIRROR_START_YEAR in the adapter.
 update:
   cadence: daily
   expected_lag: Preliminary values within ~3 days; scaled (final) values ~1-2 months after the month ends.
@@ -62,12 +68,18 @@ key_variables:
   - name: value
     unit: °C for temperatures, mm for precipitation
     definition: Area-average value for the day.
+  - name: version
+    definition: Which NCEI file the row came from — 'scaled' (final) or 'prelim' (preliminary, revised later).
+  - name: year
+    definition: Calendar year of `date` (added in adapter 1.1.0 for mirror partitioning).
   - name: ncei_code
     definition: Original NCEI region code (state part uses NCEI numbering, NOT FIPS).
 caveats:
   - Values are gridded, interpolated area averages, not station readings. They smooth local extremes (e.g. urban heat islands) and are less reliable where station density is low (mountain West, early decades).
   - The source files encode states with NCEI's numbering, not FIPS (e.g. Arizona is 02 in NCEI, 04 in FIPS). The adapter converts to FIPS in `fips`; never join on `ncei_code` with FIPS-keyed data.
-  - The most recent ~2 months are 'prelim' and will be revised; check the notes field to see which version was served.
+  - The most recent ~2 months are 'prelim' and will be revised; the `version` column (and the notes field) says which file each row came from.
+  - The production mirror covers 2000 onward only (state and county, all four variables) and requires `variable` and `year` filters; for 1951-1999 use the local odc-server, which reads the bucket directly.
+  - NCEI files the District of Columbia under Maryland's state number (county code 18511); the adapter returns it as fips 11001, state DC. DC has no state-level series.
   - Contiguous US only. Alaska, Hawaii, Puerto Rico and other territories are not covered.
   - County boundaries are fixed at the product's definition (2020 census vintage); historical county changes (e.g. Connecticut's 2022 switch to planning regions) are not reflected.
   - tavg is (tmax + tmin) / 2, not a 24-hour mean.
@@ -77,4 +89,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: noaa_nclimgrid_daily
-adapter_version: 1.0.0
+adapter_version: 1.1.0
