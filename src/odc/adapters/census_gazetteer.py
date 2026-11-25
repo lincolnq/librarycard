@@ -89,7 +89,7 @@ def _num(col: str, v: str):
 
 class CensusGazetteer(SourceAdapter):
     source_id = "census-gazetteer"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per geographic entity of a layer (county, place, tract, zcta, congressional_district, ...) "
              "for one Gazetteer year, with GEOID, NAME (where published), land/water area (ALAND/AWATER in square "
              "metres, *_SQMI in square miles) and an internal point INTPTLAT/INTPTLONG. Use ALAND_SQMI for population "
@@ -168,6 +168,33 @@ class CensusGazetteer(SourceAdapter):
         if year < 2025:
             notes.append("GEOIDFQ (fully-qualified GEO_ID) is only published from the 2025 Gazetteer onward.")
         return FetchResult(out, [url], notes, total_available=matched, metadata={"year": year, "layer": layer})
+
+
+    # Mirror: every served edition (FIRST_YEAR..latest) and every layer it publishes, split by state (USPS) where the
+    # layer has one (USPS is "" for zcta, metro_area, urban_area, aiannh). Rows gain `year` and `layer` columns.
+    mirror_partition_keys = ["year", "layer", "USPS"]
+    mirror_semantics = {"USPS": "state_postal"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for year in [y for y in years() if y >= FIRST_YEAR]:
+            for layer in LAYERS:
+                try:
+                    resolve(year, layer, None)
+                except FilterError:
+                    continue  # layer not published that year (e.g. state before 2024, cbsa in 2022)
+                yield MirrorUnit(partition={"year": str(year), "layer": layer}, filters={"layer": layer, "year": year},
+                                 split_by=["USPS"])
+
+    def mirror_rows(self, unit):
+        rows, urls, _, _ = super().mirror_rows(unit)
+        year, layer = int(unit.partition["year"]), unit.partition["layer"]
+        notes = ["ALAND/AWATER are square metres; ALAND_SQMI/AWATER_SQMI square miles; INTPTLAT/INTPTLONG is the "
+                 "Census internal point (inside the area, not a centroid).",
+                 "`year` (Gazetteer edition) and `layer` are added by the mirror and match the adapter's filters. "
+                 "USPS is empty for layers not nested in states (zcta, metro_area, urban_area, aiannh).",
+                 "GEOIDFQ (fully-qualified GEO_ID) is only published from the 2025 Gazetteer onward."]
+        return [{"year": year, "layer": layer, **r} for r in rows], urls, notes, {}
 
 
 ADAPTER = CensusGazetteer()

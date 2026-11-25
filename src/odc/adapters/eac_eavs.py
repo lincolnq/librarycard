@@ -105,7 +105,7 @@ def _ca_2024(rows: list[dict]) -> None:
 
 class EacEavs(SourceAdapter):
     source_id = "eac-eavs"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per election jurisdiction (county, or town/township in New England, MI and WI) for one "
              f"biennial survey year ({', '.join(map(str, sorted(DATA_FILES)))}). Columns are survey item codes "
              "(A1a = total registered voters, A1b active, F1a total who voted, C1a mail ballots transmitted, "
@@ -215,6 +215,29 @@ class EacEavs(SourceAdapter):
                            metadata={"year": year, "variable_labels": labels,
                                      "codebook": CODEBOOKS.get(year),
                                      "sentinels": {"-77": "valid skip", "-88": "does not apply", "-99": "data not available"}})
+
+
+    # Mirror: every served year, all items including the free-text *Comments/*_Other columns, partitioned by year and
+    # State_Abbr. Rows gain a `year` column. Variable labels are left out of the mirror metadata: the Worker returns the
+    # whole manifest metadata with every fetch (~50 KB of labels for four years), so it points to the codebooks instead.
+    mirror_partition_keys = ["year", "State_Abbr"]
+    mirror_semantics = {"State_Abbr": "state_postal"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for year in sorted(DATA_FILES):
+            yield MirrorUnit(partition={"year": str(year)}, filters={"year": year, "include_comments": True},
+                             split_by=["State_Abbr"])
+
+    def mirror_rows(self, unit):
+        rows, urls, notes, meta = super().mirror_rows(unit)
+        y = unit.partition["year"]
+        notes = [n for n in notes if not n.startswith("EAVS ")] + [
+            "`year` (survey year) is added by the mirror. Free-text *Comments and *_Other columns are included; "
+            "pass `columns` to keep responses small. Item labels: the year's codebook in metadata.codebooks "
+            "(xlsx; none for 2022), or fetch through the local odc-server, which returns metadata.variable_labels."]
+        meta = {"codebooks": {y: meta.get("codebook")}, "sentinels": meta.get("sentinels")}
+        return [{"year": int(y), **r} for r in rows], urls, notes, meta
 
 
 ADAPTER = EacEavs()
