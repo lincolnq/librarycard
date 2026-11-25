@@ -23,6 +23,14 @@ const CORS = {
   "Access-Control-Expose-Headers": "Mcp-Protocol-Version",
 };
 
+const SITE_HEADERS = {
+  "x-content-type-options": "nosniff",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "content-security-policy":
+    "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; " +
+    "font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'",
+};
+
 function json(body: unknown, status = 200, headers: Record<string, string> = {}) {
   return new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json", ...CORS, ...headers } });
 }
@@ -158,7 +166,7 @@ export default {
     // Homepage files (public/, bundled by scripts/build-site.mjs).
     const file = (siteFiles as Record<string, { type: string; body: string }>)[url.pathname];
     if (file && request.method === "GET") {
-      return new Response(file.body, { headers: { "content-type": file.type, "cache-control": "public, max-age=300" } });
+      return new Response(file.body, { headers: { "content-type": file.type, "cache-control": "public, max-age=300", ...SITE_HEADERS } });
     }
     return json({ error: "not found" }, 404);
   },

@@ -120,7 +120,7 @@ Rules and guidance:
 Fetch filter language (what agents send): `{"column": value}` exact (case-insensitive); `[v1, v2]` any of;
 `{"gte": a, "lte": b}` range (also `gt`/`lt`; numeric when both sides are numbers, else string order, which suits
 ISO dates); `{"contains": "text"}`; `{"prefix": "06037"}` (starts with, for GEOIDs and other codes). `columns: [...]` selects output columns. The request reads at most
-`MAX_SCAN_BYTES` (60 MB compressed) and then reports `scan_stopped_early`.
+`MAX_SCAN_BYTES` (30 MB compressed) and then reports `scan_stopped_early`.
 
 ## Relationship to the Python server
 

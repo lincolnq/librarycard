@@ -46,6 +46,8 @@ def main(argv: list[str] | None = None) -> int:
     m.add_argument("--report", help="write a JSON report of published/skipped/failed sources")
     m.add_argument("--resume", action="store_true",
                    help="with --out: continue an interrupted ingest from its checkpoint (or publish a finished one)")
+    m.add_argument("--plan", action="store_true",
+                   help="with --due --report: only list due sources in the report's \"due\" key (no ingest)")
     e = sub.add_parser("export", help="write the catalog JSON bundled into the Worker")
     e.add_argument("--out", default="worker/src/generated/catalog.json")
     a = ap.parse_args(argv)
@@ -66,7 +68,7 @@ def main(argv: list[str] | None = None) -> int:
 
         from .mirror import run
         return run(a.source_ids or None, a.due, a.dry_run, Path(a.out) if a.out else None,
-                   report_path=Path(a.report) if a.report else None, resume=a.resume)
+                   report_path=Path(a.report) if a.report else None, resume=a.resume, plan_only=a.plan)
     if a.cmd == "export":
         from pathlib import Path
 

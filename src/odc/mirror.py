@@ -389,6 +389,10 @@ def publish(entry: dict, out_dir: Path, r2: R2, log=print, resume: bool = False)
     manifest = json.loads((out_dir / "manifest.json").read_text())
     sid, release = entry["id"], manifest["release"]
     prefix = f"mirror/{sid}/{release}/"
+    live = _current_pointer(sid, r2)
+    if live and live.get("release") != release and str(live.get("ingested_at", "")) > str(manifest["ingested_at"]):
+        raise SourceError(f"{sid}: R2 already serves a newer release ({live['release']}, ingested "
+                          f"{live['ingested_at']}) than {release}; not republishing older data", kind="schema")
     have = set(r2.list(prefix)) if resume else set()
     for p in manifest["packs"]:
         if prefix + p in have:
@@ -433,6 +437,10 @@ def _cleanup(sid: str, r2: R2, log=print) -> None:
 
 
 def current(sid: str, r2: R2) -> dict | None:
+    return _current_pointer(sid, r2)
+
+
+def _current_pointer(sid: str, r2: R2) -> dict | None:
     raw = r2.get(f"mirror/{sid}/current.json")
     return json.loads(raw) if raw else None
 
@@ -458,12 +466,15 @@ def due(entry: dict, r2: R2, max_age_days: int = 30) -> tuple[bool, str]:
 
 
 def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: Path | None = None, log=print,
-        report_path: Path | None = None, resume: bool = False) -> int:
+        report_path: Path | None = None, resume: bool = False, plan_only: bool = False) -> int:
+    """Ingest and publish sources. plan_only: only run the due checks and list due sources in report["due"]."""
     cat = Catalog.load()
     ids = source_ids or sorted(sid for sid, e in cat.entries.items() if mirrorable(e))
     r2 = None if dry_run else R2()
     failures = 0
     report: dict[str, list] = {"published": [], "skipped": [], "failed": []}
+    if plan_only:
+        report["due"] = []
     for sid in ids:
         e = cat.get(sid)
         if not mirrorable(e):
@@ -483,6 +494,9 @@ def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: P
                 report["skipped"].append({"source_id": sid, "reason": why})
                 continue
             log(f"{sid}: due ({why})")
+        if plan_only:
+            report["due"].append(sid)
+            continue
         out = (out_root or Path(tempfile.mkdtemp(prefix="odc-pack-"))) / sid
         try:
             log(f"ingest {sid}")

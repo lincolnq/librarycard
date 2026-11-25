@@ -156,6 +156,10 @@ def test_publish_resume_skips_uploaded_packs(stub_entry, tmp_path, monkeypatch):
     r2.puts.clear()
     mirror.publish(stub_entry, tmp_path, r2, log=lambda *a: None)   # default: upload everything
     assert len([k for k in r2.puts if k.endswith(".bin")]) == len(m["packs"])
+    # A newer release is live: refuse to flip back to older data.
+    r2.objects["mirror/stub/current.json"] = json.dumps({"release": "29990101T000000Z", "ingested_at": "2999-01-01T00:00:00+00:00"}).encode()
+    with pytest.raises(Exception, match="newer release"):
+        mirror.publish(stub_entry, tmp_path, r2, log=lambda *a: None)
 
 
 def test_private_columns_hide_example_values(stub_entry, tmp_path, monkeypatch):
@@ -252,3 +256,14 @@ def test_due_check_error_does_not_stop_the_run(cat, monkeypatch, tmp_path):
     assert rc == 1 and calls == ids
     assert [f["source_id"] for f in report["failed"]] == [ids[0]]
     assert [s["source_id"] for s in report["skipped"]] == [ids[1]]
+
+
+def test_plan_only_lists_due_sources_without_ingesting(cat, monkeypatch, tmp_path):
+    ids = sorted(sid for sid, e in cat.entries.items() if mirror.mirrorable(e))[:2]
+    monkeypatch.setattr(mirror, "R2", lambda: object())
+    monkeypatch.setattr(mirror, "due", lambda entry, r2: (entry["id"] == ids[1], "stale"))
+    monkeypatch.setattr(mirror, "ingest", lambda *a, **k: pytest.fail("plan must not ingest"))
+    rc = mirror.run(ids, only_due=True, dry_run=False, log=lambda *a: None, report_path=tmp_path / "r.json",
+                    plan_only=True)
+    report = json.loads((tmp_path / "r.json").read_text())
+    assert rc == 0 and report["due"] == [ids[1]] and report["published"] == []

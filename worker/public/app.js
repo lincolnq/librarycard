@@ -2,6 +2,7 @@
 (() => {
   "use strict";
   const $ = (s, el = document) => el.querySelector(s);
+  const safeUrl = (u) => (/^https?:\/\//i.test(String(u ?? "")) ? u : "#");
   const esc = (v) => String(v ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const DOMAINS = [
     ["elections", "Elections"], ["politics_legislation", "Legislation"], ["demographics", "Demographics"],
@@ -107,7 +108,7 @@
         <a class="back" href="#search">← Back to results</a>
         <div class="callno mono-label"><span>${esc(d.id)}</span>${stamp({ ...d, access_method: d.access.method })}</div>
         <h2>${esc(d.name)}</h2>
-        <p class="lede-small">${esc(d.publisher.name)} · <a href="${esc(d.homepage)}" rel="noopener">publisher page</a></p>
+        <p class="lede-small">${esc(d.publisher.name)} · <a href="${esc(safeUrl(d.homepage))}" rel="noopener">publisher page</a></p>
       </div>
       <div class="detail-grid">
         <section>
@@ -128,12 +129,12 @@
           </dl>
           <h3>License</h3>
           <dl class="kv">
-            <dt>Terms</dt><dd><a href="${esc(lic.url)}" rel="noopener">${esc(lic.name)}</a></dd>
+            <dt>Terms</dt><dd><a href="${esc(safeUrl(lic.url))}" rel="noopener">${esc(lic.name)}</a></dd>
             <dt>Reuse</dt><dd>${lic.redistribution === "allowed" ? "Redistributable" : "Link to publisher (not mirrored)"}; commercial use: ${esc(lic.commercial_use)}</dd>
             <dt>Cite as</dt><dd>${esc(lic.attribution)}</dd>
           </dl>
           ${fp ? `<h3>Mirror</h3><dl class="kv"><dt>Release</dt><dd class="mono">${esc(fp.release)}</dd><dt>Rows</dt><dd>${Number(fp.row_count).toLocaleString()}</dd><dt>Mirrored</dt><dd>${esc(fp.ingested_at.slice(0, 10))}</dd></dl>` : ""}
-          ${how ? `<div class="notice"><strong>Not served here.</strong> ${esc(how.reason)}${how.homepage ? ` Get it from <a href="${esc(how.homepage)}" rel="noopener">the publisher</a>.` : ""}${how.mcp_server ? ` MCP server: <code>${esc(how.mcp_server.url)}</code>` : ""}</div>` : ""}
+          ${how ? `<div class="notice"><strong>Not served here.</strong> ${esc(how.reason)}${how.homepage ? ` Get it from <a href="${esc(safeUrl(how.homepage))}" rel="noopener">the publisher</a>.` : ""}${how.mcp_server ? ` MCP server: <code>${esc(how.mcp_server.url)}</code>` : ""}</div>` : ""}
         </section>
       </div>
       ${fp ? previewForm(d, fp) : ""}`;
@@ -183,7 +184,8 @@
     $("#pv-csv").addEventListener("click", async () => {
       const r = await get(1000);
       if (r.error) { $("#pv-out").innerHTML = `<p class="notice">${esc(r.error)}</p>`; return; }
-      const q = (v) => { const s = String(v ?? ""); return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
+      // Neutralise spreadsheet formulas in filer-supplied text (CSV injection); numbers are left alone.
+      const q = (v) => { let s = String(v ?? ""); if (typeof v === "string" && /^[=+\-@\t\r]/.test(s)) s = "'" + s; return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; };
       const csv = [r.columns.map(q).join(","), ...r.rows.map((row) => r.columns.map((c) => q(row[c])).join(","))].join("\n");
       const a = document.createElement("a");
       a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv" }));

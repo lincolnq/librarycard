@@ -35,7 +35,7 @@ export class QueryError extends Error {
 
 const MANIFEST_TTL_MS = 5 * 60 * 1000;
 const cache = new Map<string, { at: number; m: Manifest | null }>();
-export const MAX_SCAN_BYTES = 60_000_000; // compressed bytes read per request before we ask for narrower filters
+export const MAX_SCAN_BYTES = 30_000_000; // compressed bytes read per request before we ask for narrower filters
 export const MAX_LIMIT = 5000;
 export const DEFAULT_LIMIT = 500;
 
@@ -249,7 +249,11 @@ export async function query(store: Store, m: Manifest, filters: Record<string, a
     }
     const key = `mirror/${m.source_id}/${m.release}/${m.packs[p.p]}`;
     const obj = await store.get(key, { range: { offset: p.o, length: p.n } });
-    if (!obj) throw new Error(`missing pack object ${key}`);
+    if (!obj) {
+      // A newer publish cleaned up the release this isolate's cached manifest points to; reload on the next call.
+      cache.delete(m.source_id);
+      throw new QueryError("the mirror for this source was just updated; retry the same request", { retry: true });
+    }
     const text = await gunzip(await obj.arrayBuffer());
     bytes += p.n;
     read++;
