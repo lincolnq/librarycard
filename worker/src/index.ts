@@ -30,6 +30,9 @@ function json(body: unknown, status = 200, headers: Record<string, string> = {})
 type Rpc = { jsonrpc: "2.0"; id?: string | number | null; method?: string; params?: any };
 
 export async function handleRpc(msg: Rpc, tools: Tools): Promise<Record<string, any> | null> {
+  if (msg === null || typeof msg !== "object" || Array.isArray(msg)) {
+    return { jsonrpc: "2.0", id: null, error: { code: -32600, message: "Invalid Request" } };
+  }
   const isNotification = msg.id === undefined;
   const reply = (result: any) => ({ jsonrpc: "2.0", id: msg.id, result });
   const fail = (code: number, message: string, data?: any) => ({ jsonrpc: "2.0", id: msg.id ?? null, error: { code, message, ...(data ? { data } : {}) } });
@@ -78,6 +81,10 @@ export async function handleMcp(request: Request, tools: Tools): Promise<Respons
     return json({ jsonrpc: "2.0", id: null, error: { code: -32700, message: "Parse error" } }, 400);
   }
   if (Array.isArray(body)) {
+    // Each fetch can read MAX_SCAN_BYTES; an unbounded batch would multiply that within one request's CPU budget.
+    if (body.length === 0 || body.length > MAX_BATCH) {
+      return json({ jsonrpc: "2.0", id: null, error: { code: -32600, message: `Invalid Request: batches must have 1-${MAX_BATCH} messages` } }, 400);
+    }
     const out = (await Promise.all(body.map((m) => handleRpc(m, tools)))).filter((x) => x !== null);
     return out.length ? json(out) : new Response(null, { status: 202, headers: CORS });
   }
@@ -85,6 +92,7 @@ export async function handleMcp(request: Request, tools: Tools): Promise<Respons
   return out ? json(out) : new Response(null, { status: 202, headers: CORS });
 }
 
+const MAX_BATCH = 10;
 let toolsSingleton: Tools | null = null;
 const WEB_FETCH_MAX = 1000;
 
@@ -112,6 +120,9 @@ export async function handleApi(request: Request, url: URL, tools: Tools): Promi
     } catch {
       return json({ error: "body must be JSON: {source_id, filters, columns?, limit?}" }, 400);
     }
+    if (body === null || typeof body !== "object" || Array.isArray(body)) {
+      return json({ error: "body must be a JSON object: {source_id, filters, columns?, limit?}" }, 400);
+    }
     const limit = Math.min(Number(body.limit ?? 100), WEB_FETCH_MAX);
     return json(await tools.fetch(body.source_id, body.filters ?? {}, body.columns, limit));
   }
@@ -127,7 +138,14 @@ export default {
     toolsSingleton ??= new Tools((catalogData as any).entries, env.DATA);
     toolsSingleton.store = env.DATA;
     if (url.pathname === "/mcp") return handleMcp(request, toolsSingleton);
-    if (url.pathname.startsWith("/api/")) return handleApi(request, url, toolsSingleton);
+    if (url.pathname.startsWith("/api/")) {
+      try {
+        return await handleApi(request, url, toolsSingleton);
+      } catch (e: any) {
+        console.error("api error", url.pathname, e?.stack ?? e);
+        return json({ error: `Internal error: ${e?.message ?? e}` }, 500);
+      }
+    }
     if (url.pathname === "/healthz") {
       const entries = (catalogData as any).entries;
       return json({ ok: true, sources: entries.length, mirrored: entries.filter((e: any) => e._mirrored).length });

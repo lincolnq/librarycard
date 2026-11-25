@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { clearCache, type Manifest, type Store } from "../src/mirror.ts";
 import { Tools } from "../src/tools.ts";
-import { handleRpc } from "../src/index.ts";
+import { handleApi, handleMcp, handleRpc } from "../src/index.ts";
 
 async function gz(text: string): Promise<Uint8Array> {
   const s = new Blob([text]).stream().pipeThrough(new CompressionStream("gzip"));
@@ -160,4 +160,19 @@ test("prefix on a code column is not zero-padded; state names are accepted", asy
   assert.equal(byName.row_count, 0);
   const ga: any = await tools.fetch("fake-src", { state_po: "georgia", state_fips: "Georgia" }, undefined, 10);
   assert.equal(ga.row_count, 3);
+});
+
+test("malformed JSON-RPC and API input get errors, not exceptions", async () => {
+  const { tools } = await fixture();
+  const post = (body: string) => new Request("https://x/mcp", { method: "POST", body, headers: { "content-type": "application/json" } });
+  const nul = await handleMcp(post("null"), tools);
+  assert.equal(((await nul.json()) as any).error.code, -32600);
+  const batchNull: any = await (await handleMcp(post("[null, 5]"), tools)).json();
+  assert.deepEqual(batchNull.map((r: any) => r.error.code), [-32600, -32600]);
+  const big = JSON.stringify(Array.from({ length: 11 }, (_, i) => ({ jsonrpc: "2.0", id: i, method: "ping" })));
+  assert.equal((await handleMcp(post(big), tools)).status, 400, "oversized batch refused");
+  const api = (body: string) => handleApi(new Request("https://x/api/fetch", { method: "POST", body }), new URL("https://x/api/fetch"), tools);
+  assert.equal((await api("null")).status, 400);
+  const badCols: any = await (await api(JSON.stringify({ source_id: "fake-src", filters: {}, columns: "year" }))).json();
+  assert.match(badCols.error, /columns must be a list/);
 });

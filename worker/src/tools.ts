@@ -216,13 +216,16 @@ export class Tools {
     if (!e) return this.unknown(id);
     if (!fetchable(e)) return err(`${id} cannot be fetched from this server: ${notFetchableReason(e)}`, { how_to_access: howToAccess(e) });
     if (typeof filters !== "object" || filters === null || Array.isArray(filters)) return err("filters must be an object of {column: condition}");
+    if (columns !== undefined && columns !== null && (!Array.isArray(columns) || !columns.every((c) => typeof c === "string"))) {
+      return err("columns must be a list of column names");
+    }
     const lim = limit ?? DEFAULT_LIMIT;
     if (!Number.isInteger(lim) || lim < 1 || lim > MAX_LIMIT) return err(`limit must be an integer between 1 and ${MAX_LIMIT}`);
     const m = await loadManifest(this.store, e.id);
     if (!m) return err(`${id}: mirror not built yet`, { how_to_access: { ...howToAccess(e), reason: "mirror not built yet" } });
     let res;
     try {
-      res = await query(this.store, m, filters, columns, lim);
+      res = await query(this.store, m, filters, columns ?? undefined, lim);
     } catch (ex: any) {
       if (ex instanceof QueryError) return err(`Invalid filters: ${ex.message}`, { ...ex.detail, fetch_parameters_hint: "call describe_source for partition keys and columns" });
       throw ex;
