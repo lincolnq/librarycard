@@ -186,3 +186,22 @@ def test_cleanup_never_deletes_live_release():
     mirror._cleanup("s", r2, log=lambda *a: None)
     left = sorted(k.split("/")[2] for k in r2.objects if k.endswith("manifest.json"))
     assert left == ["20260101T000000Z", "20260301T000000Z"], left
+
+
+def test_non_finite_floats_become_null(stub_entry, tmp_path, monkeypatch):
+    """NaN/Infinity are not JSON; the Worker's JSON.parse would reject the partition (and a NaN min/max the manifest)."""
+    def _fetch(self, f, limit, cache_allowed):
+        return FetchResult([{"year": f["year"], "state": "TX", "value": float("nan")},
+                            {"year": f["year"], "state": "TX", "value": float("inf")},
+                            {"year": f["year"], "state": "TX", "value": 1.5}], ["https://example.gov/x.csv"])
+    monkeypatch.setattr(StubAdapter, "_fetch", _fetch)
+    m = mirror.ingest(stub_entry, tmp_path, log=lambda *a: None)
+    raw = (tmp_path / "manifest.json").read_text()
+    assert "NaN" not in raw and "Infinity" not in raw
+    p = m["partitions"][0]
+    with open(tmp_path / m["packs"][p["p"]], "rb") as fh:
+        fh.seek(p["o"])
+        text = gzip.decompress(fh.read(p["n"])).decode()
+    assert "NaN" not in text and "Infinity" not in text
+    assert [json.loads(x)["value"] for x in text.splitlines()] == [None, None, 1.5]
+    assert m["columns"]["value"]["nulls"] == 4 and m["columns"]["value"]["min"] == 1.5

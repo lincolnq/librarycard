@@ -23,6 +23,7 @@ import datetime as dt
 import gzip
 import hashlib
 import json
+import math
 import os
 import shutil
 import tempfile
@@ -139,7 +140,14 @@ class Spool:
         self.counts: dict[str, int] = {}
         self.open: OrderedDict[str, Any] = OrderedDict()
 
-    def write(self, key: dict, row: dict) -> None:
+    def write(self, key: dict, row: dict) -> dict:
+        """Spool one row; returns the row as stored (NaN/Infinity floats become null)."""
+        try:
+            line = json.dumps(row, separators=(",", ":"), ensure_ascii=False, default=str, allow_nan=False)
+        except ValueError:
+            # Python would write NaN/Infinity, which is not JSON: the Worker's JSON.parse would fail the whole fetch.
+            row = {c: (None if isinstance(v, float) and not math.isfinite(v) else v) for c, v in row.items()}
+            line = json.dumps(row, separators=(",", ":"), ensure_ascii=False, default=str, allow_nan=False)
         k = json.dumps(key, sort_keys=True)
         if k not in self.files:
             self.files[k] = self.root / f"p{len(self.files)}.ndjson"
@@ -154,8 +162,9 @@ class Spool:
             self.open[k] = fh
         else:
             self.open.move_to_end(k)
-        fh.write(json.dumps(row, separators=(",", ":"), ensure_ascii=False, default=str) + "\n")
+        fh.write(line + "\n")
         self.counts[k] += 1
+        return row
 
     def close(self) -> None:
         for fh in self.open.values():
@@ -219,7 +228,7 @@ def ingest(entry: dict, out_dir: Path, log=print, resume: bool = False) -> dict:
                 for c in unit.split_by:
                     v = row.get(c)
                     key[c] = "" if v is None else str(v)
-                spool.write(key, row)
+                row = spool.write(key, row)
                 for c, v in row.items():
                     stats.setdefault(c, ColumnStats()).add(v)
                 n += 1
