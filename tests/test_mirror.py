@@ -112,3 +112,34 @@ def test_resume_after_interruption(stub_entry, tmp_path, monkeypatch):
     # a finished out_dir is reused as is (lets a publish that was cut off be retried)
     assert mirror.ingest(stub_entry, out, log=lambda *a: None, resume=True)["release"] == m["release"]
     assert calls["n"] == 3
+
+
+def test_publish_resume_skips_uploaded_packs(stub_entry, tmp_path, monkeypatch):
+    monkeypatch.setattr(mirror, "PACK_TARGET_BYTES", 1)  # one pack per partition chunk
+    m = mirror.ingest(stub_entry, tmp_path, log=lambda *a: None)
+    assert len(m["packs"]) > 2
+
+    class FakeR2:
+        def __init__(self):
+            self.objects, self.puts = {}, []
+
+        def put(self, key, data, content_type="application/octet-stream"):
+            self.puts.append(key)
+            self.objects[key] = data
+
+        def list(self, prefix):
+            return [k for k in self.objects if k.startswith(prefix)]
+
+        def delete(self, key):
+            self.objects.pop(key, None)
+
+    r2 = FakeR2()
+    prefix = f"mirror/stub/{m['release']}/"
+    r2.objects[prefix + m["packs"][0]] = b"uploaded before the cut-off"
+    mirror.publish(stub_entry, tmp_path, r2, log=lambda *a: None, resume=True)
+    assert prefix + m["packs"][0] not in r2.puts
+    assert [k for k in r2.puts if k.endswith(".bin")] == [prefix + p for p in m["packs"][1:]]
+    assert r2.puts[-1] == "mirror/stub/current.json"
+    r2.puts.clear()
+    mirror.publish(stub_entry, tmp_path, r2, log=lambda *a: None)   # default: upload everything
+    assert len([k for k in r2.puts if k.endswith(".bin")]) == len(m["packs"])

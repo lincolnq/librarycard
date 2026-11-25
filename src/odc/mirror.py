@@ -356,12 +356,19 @@ class Packer:
 
 # ------------------------------------------------------------------ publish
 
-def publish(entry: dict, out_dir: Path, r2: R2, log=print) -> str:
-    """Upload packs, then the manifest, then flip current.json (readers never see a half-written release)."""
+def publish(entry: dict, out_dir: Path, r2: R2, log=print, resume: bool = False) -> str:
+    """Upload packs, then the manifest, then flip current.json (readers never see a half-written release).
+
+    resume=True skips packs this release already has in R2 (an R2 PUT is atomic, so a listed object is complete);
+    release ids are unique per ingest, so these can only come from an earlier, cut-off publish of the same packs."""
     manifest = json.loads((out_dir / "manifest.json").read_text())
     sid, release = entry["id"], manifest["release"]
     prefix = f"mirror/{sid}/{release}/"
+    have = set(r2.list(prefix)) if resume else set()
     for p in manifest["packs"]:
+        if prefix + p in have:
+            log(f"  resume: {prefix}{p} already uploaded")
+            continue
         r2.put(prefix + p, out_dir / p)
         log(f"  uploaded {prefix}{p} ({(out_dir / p).stat().st_size / 1e6:.1f} MB)")
     r2.put(prefix + "manifest.json", out_dir / "manifest.json", "application/json")
@@ -434,7 +441,7 @@ def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: P
             log(f"  {m['row_count']} rows, {len(m['partitions'])} partitions, "
                 f"{sum(m['pack_bytes']) / 1e6:.1f} MB in {m['ingest_seconds']}s")
             if not dry_run:
-                publish(e, out, r2, log)
+                publish(e, out, r2, log, resume=resume and out_root is not None)
             report["published"].append({"source_id": sid, "release": m["release"], "rows": m["row_count"],
                                         "bytes": sum(m["pack_bytes"]), "seconds": m["ingest_seconds"]})
         except Exception as ex:  # noqa: BLE001 - keep going; failures become needs-repair issues
