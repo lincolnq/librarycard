@@ -95,7 +95,7 @@ caveats:
   - Geographic boundaries change. 2020-based tracts/block groups apply from the 2020 5-year release onward; congressional districts follow the Congress named in the GEO_ID (e.g. 5001900US = 119th Congress). Cross-vintage comparisons need crosswalks.
   - The 2020 1-year ACS was not released as standard estimates (pandemic data-collection disruption); only experimental estimates exist.
   - 1-year estimates exist only for areas with 65,000+ population; use 5-year data for smaller areas.
-  - "The production mirror (mcp.librarycard.net) covers only 33 curated tables (listed in access.notes) of the latest 5-year release; other tables, 1-year estimates and earlier releases must be fetched from the publisher with the local odc-server. In the mirror, `state` is set only for state-nested geographies (null for nation, region, division, state, metro_area, zcta), and the release year/period and dollar year are in metadata.release."
+  - "The production mirror (mcp.librarycard.net) covers only 33 curated tables (listed in access.notes) of the latest 5-year release; other tables, 1-year estimates and earlier releases must be fetched from the publisher with the local odc-server. In the mirror, `state` is set only for state-nested geographies (null for nation, region, division, state, metro_area, zcta), and the release year/period and dollar year are in metadata.release. Some mirrored tables are not published below the tract level (2020-2024: B05001, B17020, B19083, B22003, B25105, B26001, B27020 have no block groups), so those partitions do not exist."
 related: [census-data-api]
 status: healthy
 status_reason: Onboarded; contract tests pass.
