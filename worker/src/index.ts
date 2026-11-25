@@ -4,7 +4,9 @@
 // and notifications. No sessions are created, so any request can hit any isolate.
 
 import catalogData from "./generated/catalog.json" with { type: "json" };
+import siteFiles from "./generated/site.json" with { type: "json" };
 import { INSTRUCTIONS, TOOLS, Tools } from "./tools.ts";
+import { summary } from "./catalog.ts";
 import type { Store } from "./mirror.ts";
 
 export interface Env {
@@ -84,25 +86,56 @@ export async function handleMcp(request: Request, tools: Tools): Promise<Respons
 }
 
 let toolsSingleton: Tools | null = null;
+const WEB_FETCH_MAX = 1000;
+
+/** Read-only JSON API used by the homepage (public/). Same logic as the MCP tools. */
+export async function handleApi(request: Request, url: URL, tools: Tools): Promise<Response> {
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
+  const path = url.pathname.replace(/\/+$/, "");
+  const q = url.searchParams;
+  if (path === "/api/search" && request.method === "GET") {
+    return json(tools.searchCatalog({
+      query: q.get("q") ?? "", domain: q.get("domain") || undefined, geography: q.get("geography") || undefined,
+      time_range: q.get("time_range") || undefined, limit: Number(q.get("limit") ?? 20),
+    }));
+  }
+  if (path === "/api/status" && request.method === "GET") return json(await tools.call("catalog_status", {}));
+  if (path === "/api/sources" && request.method === "GET") {
+    return json({ sources: tools.entries.map((e) => summary(e)) });
+  }
+  const m = path.match(/^\/api\/source\/([a-z0-9-]+)$/);
+  if (m && request.method === "GET") return json(await tools.describe(m[1]));
+  if (path === "/api/fetch" && request.method === "POST") {
+    let body: any;
+    try {
+      body = await request.json();
+    } catch {
+      return json({ error: "body must be JSON: {source_id, filters, columns?, limit?}" }, 400);
+    }
+    const limit = Math.min(Number(body.limit ?? 100), WEB_FETCH_MAX);
+    return json(await tools.fetch(body.source_id, body.filters ?? {}, body.columns, limit));
+  }
+  return json({ error: "not found", endpoints: ["GET /api/search?q=", "GET /api/sources", "GET /api/source/<id>", "POST /api/fetch", "GET /api/status"] }, 404);
+}
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
+    if (url.hostname === "www.librarycard.net") {
+      return Response.redirect(`https://librarycard.net${url.pathname}${url.search}`, 301);
+    }
     toolsSingleton ??= new Tools((catalogData as any).entries, env.DATA);
     toolsSingleton.store = env.DATA;
     if (url.pathname === "/mcp") return handleMcp(request, toolsSingleton);
+    if (url.pathname.startsWith("/api/")) return handleApi(request, url, toolsSingleton);
     if (url.pathname === "/healthz") {
       const entries = (catalogData as any).entries;
       return json({ ok: true, sources: entries.length, mirrored: entries.filter((e: any) => e._mirrored).length });
     }
-    if (url.pathname === "/") {
-      return json({
-        name: SERVER_INFO.title,
-        mcp_endpoint: `${url.origin}/mcp`,
-        transport: "streamable-http (stateless, JSON responses)",
-        tools: TOOLS.map((t) => t.name),
-        source: "https://github.com/lincolnq/librarycard",
-      });
+    // Homepage files (public/, bundled by scripts/build-site.mjs).
+    const file = (siteFiles as Record<string, { type: string; body: string }>)[url.pathname];
+    if (file && request.method === "GET") {
+      return new Response(file.body, { headers: { "content-type": file.type, "cache-control": "public, max-age=300" } });
     }
     return json({ error: "not found" }, 404);
   },

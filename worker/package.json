@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Production MCP server for the open data catalog (Cloudflare Worker). See ../docs/MIRROR.md.",
   "scripts": {
-    "export": "cd .. && python -m odc.cli export --out worker/src/generated/catalog.json",
+    "export": "cd .. && python -m odc.cli export --out worker/src/generated/catalog.json && cd worker && node scripts/build-site.mjs",
     "test": "node --experimental-strip-types --no-warnings --test test/*.test.ts",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy"
