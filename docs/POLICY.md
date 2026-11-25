@@ -189,7 +189,7 @@ This repo's agents may run in a cloud environment with a domain allowlist.
 Escalate to a human (open an issue labeled `needs-human`, and do nothing else about it) **only** for:
 
 1. **Spending or usage anomalies** (thresholds in docs/MAINTAINER.md), and any decision that adds a paid service or
-   raises expected monthly cost by more than $10. These need approval *before* acting. Examples: e.g. a publisher reports we exceeded a quota, CI minutes or
+   raises expected monthly cost by more than $10. These need approval *before* acting. Examples: a publisher reports we exceeded a quota, CI minutes or
    scheduled-task runs far above normal, any bill.
 2. **Systemic failure** — a large fraction of sources failing at once (the monitor does this
    automatically when ≥ 4 sources and ≥ 40% of those checked fail in one run). Likely a bug in
