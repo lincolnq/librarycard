@@ -205,3 +205,30 @@ def test_non_finite_floats_become_null(stub_entry, tmp_path, monkeypatch):
     assert "NaN" not in text and "Infinity" not in text
     assert [json.loads(x)["value"] for x in text.splitlines()] == [None, None, 1.5]
     assert m["columns"]["value"]["nulls"] == 4 and m["columns"]["value"]["min"] == 1.5
+
+
+def test_publish_refuses_to_flip_to_incomplete_release(stub_entry, tmp_path):
+    mirror.ingest(stub_entry, tmp_path, log=lambda *a: None)
+
+    class LossyR2:
+        """Drops pack uploads, as if a concurrent publisher's cleanup deleted them mid-upload."""
+        def __init__(self):
+            self.objects = {}
+
+        def put(self, key, data, content_type="application/octet-stream"):
+            if not key.endswith(".bin"):
+                self.objects[key] = data
+
+        def list(self, prefix):
+            return [k for k in self.objects if k.startswith(prefix)]
+
+        def delete(self, key):
+            self.objects.pop(key, None)
+
+        def get(self, key):
+            return self.objects.get(key)
+
+    r2 = LossyR2()
+    with pytest.raises(Exception, match="missing"):
+        mirror.publish(stub_entry, tmp_path, r2, log=lambda *a: None)
+    assert "mirror/stub/current.json" not in r2.objects

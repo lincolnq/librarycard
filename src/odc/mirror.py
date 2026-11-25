@@ -37,6 +37,7 @@ from .adapters import adapter_for
 from .adapters.base import SourceAdapter
 from .catalog import Catalog
 from .changes import fingerprint
+from .http import SourceError
 from .r2 import R2
 
 FORMAT = 1
@@ -396,6 +397,13 @@ def publish(entry: dict, out_dir: Path, r2: R2, log=print, resume: bool = False)
         r2.put(prefix + p, out_dir / p)
         log(f"  uploaded {prefix}{p} ({(out_dir / p).stat().st_size / 1e6:.1f} MB)")
     r2.put(prefix + "manifest.json", out_dir / "manifest.json", "application/json")
+    # Another publisher of this source (an agent session racing the mirror workflow) may have cleaned this release up
+    # mid-upload; never point current.json at a release with missing objects.
+    uploaded = set(r2.list(prefix))
+    missing = [k for k in [prefix + p for p in manifest["packs"]] + [prefix + "manifest.json"] if k not in uploaded]
+    if missing:
+        raise SourceError(f"{sid}: release {release} is missing {missing[:5]} after upload (concurrent cleanup?); "
+                          "current.json not changed, rerun the publish", kind="http")
     current = {"release": release, "manifest": prefix + "manifest.json", "ingested_at": manifest["ingested_at"],
                "row_count": manifest["row_count"], "upstream_fingerprint": manifest["upstream"]["fingerprint"],
                "adapter_version": manifest["adapter_version"]}
