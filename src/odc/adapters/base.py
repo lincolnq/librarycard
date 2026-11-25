@@ -175,6 +175,24 @@ class SourceAdapter:
     def _fetch(self, filters: dict, limit: int, cache_allowed: bool) -> FetchResult:
         raise NotImplementedError
 
+    # -------------------------------------------------------- mirroring (src/odc/mirror.py)
+    # Sources with license.redistribution == "allowed" are mirrored into R2 and served from there.
+    # To opt in, define mirror_plan(); see docs/MIRROR.md.
+    mirror_partition_keys: list[str] = []   # partition key names, coarse to fine (e.g. ["table", "geography", "state"])
+    mirror_required: list[str] = []         # partition keys a reader must filter on (for very large sources)
+    mirror_semantics: dict[str, str] = {}   # column -> state_postal | state_fips | county_fips | year | date
+
+    def mirror_plan(self):
+        """Yield mirror.MirrorUnit(partition, filters, split_by) covering the whole dataset."""
+        raise NotImplementedError
+
+    def mirror_rows(self, unit) -> tuple:
+        """Return (rows_iterable, request_urls, notes, metadata) for one unit. Default: call _fetch without a
+        row limit. Override to stream when a unit is too big to hold in memory."""
+        clean = self.validate_filters(unit.filters)
+        res = self._fetch(clean, 10**12, True)
+        return res.rows, res.request_urls, res.notes, res.metadata
+
 
 def provenance(entry: dict, adapter: SourceAdapter, filters: dict, urls: list[str], retrieved_at: str, total: int | None) -> dict:
     lic = entry["license"]

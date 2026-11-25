@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 from odc.catalog import CatalogError
 
 import pytest
@@ -31,36 +34,8 @@ def test_summary_shape(cat):
 
 
 # Natural-language queries an agent might send, with the source that must rank first.
-# When you onboard a source, add a line here for it.
-TOP1 = {
-    "county presidential election results": "mit-election-county-president",
-    "senate election results": "mit-election-senate-state",
-    "campaign finance candidates": "fec-all-candidates",
-    "unemployment rate county": "bls-laus",
-    "median household income tract": "census-acs-summary-file",
-    "poverty school district": "census-saipe",
-    "population estimates county": "census-pep",
-    "house price index": "fhfa-hpi",
-    "federal spending by state": "usaspending-spending-by-geography",
-    "executive orders": "federal-register-documents",
-    "roll call votes ideology": "voteview-congress",
-    "members of congress": "unitedstates-congress-legislators",
-    "diabetes prevalence tract": "cdc-places",
-    "social vulnerability": "cdc-svi",
-    "school district enrollment": "urban-education-data-ccd",
-    "medicare spending county": "cms-medicare-geographic-variation",
-    "disaster declarations": "fema-disaster-declarations",
-    "heat temperature county": "noaa-nclimgrid-daily",
-    "rural urban county classification": "usda-ers-rural-urban-codes",
-    "jobs by census block commuting": "lehd-lodes",
-    "business establishments employment naics": "census-cbp",
-    "gdp by county": "bea-regional",
-    "voter turnout jurisdiction": "eac-eavs",
-    "crime rates": "fbi-crime-data-explorer",
-    "redistricting block population": "census-decennial-2020-pl",
-    "county land area latitude longitude": "census-gazetteer",
-    "county health outcomes rankings": "county-health-rankings",
-}
+# Shared with worker/test/search.test.ts. When you onboard a source, add a case to tests/search_cases.json.
+TOP1 = json.loads((Path(__file__).parent / "search_cases.json").read_text())
 
 
 @pytest.mark.parametrize("query,expected", sorted(TOP1.items()))

@@ -122,7 +122,7 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
 - [ ] Fallback paths you can't exercise live (e.g. an API used only when the bulk host fails) need an offline test
       with a mocked response (`tests/test_<id>_*.py`).
 - [ ] `odc describe <id>` reads well; `odc fetch <id> '<typical filters>' --limit 5` returns sensible rows with provenance.
-- [ ] `odc search "<words a user would type>"` ranks the source first; add that query to `TOP1` in `tests/test_search.py`.
+- [ ] `odc search "<words a user would type>"` ranks the source first; add that query to `tests/search_cases.json` (used by both the Python and Worker search tests).
 
 ## 7. Commit
 
