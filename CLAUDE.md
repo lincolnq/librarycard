@@ -61,6 +61,8 @@ cd worker && npm ci && npm run export && npm test   # Worker tests (Node 22)
 
 ## Task routing
 
+- **Weekly maintainer run** (scheduled) → `docs/MAINTAINER.md`: repairs, user reports, mirrors, usage/cost, and the
+  weekly digest issue assigned to the operator.
 - **"Onboard source X" / "add sources"** → `docs/ADDING_A_SOURCE.md` (follow every step; the checklist is the definition of done).
 - **Issue labeled `source-changed`** → `docs/RUNBOOKS.md#source-changed`.
 - **Issue labeled `needs-repair`** → `docs/RUNBOOKS.md#needs-repair` (one repair attempt, then degrade/quarantine).
