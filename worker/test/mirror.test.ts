@@ -150,3 +150,14 @@ test("prefix filter", async () => {
   const out: any = await tools.fetch("fake-src", { candidate: { prefix: "trump" } }, ["state_po", "year"], 10);
   assert.equal(out.row_count, 3);
 });
+
+test("prefix on a code column is not zero-padded; state names are accepted", async () => {
+  const { tools } = await fixture();
+  // state_fips has semantic state_fips: a partial code "1" must stay "1" (padding made it "01" and matched nothing).
+  const p: any = await tools.fetch("fake-src", { state_fips: { prefix: "1" } }, ["state_po"], 10);
+  assert.deepEqual([...new Set(p.rows.map((r: any) => r.state_po))], ["GA"]);
+  const byName: any = await tools.fetch("fake-src", { state_po: "Georgia", state_fips: "wyoming" }, undefined, 10);
+  assert.equal(byName.row_count, 0);
+  const ga: any = await tools.fetch("fake-src", { state_po: "georgia", state_fips: "Georgia" }, undefined, 10);
+  assert.equal(ga.row_count, 3);
+});

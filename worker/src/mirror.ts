@@ -67,20 +67,51 @@ const STATE_FIPS: Record<string, string> = {
   UT: "49", VT: "50", VA: "51", WA: "53", WV: "54", WI: "55", WY: "56", PR: "72", AS: "60", GU: "66", MP: "69", VI: "78",
 };
 const FIPS_STATE: Record<string, string> = Object.fromEntries(Object.entries(STATE_FIPS).map(([a, f]) => [f, a]));
+const STATE_NAMES: Record<string, string> = {
+  ALABAMA: "AL", ALASKA: "AK", ARIZONA: "AZ", ARKANSAS: "AR", CALIFORNIA: "CA", COLORADO: "CO", CONNECTICUT: "CT",
+  DELAWARE: "DE", "DISTRICT OF COLUMBIA": "DC", FLORIDA: "FL", GEORGIA: "GA", HAWAII: "HI", IDAHO: "ID", ILLINOIS: "IL",
+  INDIANA: "IN", IOWA: "IA", KANSAS: "KS", KENTUCKY: "KY", LOUISIANA: "LA", MAINE: "ME", MARYLAND: "MD",
+  MASSACHUSETTS: "MA", MICHIGAN: "MI", MINNESOTA: "MN", MISSISSIPPI: "MS", MISSOURI: "MO", MONTANA: "MT",
+  NEBRASKA: "NE", NEVADA: "NV", "NEW HAMPSHIRE": "NH", "NEW JERSEY": "NJ", "NEW MEXICO": "NM", "NEW YORK": "NY",
+  "NORTH CAROLINA": "NC", "NORTH DAKOTA": "ND", OHIO: "OH", OKLAHOMA: "OK", OREGON: "OR", PENNSYLVANIA: "PA",
+  "RHODE ISLAND": "RI", "SOUTH CAROLINA": "SC", "SOUTH DAKOTA": "SD", TENNESSEE: "TN", TEXAS: "TX", UTAH: "UT",
+  VERMONT: "VT", VIRGINIA: "VA", WASHINGTON: "WA", "WEST VIRGINIA": "WV", WISCONSIN: "WI", WYOMING: "WY",
+  "PUERTO RICO": "PR", "AMERICAN SAMOA": "AS", GUAM: "GU", "NORTHERN MARIANA ISLANDS": "MP", "U.S. VIRGIN ISLANDS": "VI",
+  "VIRGIN ISLANDS": "VI",
+};
 
 function normalize(semantic: string | undefined, v: any): any {
   if (v === null || v === undefined || !semantic) return v;
   const s = String(v).trim();
+  const up = s.toUpperCase().replace(/\s+/g, " ");
   if (semantic === "state_postal") {
     if (/^\d{1,2}$/.test(s) && FIPS_STATE[s.padStart(2, "0")]) return FIPS_STATE[s.padStart(2, "0")];
-    return s.toUpperCase();
+    return STATE_NAMES[up] ?? up;
   }
   if (semantic === "state_fips") {
-    if (STATE_FIPS[s.toUpperCase()]) return STATE_FIPS[s.toUpperCase()];
+    const postal = STATE_NAMES[up] ?? up;
+    if (STATE_FIPS[postal]) return STATE_FIPS[postal];
     return /^\d+$/.test(s) ? s.padStart(2, "0") : s;
   }
   if (semantic === "county_fips") return /^\d+$/.test(s) ? s.padStart(5, "0") : s;
   return v;
+}
+
+/** A prefix is a partial code: map state names/postal codes, but never zero-pad it ("06" must not become "00006"). */
+function normalizePrefix(semantic: string | undefined, v: any): string {
+  const s = String(v ?? "").trim();
+  if (semantic === "state_postal" || semantic === "state_fips") {
+    const up = s.toUpperCase().replace(/\s+/g, " ");
+    const postal = STATE_NAMES[up] ?? up;
+    if (semantic === "state_fips" && STATE_FIPS[postal]) return STATE_FIPS[postal];
+    if (semantic === "state_postal" && STATE_NAMES[up]) return postal;
+  }
+  if (semantic === "county_fips") {
+    const up = s.toUpperCase().replace(/\s+/g, " ");
+    const postal = STATE_NAMES[up] ?? up;
+    if (STATE_FIPS[postal]) return STATE_FIPS[postal]; // {"prefix": "TX"} on a county FIPS column = Texas counties
+  }
+  return s;
 }
 
 // ------------------------------------------------------------------ filters
@@ -91,7 +122,7 @@ function parseCond(name: string, raw: any, semantic?: string): Cond {
   if (raw !== null && typeof raw === "object" && !Array.isArray(raw)) {
     const keys = Object.keys(raw);
     if (keys.length === 1 && keys[0] === "contains") return { kind: "contains", value: String(raw.contains).toLowerCase() };
-    if (keys.length === 1 && keys[0] === "prefix") return { kind: "prefix", value: String(normalize(semantic, raw.prefix)).toLowerCase() };
+    if (keys.length === 1 && keys[0] === "prefix") return { kind: "prefix", value: normalizePrefix(semantic, raw.prefix).toLowerCase() };
     if (keys.length && keys.every((k) => ["gte", "lte", "gt", "lt"].includes(k))) {
       const c: any = { kind: "range" };
       for (const k of keys) c[k] = normalize(semantic, raw[k]);
