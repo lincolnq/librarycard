@@ -108,8 +108,12 @@ function timeOverlap(e: Entry, tr: string): boolean {
   return start <= hi && lo <= end;
 }
 
+/** Servable from the mirror: redistributable, healthy/degraded, has an adapter. Whether a mirror has actually been
+ * published is checked at request time (describe/fetch report "mirror not built yet"), so newly published mirrors
+ * go live without a redeploy. */
 export function fetchable(e: Entry): boolean {
-  return Boolean(e._mirrored) && ["healthy", "degraded"].includes(e.status);
+  return Boolean(e.adapter) && e.access?.method !== "restricted" && e.license?.redistribution === "allowed" &&
+    ["healthy", "degraded"].includes(e.status);
 }
 
 export function summary(e: Entry, s?: number): Record<string, any> {
