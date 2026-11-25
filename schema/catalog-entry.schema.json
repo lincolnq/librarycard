@@ -1,0 +1,643 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://open-data-catalog/schema/catalog-entry.schema.json",
+  "title": "Open Data Catalog entry",
+  "description": "One file per source at catalog/<id>.yaml. See docs/SCHEMA.md for field semantics and the schema-evolution process. Current schema_version: 1.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "id",
+    "name",
+    "publisher",
+    "homepage",
+    "description",
+    "domains",
+    "tags",
+    "coverage",
+    "access",
+    "update",
+    "change_detection",
+    "license",
+    "key_variables",
+    "caveats",
+    "status",
+    "status_reason",
+    "status_since",
+    "last_verified",
+    "adapter",
+    "adapter_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "maxLength": 60,
+      "description": "Stable forever. Must equal the file name stem. Never rename; retire and create a new id instead."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "publisher": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "url",
+        "type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "type": {
+          "enum": [
+            "us_federal",
+            "us_state",
+            "us_local",
+            "intergovernmental",
+            "research_institution",
+            "open_data_project",
+            "other_reputable"
+          ]
+        }
+      }
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 80,
+      "maxLength": 1200,
+      "description": "2-4 plain sentences: what it measures and how it is produced."
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/domain"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9][a-z0-9_-]*$"
+      },
+      "uniqueItems": true
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "geography",
+        "countries",
+        "geographic_granularity",
+        "time_range",
+        "temporal_granularity",
+        "unit_of_observation"
+      ],
+      "properties": {
+        "geography": {
+          "type": "string",
+          "description": "Human-readable spatial extent, e.g. '50 states, DC and Puerto Rico'."
+        },
+        "countries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$"
+          },
+          "description": "ISO 3166-1 alpha-2 codes."
+        },
+        "geographic_granularity": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/granularity"
+          }
+        },
+        "time_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "start",
+            "end"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$"
+            },
+            "end": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9]{4}(-[0-9]{2}(-[0-9]{2})?)?$",
+              "description": "Latest period available. null means ongoing / updated continuously."
+            },
+            "notes": {
+              "type": "string"
+            }
+          }
+        },
+        "temporal_granularity": {
+          "$ref": "#/$defs/period"
+        },
+        "unit_of_observation": {
+          "type": "string"
+        }
+      }
+    },
+    "access": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "endpoints",
+        "formats",
+        "auth"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "api",
+            "bulk_download",
+            "cloud_bucket",
+            "restricted"
+          ]
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "url",
+              "description"
+            ],
+            "properties": {
+              "url": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "formats": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "rate_limits": {
+          "type": "string"
+        },
+        "auth": {
+          "enum": [
+            "none",
+            "credentials_required",
+            "registration_required",
+            "data_use_agreement"
+          ],
+          "description": "Anything other than 'none' requires method: restricted and adapter: null. Never store credentials anywhere in this repo."
+        },
+        "restricted_reason": {
+          "type": "string"
+        },
+        "mcp_server": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "url",
+            "notes"
+          ],
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "notes": {
+              "type": "string"
+            }
+          },
+          "description": "Set when the publisher runs its own MCP server that agents should use directly."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cadence",
+        "expected_lag"
+      ],
+      "properties": {
+        "cadence": {
+          "$ref": "#/$defs/period"
+        },
+        "expected_lag": {
+          "type": "string",
+          "description": "Typical delay between end of reference period and publication, e.g. '~12 months after the reference year'."
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "change_detection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "poll_interval_days"
+      ],
+      "properties": {
+        "method": {
+          "enum": [
+            "http_headers",
+            "content_hash",
+            "json_field",
+            "regex",
+            "none"
+          ],
+          "description": "See monitor/detect_changes.py and docs/SCHEMA.md#change_detection."
+        },
+        "url": {
+          "type": "string"
+        },
+        "params": {
+          "type": "object",
+          "additionalProperties": {
+            "type": [
+              "string",
+              "number",
+              "boolean"
+            ]
+          }
+        },
+        "headers": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "etag",
+              "last-modified",
+              "content-length"
+            ]
+          },
+          "description": "http_headers only. Default [etag, last-modified]."
+        },
+        "json_path": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "minItems": 1
+            }
+          ],
+          "description": "json_field only. Dotted path (or list of paths) with [n] indexes, [*] wildcards and [key=value] selectors, e.g. 'dataset[identifier=abc].modified'. Watch release/version/schema metadata, NOT fields that move on every routine refresh."
+        },
+        "pattern": {
+          "type": "string",
+          "description": "regex only. Python regex; fingerprint is the list of all matches (group 1 if present)."
+        },
+        "poll_interval_days": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 90
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "method": {
+                "const": "none"
+              }
+            }
+          },
+          "else": {
+            "required": [
+              "url"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "method": {
+                "const": "json_field"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "json_path"
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "method": {
+                "const": "regex"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "pattern"
+            ]
+          }
+        }
+      ]
+    },
+    "license": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "url",
+        "redistribution",
+        "commercial_use",
+        "attribution",
+        "evidence",
+        "checked_at"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "spdx": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "link_only",
+            "unknown"
+          ]
+        },
+        "commercial_use": {
+          "enum": [
+            "yes",
+            "no",
+            "unclear"
+          ]
+        },
+        "attribution": {
+          "type": "string",
+          "description": "Citation text consumers should use."
+        },
+        "evidence": {
+          "type": "string",
+          "pattern": "^evidence/licenses/[a-z0-9-]+/$",
+          "description": "Directory holding the dated terms snapshot(s) and NOTES.md."
+        },
+        "checked_at": {
+          "type": "string",
+          "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "key_variables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "definition"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Field / variable code exactly as returned by fetch."
+          },
+          "label": {
+            "type": "string"
+          },
+          "unit": {
+            "type": "string"
+          },
+          "definition": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "caveats": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 20
+      },
+      "description": "Anything that makes naive use wrong. At least one is required; think harder if you have none."
+    },
+    "related": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Other catalog ids that are commonly used with this one."
+    },
+    "status": {
+      "enum": [
+        "healthy",
+        "degraded",
+        "quarantined",
+        "retired"
+      ]
+    },
+    "status_reason": {
+      "type": "string",
+      "minLength": 3
+    },
+    "status_since": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"
+    },
+    "last_verified": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+      "description": "Last date an agent confirmed the entry against the publisher and contract tests passed."
+    },
+    "adapter": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-z0-9_]+$",
+      "description": "Module name under src/odc/adapters/, or null for catalog-only (restricted) entries."
+    },
+    "adapter_version": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "access": {
+            "properties": {
+              "method": {
+                "const": "restricted"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "adapter": {
+            "const": null
+          },
+          "adapter_version": {
+            "const": null
+          },
+          "access": {
+            "required": [
+              "restricted_reason"
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "adapter": {
+            "type": "string"
+          },
+          "adapter_version": {
+            "type": "string"
+          },
+          "access": {
+            "properties": {
+              "auth": {
+                "const": "none"
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "domain": {
+      "enum": [
+        "elections",
+        "politics_legislation",
+        "demographics",
+        "economy",
+        "labor",
+        "income_poverty",
+        "housing",
+        "health",
+        "education",
+        "public_finance",
+        "government_spending",
+        "crime_justice",
+        "environment_climate",
+        "disasters_emergency",
+        "geography_boundaries",
+        "agriculture_food",
+        "transportation",
+        "energy",
+        "social_mobility",
+        "regulation",
+        "statistics_aggregator"
+      ]
+    },
+    "granularity": {
+      "enum": [
+        "nation",
+        "census_region",
+        "census_division",
+        "state",
+        "county",
+        "county_subdivision",
+        "place",
+        "tract",
+        "block_group",
+        "block",
+        "zcta",
+        "zip",
+        "metro_area",
+        "congressional_district",
+        "state_legislative_district",
+        "school_district",
+        "precinct",
+        "commuting_zone",
+        "grid",
+        "site",
+        "household",
+        "person",
+        "establishment",
+        "legislator",
+        "bill",
+        "roll_call",
+        "document",
+        "award",
+        "event",
+        "other"
+      ]
+    },
+    "period": {
+      "enum": [
+        "continuous",
+        "daily",
+        "weekly",
+        "monthly",
+        "quarterly",
+        "annual",
+        "biennial",
+        "quadrennial",
+        "decennial",
+        "irregular",
+        "one_time",
+        "per_election",
+        "per_session"
+      ]
+    }
+  }
+}

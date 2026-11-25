@@ -1,0 +1,61 @@
+schema_version: 1
+id: census-data-api
+name: Census Data API (api.census.gov)
+publisher:
+  name: U.S. Census Bureau
+  url: https://www.census.gov
+  type: us_federal
+homepage: https://www.census.gov/data/developers.html
+description: >-
+  The Census Bureau's query API over most of its published tables — ACS 1- and 5-year, decennial census
+  (including PL 94-171 redistricting data), population estimates, SAIPE, County Business Patterns, economic
+  census and more — selectable by variable and geography. It now requires a (free) API key on every request,
+  so this catalog lists it for awareness only; use the bulk-file sources below instead.
+domains: [demographics, income_poverty, housing, economy, labor]
+tags: [census, api, acs, decennial, redistricting, pl-94-171, cbp, saipe, pep]
+coverage:
+  geography: United States, Puerto Rico and Island Areas
+  countries: [US]
+  geographic_granularity: [nation, state, county, county_subdivision, place, tract, block_group, block, zcta, congressional_district, state_legislative_district, school_district, metro_area]
+  time_range:
+    start: "1990"
+    end: null
+  temporal_granularity: annual
+  unit_of_observation: Geographic area (published table cell)
+access:
+  method: restricted
+  endpoints:
+    - url: https://api.census.gov/data.json
+      description: Dataset discovery catalog (also requires a key for data queries)
+  formats: [json]
+  auth: credentials_required
+  restricted_reason: Every data request must include an API key (requests without one return a "Missing Key" page, observed 2026-11-24). This repo stores no credentials.
+  notes: Keyless alternatives in this catalog — census-acs-summary-file (ACS tables), and other www2.census.gov bulk files.
+update:
+  cadence: irregular
+  expected_lag: Follows each underlying program's release schedule.
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: Creative Commons Zero 1.0 (data); Census Data API Terms of Service (service)
+  spdx: CC0-1.0
+  url: https://www.census.gov/data/developers/about/terms-of-service.html
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Census Bureau, <dataset>, via the Census Data API."
+  evidence: evidence/licenses/census-data-api/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: NAME
+    definition: Geographic area name, returned with every query.
+caveats:
+  - Requires an API key (free, from https://api.census.gov/data/key_signup.html). Not fetchable through this server.
+  - Same statistical caveats as the underlying programs (ACS margins of error, decennial differential privacy, etc.).
+related: [census-acs-summary-file]
+status: healthy
+status_reason: Catalog-only entry; access restricted (API key required).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

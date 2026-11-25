@@ -1,0 +1,321 @@
+{
+ "_source_url": "https://www.census.gov/data.json",
+ "_retrieved": "2026-11-24T23:48:16+00:00",
+ "_pattern": "^Decennial Census: (Redistricting Data|National Redistricting Data|Demographic and Housing Characteristics)",
+ "_catalog_license_counts": {
+  "https://creativecommons.org/publicdomain/zero/1.0/": 1550,
+  "http://creativecommons.org/publicdomain/zero/1.0/": 200,
+  "https://creativecommons.org/publicdomain/zero/1.0/unidentified": 50
+ },
+ "entries": [
+  {
+   "c_vintage": 2010,
+   "c_dataset": [
+    "dec",
+    "plnat"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2010/dec/plnat/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2010/dec/plnat/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2010/dec/plnat/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2010/dec/plnat/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2010/dec/plnat/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2010/dec/plnat/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Decennial Census: National Redistricting Data",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2010/dec/plnat",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Census Bureau Call Center",
+    "hasEmail": "mailto:pio@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/DECENNIALPLNAT2010",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2020-02-27 00:00:00.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_vintage": 2010,
+   "c_dataset": [
+    "dec",
+    "pl"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2010/dec/pl/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2010/dec/pl/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2010/dec/pl/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2010/dec/pl/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2010/dec/pl/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2010/dec/pl/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Decennial Census: Redistricting Data (PL 94-171)",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2010/dec/pl",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Census Bureau Call Center",
+    "hasEmail": "mailto:pio@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/DECENNIALPL2010",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2019-07-18 08:36:06.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_vintage": 2000,
+   "c_dataset": [
+    "dec",
+    "pl"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2000/dec/pl/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2000/dec/pl/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2000/dec/pl/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2000/dec/pl/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2000/dec/pl/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2000/dec/pl/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Decennial Census: Redistricting Data (PL 94-171)",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2000/dec/pl",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Census Bureau Call Center",
+    "hasEmail": "mailto:pio@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/DECENNIALPL2000",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2020-03-17 00:00:00.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_vintage": 2020,
+   "c_dataset": [
+    "dec",
+    "pl"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2020/dec/pl/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2020/dec/pl/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2020/dec/pl/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2020/dec/pl/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2020/dec/pl/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2020/dec/pl/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Decennial Census: Redistricting Data (PL 94-171)",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2020/dec/pl",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Census Bureau Call Center",
+    "hasEmail": "mailto:pio@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/DECENNIALPL2020",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2020-05-28 00:00:00.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "temporal": "2020/2020",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_vintage": 2020,
+   "c_dataset": [
+    "dec",
+    "dhc"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2020/dec/dhc/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2020/dec/dhc/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2020/dec/dhc/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2020/dec/dhc/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2020/dec/dhc/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2020/dec/dhc/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isCube": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Decennial Census: Demographic and Housing Characteristics",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2020/dec/dhc",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Census Bureau Call Center",
+    "hasEmail": "mailto:pio@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/DECENNIALDHC2020",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2022-09-16 00:00:00.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "temporal": "2020/2020",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  }
+ ]
+}

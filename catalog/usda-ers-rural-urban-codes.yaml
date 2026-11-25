@@ -1,0 +1,93 @@
+schema_version: 1
+id: usda-ers-rural-urban-codes
+name: Rural-Urban Continuum Codes (RUCC) and Urban Influence Codes (UIC)
+publisher:
+  name: U.S. Department of Agriculture, Economic Research Service
+  url: https://www.ers.usda.gov
+  type: us_federal
+homepage: https://www.ers.usda.gov/data-products/rural-urban-continuum-codes
+description: >-
+  County-level classification schemes from USDA's Economic Research Service that distinguish metropolitan counties
+  by the population size of their metro area and nonmetropolitan counties by degree of urbanization and adjacency
+  to a metro area. The Rural-Urban Continuum Codes (9 classes, 2023 edition) and Urban Influence Codes (9 classes,
+  2024 edition) are derived from OMB's 2023 metro/micro delineations and 2020 Census urban-area and population data,
+  and are the standard way to stratify county statistics by rurality in policy research.
+domains: [demographics, geography_boundaries, agriculture_food]
+tags: [rural, urban, rucc, uic, metro, nonmetro, rurality, county-classification, usda, ers, urban-influence]
+coverage:
+  geography: United States — all counties and county-equivalents, Puerto Rico municipios and Island Areas
+  countries: [US]
+  geographic_granularity: [county]
+  time_range:
+    start: "2023"
+    end: "2024"
+    notes: The adapter serves the current editions only (RUCC 2023, UIC 2024, both based on 2020 Census data). Earlier editions (RUCC 1974-2013, UIC 1993-2013) are xls-only on the landing pages and not served.
+  temporal_granularity: decennial
+  unit_of_observation: County (one classification per county per edition)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www.ers.usda.gov/data-products/rural-urban-continuum-codes
+      description: RUCC landing page; the adapter reads the current /media/<n>/<YEAR>-rural-urban-continuum-codes.csv link from it.
+    - url: https://www.ers.usda.gov/media/5768/2023-rural-urban-continuum-codes.csv
+      description: RUCC 2023 CSV (long format, latin-1) at the time of onboarding.
+    - url: https://www.ers.usda.gov/data-products/urban-influence-codes
+      description: UIC landing page; the adapter reads the current /media/<n>/<YEAR>-urban-influence-codes.csv link from it.
+    - url: https://www.ers.usda.gov/media/6182/2024-urban-influence-codes.csv
+      description: UIC 2024 CSV (long format, latin-1) at the time of onboarding.
+  formats: [csv, xlsx]
+  rate_limits: None published. CSVs are ~0.6 MB; cached 30 days (license allows).
+  auth: none
+update:
+  cadence: decennial
+  expected_lag: ~3-4 years after the decennial census (after OMB metro delineations and Census urban areas are released); occasional corrections in between.
+  notes: The RUCC page showed "Updated 12/30/2025" at onboarding; the 2023 codes themselves date from January 2024.
+change_detection:
+  method: regex
+  url: https://www.ers.usda.gov/data-products/rural-urban-continuum-codes
+  pattern: 'href="(/media/\d+/[^"?]+\.(?:csv|xlsx|xls))'
+  poll_interval_days: 30
+  notes: Fingerprints the set of download file paths (without the ?v= cache token) on the RUCC page. A new edition or a replaced/corrected file gets a new /media/<n>/ path. The UIC page is not polled separately; check it whenever this fires.
+license:
+  name: Creative Commons Zero 1.0 (public domain dedication), per USDA's dataset metadata on data.gov
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Department of Agriculture, Economic Research Service. Rural-Urban Continuum Codes (2023) / Urban Influence Codes (2024)."
+  evidence: evidence/licenses/usda-ers-rural-urban-codes/
+  checked_at: "2026-11-24"
+  notes: www.usda.gov (the site-level policy page ERS defers to) returns 403 to non-browser clients; the dataset-level license comes from USDA's Project Open Data metadata as shown on catalog.data.gov. See NOTES.md.
+key_variables:
+  - name: FIPS
+    label: County FIPS
+    definition: 5-digit state+county FIPS code (the UIC file calls it FIPS-UIC; the adapter names it FIPS for both).
+  - name: RUCC_2023
+    label: Rural-Urban Continuum Code 2023
+    definition: 1-3 metro counties in metro areas of 1 million+, 250,000-1 million, and under 250,000 population; 4-9 nonmetro counties by urban population (20,000+, 5,000-20,000, under 5,000) and adjacency to a metro area (4, 6, 8 = adjacent; 5, 7, 9 = not adjacent). Present when product=rucc.
+  - name: UIC_2024
+    label: Urban Influence Code 2024
+    definition: 1 large metro, 2 small metro; 3-9 nonmetro by adjacency to large/small metro areas and presence of a micropolitan area or town. Present when product=uic.
+  - name: Description
+    label: Code description
+    definition: Publisher's text label for the code.
+  - name: Population_2020
+    label: 2020 population
+    unit: persons
+    definition: County 2020 Census population used in the classification.
+  - name: State / County_Name
+    label: State postal code and county name
+    definition: As published by ERS.
+caveats:
+  - Codes are not comparable across editions; the urban-area population threshold rose from 2,500 to 5,000 in 2023, and metro definitions change with each OMB delineation. Do not track a county's code over time as if it measured change in rurality alone.
+  - The publisher's CSV is in long format (Attribute/Value); the adapter pivots it to one row per county and names the code column after the edition (RUCC_2023, UIC_2024), so the column name changes when a new edition is released.
+  - Two American Samoa entities (Rose Island, Swains Island) have no code (Description "Not Applicable"); the adapter returns null for their code.
+  - Connecticut is classified by its 9 planning regions (2022+ county-equivalents), so it does not join to pre-2022 county data on FIPS.
+  - These are county-level classifications; large counties can contain both urban cores and remote rural areas. For sub-county rurality use ERS RUCA codes (census tract/ZIP) instead.
+related: [census-pep, census-gazetteer]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: usda_ers_rural_urban_codes
+adapter_version: 1.0.0

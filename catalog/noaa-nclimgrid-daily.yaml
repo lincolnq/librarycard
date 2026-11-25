@@ -1,0 +1,80 @@
+schema_version: 1
+id: noaa-nclimgrid-daily
+name: NOAA nClimGrid-Daily County and State Climate Averages
+publisher:
+  name: NOAA National Centers for Environmental Information (NCEI)
+  url: https://www.ncei.noaa.gov
+  type: us_federal
+homepage: https://www.ncei.noaa.gov/products/land-based-station/nclimgrid-daily
+description: >-
+  Daily maximum, minimum and mean temperature and total precipitation, averaged over every county and
+  state in the contiguous United States from 1951 to the present. Values are area averages of NCEI's
+  nClimGrid-Daily 1/24° (~4-5 km) grid, which is interpolated from quality-controlled GHCN-Daily station
+  observations. Published to a public AWS bucket under NOAA's Open Data Dissemination program.
+domains: [environment_climate, health, agriculture_food]
+tags: [climate, temperature, precipitation, heat, county, daily, aws, s3]
+coverage:
+  geography: Contiguous United States (48 states + DC); no Alaska, Hawaii or territories
+  countries: [US]
+  geographic_granularity: [state, county]
+  time_range:
+    start: "1951-01-01"
+    end: null
+    notes: Final ('scaled') files lag ~1-2 months; 'prelim' files cover the most recent weeks.
+  temporal_granularity: daily
+  unit_of_observation: County (or state) area-average for one day
+access:
+  method: cloud_bucket
+  endpoints:
+    - url: https://noaa-nclimgrid-daily-pds.s3.amazonaws.com/access/averages/
+      description: s3://noaa-nclimgrid-daily-pds/access/averages/<YYYY>/<var>-<YYYYMM>-<cty|ste>-<scaled|prelim>.csv (anonymous HTTPS)
+    - url: https://noaa-nclimgrid-daily-pds.s3.amazonaws.com/doc/
+      description: User guide, readme, status notes and NCEI-to-FIPS state code table
+  formats: [csv]
+  rate_limits: None (public S3 bucket).
+  auth: none
+update:
+  cadence: daily
+  expected_lag: Preliminary values within ~3 days; scaled (final) values ~1-2 months after the month ends.
+change_detection:
+  method: http_headers
+  url: https://noaa-nclimgrid-daily-pds.s3.amazonaws.com/doc/nclimgrid-daily_status-web.txt
+  headers: [etag, last-modified]
+  poll_interval_days: 7
+  notes: The status file is NCEI's changelog for the product (versions, methodology, format changes). Routine daily data updates do not touch it.
+license:
+  name: NOAA Open Data Dissemination (NODD) — open, use as desired
+  spdx: null
+  url: https://registry.opendata.aws/noaa-nclimgrid/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "NOAA National Centers for Environmental Information, nClimGrid-Daily (v1.0.0) area averages, via the NOAA Open Data Dissemination program. Values reshaped by open-data-catalog; not endorsed by NOAA."
+  evidence: evidence/licenses/noaa-nclimgrid-daily/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: fips
+    definition: 5-digit county FIPS (or 2-digit state FIPS), converted by the adapter from NCEI's own state numbering.
+  - name: date
+    unit: ISO date
+    definition: Day of observation.
+  - name: variable
+    definition: tmax (daily maximum temperature), tmin (daily minimum), tavg ((tmax+tmin)/2), prcp (precipitation total).
+  - name: value
+    unit: °C for temperatures, mm for precipitation
+    definition: Area-average value for the day.
+  - name: ncei_code
+    definition: Original NCEI region code (state part uses NCEI numbering, NOT FIPS).
+caveats:
+  - Values are gridded, interpolated area averages, not station readings. They smooth local extremes (e.g. urban heat islands) and are less reliable where station density is low (mountain West, early decades).
+  - The source files encode states with NCEI's numbering, not FIPS (e.g. Arizona is 02 in NCEI, 04 in FIPS). The adapter converts to FIPS in `fips`; never join on `ncei_code` with FIPS-keyed data.
+  - The most recent ~2 months are 'prelim' and will be revised; check the notes field to see which version was served.
+  - Contiguous US only. Alaska, Hawaii, Puerto Rico and other territories are not covered.
+  - County boundaries are fixed at the product's definition (2020 census vintage); historical county changes (e.g. Connecticut's 2022 switch to planning regions) are not reflected.
+  - tavg is (tmax + tmin) / 2, not a 24-hour mean.
+related: [fema-disaster-declarations]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: noaa_nclimgrid_daily
+adapter_version: 1.0.0

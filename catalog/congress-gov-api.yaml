@@ -1,0 +1,68 @@
+schema_version: 1
+id: congress-gov-api
+name: Congress.gov API (v3)
+publisher:
+  name: Library of Congress (Congress.gov)
+  url: https://www.congress.gov
+  type: us_federal
+homepage: https://api.congress.gov/
+description: >-
+  The Library of Congress's official API over Congress.gov: bills and resolutions (sponsors, cosponsors, actions,
+  committees, subjects, CRS summaries, text versions, related bills), amendments, members, committees and committee
+  reports, nominations, treaties, the Congressional Record, House roll-call votes and hearings, from data exchanged with
+  the House and Senate. It requires a free api.data.gov key on every request, so it is listed here for awareness only;
+  use unitedstates-congress-legislators and voteview-congress for keyless member and vote data.
+domains: [politics_legislation]
+tags: [congress-gov, library-of-congress, bills, legislation, sponsors, cosponsors, amendments, crs-summaries,
+       bill-text, committees, nominations, treaties, congressional-record, api]
+coverage:
+  geography: United States — Congress
+  countries: [US]
+  geographic_granularity: [nation, legislator, bill, roll_call, document]
+  time_range:
+    start: "1973"
+    end: null
+    notes: Coverage varies by collection (bills from the 93rd Congress, fuller detail from the 1990s; see congress.gov/help/coverage-dates).
+  temporal_granularity: daily
+  unit_of_observation: Bill, amendment, member, committee, nomination, vote or Record item, depending on endpoint
+access:
+  method: restricted
+  endpoints:
+    - url: https://api.congress.gov/v3/
+      description: REST API (JSON/XML), 250 results per page max, 5,000 requests/hour per key. Every request needs api_key.
+  formats: [json, xml]
+  rate_limits: 5,000 requests per hour per key.
+  auth: credentials_required
+  restricted_reason: Every request needs an api.data.gov key — an anonymous request returns HTTP 403 API_KEY_MISSING (observed 2026-11-24). This repo stores no credentials.
+  notes: Keyless alternatives here — unitedstates-congress-legislators (members, ids, committees), voteview-congress (roll calls); bill text and status bulk XML are also on govinfo.gov (BILLS, BILLSTATUS collections).
+update:
+  cadence: daily
+  expected_lag: Hours to a day after floor/committee action; CRS summaries can lag weeks.
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: No dataset license stated (Library of Congress general rights statement)
+  spdx: null
+  url: https://www.loc.gov/legal/
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "Library of Congress, Congress.gov API, https://api.congress.gov/."
+  evidence: evidence/licenses/congress-gov-api/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: congress / type / number
+    definition: Bill identifier components (e.g. 118, hr, 2) used by /bill/{congress}/{type}/{number}.
+  - name: sponsors / cosponsors / latestAction
+    definition: Sponsor and cosponsor members (bioguideId) and the most recent action with date.
+caveats:
+  - Requires an API key (free, https://api.congress.gov/sign-up/). Not fetchable through this server.
+  - Data are what the House and Senate deliver to Congress.gov; gaps and delays in older congresses are documented on the coverage-dates page.
+  - Roll-call vote coverage in the API is partial (House votes only, recent congresses); use voteview-congress for complete House and Senate vote histories.
+related: [unitedstates-congress-legislators, voteview-congress, federal-register-documents]
+status: healthy
+status_reason: Catalog-only entry; access restricted (API key required).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

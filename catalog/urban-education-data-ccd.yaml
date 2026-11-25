@@ -1,0 +1,103 @@
+schema_version: 1
+id: urban-education-data-ccd
+name: Education Data Portal — Common Core of Data (CCD) school districts (Urban Institute)
+publisher:
+  name: Urban Institute (Education Data Portal), redistributing NCES Common Core of Data
+  url: https://educationdata.urban.org/
+  type: research_institution
+homepage: https://educationdata.urban.org/documentation/
+description: >-
+  The Urban Institute's Education Data Portal serves cleaned, harmonised versions of the National Center for
+  Education Statistics (NCES) Common Core of Data through a keyless JSON API. This entry covers the school-district
+  (local education agency) files: finance (F-33 School District Finance Survey revenues by source and expenditures
+  by function), enrollment by grade, race and sex, and the district directory (names, type, locale, staff counts).
+  Urban standardises variable names and codes across ~35 years, which the raw NCES files do not.
+domains: [education, public_finance, government_spending, demographics]
+tags: [education, nces, ccd, common-core-of-data, school-districts, lea, leaid, school-finance, f-33, per-pupil, enrollment, k-12, urban-institute, education-data-portal]
+coverage:
+  geography: United States — all public school districts (LEAs) in the 50 states, DC and territories
+  countries: [US]
+  geographic_granularity: [school_district, state]
+  time_range:
+    start: "1986"
+    end: "2024"
+    notes: Enrollment and directory 1986-2024 (school year starting in fall of `year`); finance 1991 and 1994-2020 (fiscal year).
+  temporal_granularity: annual
+  unit_of_observation: School district x year (finance, directory); school district x year x grade [x race x sex] (enrollment)
+access:
+  method: api
+  endpoints:
+    - url: https://educationdata.urban.org/api/v1/school-districts/ccd/finance/{year}/
+      description: District finance (F-33); query params fips=, leaid= (single value).
+    - url: https://educationdata.urban.org/api/v1/school-districts/ccd/enrollment/{year}/grade-{grade}/
+      description: District enrollment by grade (pk, k, 1-13, 99 = total); optional /race/, /sex/, /race/sex/ path suffix.
+    - url: https://educationdata.urban.org/api/v1/school-districts/ccd/directory/{year}/
+      description: District directory.
+    - url: https://educationdata.urban.org/api/v1/api-endpoints/
+      description: Endpoint catalogue with years available (used for change detection).
+  formats: [json, csv]
+  rate_limits: None published; responses are paginated (follow `next`). The adapter fetches at most 20 pages per call.
+  auth: none
+  notes: Many other portal endpoints (schools, IPEDS colleges, CRDC, EDFacts assessments, SAIPE) are not covered by this entry.
+update:
+  cadence: annual
+  expected_lag: ~1-2 years for enrollment/directory; ~3-4 years for finance (NCES F-33 release lag plus Urban processing).
+change_detection:
+  method: json_field
+  url: https://educationdata.urban.org/api/v1/api-endpoints/
+  json_path:
+    - "results[endpoint_id=29].years_available"
+    - "results[endpoint_id=29].endpoint_url"
+    - "results[endpoint_id=56].years_available"
+    - "results[endpoint_id=56].endpoint_url"
+    - "results[endpoint_id=54].years_available"
+    - "results[endpoint_id=54].endpoint_url"
+  poll_interval_days: 14
+  notes: Watches the years available and URL patterns of the three district endpoints (finance 29, enrollment 56, directory 54); moves when a new year is added or an endpoint moves.
+license:
+  name: Open Data Commons Attribution License (ODC-By) v1.0
+  spdx: ODC-By-1.0
+  url: https://opendatacommons.org/licenses/by/1-0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: >-
+    NCES Common Core of Data (school district finance / enrollment / directory), Education Data Portal (Version
+    <version>), Urban Institute, accessed <Month DD, YYYY>, https://educationdata.urban.org/documentation/, made
+    available under the ODC Attribution License.
+  evidence: evidence/licenses/urban-education-data-ccd/
+  checked_at: "2026-11-24"
+  notes: Portal documentation states all data "in any form is licensed to you under the Open Data Commons Attribution License (ODC-By) v1.0". See NOTES.md.
+key_variables:
+  - name: leaid
+    definition: 7-digit NCES local education agency id (first 2 digits = state FIPS). String.
+  - name: fips
+    definition: State FIPS code (integer).
+  - name: year
+    definition: Fall of the school year (enrollment, directory) or fiscal year (finance).
+  - name: rev_total / rev_fed_total / rev_state_total / rev_local_total
+    unit: nominal US dollars
+    definition: Total revenue and revenue by source (finance).
+  - name: exp_total
+    unit: nominal US dollars
+    definition: Total expenditures (finance); exp_current_* break out current spending by function.
+  - name: enrollment
+    unit: students
+    definition: Fall membership count for the district / grade / race / sex cell.
+  - name: grade / race / sex
+    definition: Codes — grade -1 = pre-K, 0 = K, 1-12, 13 = ungraded, 99 = total; race 1 White, 2 Black, 3 Hispanic, 4 Asian, 5 AIAN, 6 NHPI, 7 two or more, 99 total; sex 1 male, 2 female, 99 total.
+  - name: lea_name / agency_type / urban_centric_locale
+    definition: Directory fields — district name, agency type (1 regular ... 7 charter agency), NCES locale code.
+caveats:
+  - Finance amounts are nominal dollars (not inflation-adjusted); compute per-pupil values with enrollment from the same year and the F-33 enrollment definition. Finance data end in 2020 in the portal.
+  - Codes -1 (missing/not reported), -2 (not applicable) and -3 (suppressed) are converted to null in value columns — do not treat null as zero.
+  - District counts and boundaries change over time (consolidations, charter agencies counted as districts in many states); state totals of district data may not match NCES state-level files exactly.
+  - Enrollment race categories changed in 2008-2011 (two or more races introduced; Asian and NHPI split); earlier years are not directly comparable.
+  - This is the Urban Institute's processed version of NCES data; variable names and recodes differ from raw NCES files. Cite both NCES and the portal.
+  - Some states report finance for dependent districts through a parent government (censusid -2 / rev_local_parent_govt), so local tax revenue breakdowns can be missing for those systems.
+related: []
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: urban_education_data_ccd
+adapter_version: 1.0.0

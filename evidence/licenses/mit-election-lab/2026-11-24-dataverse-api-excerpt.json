@@ -1,0 +1,105 @@
+{
+ "_retrieved": "2026-11-24T23:30:07+00:00",
+ "_note": "Excerpt of Harvard Dataverse native API responses for MIT Election Data + Science Lab datasets: license and guestbook fields, and the response to an anonymous file download.",
+ "datasets": {
+  "doi:10.7910/DVN/VOQCHQ": {
+   "api_url": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/VOQCHQ",
+   "title": [
+    "County Presidential Election Returns 2000-2024"
+   ],
+   "versionNumber": 20,
+   "releaseTime": "2026-02-25T19:00:32Z",
+   "license": {
+    "name": "CC0 1.0",
+    "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+    "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+    "rightsIdentifier": "CC0-1.0",
+    "rightsIdentifierScheme": "SPDX",
+    "schemeUri": "https://spdx.org/licenses/",
+    "languageCode": "en"
+   },
+   "guestbookId": 458,
+   "termsOfUse": null,
+   "files": [
+    "countypres_2000-2024.tab",
+    "County Presidential Returns 2000-2024.md",
+    "sources-president.tab"
+   ],
+   "anonymous_download_response": "{\"status\":\"ERROR\",\"message\":\"You may not download this file without the required Guestbook response for guestbookID 458.\"}"
+  },
+  "doi:10.7910/DVN/IG0UN2": {
+   "api_url": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/IG0UN2",
+   "title": [
+    "U.S. House 1976\u20132024"
+   ],
+   "versionNumber": 15,
+   "releaseTime": "2026-03-09T17:49:25Z",
+   "license": {
+    "name": "CC0 1.0",
+    "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+    "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+    "rightsIdentifier": "CC0-1.0",
+    "rightsIdentifierScheme": "SPDX",
+    "schemeUri": "https://spdx.org/licenses/",
+    "languageCode": "en"
+   },
+   "guestbookId": 458,
+   "termsOfUse": null,
+   "files": [
+    "1976-2024-house.tab",
+    "codebook-us-house-1976\u20132024.md"
+   ],
+   "anonymous_download_response": "{\"status\":\"ERROR\",\"message\":\"You may not download this file without the required Guestbook response for guestbookID 458.\"}"
+  },
+  "doi:10.7910/DVN/PEJ5QU": {
+   "api_url": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/PEJ5QU",
+   "title": [
+    "U.S. Senate statewide 1976\u20132024"
+   ],
+   "versionNumber": 8,
+   "releaseTime": "2026-05-11T16:13:52Z",
+   "license": {
+    "name": "CC0 1.0",
+    "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+    "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+    "rightsIdentifier": "CC0-1.0",
+    "rightsIdentifierScheme": "SPDX",
+    "schemeUri": "https://spdx.org/licenses/",
+    "languageCode": "en"
+   },
+   "guestbookId": null,
+   "termsOfUse": null,
+   "files": [
+    "1976-2024-senate-state.tab",
+    "codebook-us-senate-1976\u20132024.md",
+    "sources-senate.tab"
+   ],
+   "anonymous_download_response": ""
+  },
+  "doi:10.7910/DVN/42MVDX": {
+   "api_url": "https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/42MVDX",
+   "title": [
+    "U.S. President 1976\u20132024"
+   ],
+   "versionNumber": 10,
+   "releaseTime": "2026-09-04T16:15:49Z",
+   "license": {
+    "name": "CC0 1.0",
+    "uri": "http://creativecommons.org/publicdomain/zero/1.0",
+    "iconUri": "https://licensebuttons.net/p/zero/1.0/88x31.png",
+    "rightsIdentifier": "CC0-1.0",
+    "rightsIdentifierScheme": "SPDX",
+    "schemeUri": "https://spdx.org/licenses/",
+    "languageCode": "en"
+   },
+   "guestbookId": null,
+   "termsOfUse": null,
+   "files": [
+    "1976-2024-president.csv",
+    "codebook-us-president-1976-2020.md",
+    "sources-president.tab"
+   ],
+   "anonymous_download_response": ""
+  }
+ }
+}

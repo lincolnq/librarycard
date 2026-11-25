@@ -1,0 +1,15 @@
+URL: https://raw.githubusercontent.com/unitedstates/congress-legislators/main/CONTRIBUTING.md
+Final-URL: https://raw.githubusercontent.com/unitedstates/congress-legislators/main/CONTRIBUTING.md
+Retrieved: 2026-11-24T23:38:58+00:00
+HTTP-Status: 200
+Raw-SHA256: db89259e8c55fa1d18d9e8b250bf89c7a59a1bf0c903759fc7d19c6c04688d9a
+Raw-Bytes: 442
+---
+## Public domain
+
+The project is in the public domain within the United States, and copyright and related rights in the work worldwide are waived through the [CC0 1.0 Universal public domain dedication][CC0].
+
+All contributions to this project will be released under the CC0 dedication. By submitting a pull request, you are agreeing to comply with this waiver of copyright interest.
+
+[CC0]: http://creativecommons.org/publicdomain/zero/1.0/
+

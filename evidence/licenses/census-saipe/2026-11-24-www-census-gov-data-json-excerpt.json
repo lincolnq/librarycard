@@ -1,0 +1,137 @@
+{
+ "_source_url": "https://www.census.gov/data.json",
+ "_retrieved": "2026-11-24T23:39:54+00:00",
+ "_pattern": "Small Area Income and Poverty",
+ "_catalog_license_counts": {
+  "https://creativecommons.org/publicdomain/zero/1.0/": 1550,
+  "http://creativecommons.org/publicdomain/zero/1.0/": 200,
+  "https://creativecommons.org/publicdomain/zero/1.0/unidentified": 50
+ },
+ "entries": [
+  {
+   "c_dataset": [
+    "timeseries",
+    "poverty",
+    "saipe"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/timeseries/poverty/saipe/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/timeseries/poverty/saipe/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/timeseries/poverty/saipe/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/timeseries/poverty/saipe/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/timeseries/poverty/saipe/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/timeseries/poverty/saipe/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isTimeseries": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Time Series Small Area Income and Poverty Estimates: State and County",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/timeseries/poverty/saipe",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Small Area Income and Poverty Estimates",
+    "hasEmail": "mailto:sehsd.saipe@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/SAIPESTATECOUNTY",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2019-12-02 09:29:53.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "US",
+   "temporal": "2024/2024",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_dataset": [
+    "timeseries",
+    "poverty",
+    "saipe",
+    "schdist"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/timeseries/poverty/saipe/schdist/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/timeseries/poverty/saipe/schdist/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/timeseries/poverty/saipe/schdist/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/timeseries/poverty/saipe/schdist/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/timeseries/poverty/saipe/schdist/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/timeseries/poverty/saipe/schdist/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isTimeseries": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "Time Series Small Area Income and Poverty Estimates: School Districts",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/timeseries/poverty/saipe/schdist",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "Small Area Income and Poverty Estimates",
+    "hasEmail": "mailto:sehsd.saipe@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/SAIPESCHOOLDISTRICTS",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2019-12-02 09:30:03.0",
+   "programCode": [
+    "006:004"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "School Districts",
+   "temporal": "1995/2024",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  }
+ ]
+}

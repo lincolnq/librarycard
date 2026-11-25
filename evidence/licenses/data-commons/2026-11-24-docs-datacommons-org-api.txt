@@ -1,0 +1,222 @@
+URL: https://docs.datacommons.org/api/
+Final-URL: https://docs.datacommons.org/api/
+Retrieved: 2026-11-24T23:29:49+00:00
+HTTP-Status: 200
+Raw-SHA256: 3431f7fc1a06f80b79f4abd9472111b19abfb4deb43ade2870ff3ae697d0530a
+Raw-Bytes: 32059
+---
+Data Commons by Google 
+
+ • 
+ Docs 
+
+ How to use Data Commons 
+
+ What is Data Commons? 
+
+ Key concepts and common tasks 
+
+ Glossary 
+
+ Place types 
+
+ Cite Data Commons 
+
+ Get support 
+
+ Data coverage 
+
+ API - Query data programmatically 
+
+ REST (V2) 
+
+ Get statistical observations
+
+ Get node properties
+
+ Resolve entities
+
+ Troubleshooting
+
+ Migrate from V1 to V2
+
+ Python (V2) 
+
+ Tutorials
+
+ Get statistical observations
+
+ Get statistical observations as Pandas DataFrames
+
+ Get node properties
+
+ Resolve entities
+
+ Migrate from V1 to V2
+
+ SDMX 3.0 
+
+ Find available data
+
+ Get statistical observations
+
+ MCP - Query data interactively with an AI agent 
+
+ Use MCP 
+
+ Analyze data with Google Sheets 
+
+ Tutorials 
+
+ Get names associated with DCIDs 
+
+ Get places contained in another place 
+
+ Get statistical variable values 
+
+ Get node property values 
+
+ Embed data and visualizations in your own website 
+
+ Bar chart 
+
+ Gauge chart 
+
+ Highlight tile 
+
+ Line chart 
+
+ Map chart 
+
+ Pie chart 
+
+ Ranking chart 
+
+ Scatter plot 
+
+ Slider control 
+
+ Query with SQL/BigQuery 
+
+ Query places 
+
+ Query observations and properties of places 
+
+ More complex queries 
+
+ Join with external data 
+
+ Contribute to Data Commons 
+
+ Build your own Data Commons 
+
+ Quickstart 
+
+ Prepare and load your own data 
+
+ Define custom entities 
+
+ Data config file reference 
+
+ Configure the MCP server 
+
+ Customize the site 
+
+ Build and run images 
+
+ Deploy to Google Cloud 
+
+ Launch your Data Commons 
+
+ Advanced (hybrid) setups 
+
+ Troubleshooting 
+
+ Frequently asked questions 
+
+ Additional resources 
+
+ Papers 
+
+ Educational materials 
+
+ Data literacy with Data Commons
+
+ How to use the course materials
+
+ Key themes
+
+ Modules
+
+ Introduction to data science
+
+ API overview
+
+ Data Commons aggregates data from many
+different data sources into a single
+database. Data Commons is based on the data model used by
+ schema.org ; for more information, see Key concepts .
+
+ The Data Commons APIs allow developers to programmatically access the data in Data Commons, using the following technologies:
+
+ A REST API that can be used on the command line as well as in any language with an HTTP library.
+
+ A Python client library that wraps the REST APIs and includes support for Pandas .
+
+ The endpoints can be roughly grouped into three categories:
+
+ Statistical data : Given a set of statistical variables, dates and entities, get observations.
+
+ Graph exploration : Given a set of nodes, explore the graph around those nodes.
+
+ Resolution to DCIDs : Given a set of place nodes identified by other means, get their Data Commons IDs.
+
+ In addition, Data Commons provides additional tools for accessing its data that call the REST APIs under the hood:
+
+ Google Sheets : provides several custom functions that populate spreadsheets with data from the Data Commons knowledge graph
+
+ Web Components : provides JavaScript APIs and HTML templates that allow you to embed Data Commons data and visualizations into web pages
+
+ Finally, an R client library is available from a third-party provider, Tidy Intelligence . Learn more at https://github.com/tidy-intelligence/r-datacommons/.
+
+ API keys
+
+ A key is required for APIs to authenticate and authorize requests, as follows:
+
+ All REST V2 APIs. These requests are served by endpoints at api.datacommons.org .
+
+ Python and Pandas V2 APIs, also served by api.datacommons.org .
+
+ Data Commons MCP server requests. These are served by api.datacommons.org/mcp .
+
+ All requests coming from a custom Data Commons instance. These are also served by api.datacommons.org .
+
+ Data Commons MCP server requests. These are served by api.datacommons.org/mcp .
+
+ Data Commons NL API requests (used by the DataGemma tool). These are served by endpoints at nl.datacommons.org .
+
+ A key is currently not required for the following, although this may change in the future:
+
+ Google Sheets
+
+ Web Components
+
+ Obtain an API key
+
+ Data Commons API keys are managed by a self-service portal. To obtain an API key, go to https://apikeys.datacommons.org and request a key for the hostname(s) listed above. Enable each of the APIs you want; you can share a single key for all of them.
+
+ To use the key in requests, see the relevant documentation:
+
+ REST V2 APIs .
+
+ Python/Pandas V2 APIs .
+
+ For NL APIs in DataGemma, see the Colab notebooks in https://github.com/datacommonsorg/llm-tools/tree/main/notebooks 
+
+ Page last updated: November 16, 2026 • 
+ Send feedback about this page
+
+ An initiative from 
+
+ Terms and Conditions 
+ Privacy Policy

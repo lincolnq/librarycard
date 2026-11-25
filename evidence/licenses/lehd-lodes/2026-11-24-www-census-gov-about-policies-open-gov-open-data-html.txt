@@ -1,0 +1,643 @@
+URL: https://www.census.gov/about/policies/open-gov/open-data.html
+Final-URL: https://www.census.gov/topics/research/research-transparency-public-access/open-data.html
+Retrieved: 2026-11-24T23:38:24+00:00
+HTTP-Status: 200
+Raw-SHA256: 437e793291d9bf7bfe883dab2ecc5b6a38d8bfa80834f5ad3d8ae29de12d90ce
+Raw-Bytes: 335626
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Age and Sex 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Audio 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ Topics 
+
+ / 
+
+ Research 
+
+ / 
+
+ Research Transparency and Public Access 
+
+ / 
+
+ Open Data 
+
+ Open Data
+
+ Skip Navigation 
+
+ Within Research Transparency and Public Access
+
+ Open Code 
+
+ Open Data 
+
+ Open Science 
+
+ Related Policy 
+
+ Within Research Transparency and Public Access
+
+ Within Research Transparency and Public Access 
+
+ Open Code 
+
+ Open Data 
+
+ Open Science 
+
+ Related Policy 
+
+ -->
+
+ Open Data
+
+ Accessing Public Data
+
+ The U.S. Census Bureau is committed to open government by sharing its public data as open data. Census Bureau data continues to be a key national resource, serving as a catalyst for entrepreneurship, innovation, scientific discovery, and commercial activity. We continuously identify and publish datasets and application programming interfaces (APIs) to data.gov in accordance with the Office of Management and Budget (OMB) Memorandum M-10-06, Executive Order 13642 on open data, and the overall principles outlined in the Digital Government Strategy. In accordance with the open data policy, OMB memorandum M-13-13, the Census Bureau publishes its information in machine-readable formats while also safeguarding privacy and security.
+
+ Accessing Restricted-Use Data
+
+ The Census Bureau maintains and enhances confidential microdata from its censuses, surveys, linked employer‑employee datasets, graduate‑employer and researcher‑employer linkages, and administrative records to support high‑quality social science research. Information about selected restricted‑use datasets is provided below, and these resources are available to qualified researchers at government agencies, academic institutions, and other approved entities through secure Federal Statistical Research Data Centers (FSRDCs) or, where authorized, via the Remote Access Program. Researchers may apply for access through the Standard Application Process (SAP) Portal at sap.nsf.gov , with additional guidance available on the Census Bureau’s Standard Application Process website.
+
+ For more information refer to  Restricted-Use Data .
+
+ Citing Data
+
+ Proper citation ensures that Census Bureau statistical products and research can be discovered, reused, replicated for verification, and credited for recognition to measure usage and impact. 
+
+ Guidance on how to cite Census Bureau data can be found at Citing Our Data, Tools, Technical Documents and Research .
+
+ The FSRDC program has access to a wide range of restricted-use data—data only provisioned for use in specific, approved projects. While restricted-use data are not publicly available, accurate citations of restricted-use data help others know what data are utilized, potentially find more information about the underlying data, and understand how to access the data. Guidance on how researchers restricted data via an FSRDC can be found at Citations for Restricted-Use Data .
+
+ Data Dissemination Platforms
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Explore Census Data 
+
+ This new platform on data.census.gov is based on overwhelming feedback to streamline the way you get data and digital content from the Census Bureau.
+
+ FTP Server 
+
+ To download full datasets, visit our FTP server.
+
+ Census Bureau Data and Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials.
+
+ AWS Open Data 
+
+ The Census Bureau provides select public datasets through the AWS Open Data Registry to expand access, support large scale analysis, and promote transparency and open science.
+
+ data.gov 
+
+ Here you will find data, tools, and resources to conduct research, develop web and mobile applications, design data visualizations, and more.
+
+ Available APIs 
+
+ We plan on adding all of our publicly available data sets. Here you'll find which of our many data sets are currently available via API.
+
+ USAspending.gov 
+
+ The publicly accessible, searchable website that gives the American public access to information on how their tax dollars are spent.
+
+ Related Information
+
+ Open Government at the Census Bureau
+
+ Page Last Revised - July 8, 2026 
+
+ Some content on this site is available in several different electronic formats. Some of the files may require a plug-in or additional software to view.
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy

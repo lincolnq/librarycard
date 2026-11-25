@@ -1,0 +1,96 @@
+schema_version: 1
+id: mit-election-president-state
+name: U.S. President 1976–2024 (state-level returns)
+publisher:
+  name: MIT Election Data + Science Lab (MEDSL)
+  url: https://electionlab.mit.edu
+  type: research_institution
+homepage: https://doi.org/10.7910/DVN/42MVDX
+description: >-
+  Certified state-level vote counts for every candidate in each U.S. presidential general election from 1976
+  to 2024, one row per candidate per party line per state, with the state's total votes cast for the office.
+  MEDSL compiles it from the Clerk of the U.S. House "Statistics of the Presidential and Congressional Election"
+  reports and official state sources, harmonises party labels and adds FIPS/ICPSR state codes. Data Commons
+  carries some presidential results, but this is the standard research file with every minor and write-in
+  candidate and every fusion party line.
+domains: [elections]
+tags: [president, presidential-election, election-results, election-returns, votes, medsl, mit, dataverse, state, popular-vote]
+coverage:
+  geography: United States — 50 states and DC
+  countries: [US]
+  geographic_granularity: [state]
+  time_range:
+    start: "1976"
+    end: "2024"
+    notes: Presidential general elections every four years. No county or district detail (see mit-election-county-president, restricted).
+  temporal_granularity: quadrennial
+  unit_of_observation: Candidate × party line × state × presidential general election
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/42MVDX
+      description: Dataverse dataset metadata; the adapter reads latestVersion.files to find the current file id of <YYYY>-<YYYY>-president.csv
+    - url: https://dataverse.harvard.edu/api/access/datafile/{file_id}?format=original
+      description: CSV download (~0.5 MB). Redirects to a signed URL on dvn-cloud-iqss.s3.amazonaws.com.
+  formats: [csv]
+  rate_limits: None published for Harvard Dataverse anonymous access. File cached for 7 days (CC0).
+  auth: none
+  notes: Dataset has no guestbook (anonymous download allowed), unlike MEDSL's county-level and House datasets.
+update:
+  cadence: quadrennial
+  expected_lag: ~6-12 months after the election (2024 data published 2025); minor corrections appear as new Dataverse versions at any time.
+change_detection:
+  method: json_field
+  url: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/42MVDX
+  json_path:
+    - data.latestVersion.versionNumber
+    - data.latestVersion.versionMinorNumber
+    - data.latestVersion.license.name
+    - data.latestVersion.files[*].dataFile.filename
+  poll_interval_days: 14
+  notes: Moves when MEDSL publishes a new Dataverse version (new election, corrections), renames files, or changes the license. A new version also changes the file id the adapter resolves.
+license:
+  name: CC0 1.0 Universal (public domain dedication), declared on the Dataverse dataset
+  spdx: CC0-1.0
+  url: http://creativecommons.org/publicdomain/zero/1.0
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "MIT Election Data and Science Lab, 2017, \"U.S. President 1976–2024\", https://doi.org/10.7910/DVN/42MVDX, Harvard Dataverse (cite the version in metadata.dataverse_version)."
+  evidence: evidence/licenses/mit-election-lab/
+  checked_at: "2026-11-24"
+  notes: License evidence is shared by all MEDSL entries (see NOTES.md there). MEDSL asks users to cite the dataset DOI.
+key_variables:
+  - name: year
+    definition: Election year (integer).
+  - name: state_po
+    definition: State postal abbreviation (e.g. GA). state_fips is the 2-digit FIPS code as a zero-padded string (the adapter pads the publisher's unpadded integer); state_cen and state_ic are Census and ICPSR state codes.
+  - name: candidate
+    definition: Candidate name as printed in the source report ("LAST, FIRST"); null for blank/scattering/other entries. Write-in names appear as reported.
+  - name: party_detailed
+    definition: Party label as on the ballot (upper case), one row per party line; null when the source gives none.
+  - name: party_simplified
+    definition: MEDSL harmonised party, one of DEMOCRAT, REPUBLICAN, LIBERTARIAN, OTHER.
+  - name: writein
+    definition: true for write-in candidates (boolean; null where the source didn't say).
+  - name: candidatevotes
+    unit: votes
+    definition: Votes for this candidate on this party line in the state.
+  - name: totalvotes
+    unit: votes
+    definition: Total votes cast for president in the state (same on every row of a state-year); may include blank/undervote rows in some states.
+  - name: version
+    definition: MEDSL's date stamp for when the row's data were last revised (format varies, e.g. 20210113 or 2025-11-20).
+caveats:
+  - Fusion voting (NY, CT and others) puts one candidate on several party lines; each line is a separate row. Sum candidatevotes by candidate for a candidate's total, and don't compute party shares from party_detailed alone.
+  - totalvotes is the state total for the office as published and in some states includes entries for blank ballots, undervotes, overvotes or "scattering" (rows like UNDERVOTES or a null candidate); recompute the denominator from candidate rows if you need valid votes only.
+  - Rows with a null candidate are blank/void/scattering/other aggregates as reported by the state (frequent in MA and NY), not missing data.
+  - These are state-level totals only; Maine and Nebraska award electoral votes by congressional district, which this file cannot show. Electoral votes are not included.
+  - Coding is not perfectly uniform across years — e.g. the `version` column switches format (20210113 vs 2025-11-20) and party_detailed is null for many write-ins and minor candidates. Candidate names are as printed and not standardised across states or years (match on substrings, not equality).
+  - MEDSL revises the file in place via new Dataverse versions; cite the version reported in `metadata.dataverse_version` for reproducibility.
+related: [mit-election-senate-state, mit-election-county-president, mit-election-house]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: mit_election_president_state
+adapter_version: 1.0.0

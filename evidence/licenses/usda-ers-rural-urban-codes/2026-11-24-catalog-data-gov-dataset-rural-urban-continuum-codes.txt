@@ -1,0 +1,337 @@
+URL: https://catalog.data.gov/dataset/rural-urban-continuum-codes
+Final-URL: https://catalog.data.gov/dataset/rural-urban-continuum-codes
+Retrieved: 2026-11-24T23:40:33+00:00
+HTTP-Status: 200
+Raw-SHA256: 7bdd491b77eeb76ae7ddf53f9c7ec94901388973e16c1ff37049470760537927
+Raw-Bytes: 138267
+---
+Skip to main content 
+
+ An official website of the United States government
+
+ Here’s how you know
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// 
+ means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Menu 
+
+ Data 
+
+ Metrics 
+
+ Organizations 
+
+ User Guide 
+
+ Contact 
+
+ Search 
+
+ Return to search results
+
+ Rural-Urban Continuum Codes
+
+ Published by Economic Research Service, Department of Agriculture 
+
+ | 
+ Department of Agriculture 
+
+ | Catalog Last Checked: October 09, 2026 at 04:40 PM 
+
+ | Dataset Last Updated: October 25, 2019 
+
+ The 2013 Rural-Urban Continuum Codes form a classification scheme that distinguishes metropolitan counties by the population size of their metro area, and nonmetropolitan counties by degree of urbanization and adjacency to a metro area. 
+
+The official Office of Management and Budget (OMB) metro and nonmetro categories have been subdivided into three metro and six nonmetro categories. Each county in the U.S. is assigned one of the 9 codes. This scheme allows researchers to break county data into finer residential groups, beyond metro and nonmetro, particularly for the analysis of trends in nonmetro areas that are related to population density and metro influence. The Rural-Urban Continuum Codes were originally developed in 1974. They have been updated each decennial since (1983, 1993, 2003, 2013), and slightly revised in 1988. Note that the 2013 Rural-Urban Continuum Codes are not directly comparable with the codes prior to 2000 because of the new methodology used in developing the 2000 metropolitan areas. See the Documentation for details and a map of the codes. 
+
+An update of the Rural-Urban Continuum Codes is planned for mid-2023.
+
+ Resources
+
+ 1 resource available
+
+ Web page with links to Excel files
+
+ XLS
+
+ Download
+
+ Find Related Datasets
+
+ Search by Tags
+
+ Click any tag below to search for similar datasets
+
+ metro
+
+ nonmetro
+
+ rural
+
+ rural sociology
+
+ urban
+
+ Complete Metadata
+
+ @type 
+
+ dcat:Dataset
+
+ accessLevel 
+
+ public
+
+ accessRights 
+
+ public
+
+ bureauCode 
+
+ [ 
+ "005:13" 
+ ] 
+
+ contactPoint 
+
+ { 
+ "fn" : "John Cromartie" , 
+ "@type" : "vcard:Contact" , 
+ "hasEmail" : "mailto:john.cromartie@usda.gov" 
+ } 
+
+ describedBy 
+
+ { 
+ "accessURL" : " http://www.ers.usda.gov/data-products/rural-urban-continuum-codes/documentation.aspx " 
+ } 
+
+ description 
+
+ The 2013 Rural-Urban Continuum Codes form a classification scheme that distinguishes metropolitan counties by the population size of their metro area, and nonmetropolitan counties by degree of urbanization and adjacency to a metro area. 
+
+The official Office of Management and Budget (OMB) metro and nonmetro categories have been subdivided into three metro and six nonmetro categories. Each county in the U.S. is assigned one of the 9 codes. This scheme allows researchers to break county data into finer residential groups, beyond metro and nonmetro, particularly for the analysis of trends in nonmetro areas that are related to population density and metro influence. The Rural-Urban Continuum Codes were originally developed in 1974. They have been updated each decennial since (1983, 1993, 2003, 2013), and slightly revised in 1988. Note that the 2013 Rural-Urban Continuum Codes are not directly comparable with the codes prior to 2000 because of the new methodology used in developing the 2000 metropolitan areas. See the Documentation for details and a map of the codes. 
+
+An update of the Rural-Urban Continuum Codes is planned for mid-2023.
+
+ distribution 
+
+ [ 
+ { 
+ "@type" : "dcat:Distribution" , 
+ "title" : "Web page with links to Excel files" , 
+ "license" : " https://creativecommons.org/publicdomain/zero/1.0/ " , 
+ "mediaType" : "application/vnd.ms-excel" , 
+ "downloadURL" : " http://www.ers.usda.gov/data-products/rural-urban-continuum-codes.aspx " 
+ } 
+ ] 
+
+ identifier 
+
+ USDA-ERS-00087
+
+ issued 
+
+ 2019-10-25
+
+ keyword 
+
+ [ 
+ "metro" , 
+ "nonmetro" , 
+ "rural" , 
+ "rural sociology" , 
+ "urban" 
+ ] 
+
+ license 
+
+ https://creativecommons.org/publicdomain/zero/1.0/
+
+ modified 
+
+ 2019-10-25
+
+ programCode 
+
+ [ 
+ "005:041" 
+ ] 
+
+ publisher 
+
+ { 
+ "name" : "Economic Research Service, Department of Agriculture" , 
+ "@type" : "org:Organization" 
+ } 
+
+ spatial 
+
+ [ 
+ { 
+ "@type" : "Location" , 
+ "prefLabel" : "United States" 
+ } 
+ ] 
+
+ title 
+
+ Rural-Urban Continuum Codes
+
+ Contact
+
+ Have questions or suggestions about this dataset? Reach out to the contact below.
+
+ Name
+
+ John Cromartie
+
+ Email
+
+ john.cromartie@usda.gov
+
+ Access & Use
+
+ License
+
+ https://creativecommons.org/publicdomain/zero/1.0/
+
+ Access Level
+
+ public
+
+ Dataset Information
+
+ Dataset First Published
+
+ October 25, 2019
+
+ Dataset Last Updated
+
+ October 25, 2019
+
+ Location 
+
+ Metadata Information
+
+ Catalog Last Checked
+
+ October 09, 2026 at 04:40 PM
+
+ Harvest Record
+
+ View Raw Data
+
+ About 
+
+ Open Government 
+
+ Website Policies 
+
+ Sitemap 
+ -->
+ PERFORMANCE.GOV 
+
+ Data.gov on Github 
+
+ Follow @GSA
+
+ data.gov
+
+ An official website of the GSA's Technology Transformation Services 
+
+ About GSA 
+
+ Accessibility statement 
+
+ FOIA requests 
+
+ No FEAR Act data 
+
+ Office of the Inspector General 
+
+ Performance reports 
+
+ Privacy policy 
+
+ Looking for U.S. government information and services?
+
+ Visit USA.gov 
+
+ Feedback 
+
+ Contact us
+
+ How can we help you?
+
+ General Question or Issue 
+ For questions about Data.gov or to report a problem 
+
+ Data.gov Feedback 
+ Share suggestions to improve Data.gov features and content 
+
+ Contact USA.gov 
+ For questions about federal government services (not Data.gov specific) 
+
+ Default Ticket Form
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Data.gov Feedback
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send 
+
+ Contact the USAGov team
+
+ Your name
+
+ Email address
+
+ Subject
+
+ Description
+
+ Please enter the details of your request. A member of our support staff will respond as soon as possible.
+
+ Attachments
+
+ Add up to 5 files
+
+ Send

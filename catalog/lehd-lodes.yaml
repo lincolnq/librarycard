@@ -1,0 +1,97 @@
+schema_version: 1
+id: lehd-lodes
+name: LEHD Origin-Destination Employment Statistics (LODES), version 8
+publisher:
+  name: U.S. Census Bureau, Center for Economic Studies (LEHD program)
+  url: https://lehd.ces.census.gov
+  type: us_federal
+homepage: https://lehd.ces.census.gov/data/#lodes
+description: >-
+  LODES counts jobs by census block of workplace (WAC), by census block of residence (RAC) and by
+  home-to-work block pair (OD), with breakdowns by worker age, earnings, industry sector, race, ethnicity,
+  education and sex and by firm age and size. It is produced by the Census Bureau's LEHD program from state
+  unemployment-insurance wage records, federal (OPM) employment records and Census business and person data,
+  protected with noise infusion and synthetic-data methods, and is the data behind OnTheMap. It gives
+  block-level commuting and job-location detail that no survey or Data Commons series provides.
+domains: [labor, economy, transportation]
+tags: [lodes, lehd, onthemap, commuting, origin-destination, jobs, workplace, residence, wac, rac, od, census-block, employment-location, journey-to-work]
+coverage:
+  geography: 50 states and DC (Puerto Rico not included); some state-years missing (see caveats)
+  countries: [US]
+  geographic_granularity: [block, block_group, tract, county, state]
+  time_range:
+    start: "2002"
+    end: "2024"
+    notes: LODES8 (2020 census blocks), data vintage 20261014 / format 8.5. Federal job types from 2010; race/ethnicity/education/sex from 2009; firm age/size from 2011 (WAC, JT02).
+  temporal_granularity: annual
+  unit_of_observation: Census block (WAC/RAC) or home-block x work-block pair (OD) per state, year, worker segment and job type
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://lehd.ces.census.gov/data/lodes/LODES8/
+      description: <st>/{od,rac,wac}/<st>_<type>_<part|segment>_<JT>_<year>.csv.gz (st = lowercase postal code); <st>/version.txt gives the data vintage.
+    - url: https://lehd.ces.census.gov/doc/help/onthemap/LODESTechDoc.pdf
+      description: Technical documentation (file layout, variable definitions, coverage table).
+  formats: [csv (gzip)]
+  rate_limits: None published. Files range from ~100 KB (small-state WAC) to >100 MB (large-state OD main); nothing is cached (link_only license), so each call re-downloads its file.
+  auth: none
+  notes: Block-to-higher-geography crosswalks are at <st>/<st>_xwalk.csv.gz (not used; the adapter aggregates by geocode prefix).
+update:
+  cadence: annual
+  expected_lag: ~2 years after the reference year (2024 data released October 2026).
+  notes: Corrections are re-released as new data vintages; check version.txt.
+change_detection:
+  method: http_headers
+  url: https://lehd.ces.census.gov/data/lodes/LODES8/de/version.txt
+  headers: [etag, last-modified]
+  poll_interval_days: 7
+  notes: version.txt is rewritten only when a new LODES vintage (new year or correction) is published; a change means check new years, the tech doc revision, and the coverage table.
+license:
+  name: No explicit license (U.S. Census Bureau public-use data; no dataset-level terms found)
+  spdx: null
+  url: https://lehd.ces.census.gov/data/
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "U.S. Census Bureau. LEHD Origin-Destination Employment Statistics (LODES8) <file name>, <data vintage>. Washington, DC: U.S. Census Bureau, Longitudinal-Employer Household Dynamics Program, accessed <date> at https://lehd.ces.census.gov/data/#lodes."
+  evidence: evidence/licenses/lehd-lodes/
+  checked_at: "2026-11-24"
+  notes: LODES is not listed in census.gov/data.json (only LEHD QWI is, as CC0) and the LEHD pages give a citation format but no license; classified link_only per POLICY (terms silent). Re-check if a dataset-level license appears.
+key_variables:
+  - name: w_geocode
+    definition: Workplace 2020 census block (15 digits), or its prefix when aggregated (12 block group, 11 tract, 5 county, 2 state).
+  - name: h_geocode
+    definition: Residence 2020 census block (15 digits), or its prefix when aggregated.
+  - name: C000
+    label: Total jobs (WAC/RAC)
+    unit: jobs
+    definition: Number of jobs in the segment and job type.
+  - name: S000
+    label: Total jobs (OD)
+    unit: jobs
+    definition: Number of jobs for the home-work block pair; SA01-SA03 (age <=29, 30-54, 55+), SE01-SE03 (earnings <=$1,250, $1,251-$3,333, >$3,333 per month), SI01-SI03 (goods producing; trade, transportation, utilities; all other services).
+  - name: CA01
+    unit: jobs
+    definition: Jobs for workers age 29 or younger (CA02 30-54, CA03 55+). CE01-CE03 are the earnings bands above.
+  - name: CNS01
+    unit: jobs
+    definition: Jobs in NAICS sector 11 (agriculture); CNS01-CNS20 cover the 20 NAICS sectors in order (CNS20 = public administration).
+  - name: block_count
+    definition: Added by the adapter when aggregate != block — number of source rows summed (non-empty blocks for WAC/RAC, block pairs for OD).
+  - name: createdate
+    definition: Internal processing date (YYYYMMDD) of the file; not the release vintage (see version.txt).
+caveats:
+  - Counts are protected with noise infusion (workplace side) and synthetic-data methods (residence side and OD pairs). Block-level and small-pair values are approximate and can be wrong in either direction; aggregate to tract or larger before drawing conclusions.
+  - "A 'job' is a worker-employer pair with earnings in the reference quarter and the prior quarter (roughly jobs held on April 1). One person can hold several jobs: JT00 counts all jobs; use JT01 (primary jobs) to approximate workers."
+  - Coverage is UI-covered wage and salary jobs (plus federal civilian jobs from 2010 in JT00/JT04/JT05). Self-employed, military, most agricultural and informal work are excluded; before 2010 federal jobs are missing entirely, a series break.
+  - "Some state-years have no OD or WAC files (Alaska 2017-2024, Michigan 2022-2024, Massachusetts 2002-2010, DC 2002-2009, and others in 2002-2003); RAC files still exist there but only show residents working in other states."
+  - Demographic variables (race, ethnicity, education, sex) are zero before 2009, and firm age/size are zero before 2011 and outside JT02 WAC files; zeros there mean 'not available', not zero jobs.
+  - OD 'main' files only contain pairs with both ends in the state; commuters from other states are in the 'aux' file of the workplace state. Summing OD main does not reproduce WAC totals.
+  - Geography is 2020 census blocks for all years (LODES8); prefix-based aggregation gives 2020 tracts/counties. Connecticut blocks carry the 8 legacy county codes (09001-09015), not the planning regions (091xx) used by Census products from 2022.
+  - Only blocks with at least one job appear; absent blocks mean zero jobs.
+related: [census-cbp, bls-laus]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: lehd_lodes
+adapter_version: 1.0.0

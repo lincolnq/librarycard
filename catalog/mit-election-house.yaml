@@ -1,0 +1,75 @@
+schema_version: 1
+id: mit-election-house
+name: U.S. House 1976–2024 (district-level returns)
+publisher:
+  name: MIT Election Data + Science Lab (MEDSL)
+  url: https://electionlab.mit.edu
+  type: research_institution
+homepage: https://doi.org/10.7910/DVN/IG0UN2
+description: >-
+  Constituency (congressional district) vote counts for every candidate in elections to the U.S. House of
+  Representatives from 1976 to 2024, including specials and runoffs, compiled by MEDSL from the Clerk of the House
+  election-statistics reports and official state sources. It is the standard research file for House results by
+  district. Listed here for awareness only: the Dataverse files sit behind a guestbook form, so this server cannot
+  fetch them.
+domains: [elections]
+tags: [house, us-house, house-of-representatives, congressional-district, congressional-election, election-returns, votes, medsl, mit, dataverse, guestbook]
+coverage:
+  geography: United States — congressional districts of the 50 states (at-large districts coded as district 0)
+  countries: [US]
+  geographic_granularity: [congressional_district]
+  time_range:
+    start: "1976"
+    end: "2024"
+    notes: Even-year general elections plus specials/runoffs. District boundaries change after each census and after court-ordered redistricting.
+  temporal_granularity: biennial
+  unit_of_observation: Candidate × party line × congressional district race
+access:
+  method: restricted
+  endpoints:
+    - url: https://dataverse.harvard.edu/api/datasets/:persistentId/?persistentId=doi:10.7910/DVN/IG0UN2
+      description: Dataverse dataset metadata (public). File downloads (1976-2024-house.tab) require a guestbook response.
+  formats: [csv, tab]
+  auth: registration_required
+  restricted_reason: >-
+    Harvard Dataverse guestbook 458 must be completed (name, email, institution) before any file can be downloaded;
+    anonymous API downloads return "You may not download this file without the required Guestbook response for
+    guestbookID 458" (observed 2026-11-24). Per docs/POLICY.md a guestbook counts as registration, so no adapter.
+  notes: Humans can download it from the homepage after filling in the guestbook.
+update:
+  cadence: biennial
+  expected_lag: ~6-18 months after the election; corrections are published as new Dataverse versions.
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: CC0 1.0 Universal (public domain dedication), declared on the Dataverse dataset
+  spdx: CC0-1.0
+  url: http://creativecommons.org/publicdomain/zero/1.0
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "MIT Election Data and Science Lab, 2017, \"U.S. House 1976–2024\", https://doi.org/10.7910/DVN/IG0UN2, Harvard Dataverse."
+  evidence: evidence/licenses/mit-election-lab/
+  checked_at: "2026-11-24"
+  notes: CC0 governs reuse of the data; the guestbook governs access. Shared MEDSL license evidence.
+key_variables:
+  - name: district
+    definition: Congressional district number within the state (0 = at-large), per MEDSL's public codebook (the codebook file is itself behind the guestbook, so field names were not re-verified here).
+  - name: candidatevotes
+    unit: votes
+    definition: Votes for the candidate on this party line (per MEDSL's codebook).
+  - name: totalvotes
+    unit: votes
+    definition: Total votes cast in the district race (per MEDSL's codebook).
+caveats:
+  - Not fetchable through this server — downloads require a Harvard Dataverse guestbook response (treated as registration).
+  - District numbers are not comparable across redistricting cycles (1982, 1992, 2002, 2012, 2022, plus mid-decade court-ordered maps); join to district boundaries of the matching Congress.
+  - Uncontested races are often unreported or carry placeholder vote totals, and some states (e.g. Florida historically) don't print votes for unopposed candidates; don't treat them as zero-turnout races.
+  - Fusion voting (NY, CT) gives one candidate several party-line rows; sum by candidate. Louisiana's and California's/Washington's top-two systems make 'general election' rows not comparable to other states.
+related: [mit-election-senate-state, mit-election-president-state, mit-election-county-president]
+status: healthy
+status_reason: Catalog-only entry; access restricted (Dataverse guestbook required).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

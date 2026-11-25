@@ -1,0 +1,94 @@
+{
+ "_source_url": "https://apps.bea.gov/data.json",
+ "_retrieved": "2026-11-24T23:37:32+00:00",
+ "_pattern": "Regional",
+ "_catalog_license_counts": {
+  "null": 26
+ },
+ "entries": [
+  {
+   "accessLevel": "public",
+   "accrualPeriodicity": "R/P1M",
+   "bureauCode": [
+    "006:08"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Webmaster",
+    "hasEmail": "mailto:Webmaster@bea.gov"
+   },
+   "distribution": [
+    {
+     "description": "Download Regional Economic Tables",
+     "downloadURL": "https://apps.bea.gov/regional/downloadzip.cfm",
+     "format": "Zipped CSV",
+     "mediaType": "application/zip"
+    },
+    {
+     "description": "The BEA data application programming interface (API) provides programmatic access to BEA published economic statistics using industry-standard methods and procedures.  BEA's data API includes methods for retrieving a subset of our statistical data and the meta-data that describes it.",
+     "accessURL": "http://www.bea.gov/api/signup/index.cfm",
+     "format": "API"
+    }
+   ],
+   "identifier": "https://apps.bea.gov/regional/downloadzip.cfm",
+   "keyword": [
+    "GDP by State and Metropolitan Area",
+    "State and Local Area Personal Income",
+    "RIMS II Regional Input-Output Multipliers",
+    "Economic Information for Coastal Areas"
+   ],
+   "language": [
+    "en-US"
+   ],
+   "modified": "P1Y",
+   "programCode": [
+    "006:021"
+   ],
+   "publisher": {
+    "name": "Bureau of Economic Analysis"
+   },
+   "spatial": "USA",
+   "temporal": "R/1963-01/P1Y",
+   "title": "Regional Accounts"
+  },
+  {
+   "accessLevel": "public",
+   "accrualPeriodicity": "R/P6M",
+   "bureauCode": [
+    "006:08"
+   ],
+   "contactPoint": {
+    "@type": "vcard:Contact",
+    "fn": "Webmaster",
+    "hasEmail": "mailto:Webmaster@bea.gov"
+   },
+   "distribution": [
+    {
+     "description": "The BEA data application programming interface (API) provides programmatic access to BEA published economic statistics using industry-standard methods and procedures.  BEA's data API includes methods for retrieving a subset of our statistical data and the meta-data that describes it.",
+     "accessURL": "http://www.bea.gov/api/signup/index.cfm",
+     "format": "API"
+    }
+   ],
+   "identifier": "https://www.bea.gov/data/prices-inflation/regional-price-parities-state-and-metro-area",
+   "keyword": [
+    "Regional Price Parities",
+    "buying power",
+    "state price parity",
+    "msa price parity"
+   ],
+   "language": [
+    "en-US"
+   ],
+   "modified": "2020-05-18",
+   "programCode": [
+    "006:021"
+   ],
+   "publisher": {
+    "name": "Bureau of Economic Analysis"
+   },
+   "spatial": "USA",
+   "temporal": "R/2008-01/P6M",
+   "title": "Regional Price Parities by State and Metro Area"
+  }
+ ]
+}

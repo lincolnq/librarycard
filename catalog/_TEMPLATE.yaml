@@ -1,0 +1,64 @@
+# Copy to catalog/<id>.yaml and replace EVERY value. Files starting with "_" are ignored by the loader.
+# Field reference: docs/SCHEMA.md. Checklist: docs/ADDING_A_SOURCE.md.
+schema_version: 1
+id: publisher-dataset                     # permanent slug == file name
+name: Full dataset name as the publisher calls it
+publisher:
+  name: Publisher name
+  url: https://publisher.example.gov
+  type: us_federal                        # us_federal|us_state|us_local|intergovernmental|research_institution|open_data_project|other_reputable
+homepage: https://publisher.example.gov/dataset
+description: >-
+  Two to four plain sentences: what it measures, how it is produced (survey / administrative records /
+  model / observation network), at what scale, by whom.
+domains: [demographics]                   # see schema $defs/domain
+tags: [keyword, acronym, synonym]
+coverage:
+  geography: United States — 50 states and DC
+  countries: [US]
+  geographic_granularity: [state, county] # see schema $defs/granularity
+  time_range:
+    start: "2000"
+    end: "2024"                           # null if continuously updated
+    notes: Gaps, partial years, vintage notes.
+  temporal_granularity: annual            # see schema $defs/period
+  unit_of_observation: What one row represents
+access:
+  method: api                             # api|bulk_download|cloud_bucket|restricted
+  endpoints:
+    - url: https://api.example.gov/v1/data
+      description: What this endpoint/pattern is and how the adapter uses it
+  formats: [json]
+  rate_limits: Published limits, or "None published."
+  auth: none                              # anything else => method: restricted, adapter: null
+update:
+  cadence: annual
+  expected_lag: ~N months after the reference period
+change_detection:
+  method: http_headers                    # http_headers|content_hash|json_field|regex|none
+  url: https://publisher.example.gov/file-that-changes-on-release.csv
+  poll_interval_days: 7
+  notes: Why this signal moves on releases/schema changes and not on routine refreshes.
+license:
+  name: Public domain (U.S. Government Work)
+  spdx: null
+  url: https://publisher.example.gov/terms
+  redistribution: link_only               # allowed only if terms are clear AND permissive
+  commercial_use: unclear                 # yes|no|unclear
+  attribution: "Publisher, Dataset name."
+  evidence: evidence/licenses/publisher-dataset/
+  checked_at: "2026-01-01"
+key_variables:
+  - name: column_name
+    label: Short label
+    unit: unit
+    definition: Definition as the publisher states it.
+caveats:
+  - Anything that makes naive use wrong (weighting, margins of error, breaks in series, suppression, vintages).
+related: []
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-01-01"
+last_verified: "2026-01-01"
+adapter: publisher_dataset
+adapter_version: 1.0.0

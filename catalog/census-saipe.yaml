@@ -1,0 +1,103 @@
+schema_version: 1
+id: census-saipe
+name: Small Area Income and Poverty Estimates (SAIPE) — State, County and School District Estimates
+publisher:
+  name: U.S. Census Bureau
+  url: https://www.census.gov
+  type: us_federal
+homepage: https://www.census.gov/programs-surveys/saipe.html
+description: >-
+  Annual model-based estimates of poverty (all ages, children 0-17, related children 5-17, and under-5 at state
+  level) and median household income for every state and county, and of school-age children in poverty for every
+  school district. SAIPE combines single-year ACS estimates with administrative records (IRS tax returns, SNAP
+  participation, population estimates) in small-area models, giving more precise county and district figures than
+  ACS alone; Title I education funding is allocated with the school-district estimates. Data Commons carries some
+  county indicators; this source adds the 90% confidence intervals and the school-district file.
+domains: [income_poverty, demographics, education]
+tags: [census, saipe, poverty, child-poverty, school-districts, title-i, small-area-estimates, confidence-interval]
+coverage:
+  geography: United States — nation, 50 states and DC, all counties, and all school districts (unified, elementary, secondary); no Puerto Rico
+  countries: [US]
+  geographic_granularity: [nation, state, county, school_district]
+  time_range:
+    start: "2010"
+    end: "2024"
+    notes: The adapter serves 2010 onward (stable fixed-width layout). SAIPE files exist back to 1989 (state/county) and 1995 (districts) with older layouts. 2024 estimates were released Jan-Feb 2026.
+  temporal_granularity: annual
+  unit_of_observation: Geographic area × estimate year
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www2.census.gov/programs-surveys/saipe/datasets/
+      description: Year directories <YEAR>/; the adapter picks the latest year with a state/county file.
+    - url: https://www2.census.gov/programs-surveys/saipe/datasets/2024/2024-state-and-county/est24all.txt
+      description: US/state/county estimates, pattern <YEAR>/<YEAR>-state-and-county/est<YY>all.txt (fixed-width).
+    - url: https://www2.census.gov/programs-surveys/saipe/datasets/2024/2024-school-districts/ussd24.txt
+      description: School-district estimates, pattern <YEAR>/<YEAR>-school-districts/ussd<YY>.txt (fixed-width, latin-1).
+    - url: https://www2.census.gov/programs-surveys/saipe/technical-documentation/file-layouts/
+      description: Record layouts per year (state-county/<YEAR>-estimate-layout.txt, school-district/<YEAR>-district-layout.txt).
+  formats: [fixed-width text]
+  rate_limits: None published. Files are ~1-2 MB; cached 30 days (license allows).
+  auth: none
+update:
+  cadence: annual
+  expected_lag: ~13-14 months after the reference year (state/county in December/January, school districts ~February).
+  notes: Release schedule on https://www.census.gov/programs-surveys/saipe/newsroom.html
+change_detection:
+  method: regex
+  url: https://www2.census.gov/programs-surveys/saipe/datasets/
+  pattern: 'href="(\d{4})/"'
+  poll_interval_days: 14
+  notes: Fires when a new estimate-year directory appears. On change, diff the new year's layout files against the previous year (the adapter hard-codes the 2010-2024 layout) and update coverage.time_range.end.
+license:
+  name: Creative Commons Zero 1.0 (public domain dedication), per census.gov data.json
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Census Bureau, Small Area Income and Poverty Estimates (SAIPE) Program, <YEAR> estimates."
+  evidence: evidence/licenses/census-saipe/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: GEOID
+    label: Geographic identifier
+    definition: 2-digit state FIPS, 5-digit county FIPS, or 7-digit school district id (state FIPS + 5-digit NCES LEA id); null for the nation. Added by the adapter.
+  - name: SAEPOVALL_PT
+    label: People of all ages in poverty
+    unit: persons
+    definition: Estimated number of people of all ages in poverty; _LB90/_UB90 give the 90% confidence interval. Column names follow the Census SAIPE API variable names.
+  - name: SAEPOVRTALL_PT
+    label: Poverty rate, all ages
+    unit: percent
+    definition: Estimated percent of people of all ages in poverty (with _LB90/_UB90).
+  - name: SAEPOVRT0_17_PT
+    label: Poverty rate, ages 0-17
+    unit: percent
+    definition: Percent of people under 18 in poverty. SAEPOVRT5_17R_PT is the rate for related children 5-17 in families.
+  - name: SAEMHI_PT
+    label: Median household income
+    unit: current dollars of the estimate year
+    definition: Estimated median household income (with _LB90/_UB90).
+  - name: SAEPOV0_4_PT
+    label: Children under 5 in poverty
+    unit: persons
+    definition: Nation and state rows only (null for counties).
+  - name: POP_TOTAL / POP_5_17 / POV_5_17_RELATED
+    label: School district population, school-age children, and school-age children in poverty
+    unit: persons
+    definition: School-district file only. POV_5_17_RELATED = relevant children 5-17 in families in poverty (related to the householder); divide by POP_5_17 for a rate.
+caveats:
+  - SAIPE are model-based estimates with uncertainty; use the 90% confidence intervals (_LB90/_UB90) before ranking counties or claiming year-to-year change. School-district estimates are published without intervals but are less precise than county estimates.
+  - Values published as "." (no estimate, e.g. Kalawao County, HI) are converted to null by the adapter.
+  - Poverty follows the official (OMB) money-income definition used in the ACS, not the Supplemental Poverty Measure; the universe excludes people in institutional group quarters and some others for whom poverty status is not determined.
+  - Median household income is in current dollars of each estimate year; adjust for inflation before comparing years.
+  - The 2020 estimates were modelled although the standard 2020 1-year ACS (SAIPE's main survey input) was not released because of pandemic data-collection problems; read the 2020 methodology notes and interpret 2019-2021 changes with caution.
+  - School-district boundaries are those reported to the Census School District Review Program for the school year (e.g. 2024 estimates use 2024-25 boundaries); district ids and boundaries change between years. Connecticut counties are planning regions from 2022 estimates onward.
+  - SAIPE do not cover Puerto Rico or the Island Areas.
+related: [census-acs-summary-file, census-pep, data-commons]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: census_saipe
+adapter_version: 1.0.0

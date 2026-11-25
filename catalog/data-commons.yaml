@@ -1,0 +1,66 @@
+schema_version: 1
+id: data-commons
+name: Google Data Commons
+publisher:
+  name: Google (Data Commons project)
+  url: https://datacommons.org
+  type: open_data_project
+homepage: https://datacommons.org
+description: >-
+  A knowledge graph that harmonises statistical indicators from hundreds of public sources (Census Bureau, BLS,
+  CDC, World Bank, UN, Eurostat, ...) into common variables and place identifiers, with time series for
+  countries, states, counties, cities and other places. Data Commons runs its own MCP server, which agents
+  should use directly for headline indicators; this catalog focuses on complementary sources (microdata,
+  sub-national detail, administrative records, election returns).
+domains: [statistics_aggregator, demographics, economy, health, environment_climate, education]
+tags: [data-commons, knowledge-graph, indicators, time-series, mcp, aggregator]
+coverage:
+  geography: Worldwide; deepest for the United States (down to county/city/tract for some variables)
+  countries: [US]
+  geographic_granularity: [nation, state, county, place, tract, zcta, congressional_district, school_district]
+  time_range:
+    start: "1900"
+    end: null
+    notes: Varies by variable and upstream source.
+  temporal_granularity: annual
+  unit_of_observation: Statistical variable observation for a place and date
+access:
+  method: restricted
+  endpoints:
+    - url: https://api.datacommons.org
+      description: REST V2 API (key required)
+  formats: [json]
+  auth: credentials_required
+  restricted_reason: Data Commons REST APIs and its hosted MCP server require a (free) API key.
+  mcp_server:
+    url: https://api.datacommons.org/mcp
+    notes: Hosted Data Commons MCP server (tools search_indicators, search_child_indicators, get_variable_metadata, get_observations). Configure it in your MCP client with your own API key; see https://docs.datacommons.org/mcp/.
+update:
+  cadence: continuous
+  expected_lag: Depends on upstream source and Data Commons import schedule.
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: Varies by upstream source (no blanket data license found)
+  spdx: null
+  url: https://docs.datacommons.org/api/
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "Data Commons (datacommons.org), citing the original source listed in each observation's metadata."
+  evidence: evidence/licenses/data-commons/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: variable_dcid
+    definition: Data Commons statistical variable id (e.g. Count_Person). Resolve via the MCP server's search tools; never guess ids.
+caveats:
+  - Values are harmonised from many upstream sources; always cite the upstream source/provenance that Data Commons returns, not "Data Commons" alone.
+  - Different upstream sources for the same variable (e.g. Census PEP vs ACS population) can disagree; check which source/measurement method each observation used.
+  - Not fetchable through this server; use the Data Commons MCP server directly with your own API key.
+related: [census-acs-summary-file]
+status: healthy
+status_reason: Catalog-only entry pointing to the Data Commons MCP server (API key required).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

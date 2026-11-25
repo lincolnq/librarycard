@@ -1,0 +1,202 @@
+URL: https://www.bea.gov/about/policies-and-information/linking
+Final-URL: https://www.bea.gov/about/policies-and-information/linking
+Retrieved: 2026-11-24T23:37:31+00:00
+HTTP-Status: 200
+Raw-SHA256: ef25f5d942242b3f1345ec8429cc78fe6144d5a93a33e0fb7083ee4d351fa94a
+Raw-Bytes: 39108
+---
+Skip to main content
+
+ An official website of the United States government
+
+ Toggle navigation 
+
+ Main navigation
+
+ Data
+
+ by Topic 
+
+ by Place 
+
+ by Economic Account 
+
+ Tools
+
+ Interactive Data 
+
+ Application Programming Interface (API) 
+
+ Global Value Chain Analyzer 
+
+ Income Distribution Analysis Tool (IDAT) 
+
+ Country Facts 
+
+ BEARFACTS 
+
+ Industry Facts 
+
+ GDP & Personal Income Mapping 
+
+ RIMS II 
+
+ eFile 
+
+ News
+
+ Economy at a Glance 
+
+ News Releases 
+
+ Release Schedule 
+
+ The BEA Wire | BEA's Official Blog 
+
+ Survey of Current Business 
+
+ Archive 
+
+ For Journalists 
+
+ Research
+
+ Offices of Research 
+
+ Meet the Researchers 
+
+ Papers 
+
+ Special Sworn Researcher Program 
+
+ Research Using Company-Level Data 
+
+ Fellowship Program 
+
+ Resources
+
+ Learning Center 
+
+ Methodologies 
+
+ Multimedia 
+
+ Article Collections 
+
+ For Congressional Users 
+
+ For Developers 
+
+ For Students 
+
+ About
+
+ Who We Are 
+
+ BEA Leadership 
+
+ Innovation at BEA 
+
+ Advisory Committees 
+
+ Budget and Performance 
+
+ Policies and Information 
+
+ Working at BEA 
+
+ Help
+
+ Contact Us 
+
+ Ask an Expert 
+
+ For Survey Respondents 
+
+ Frequently Asked Questions (FAQ) 
+
+ Glossary 
+
+ Guidelines for Citing BEA 
+
+ Home 
+
+ About the Bureau of Economic Analysis 
+
+ Policies and Information 
+
+ Linking Policy
+
+ Linking Policy
+
+ The BEA Web site includes links to U.S. Federal Government statistical agency Web sites that comply with the Office of Management and Budget Federal Statistical Quality Guidelines with respect to the accuracy, timeliness, and relevance of the data provided on those sites. It includes links to the official statistical agencies of other countries and to international organizations that comply with the International Monetary Fund Data Dissemination Standards. And it includes links to other Web sites when those provide economic source data or information on economic research and statistical methodology important to users of the U.S. national economic accounts produced by BEA.
+
+ Prohibitions
+
+ BEA will not link to any Web site that exhibits hate, bias, or discrimination. Furthermore, BEA reserves the right to deny or remove any link that contains misleading information or unsubstantiated claims or is determined to be in conflict with BEA's mission or policies.
+
+ Disclaimer of Endorsement
+
+ The information posted on the BEA Web site includes hypertext links or pointers to information created and maintained by other public and/or private organizations. BEA provides these links and pointers solely for our users' information and convenience. When users select a link to an outside Web site, they are leaving the BEA Web site and are subject to the privacy and security policies of the owners/sponsors of the outside Web site.
+
+ BEA does not control or guarantee the accuracy, relevance, timeliness, or completeness of information contained on a linked Web site.
+
+ BEA does not endorse the organizations sponsoring linked Web sites, and we do not endorse the views they express or the products/services they offer.
+
+ BEA cannot authorize the use of copyrighted materials contained in linked Web sites. Users must request such authorization from the sponsor of the linked Web site.
+
+ BEA is not responsible for transmissions users receive from linked Web sites.
+
+ BEA does not guarantee that outside Web sites comply with Section 508 (Accessibility Requirements) of the Rehabilitation Act.
+
+ Privacy and security
+
+ Check the BEA Web Privacy Policy for more information about BEA privacy and security policies.
+
+ Linking to BEA :
+
+ The BEA Web site ( www.bea.gov ) is maintained under the direction of the U.S. Department of Commerce, an agency of the U.S. Government. The site contains official U.S. economic analysis data developed by BEA subject specialists and made accessible to the public through the BEA Web site and via BEA print publications. BEA seeks to strengthen the understanding of the U.S. economy and its competitive position by providing the most accurate and relevant Gross Domestic Product (GDP) and economic accounts data in a timely and cost-effective manner.
+
+ Organizations are free to link to the BEA Web site ( www.bea.gov ), and unless stated otherwise, the information posted on the BEA Web site is in the public domain and may be used or reproduced without specific permission. A citation such as "Source: U.S. Bureau of Economic Analysis" would be appreciated. Organizations may use the BEA logo on a Web page as an aid to establishing link identity, but use of the logo for any other purpose is prohibited.
+
+ As a U.S. Government agency, BEA is not permitted to endorse or recommend any commercial products or services that your organization may offer. Any reference or link that you establish to the BEA Web site must not contain information that suggests such an endorsement or recommendation by BEA. Similarly, any link that BEA determines should be placed on its official Web site will not contain information that endorses or recommends a referenced organization. Further, the BEA site does not accept advertising or provide promotional materials or services of any kind.
+
+ Download Acrobat Reader 
+
+ Page last modified on 5/9/18
+
+ Bureau of Economic Analysis 4600 Silver Hill Road • Suitland, MD 20746 
+
+ Contact Us 
+
+ Working at BEA 
+
+ Frequently Asked Questions 
+
+ Our Policies 
+
+ Privacy 
+
+ Commitment to Scientific Integrity 
+
+ Data Dissemination Practices 
+
+ Open Data 
+
+ USA.gov 
+
+ Business USA 
+
+ No FEAR Act 
+
+ FOIA 
+
+ U.S. Department of Commerce 
+
+ Emergency Status 
+
+ The BEA Wire | BEA's Official Blog 
+
+ News Release Feed (RSS) 
+
+ Sign up for Email Notifications

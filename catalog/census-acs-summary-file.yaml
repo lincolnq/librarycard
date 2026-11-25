@@ -1,0 +1,93 @@
+schema_version: 1
+id: census-acs-summary-file
+name: American Community Survey (ACS) Detailed Tables — Table-Based Summary File
+publisher:
+  name: U.S. Census Bureau
+  url: https://www.census.gov
+  type: us_federal
+homepage: https://www.census.gov/programs-surveys/acs/data/summary-file.html
+description: >-
+  The ACS is the Census Bureau's continuous household survey (~3.5 million addresses/year) and the main
+  source of sub-national demographic, social, economic and housing statistics between decennial censuses.
+  The table-based Summary File publishes every ACS detailed table (B/C tables) as one pipe-delimited file
+  per table covering all published geographies, with an estimate and a 90% margin of error per cell.
+  5-year estimates reach census tracts and block groups; 1-year estimates cover areas of 65,000+ people.
+domains: [demographics, income_poverty, housing, labor, education, health]
+tags: [census, acs, american-community-survey, survey-estimates, margins-of-error, tract, block-group, congressional-district]
+coverage:
+  geography: United States — 50 states, DC and Puerto Rico
+  countries: [US]
+  geographic_granularity: [nation, census_region, census_division, state, county, county_subdivision, place, tract, block_group, zcta, metro_area, congressional_district, state_legislative_district, school_district]
+  time_range:
+    start: "2021"
+    end: "2025"
+    notes: Table-based summary files exist from the 2021 release. 5-year latest is 2020-2024 (released Jan 2026); 1-year latest is 2025. Earlier years exist in other formats (not served by this adapter).
+  temporal_granularity: annual
+  unit_of_observation: Geographic area (survey estimate for the area over a 1- or 5-year period)
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www2.census.gov/programs-surveys/acs/summary_file/
+      description: Root of the summary file tree; <YEAR>/table-based-SF/data/{5YRData,1YRData}/acsdt{5y,1y}<YEAR>-<table>.dat
+    - url: https://www2.census.gov/programs-surveys/acs/summary_file/2024/table-based-SF/documentation/
+      description: Geos<YEAR><5YR|1YR>.txt (GEO_ID→NAME and geographic codes) and table shells (variable labels)
+  formats: [pipe-delimited text]
+  rate_limits: None published. Files are large (a 5-year table is 20-200 MB); the adapter caches them for 30 days (license allows).
+  auth: none
+update:
+  cadence: annual
+  expected_lag: 1-year estimates ~9 months after the reference year (September); 5-year estimates ~12-13 months after the final year (December/January).
+  notes: Release schedule at https://www.census.gov/programs-surveys/acs/news/data-releases.html
+change_detection:
+  method: regex
+  url: https://www2.census.gov/programs-surveys/acs/summary_file/
+  pattern: 'href="(20\d\d)/"'
+  poll_interval_days: 7
+  notes: Fires when a new release-year directory appears. A changed fingerprint means a new vintage — update coverage.time_range.end and check the table shells for new/changed tables.
+license:
+  name: Creative Commons Zero 1.0 (public domain dedication), per census.gov data.json
+  spdx: CC0-1.0
+  url: https://creativecommons.org/publicdomain/zero/1.0/
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Census Bureau, American Community Survey Summary File (table-based)."
+  evidence: evidence/licenses/census-acs-summary-file/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: GEO_ID
+    label: Geographic identifier
+    definition: 'Census GEO_ID: 3-digit summary level + component/variant + "US" + nested FIPS codes, e.g. 0500000US06037 = Los Angeles County, CA.'
+  - name: NAME
+    label: Area name
+    definition: Human-readable area name joined from the Geos file (when include_names=true).
+  - name: <TABLE>_E<NNN>
+    label: Estimate
+    definition: Estimate for line NNN of the table, e.g. B19013_E001 = median household income. Units vary by table (people, households, dollars); see metadata.variable_labels.
+  - name: <TABLE>_M<NNN>
+    label: Margin of error
+    unit: same as estimate
+    definition: 90% margin of error for the corresponding estimate. Standard error = MOE / 1.645.
+  - name: B01003_E001
+    label: Total population
+    unit: persons
+    definition: Total population (table B01003).
+  - name: B19013_E001
+    label: Median household income
+    unit: inflation-adjusted dollars of the final year
+    definition: Median household income in the past 12 months.
+caveats:
+  - Every estimate is a survey estimate with sampling error. Always carry the margin of error (_M columns); small areas (tracts, block groups, small places) often have MOEs larger than the estimate. Compare estimates only with a significance test.
+  - Do not compare overlapping 5-year periods (e.g. 2019-2023 vs 2020-2024) as if they were independent years; 4 of 5 years are shared. Compare non-overlapping periods.
+  - Dollar values are in inflation-adjusted dollars of the final year of the period; adjust before comparing across releases.
+  - Medians and other non-additive statistics cannot be aggregated across geographies (e.g. you cannot average tract medians to get a county median).
+  - Census 'jam values' (negative codes like -666666666 meaning not computable / too few sample cases) are converted to null by the adapter; null does not mean zero.
+  - Geographic boundaries change. 2020-based tracts/block groups apply from the 2020 5-year release onward; congressional districts follow the Congress named in the GEO_ID (e.g. 5001900US = 119th Congress). Cross-vintage comparisons need crosswalks.
+  - The 2020 1-year ACS was not released as standard estimates (pandemic data-collection disruption); only experimental estimates exist.
+  - 1-year estimates exist only for areas with 65,000+ population; use 5-year data for smaller areas.
+related: [census-data-api]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: census_acs_summary_file
+adapter_version: 1.0.1

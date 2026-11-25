@@ -1,0 +1,169 @@
+URL: https://educationdata.urban.org/documentation/
+Final-URL: https://educationdata.urban.org/documentation/
+Retrieved: 2026-11-24T23:43:20+00:00
+HTTP-Status: 200
+Raw-SHA256: 7229064ae40044e855df2469141ed7e5467449c920b724cf14eff9a7ca65a8cc
+Raw-Bytes: 21171
+---
+Overview 
+
+ Topics:
+
+ Schools 
+
+ School Districts 
+
+ Colleges 
+
+ Education Data Portal
+
+ DATA EXPLORER 
+
+ Overview 
+
+ About this project 
+
+ About this project ">About this project 
+
+ Scope of Data ">Scope of Data 
+-->
+
+ Data sources ">Data sources 
+
+ Updates timeline ">Updates timeline 
+
+ How to use this API ">How to use this API 
+
+ Direct access ">General Endpoint Requests 
+
+ Summary endpoints ">Summary Endpoint Requests 
+
+ Stata ">Stata 
+
+ R ">R 
+
+ FAQs ">FAQs 
+
+ Terms of use ">Data Policy and Terms of Use 
+
+ Citing these data ">Citing these data 
+
+ Version history ">Version history 
+
+ Acknowledgements ">Acknowledgements 
+
+ Contact us ">Contact us 
+
+ -->
+
+ About this project
+
+ Section
+-->
+ Data sources
+
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a cursus enim. Pellentesque sit amet bibendum turpis. Etiam varius leo quis odio cursus tempor.
+
+ Attributes
+-->
+ Currently Available
+
+ Available Soon
+
+ Updates timeline
+
+ Section
+-->
+
+ How to use this API
+
+ The Urban Institute’s Education Data Portal offers users the ability to view data endpoints and select summary endpoints directly in their web browser. Users can access this application programming interface (API) by directly hitting a URL endpoint or by using Stata or R. All data are returned in JSON format and can be viewed directly in a web browser.
+
+ The possible values for topic, source, endpoint, year, or other specifier, disaggregator, or filter can be found for each endpoint on the right side under the “Example Request” tab. Summary endpoints can be called using the drop-down menu within the “Summary Request” tab.
+
+ General Endpoint Requests
+
+ To make a request, the URL will follow this format:
+ https://educationdata.urban.org/api/v1/{topic}/{source}/{endpoint}/{year}/[additional_specifiers _or_disaggregators]/[optional filters] 
+
+ All of the modifiers for the API call, including source, endpoint, year, other specifiers, and filters, can be found on the right side under “Example Request.” For example, if you want to request Common Core of Data school directory data for 2013, that URL would look like this:
+
+ https://educationdata.urban.org/api/v1/schools/ccd/directory/2013/ 
+
+ Some endpoints require specifiers or disaggregators. If you wanted to modify your previous request to return the Common Core of Data enrollment endpoint for 2013, you must specify a grade like so:
+
+ https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2013/grade-3/ 
+
+ Certain variables within the documentation site can be used to subset or filter the data. These variables are found under the “Filter” drop-down menu on the right side of the page. To apply a filter variable to your API call, either select a variable within the drop-down menu or add a query string to the end of the URL. The query string will take the form of
+
+ ?filter_variable=filter_value 
+ To include multiple filters, separate them with an &. For instance, if you were interested only in the enrollment of charter schools in the District of Columbia, you could make the following call:
+
+ https://educationdata.urban.org/api/v1/schools/ccd/enrollment/2013/grade-3/?charter=1&fips=11 
+ These data can also be accessed using other programs, including Stata, R, Python, and JavaScript. Descriptions of how to use the Stata and R packages are below, but the Python and JavaScript examples directly access endpoint URLs via the urllib library in Python and via an XMLHttpRequest object in JavaScript.
+
+ Summary Endpoint Requests
+
+ For selected endpoints, we also offer “summary endpoints” that allow users to call for endpoint sums, averages, and other common statistics on the fly. To execute a summary endpoint call, navigate to the “Summary Request” tab on the right side of the page. A prompt will appear, allowing users to find a summary statistic, such as average, median, or sum, for a selected variable and categorization. Users can modify a summary endpoint request by using optional “Refine search” drop-down menu.
+
+ Stata
+
+ Instead of using API calls, you can download our Stata package using the instructions below.
+
+ Before you install the package, run the following:
+
+ ssc install libjson 
+
+ Then, the following command will install or, if the package is already installed, update the education data package.
+
+ ssc install educationdata, replace 
+
+ If you are having trouble, first try running the following:
+
+ adoupdate 
+
+ If you're still having trouble, uninstall any existing installations using the instructions below, close and reopen Stata, and then rerun the commands above.
+
+ For more information, or to troubleshoot, please visit github.com/UrbanInstitute/education-data-package-stata .
+
+ R
+
+ Alternatively, you can download our R package. To install educationdata , run:
+
+ install.packages('educationdata') 
+
+ For more information, or to troubleshoot, please visit github.com/UrbanInstitute/education-data-package-r .
+
+ FAQs
+
+ We maintain an FAQ guide with examples for interacting with the API in more complex ways than described in the documentation. We offer suggested syntax in Python, R, Stata, and JavaScript for each of these examples.
+
+ Data Policy and Terms of Use
+
+ Visitors to this site agree to abide by the Urban Institute’s terms of service .
+
+ All data made available via the Education Data Portal in any form is licensed to you under the Open Data Commons Attribution License (ODC-By) v1.0 . The nontechnical summary of this license is available here . The content is provided as is, without warranty of any kind, express or implied. The Urban Institute shall not be liable for any claims or damages with respect to any loss or other claim by you or any third party on account of, or arising from, the use of the datasets.
+
+ The Education Data Portal contains links to websites operated by organizations other than the Urban Institute. Urban is not responsible for the availability of these outside resources, their contents, any link contained in a linked site, or any changes or updates to such a site. Urban provides these links only as a convenience, and the inclusion of any link does not imply or mean endorsement by the Urban Institute, the site, or its contents.
+
+ Citing these data
+
+ When citing data from the Education Data Portal in any research reports, briefs, or similar products, please cite both the portal and the dataset. For example:
+
+ [dataset names], Education Data Portal (Version ), Urban Institute, accessed Month, DD, YYYY, https://educationdata.urban.org/documentation/, made available under the ODC Attribution License .
+
+ Be sure to replace “ ” with the version of the data you used for the research. When citing data from the Education Data Portal in blog posts, data visualizations, or other works in which the full citation above may unduly constrain available space, we recommend the following citation:
+
+ [dataset names], via Education Data Portal v. , Urban Institute, under ODC Attribution License .
+
+ Again, be sure to replace “ ” with the version of the data you used for the project. Datasets included in this portal are the US Department of Education Common Core of Data, the US Department of Education Civil Rights Data Collection, the US Census Bureau Small Area Income and Poverty Estimates, the US Department of Education Integrated Postsecondary Education Data System, the US Department of Education College Scorecard, and the National Historical Geographic Information System.
+
+ We highly encourage users to reach out to [email protected] to notify us of any public projects or research using these data, including providing information on the title and link to the published work, which can elevate the visibility of your work and help us make the case for continued funding.
+
+ Acknowledgements
+
+ Support for this project has been provided by Amazon Web Services, Arnold Ventures, the Bill & Melinda Gates Foundation, Lumina Foundation, Overdeck Family Foundation, the Patrick J. McGovern Foundation, and the Walton Family Foundation. We are grateful to them and to all our funders, who make it possible for Urban to advance its mission. The views expressed are those of the authors and should not be attributed to the Urban Institute, its trustees, or its funders. Funders do not determine research findings or the insights and recommendations of our experts. More information on our funding principles is available here . Read our terms of service here .
+
+ Contact us
+
+ We would love to hear from you! Please send us your feedback at [email protected] .

@@ -1,0 +1,80 @@
+schema_version: 1
+id: hud-fair-market-rents
+name: HUD Fair Market Rents (FMRs)
+publisher:
+  name: U.S. Department of Housing and Urban Development, Office of Policy Development and Research
+  url: https://www.huduser.gov
+  type: us_federal
+homepage: https://www.huduser.gov/portal/datasets/fmr.html
+description: >-
+  Fair Market Rents are HUD's annual estimates of gross rent (shell rent plus essential utilities) at the 40th
+  percentile of standard-quality recent-mover rental units, published for every metropolitan FMR area (HUD Metro
+  FMR Areas) and nonmetropolitan county, by bedroom count (0-4). They set payment standards for Housing Choice
+  Vouchers and rent ceilings for HOME, ESG, Continuum of Care and other programs, and are built from ACS rents with
+  local survey and CPI adjustments. Small Area FMRs are published at ZIP-code level for designated metro areas.
+domains: [housing, government_spending]
+tags: [hud, fmr, fair-market-rents, rent, housing-choice-voucher, section-8, safmr, affordability, bedrooms]
+coverage:
+  geography: United States, Puerto Rico and Island Areas — HUD Metro FMR Areas, nonmetro counties (and ZIP codes for Small Area FMRs)
+  countries: [US]
+  geographic_granularity: [county, metro_area, zip]
+  time_range:
+    start: "1983"
+    end: null
+    notes: Fiscal-year editions (FY runs Oct 1-Sep 30); historical FMRs back to FY1983 on HUD User.
+  temporal_granularity: annual
+  unit_of_observation: FMR area (or county / ZIP) × fiscal year × bedroom count
+access:
+  method: restricted
+  endpoints:
+    - url: https://www.huduser.gov/hudapi/public/fmr
+      description: HUD User FMR API (statedata/<state>, data/<entityid>, listCounties, ...). Requires a bearer token from a HUD User account; returns 401 without one.
+    - url: https://www.huduser.gov/portal/datasets/fmr.html
+      description: FMR landing page with yearly xlsx downloads (e.g. fmr/fmr2026/FY26_FMRs.xlsx); served behind an AWS WAF JavaScript challenge.
+  formats: [json, xlsx]
+  auth: credentials_required
+  restricted_reason: >-
+    The HUD User FMR API requires a personal access token (HTTP 401 without one, observed 2026-11-24). The bulk
+    downloads on www.huduser.gov answer automated clients with HTTP 202 and an AWS WAF JavaScript challenge
+    (x-amzn-waf-action: challenge), and are xlsx-only in any case. This repo stores no credentials and does not
+    circumvent bot challenges.
+  notes: >-
+    HUD's GIS open-data portal publishes a keyless "Fair Market Rents" ArcGIS feature layer
+    (https://services.arcgis.com/VTyQ9soqVukalItT/arcgis/rest/services/Fair_Market_Rents/FeatureServer/0) with
+    FMR_CODE, FMR_AREANAME and FMR_0BDR..FMR_4BDR for one unlabelled fiscal year (last data edit 2025-09-30, i.e.
+    apparently FY2026) and no county membership; it is queued as hud-egis-fair-market-rents in ops/queue.yaml.
+update:
+  cadence: annual
+  expected_lag: Published by statute at least 30 days before the fiscal year starts (usually August-September for an October 1 effective date).
+change_detection:
+  method: none
+  poll_interval_days: 30
+license:
+  name: No license stated (U.S. Government work; HUD metadata gives only a no-warranty disclaimer)
+  spdx: null
+  url: https://catalog.data.gov/dataset/fair-market-rents
+  redistribution: link_only
+  commercial_use: unclear
+  attribution: "U.S. Department of Housing and Urban Development, Office of Policy Development and Research, Fair Market Rents."
+  evidence: evidence/licenses/hud-fair-market-rents/
+  checked_at: "2026-11-24"
+  notes: HUD's data.json (data.hud.gov) has license null for all 226 datasets; the FMR entries carry only a liability disclaimer in `rights`. The HUD User terms pages could not be fetched (WAF challenge). Classified link_only per POLICY.
+key_variables:
+  - name: FMR by bedroom count (0-4)
+    label: Fair Market Rent
+    unit: US dollars per month
+    definition: Gross rent estimate for 0- to 4-bedroom units in the FMR area for the fiscal year. Column names differ by product and year (e.g. FMR_0BDR..FMR_4BDR in HUD's GIS layer); not verified for the xlsx/API because they could not be retrieved. Units with 5+ bedrooms add 15% per extra bedroom to the 4-bedroom FMR.
+  - name: FMR area code
+    label: FMR area identifier
+    definition: HUD Metro FMR Area or nonmetro county code (e.g. METRO10180M10180, NCNTY01005N01005 in the GIS layer).
+caveats:
+  - Not fetchable through this server (token-gated API, bot-challenged downloads). Listed so agents know the source exists and where to get it.
+  - FMRs are program parameters, not measured median rents; they target the 40th percentile of recent-mover gross rents (50th in some areas historically) and include utilities. Do not compare them directly with ACS median contract rent.
+  - FMR areas are HUD-defined and differ from OMB metro areas (HUD Metro FMR Areas split some CBSAs); fiscal-year editions are not calendar-year data, and methodology changes between editions create breaks; read each year's FMR documentation.
+related: [census-acs-summary-file, census-gazetteer]
+status: healthy
+status_reason: Catalog-only entry; access restricted (API token required, downloads behind a bot challenge).
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: null
+adapter_version: null

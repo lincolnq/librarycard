@@ -1,0 +1,95 @@
+schema_version: 1
+id: bls-laus
+name: Local Area Unemployment Statistics (LAUS)
+publisher:
+  name: U.S. Bureau of Labor Statistics (BLS)
+  url: https://www.bls.gov
+  type: us_federal
+homepage: https://www.bls.gov/lau/
+description: >-
+  LAUS produces monthly and annual-average estimates of the civilian labor force, employment, unemployment
+  and the unemployment rate by place of residence for about 8,300 areas — census regions and divisions,
+  states, metropolitan and micropolitan areas, counties, and cities of 25,000+. State workforce agencies
+  produce them with BLS models that combine the Current Population Survey, payroll employment (CES),
+  unemployment-insurance claims and ACS data, controlled to national CPS totals. This source adds county,
+  city and metro monthly detail and full monthly history that headline Data Commons series lack.
+domains: [labor, economy]
+tags: [laus, unemployment, unemployment-rate, labor-force, employment, jobless, bls, county-unemployment, metro-unemployment, labor-force-participation]
+coverage:
+  geography: United States — census regions/divisions, 50 states, DC and Puerto Rico, metropolitan/micropolitan/combined areas, metropolitan divisions, counties, cities and New England towns
+  countries: [US]
+  geographic_granularity: [census_region, census_division, state, metro_area, county, place]
+  time_range:
+    start: "1976"
+    end: null
+    notes: States from January 1976; most substate areas from January 1990. October 2025 was not collected (federal shutdown) and is null; 2025 annual averages are 11-month averages.
+  temporal_granularity: monthly
+  unit_of_observation: One LAUS series (area x measure x seasonal adjustment) for one month or one annual average
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://download.bls.gov/pub/time.series/la/
+      description: Primary. Tab-delimited flat files la.data.<n>.<Name> (per state, national by area type, seasonally adjusted), la.area (area names/types), la.txt (layout). Served to our honest user agent; anonymous/default clients get an "Access Denied" bot page.
+    - url: https://api.bls.gov/publicAPI/v1/timeseries/data/
+      description: Fallback only, used automatically for state/single-county requests when download.bls.gov returns 403. Keyless API v1 (POST JSON, series ids built as LA + U|S + area code + measure).
+  formats: [tab-delimited text, json (API fallback)]
+  rate_limits: >-
+    Flat files: none published, but BLS blocks bot traffic it deems abusive — keep requests on demand and low-volume
+    (files are cached 1 day; la.area 7 days). API v1 FALLBACK QUOTA: about 25 queries per DAY per IP address (shared by
+    every user behind the same egress IP), at most 25 series and 10 years per query, no annual averages. When spent,
+    the API returns HTTP 200 with status REQUEST_NOT_PROCESSED ("daily threshold ... has been reached") until it resets
+    (midnight US Eastern); observed exhausted on 2026-11-24. API v2 raises limits but requires a registration key
+    (not usable here).
+  auth: none
+  notes: The per-state flat files are small (1-57 MB) and hold every area in the state; national county/city files are ~340 MB, so the adapter reads the state file whenever a state is given.
+update:
+  cadence: monthly
+  expected_lag: State data ~3 weeks after the reference month (State Employment and Unemployment release); metro and county data ~1 month after. Annual benchmark revisions (5 years) in March/April.
+  notes: Schedule at https://www.bls.gov/schedule/news_release/laus.htm
+change_detection:
+  method: content_hash
+  url: https://download.bls.gov/pub/time.series/la/la.txt
+  poll_interval_days: 7
+  notes: la.txt documents the file list, layout and codes and is rewritten only when the database structure changes (last 2026-04-08); routine monthly data refreshes do not touch it.
+license:
+  name: Public domain (U.S. Government work; BLS copyright information)
+  spdx: null
+  url: https://www.bls.gov/opub/copyright-information.htm
+  redistribution: allowed
+  commercial_use: "yes"
+  attribution: "U.S. Bureau of Labor Statistics, Local Area Unemployment Statistics, series <series_id>, retrieved <date>. BLS.gov cannot vouch for the data or analyses derived from these data after the data have been retrieved from BLS.gov."
+  evidence: evidence/licenses/bls-laus/
+  checked_at: "2026-11-24"
+key_variables:
+  - name: series_id
+    definition: 20-character BLS series id = 'LA' + seasonal (U/S) + area_code + measure_code, e.g. LAUCN100010000000003 (Kent County, DE, unemployment rate, NSA).
+  - name: area_code
+    definition: 15-character LAUS area code; prefix gives type (ST state, CN county, MT metro, MC micro, DV metro division, CA combined area, CT/CS city/town, RD region/division) followed by state FIPS.
+  - name: fips
+    definition: Added by the adapter — 2-digit state FIPS for ST areas, 5-digit county FIPS for CN areas, null otherwise.
+  - name: area_name
+    definition: Area name from la.area, e.g. 'Kent County, DE'.
+  - name: measure
+    definition: unemployment_rate, unemployment, employment, labor_force (all areas); employment_population_ratio, labor_force_participation_rate, civilian_noninstitutional_population (states/regions only). measure_code is the BLS 2-digit code (03-09).
+  - name: period
+    definition: M01-M12 = month; M13 = annual average (not seasonally adjusted series only).
+  - name: value
+    unit: percent (rates/ratios) or persons (levels)
+    definition: Estimate; null where BLS publishes '-' (not available).
+  - name: footnote_codes
+    definition: BLS footnote codes, e.g. P preliminary, X unavailable due to the 2025 appropriations lapse, G 2025 annual average excludes October; footnote_text spells them out.
+caveats:
+  - Estimates are model-based (state and large-area models; substate areas are mostly disaggregated from state totals using claims and ACS shares), not direct survey counts. County and city rates have substantial error, especially for small areas.
+  - Data are by place of residence (where people live), not where they work; compare with payroll (CES, QCEW, CBP) or LODES workplace data carefully.
+  - The latest month is preliminary (footnote P) and revised the next month; every March/April an annual benchmark revises up to five years. Record the retrieval date.
+  - October 2025 data were never collected (federal shutdown); those values are null with footnote X and 2025 annual averages cover 11 months (footnote G).
+  - Seasonally adjusted series exist only for states, census regions/divisions and a handful of large metro areas, metropolitan divisions and cities; counties and most metros are not seasonally adjusted — compare the same month across years instead.
+  - Area definitions change (OMB metro delineations, Connecticut is published only by its 9 planning regions, FIPS 09110-09190, not its 8 legacy counties); footnote A marks areas whose boundaries don't match current OMB definitions. Long county/metro series may not be on constant geography.
+  - When download.bls.gov blocks the client, the API v1 fallback serves only state and single-county requests, at most 10 years and without annual averages or area names, under a ~25 queries/day per-IP quota.
+related: [census-cbp, lehd-lodes]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: bls_laus
+adapter_version: 1.0.0

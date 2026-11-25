@@ -1,0 +1,195 @@
+{
+ "_source_url": "https://www.census.gov/data.json",
+ "_retrieved": "2026-11-24T23:38:01+00:00",
+ "_pattern": "20(1[7-9]|2\\d) County Business Patterns",
+ "_catalog_license_counts": {
+  "https://creativecommons.org/publicdomain/zero/1.0/": 1550,
+  "http://creativecommons.org/publicdomain/zero/1.0/": 200,
+  "https://creativecommons.org/publicdomain/zero/1.0/unidentified": 50
+ },
+ "entries": [
+  {
+   "c_vintage": 2017,
+   "c_dataset": [
+    "zbp"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2017/zbp/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2017/zbp/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2017/zbp/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2017/zbp/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2017/zbp/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2017/zbp/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "2017 County Business Patterns",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2017/zbp",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "CBP Staff",
+    "hasEmail": "mailto:econ.dissemination@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/ZBP2017",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2019-12-05 14:23:04.0",
+   "programCode": [
+    "006:007"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "temporal": "2017/2017",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_vintage": 2022,
+   "c_dataset": [
+    "cbp"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2022/cbp/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2022/cbp/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2022/cbp/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2022/cbp/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2022/cbp/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2022/cbp/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "2022 County Business Patterns",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2022/cbp",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "CBP Staff",
+    "hasEmail": "mailto:econ.dissemination@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/CBP2022",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2024-02-28 15:13:01.0",
+   "programCode": [
+    "006:007"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "temporal": "2022/2022",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  },
+  {
+   "c_vintage": 2023,
+   "c_dataset": [
+    "cbp"
+   ],
+   "c_geographyLink": "https://api.census.gov/data/2023/cbp/geography.json",
+   "c_variablesLink": "https://api.census.gov/data/2023/cbp/variables.json",
+   "c_tagsLink": "https://api.census.gov/data/2023/cbp/tags.json",
+   "c_examplesLink": "https://api.census.gov/data/2023/cbp/examples.json",
+   "c_groupsLink": "https://api.census.gov/data/2023/cbp/groups.json",
+   "c_sorts_url": "https://api.census.gov/data/2023/cbp/sorts.json",
+   "c_documentationLink": "https://www.census.gov/developer/",
+   "c_isAggregate": true,
+   "c_isAvailable": true,
+   "@type": "dcat:Dataset",
+   "title": "2023 County Business Patterns",
+   "accessLevel": "public",
+   "bureauCode": [
+    "006:07"
+   ],
+   "distribution": [
+    {
+     "@type": "dcat:Distribution",
+     "accessURL": "https://api.census.gov/data/2023/cbp",
+     "description": "API endpoint",
+     "format": "API",
+     "mediaType": "application/json",
+     "title": "API endpoint"
+    }
+   ],
+   "contactPoint": {
+    "fn": "CBP Staff",
+    "hasEmail": "mailto:econ.dissemination@census.gov"
+   },
+   "identifier": "https://api.census.gov/data/id/CBP2023",
+   "keyword": [
+    "census"
+   ],
+   "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "modified": "2025-03-06 18:54:14.0",
+   "programCode": [
+    "006:007"
+   ],
+   "references": [
+    "https://www.census.gov/developers/"
+   ],
+   "spatial": "United States",
+   "temporal": "2023/2023",
+   "publisher": {
+    "@type": "org:Organization",
+    "name": "U.S. Census Bureau",
+    "subOrganizationOf": {
+     "@type": "org:Organization",
+     "name": "U.S. Department Of Commerce",
+     "subOrganizationOf": {
+      "@type": "org:Organization",
+      "name": "U.S. Government"
+     }
+    }
+   }
+  }
+ ]
+}

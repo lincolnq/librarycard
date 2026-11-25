@@ -1,0 +1,384 @@
+URL: https://www.fhfa.gov/data/public-usage-of-fhfa-data
+Final-URL: https://www.fhfa.gov/data/public-usage-of-fhfa-data
+Retrieved: 2026-11-24T23:38:36+00:00
+HTTP-Status: 200
+Raw-SHA256: 0a83c05b4f18f5cbc4abdbe3bd31b54541dbafe71b45f5c3c7c8a8917b0d9338
+Raw-Bytes: 99514
+---
+Skip to main content
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Here's how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ U.S. FEDERAL HOUSING
+
+ About 
+
+ About FHFA 
+
+ Mission & Core Values 
+
+ Leadership 
+
+ Conservatorship 
+
+ About Fannie Mae & Freddie Mac 
+
+ About the Federal Home Loan Bank System 
+
+ Budget, Finances, and Performance 
+
+ FHFA Policies 
+
+ FOIA & Privacy 
+
+ Information Quality 
+
+ Do Business with Us 
+
+ Ombudsman 
+
+ Equal Employment Opportunity 
+
+ Careers 
+
+ Contact Us 
+
+ Supervision & Regulation 
+
+ Advisory Bulletins 
+
+ Dodd-Frank Act Stress Tests (DFAST) 
+
+ FHFA Examinations 
+
+ Legal Documents & Suspensions 
+
+ Rulemaking and Federal Register 
+
+ Suspended Counterparty Program 
+
+ Policy & Programs 
+
+ Policy 
+
+ Affordable Housing Allocations 
+
+ Common Securitization Platform 
+
+ Credit Risk Transfer 
+
+ Credit Scores 
+
+ Deemed-Issuance Ratio 
+
+ Executive Compensation 
+
+ Guarantee Fees 
+
+ Language Access 
+
+ Non-Performing and Re-Performing Loan Sales 
+
+ Pilot Transparency 
+
+ Private Mortgage Insurer Eligibility Requirements 
+
+ Representation and Warranty Framework 
+
+ Programs 
+
+ Affordable Housing & Community Investment 
+
+ Duty to Serve 
+
+ Enterprise Housing Goals 
+
+ Fraud Prevention 
+
+ Loss Mitigation 
+
+ National Mortgage Database 
+
+ Natural Disaster Risk 
+
+ Suspended Counterparty Program 
+
+ Data & Research 
+
+ Data 
+
+ Borrower Assistance Map 
+
+ Conforming Loan Limit 
+
+ Dashboards 
+
+ Data Governance 
+
+ Duty to Serve Eligibility Data 
+
+ Duty to Serve Performance Data 
+
+ ​Enterprise Housing Goals 
+
+ FHFA House Price Index® 
+
+ FHLB Membership Data 
+
+ NMDB® Aggregate Statistics 
+
+ NSMO Public Use File 
+
+ Public Use Databases 
+
+ FHLB Stress Tests 
+
+ Market Data 
+
+ Market Risk Scenarios 
+
+ MIRS Transition Index 
+
+ UAD Appraisal-Level Public Use File 
+
+ UAD Aggregate Statistics 
+
+ Underserved Areas Data 
+
+ Research 
+
+ Briefs, Notes & White Papers 
+
+ NMDB Staff Working Papers 
+
+ Staff Working Papers 
+
+ Resources 
+
+ Reports 
+
+ All Reports 
+
+ Annual Housing Report 
+
+ Annual Report to Congress 
+
+ Chief FOIA Officer Report 
+
+ Collateral Pledged to FHLBanks 
+
+ Conservatorship Scorecard 
+
+ Credit Risk Transfer Progress Report 
+
+ Enterprise Non-Performing Loan Sales Report 
+
+ FAIR Act Inventory 
+
+ FHFA Annual Performance Plan 
+
+ FHFA House Price Index® 
+
+ FHFA Performance and Accountability Report 
+
+ FHFA SI Compliance Plan 
+
+ FHLBank System at 100 
+
+ FHLBank Targeted Mission Activities 
+
+ FOIA Annual Report 
+
+ Foreclosure Prevention, Refinance, and FPM Report 
+
+ Housing Mission Report 
+
+ Information Resources Management Strategic Plan 
+
+ No FEAR Report 
+
+ Plain Language Report 
+
+ Prepayment Monitoring Report 
+
+ Single-Family Guarantee Fees Report 
+
+ Stress Tests Reports 
+
+ Mortgage Translations 
+
+ About Mortgage Translations 
+
+ Borrower Education Materials 
+
+ COVID-19 Resources 
+
+ Interpretive Services 
+
+ Language Translation Disclosure 
+
+ Search Documents 
+
+ News 
+
+ Public Affairs 
+
+ News Releases 
+
+ Statements 
+
+ Speeches 
+
+ Testimonies 
+
+ Public Input 
+
+ Fact Sheets 
+
+ FAQs 
+
+ Partner Agency Engagements 
+
+ Public Engagements 
+
+ Videos 
+
+ Social Media 
+
+ Facebook 
+
+ LinkedIn 
+
+ YouTube 
+
+ X (formerly Twitter) 
+
+ Search
+
+ Close search form 
+
+ Search FHFA.gov
+
+ Search 
+
+ Filter by Topic
+
+ Advisory Bulletins 
+
+ Federal Register Notice 
+
+ Federal Register Publication 
+
+ News Releases 
+
+ Public Input 
+
+ Reports 
+
+ Research Papers 
+
+ Press ESC or click outside to close
+
+ Menu 
+
+ Breadcrumb
+
+ Home 
+
+ FHFA Data 
+
+ Public Usage of FHFA Data 
+
+Public Usage of FHFA Data
+
+ The table below enumerates the known FY 26 Q4 and YTD usage information for the public data assets visited on FHFA.gov. 
+ CSV 
+ Public Data Asset Description FY 26 Q4
+ FY 26 YTD
+
+ Webpage Views File Downloads Webpage Views File Downloads 
+ Borrower Assistance Map Borrower Assistance Map provides data on the performance of the Enterprises’ single-family loans and the level of assistance being provided to distressed borrowers including home retention and foreclosure alternative actions by state. 647 N/A 2818 N/A 
+ Conforming Loan Limit Values Fannie Mae and Freddie Mac are restricted by law to purchasing single-family mortgages with origination balances below a specific amount, known as the “conforming loan limit” (CLL) value. Loans above this amount are known as jumbo loans. 45006 16196 241774 62469 
+ Duty to Serve Eligibility The Duty to Serve Eligibility page includes Areas of Concentrated Poverty data, High Opportunity Areas data, Indian Tribe Areas data, and Rural Areas and High Needs Rural Regions data. 2036 286 9725 2170 
+ Duty to Serve Performance The Duty to Serve Performance Data page shows acquisition and performance information for loans and investments that are in Duty to Serve eligible areas or markets. 2526 450 14547 1850 
+ Enterprise Housing Goals Data FHFA establishes annual single-family and multifamily housing goals for mortgages purchased by Fannie Mae and Freddie Mac. 1105 35 5027 222 
+ FHLBs Countercyclical Mortgage Asset Stress Test FHFA has developed macroeconomic scenarios that it provides to the Federal Home Loan Banks (FHLBs).   These scenarios are inputs to financial models that the FHLBs use to assess the exposure of their entire portfolio. The FHFA credit risk scenarios for mortgage assets are comprised of 30-year time paths for several interest rates and state-level house price indexes (HPIs).   The scenarios are constructed to represent worst-case, yet plausible, paths for house price levels. 63 177 293 590 
+ Federal Home Loan Bank Membership The Federal Home Loan Bank (FHLB) system was created by the Federal Home Loan Bank Act of 1932 as a government sponsored enterprise to support mortgage lending and related community investment. It is composed of 11 FHLBanks, more than 6,500 member financial institutions, and the System's fiscal agent, the Office of Finance. Each FHLBank is a separate, government-chartered, member-owned corporation. 1371 561 5334 3211 
+ FHLBs Market Risk Scenarios FHFA has developed macroeconomic scenarios that it provides to the Federal Home Loan Banks (FHLBs).   These scenarios are inputs to financial models that the FHLBs use to assess the exposure of their entire portfolio. The FHFA market risk scenarios are comprised of instantaneous shocks to current measures of four key interest rates, implied volatility, and option-adjusted spreads.     FHFA derives its interest rate shocks from historical interest rate changes observed over successive 6-month intervals, measured from the first day of each month extending back to 1998.   653 119 2746 754 
+ Fair Lending Data Fair lending is central to the principles under which the U.S. housing finance system operates and is a requirement of law. FHFA monitors fair lending data and risk presented by regulated entity activities.  2316 33 40880 241 
+ FHFA House Price Indexes (HPIs) The FHFA House Price Index (FHFA HPI®) is a comprehensive collection of public, freely available house price indexes that measure changes in single-family home values based on data from all 50 states and over 400 American cities that extend back to the mid-1970s. 133736 16549 573540 75346 
+ Market Data Total mortgages held or securitized by Fannie Mae and Freddie Mac as a Percentage of Residential Mortgage Debt Outstanding and statistics for conventional and government-insured or -guaranteed loans. Data covers periods from 1990 to 2011. FHFA does not plan to update this dataset through more recent periods. 1387 22 8408 478 
+ Mortgage Interest Rate Survey Transition Index In May 29, 2019, FHFA published its final Monthly Interest Rate Survey (MIRS), due to dwindling participation by financial institutions. MIRS had provided information on a monthly basis on interest rates, loan terms, and house prices by property type (all, new, previously occupied); by loan type (fixed- or adjustable-rate), and by lender type (savings associations, mortgage companies, commercial banks and savings banks); as well as information on 15-year and 30-year, fixed-rate loans. Additionally, MIRS provided quarterly information on conventional loans by major metropolitan area and by Federal Home Loan Bank district, and was used to compile FHFA’s monthly adjustable-rate mortgage index entitled the “National Average Contract Mortgage Rate for the Purchase of Previously Occupied Homes by Combined Lenders,” also known as the ARM Index. 20730 45 63285 350 
+ National Mortgage Database Aggregate Statistics The National Mortgage Database (NMDB®) is a nationally representative five percent sample of residential mortgages in the United States. 62106 1745 204917 7841 
+ National Survey of Mortgage Originations Public Use File The National Survey of Mortgage Originations (NSMO) is quarterly mail survey sent to 6,000 borrowers associated with newly-originated mortgages a component of the National Mortgage Database (NMDB®) program. 2973 438 9915 1513 
+ Public Use Databases The Public Use Databases are released annually to meet FHFA’s statutory requirements for certain public reporting on the Federal Home Loan Banks (FHLBs) and Enterprises. HERA Section 1212k requires FHFA to prepare a FHLB Public Use Database containing information on Federal Home Loan Banks' loan purchases at the Census Tract level. The Enterprise loan-level Public Use Databases are released annually to meet FHFA’s requirement under 12 U.S.C. 4543 and 4546(d) to publicly disclose data about the Enterprises’ single-family and multifamily mortgage acquisitions. 3860 1576 17031 5402 
+ Suspended Counterparty Program FHFA established the Suspended Counterparty Program (12 CFR part 1227) to help address the risk to Fannie Mae, Freddie Mac, and the Federal Home Loan Banks (“the regulated entities”) presented by individuals and entities with a history of fraud or other financial misconduct. Under this program, FHFA may issue orders suspending an individual or entity from doing business with the regulated entities. FHFA maintains a list of each suspended counterparty. 77167 6450 454595 24411 
+ Underserved Areas Data The Federal Housing Enterprises Financial Safety and Soundness Act of 1992 (Safety and Soundness Act) provides for the establishment of single-family and multifamily goals each year, including a single-family purchase money mortgage goal for families residing in low-income areas.   Census tract level data identifying these areas are made available. 1223 296 4238 2172 
+ Uniform Appraisal Dataset (UAD) Appraisal-Level Public Use File The Uniform Appraisal Dataset (UAD) Appraisal-Level Public Use File (PUF) is the nation’s first publicly available appraisal-level dataset of appraisal records, giving the public new access to a selected set of data fields found in appraisal reports. The UAD Appraisal-Level PUF is based on a five percent nationally representative random sample of appraisals for single-family mortgages acquired by the Enterprises. 535 182 1797 763 
+ Uniform Appraisal Dataset (UAD) Aggregate Statistics Uniform Appraisal Dataset (UAD) Aggregate Statistics Data File and Dashboards are the nation’s first publicly available datasets of aggregate statistics on appraisal records, giving the public new access to a broad set of data points and trends found in appraisal reports. 2685 89 10795 836 
+ Annual Housing Report ​​​​This Annual Housing Report​ (Report) describes the affordable housing activities of the Enterprises and meets the reporting requirements of the Federal Housing Enterprises Financial Safety and Soundness Act of 1992. 1379 180 7832 1421 
+ FHFA Annual Performance Plan FHFA's Annual Performance Plan (APP) has four components: (1) strategic goals; (2) strategic objectives; (3) performance measures and associated targets; and (4) means and strategies to accomplish the performance goals. 816 69 4371 831 
+ Annual Report to Congress The Federal Housing Finance Agency’s (FHFA’s) Report to Congress​ covers the activities of FHFA and its regulated entities. 1826 400 22757 1829 
+ Credit Risk Transfer Progress Report The credit risk transfer (CRT) programs at Fannie Mae and Freddie Mac (the Enterprises) wer​e established to reduce taxpayer exposure to risks arising from credit guarantees extended by the Enterprises through their normal courses of business. The Federal Housing Finance Agency (FHFA) initiated development of a CRT program in 2012 to reduce risk at the Enterprises during their conservatorships, and Fannie Mae and Freddie Mac began implementing their CRT programs in 2013. 609 29 2644 242 
+ Enterprise Non-Performing Loan Sales Report The Enterprise Non-Performing Loan Sales Report includes information about NPLs sold through December 31, 2021 and reflects borrower outcomes on NPLs sold through June 30, 2021 and reported through December 31, 2021. The sale of NPLs reduces the number of delinquent loans in the Enterprises' portfolios and transfers credit risk to the private sector. FHFA and the Enterprises impose ​​requirements​​ on NPL buyers designed to achieve more favorable outcomes for borrowers than foreclosure. 1077 110 4363 372 
+ FHFA FAIR Act Inventory The Federal Activities Inventory Reform (FAIR) Act (P.L. 105-270) was enacted in 1998 requiring Federal Government agencies to prepare inventories of the commercial and inherently governmental activities performed by their federal employees.   The FAIR Act report is due annually by Federal Government agencies and must be submitted to the Office of Management and Budget (OMB). 554 33 1710 71 
+ No FEAR Reporting This reporting is submitted quarterly and annually to Congress. Reports provide data and detail the agency's efforts to improve compliance with employment discrimination and provide a comprehensive overview of the agency’s EEO program, including complaint processing and accountability. 484 64 3072 576 
+ Report on Collateral Pledged to Federal Home Loan Banks The Housing and Economic Recovery Act of 2008 (HERA) requires the Federal Housing Finance Agency (FHFA) to submit an annual report to Congress on the collateral pledged to the FHLBanks, including an analysis of collateral by type and by Bank district. FHFA’s Report on Collateral Pledged to Federal Home Loan Banks provides the required information as well as additional analysis of data on the types and amounts of collateral pledged to the Banks to secure advances and other collateralized products offered by the Banks to their members. The information in this report uses data collected through a quarterly data collection conducted by FHFA’s Division of Federal Home Loan Bank Regulation (DBR). 374 170 3325 388 
+ Annual Federal Home Loan Bank Targeted Mission Activities Report FHFA is required to monitor and report annually on the Federal Home Loan Banks' support of their low-income housing and community development activities to the Federal Home Loan Banks' Advisory Councils. This report fulfills that requirement. This report addresses the FHLBanks’ activities to support low-income housing and community development. The FHLBanks support a range of these activities through three programs: the statutorily-mandated Affordable Housing Program (AHP), the statutorily-mandated Community Investment Program (CIP), and the voluntary Community Investment Cash Advance Program (CICA). The report also covers FHLBank Community Support Programs, non-depository Community Development Financial Institution (CDFI) membership, and FHLBank performance on housing goals. ​ 970 814 1527 1377 
+ FOIA Annual Report The Freedom of Information Act (FOIA) requires each federal agency to submit an Annual Report to the Attorney General each year. These reports contain detailed statistics on the numbers of requests received and processed by each agency, the time taken to respond, and the outcome of each request, as well as many other vital statistics regarding the administration of the FOIA at federal departments and agencies. 185 35 2168 185 
+ Chief FOIA Officer Report Department of Justice’s Freedom of Information Act (FOIA) Guidelines direct agency Chief FOIA Officers to annually review all aspects of their FOIA administration and to report to the Department on steps taken to improve their FOIA programs. 236 27 1717 118 
+ Foreclosure Prevention, Refinance, and Federal Property Manager's  Report Monthly and Quarterly report on refinance and foreclosure prevention activities. 3614 688 16388 1711 
+ Housing Mission Report: Affordable Housing Activities The Federal Housing Finance Agency (FHFA) was established by the Housing and Economic Recovery Act of 2008 (HERA) and is responsible for the supervision, regulation, and housing mission oversight of the Federal National Mortgage Association (Fannie Mae), the Federal Home Loan Mortgage Corporation (Freddie Mac), and the Federal Home Loan Bank (FHLBank) System, which includes 11 FHLBanks and the Office of Finance. FHFA’s mission is to ensure its regulated entities fulfill their mission by operating in a safe and sound manner to serve as a reliable source of liquidity for equitable and sustainable housing finance and community investment throughout the economic cycle. Since 2008, FHFA has also served as conservator of Fannie Mae and Freddie Mac (collectively, the Enterprises). 78 21 1025 82 
+ FHFA Performance and Accountability Report (PAR) This report is a retrospective assessment of FHFA’s success in achieving the fiscal year’s goals and targets as set out in FHFA’s Annual Performance Plan. The PAR also includes audited financial information for the fiscal year. 553 134 8714 585 
+ Prepayment Monitoring Report This quarterly report provides market participants additional transparency into a sample of the data FHFA receives and reviews on a monthly basis. The report focuses on alignment of prepayment rates, which continues to be important to the success of UMBS and to the efficiency and liquidity of the secondary mortgage market. 1994 438 7545 1413 
+ Single Family Guarantee Fees Report The Housing and Economic Recovery Act of 2008 requires FHFA to conduct ongoing studies of the guarantee fees charged by the Enterprises and to submit a report to Congress each year. Guarantee fees are intended to cover the credit risk and other costs that the Enterprises incur when they acquire single-family loans from lenders. These costs include projected credit losses from borrower defaults over the life of the loans, administrative costs, and a return on capital. 1917 254 9195 1442 
+ Stress Tests Reports - Fannie Mae & Freddie Mac Fannie Mae and Freddie Mac are required to conduct annual stress tests pursuant to FHFA rule 12 CFR 1238, which implements section 165(i)(2) of the Dodd-Frank Wall Street Reform and Consumer Protection Act (the “Dodd-Frank Act”).   1514 423 4408 1195 
+ The counts in this table reflect page views and data file downloads for the webpages that host the publicly available datasets and dashboards. While this information provides insight into the number of data users who access these data products through the FHFA website, they do not account for data users who access the data through other means. For example, downloads of FHFA data products from third-party intermediaries (e.g., FRED, Finance.Yahoo.com, Forbes.com, Bloomberg.com, Economy.com, etc.), data downloads from embedded dashboards, and bot traffic used to automate data downloads are not captured by the available tools for counting page views and data file downloads. These counts also focus on use of the public data products and exclude use of internal data products by FHFA, the Enterprises, and other federal government agencies.
+
+ Sign up for email updates
+
+ Leave this field blank 
+
+ U.S. FEDERAL HOUSING
+
+ Footer Highlighted
+
+ About 
+
+ Careers 
+
+ Sitemap 
+
+ Contact Us 
+
+ Footer
+
+ Accessibility 
+
+ Budget, Finances, and Performance​ 
+
+ FOIA 
+
+ No FEAR Act Data 
+
+ Office of the Inspector General 
+
+ Privacy Policy 
+
+ USA.gov 
+
+ Back to top

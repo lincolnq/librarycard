@@ -1,0 +1,671 @@
+URL: https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html
+Final-URL: https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html
+Retrieved: 2026-11-24T23:39:35+00:00
+HTTP-Status: 200
+Raw-SHA256: 6ccb46a3657bd2163f6105113fbd4df9dc7976e5a61ac99714617c8be1a0e196
+Raw-Bytes: 57378
+---
+Skip directly to site content 
+ Skip directly to search 
+
+ An official website of the United States government 
+
+ Here's how you know 
+
+ Official websites use .gov 
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+ A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Place and Health - Geospatial Research, Analysis, and Services Program (GRASP) 
+
+ Explore This Topic 
+
+ Search 
+
+ Search 
+
+ Clear 
+
+ Search 
+
+ For Everyone 
+
+ Feature Stories 
+
+ Explore Our Work 
+
+ News & Announcements 
+
+ Vision & Program 
+
+ Resources and Materials 
+
+ View all 
+
+ Public Health 
+
+ Tools and Training 
+
+ State & Local Environmental Emergency Resource Center 
+
+ Collaborate with GRASP 
+
+ Social Vulnerability Index 
+
+ Environmental Justice Index 
+
+ Heat & Health Index 
+
+ View all 
+
+ Home 
+
+ search 
+
+ clear 
+
+ search 
+
+ Place and Health - Geospatial Research, Analysis, and Services Program (GRASP) 
+
+ Menu 
+
+ clear 
+
+ search 
+
+ For Everyone 
+
+ Feature Stories 
+
+ Explore Our Work 
+
+ News & Announcements 
+
+ Vision & Program 
+
+ Resources and Materials 
+
+ View All 
+
+ Home 
+
+ Public Health 
+
+ Tools and Training 
+
+ State & Local Environmental Emergency Resource Center 
+
+ Collaborate with GRASP 
+
+ Social Vulnerability Index 
+
+ Environmental Justice Index 
+
+ Heat & Health Index 
+
+ View All 
+
+ Place and Health - Geospatial Research, Analysis, and Services Program (GRASP) 
+
+ Tools and Training 
+
+ State & Local Environmental Emergency Resource Center 
+
+ Collaborate with GRASP 
+
+ Social Vulnerability Index 
+
+ Environmental Justice Index 
+
+ Heat & Health Index 
+
+ View Menu 
+
+ SVI Data & Documentation Download
+
+ For Public Health 
+
+ May 11, 2026 
+
+ About
+
+ Access the CDC/ATSDR Social Vulnerability Index (CDC/ATSDR SVI or SVI) data, documentation, and other helpful data-related information below.
+
+ Data & Documentation
+
+ Suggested citation
+
+ Centers for Disease Control and Prevention/ Agency for Toxic Substances and Disease Registry/ Geospatial Research, Analysis, and Services Program. CDC/ATSDR Social Vulnerability Index [Insert 2022, 2020, 2018, 2016, 2014, 2010, or 2000] Database [Insert U.S. or State] . https://www.atsdr.cdc.gov/placeandhealth/svi/data_documentation_download.html Accessed on [Insert date] .
+
+ Data changes over time
+
+ The CDC/ATSDR SVI databases have changed over time, so we caution against comparing the different versions of our databases for several reasons:
+
+ We created the percentile scores included in each database by ranking census tracts relative to other census tracts in the same year. Therefore, percentile scores of different tracts in different years are not comparable.
+
+ Starting in 2010, we use the 5-year ACS data, so the databases may have data sampled from overlapping years.
+
+ We have made some changes to the CDC/ATSDR SVI over time because data from the U.S. Census Bureau changed or because we decided updates were needed to keep up with the latest research on the topic.
+
+ The U.S. Census Bureau redraws many census tract boundaries in each decennial year, meaning that census tracts included in the 2000 CDC/ATSDR SVI database are not equivalent to the census tracts included in the 2010, 2014, 2016, and 2018 CDC/ATSDR SVI databases (2020 and 2022 CDC/ATSDR SVI databases also contain different tracts). Even in cases where the census tract does not undergo a name change, modifications to the census tract geographic boundary may impact comparability over time.
+
+ Comparison of source data and variables
+
+ The table below provides information on the U.S. Census Bureau source data and variables used to create each version of the CDC/ATSDR SVI database. This information can help in determining which dataset might be best for your use.
+
+ Comparison of Source Data and Variables 
+
+ Data Source 
+ 2000 Census 
+ 2010 Census ACS 
+ 2014 ACS 
+ 2016 ACS 
+ 2018 ACS 
+ 2020 ACS 
+ 2022 ACS 
+
+ Theme 1: Socioeconomic 
+ Individuals below poverty level 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ - 
+ - 
+
+ Civilian unemployment 16+ years 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Per capita income 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ - 
+ - 
+
+ No high school diploma 25+ years 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Below 150% of poverty 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Housing cost burden (households spending >=30% of annual income on housing) 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ No health insurance 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Theme 2: Household Composition/ Disability** 
+ Persons 65+ years 
+ x* 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Persons 17 years and younger 
+ x* 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Persons 5+ years with a disability 
+ x* 
+ - 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Single-parent households with children under 18 years 
+ x* 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Persons 5+ years who speak English less than well 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Theme 3: Minority status and language*** 
+ Persons who are racial and/or ethnic minorities (Total population minus non-Hispanic white) 
+ x* 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Persons 5+ years who speak English less than well 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ - 
+ - 
+
+ Theme 4: Housing Type and Transportation 
+ Housing with 10+ units 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Mobile homes 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Households with more people than rooms 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Households with no vehicle access 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Persons who are in institutional and non- institutional group homes 
+ x* 
+ x* 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Adjunct variables 
+ Persons without health insurance 
+ - 
+ - 
+ x 
+ x 
+ x 
+ - 
+ - 
+
+ Daytime population (LandScan) 
+ - 
+ - 
+ x 
+ x 
+ x 
+ x 
+ x 
+
+ Households without an internet subscription 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Hispanic / Latino persons 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Not Hispanic or Latino Black/African American persons 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Not Hispanic or Latino Asian persons 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Not Hispanic or Latino American Indian and Alaska Native persons 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Not Hispanic or Latino Native Hawaiian and Other Pacific Islander persons 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Not Hispanic or Latino persons of two or more races 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ Not Hispanic or Latino persons of some other race 
+ - 
+ - 
+ - 
+ - 
+ - 
+ x 
+ x 
+
+ *Data are derived from the decennial census 100% count data (SF1)**Theme is titled "Household Characteristics" in 2020 and 2022***Theme is titled: "Racial & Ethnic Minority Status" in 2020 and 2022 
+
+ CSV of table available here: CSV 
+
+ Data correction
+
+ Data values for MP_CROWD (Percentage of occupied housing units with more people than rooms estimate MOE) in the 2022 SVI dataset were updated on 12/11/24. This update does not impact the SVI rankings, interactive map, or the county map series and those remain correct and unchanged. The MP_CROWD variable was previously using Housing Units in the denominator instead of Occupied Housing Units and thus the values after release on 5/21/24 and before 12/11/24 were incorrect. 
+
+ Data values for Housing Burden and Overall SVI in the 2020 SVI dataset have been updated. These variables were previously using E_HBURD instead of EP_HBURD in the calculation and thus the values after release on 10/27/22 and before 12/22/22 were incorrect.
+
+ Data values for Income and Overall SVI in the 2000 SVI dataset have been updated. The income variable was previously inversely ranked, which also impacted the Overall SVI calculation. These data were recreated in 2021 to be added to the interactive map, and thus the values after release on 10/27/22 and before 1/15/26 were incorrect.
+
+ Questions or comments?
+
+ Contact the CDC/ATSDR SVI Coordinator .
+
+ On This Page 
+
+ Data & Documentation 
+
+ Suggested citation 
+
+ Data changes over time 
+
+ Comparison of source data and variables 
+
+ May 11, 2026 
+
+ Sources 
+ Print 
+ Share 
+
+ Facebook 
+
+ LinkedIn 
+
+ Twitter 
+
+ Syndicate 
+
+ Content Source:
+
+ Agency for Toxic Substances and Disease Registry 
+
+ Place and Health - Geospatial Research, Analysis, and Services Program (GRASP)  
+
+ Healthy people, thriving communities. Place matters. || GRASP provides expertise, data, and technology to advance work at the intersection of place and health.
+
+ View All 
+
+ For Everyone 
+
+ Feature Stories 
+
+ Explore Our Work 
+
+ News & Announcements 
+
+ Vision & Program 
+
+ Resources and Materials 
+
+ Public Health 
+
+ Tools and Training 
+
+ State & Local Environmental Emergency Resource Center 
+
+ Collaborate with GRASP 
+
+ View All 
+
+ Sign up for Email Updates 
+
+ Contact Us 
+
+ Contact Us 
+
+ Call 800-232-4636 
+
+ Contact ATSDR 
+
+ About ATSDR 
+
+ About ATSDR 
+
+ Careers & Jobs 
+
+ Policies 
+
+ Accessibility 
+
+ External Links 
+
+ Privacy 
+
+ Web Policies 
+
+ FOIA 
+
+ OIG 
+
+ No Fear Act 
+
+ Nondiscrimination 
+
+ Vulnerability Disclosure Policy 
+
+ Languages 
+
+ Languages
+
+ Español 
+
+ Language Assistance 
+
+ Español 
+
+ 繁體中文 
+
+ Tiếng Việt 
+
+ 한국어 
+
+ Tagalog 
+
+ Русский 
+
+ العربية 
+
+ Kreyòl Ayisyen 
+
+ Français 
+
+ Polski 
+
+ Português 
+
+ Italiano 
+
+ Deutsch 
+
+ 日本語 
+
+ فارسی 
+
+ English 
+
+ Archive 
+
+ CDC Archive 
+
+ Public Health Publications 
+
+ Contact Us 
+
+ Contact Us 
+
+ Call 800-232-4636 
+
+ Contact ATSDR 
+
+ About ATSDR 
+
+ About ATSDR 
+
+ Careers & Jobs 
+
+ Policies 
+
+ Accessibility 
+
+ External Links 
+
+ Privacy 
+
+ Web Policies 
+
+ FOIA 
+
+ OIG 
+
+ No Fear Act 
+
+ Nondiscrimination 
+
+ Vulnerability Disclosure Policy 
+
+ Languages 
+
+ Languages 
+
+ Español 
+
+ Language Assistance 
+
+ Español 
+
+ 繁體中文 
+
+ Tiếng Việt 
+
+ 한국어 
+
+ Tagalog 
+
+ Русский 
+
+ العربية 
+
+ Kreyòl Ayisyen 
+
+ Français 
+
+ Polski 
+
+ Português 
+
+ Italiano 
+
+ Deutsch 
+
+ 日本語 
+
+ فارسی 
+
+ English 
+
+ Archive 
+
+ CDC Archive 
+
+ Public Health Publications 
+
+ HHS.gov 
+ USA.gov

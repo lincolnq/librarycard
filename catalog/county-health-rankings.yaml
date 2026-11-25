@@ -1,0 +1,99 @@
+schema_version: 1
+id: county-health-rankings
+name: County Health Rankings & Roadmaps — National Analytic Data
+publisher:
+  name: University of Wisconsin Population Health Institute (County Health Rankings & Roadmaps)
+  url: https://www.countyhealthrankings.org/
+  type: research_institution
+homepage: https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation
+description: >-
+  Annual county-level compilation of ~90 measures of health outcomes (premature death, poor health days, low
+  birthweight) and health factors (smoking, obesity, uninsured, primary care physicians, preventable hospital stays,
+  high school completion, unemployment, children in poverty, income inequality, violent crime, air pollution, housing
+  problems, and more), with numerators, denominators, confidence intervals, reliability flags and race/ethnicity
+  breakdowns. Compiled by the University of Wisconsin Population Health Institute from federal and other sources
+  (CDC, Census, BLS, CMS, FBI, EPA, ...) into one consistent file per release; useful because it harmonises many
+  sources at the county level in one place.
+domains: [health, income_poverty, education, crime_justice, social_mobility]
+tags: [county-health-rankings, chrr, uwphi, rwjf, premature-death, ypll, smoking, obesity, uninsured, social-determinants, health-factors, health-outcomes, county]
+coverage:
+  geography: United States — all counties, 50 states and DC, plus state and national rows
+  countries: [US]
+  geographic_granularity: [nation, state, county]
+  time_range:
+    start: "2019"
+    end: "2025"
+    notes: >-
+      Release years 2019-2025 are served (each release mixes data years, typically 1-5 years before the release).
+      Releases since 2010 exist on the publisher site. As of 2026-11-24 the latest full release is 2025 (file re-issued
+      as v3 in Nov 2025); a supplemental analytic file was posted 2026-03-25 (not served).
+  temporal_granularity: annual
+  unit_of_observation: County (or state / nation) in one annual release
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www.countyhealthrankings.org/sites/default/files/media/document/analytic_data2025_v3.csv
+      description: 2025 national analytic CSV (~13 MB, two header rows). Other years analytic_data{year}.csv (2019-2024); file names per year are in the adapter (FILES).
+    - url: https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation
+      description: Data documentation page listing the current analytic files, data dictionaries and technical documentation.
+  formats: [csv, sas7bdat, xlsx]
+  rate_limits: None published. Each fetch downloads the full ~13 MB file (no caching under link_only).
+  auth: none
+update:
+  cadence: annual
+  expected_lag: Released each spring (March); measures lag 1-5 years depending on the underlying source.
+change_detection:
+  method: regex
+  url: https://www.countyhealthrankings.org/health-data/methodology-and-sources/data-documentation
+  pattern: 'analytic_data(\d{4}[^"/]*?)\.csv'
+  poll_interval_days: 14
+  notes: >-
+    Fingerprints the analytic CSV file names on the documentation page. A new release year or a re-issued version
+    (e.g. _v4) changes the set; update FILES in the adapter. Not affected by other page edits.
+license:
+  name: CHR&R Terms of Use (all rights reserved; personal / non-profit use licence)
+  spdx: null
+  url: https://www.countyhealthrankings.org/terms-use
+  redistribution: link_only
+  commercial_use: "no"
+  attribution: University of Wisconsin Population Health Institute. County Health Rankings & Roadmaps <year>. https://www.countyhealthrankings.org
+  evidence: evidence/licenses/county-health-rankings/
+  checked_at: "2026-11-24"
+  notes: Terms grant only a non-exclusive licence for personal or non-profit purposes and prohibit commercial use (incl. training commercial AI models) without written consent. Not cached; fetched on demand. See NOTES.md.
+key_variables:
+  - name: fipscode
+    definition: 5-digit FIPS; SS000 = state row, 00000 = United States row.
+  - name: state / county
+    definition: State postal code; county (or state/US) name.
+  - name: year
+    definition: Release year of the rankings (not the data year of each measure).
+  - name: v001_rawvalue
+    unit: years of potential life lost per 100,000 (age-adjusted)
+    definition: Premature death (YPLL before age 75).
+  - name: v011_rawvalue
+    unit: proportion (0-1)
+    definition: Adult obesity — share of adults with BMI >= 30 (CDC PLACES/BRFSS-based in recent releases).
+  - name: v009_rawvalue
+    unit: proportion (0-1)
+    definition: Adult smoking — share of adults who currently smoke.
+  - name: v085_rawvalue
+    unit: proportion (0-1)
+    definition: Uninsured — share of population under 65 without health insurance (Census SAHIE).
+  - name: vNNN_numerator / _denominator / _cilow / _cihigh / _flag
+    definition: Components of each measure; flag 1 = unreliable, 2 = suppressed. Race-specific values in vNNN_race_<group>.
+caveats:
+  - "LICENSE RESTRICTION: the publisher's terms grant use only for personal or non-profit purposes and prohibit commercial use (including training commercial AI models). Do not use this data commercially or republish it; cite and link to countyhealthrankings.org."
+  - Proportions are returned as 0-1 fractions (not percentages); rates have measure-specific denominators — check metadata.variable_labels and the year's data dictionary.
+  - Each release mixes data years by measure (e.g. 2025 release uses 2022 BRFSS-based estimates, 2019-2021 mortality, 2023 ACS); the `year` column is the release year, not the data year.
+  - Measure definitions and sources change between releases (see the publisher's "Changes to Select Measures" documents); compare years only after checking definitions. The county ranks themselves are within-state and are NOT in this file.
+  - Many measures are suppressed or flagged unreliable for small counties; blank cells and '.' are returned as null.
+  - Several measures are model-based (e.g. obesity and smoking from CDC PLACES) or re-published from federal sources; for finer geography or commercial reuse, use the original sources (cdc-places, census-acs-summary-file).
+  - Licence is non-commercial (link_only, commercial_use no) — downstream users must respect CHR&R's terms of use.
+  - Connecticut appears twice in recent releases — as the 8 old counties (09001-09015; only measures from older data, e.g. premature death) and as the 9 planning regions (09110-09190; Census-based measures such as uninsured). Each CT row has only part of the measures; don't sum both sets.
+related: [cdc-places, cdc-svi]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-24"
+last_verified: "2026-11-24"
+adapter: county_health_rankings
+adapter_version: 1.0.0

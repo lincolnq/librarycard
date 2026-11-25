@@ -1,0 +1,34 @@
+# Hosts contacted by adapters and the monitor. One per line; "*.example.gov" wildcards allowed.
+# `odc validate` fails if a fetchable source uses a host not listed here.
+# Keep sorted within each section. Add a comment naming the source(s) that need each host.
+
+# --- infrastructure
+api.github.com                       # monitor/file_issues.py (GitHub Actions only)
+pypi.org                             # pip install
+files.pythonhosted.org               # pip install
+
+# --- sources
+api.bls.gov                          # bls-laus (API v1 fallback)
+api.usaspending.gov                  # usaspending-spending-by-geography
+apps.bea.gov                         # bea-regional
+cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com   # fec-all-candidates (www.fec.gov/files/bulk-downloads redirects here)
+data.cdc.gov                         # cdc-places
+data.cms.gov                         # cms-medicare-geographic-variation
+dataverse.harvard.edu                # mit-election-president-state, mit-election-senate-state
+download.bls.gov                     # bls-laus
+dvn-cloud-iqss.s3.amazonaws.com      # mit-election-president-state, mit-election-senate-state (Dataverse download redirects)
+educationdata.urban.org              # urban-education-data-ccd
+lehd.ces.census.gov                  # lehd-lodes
+noaa-nclimgrid-daily-pds.s3.amazonaws.com   # noaa-nclimgrid-daily
+raw.githubusercontent.com            # usaspending-spending-by-geography (change detection: API contract file)
+svi.cdc.gov                          # cdc-svi
+unitedstates.github.io               # unitedstates-congress-legislators
+voteview.com                         # voteview-congress
+www.countyhealthrankings.org         # county-health-rankings
+www.eac.gov                          # eac-eavs
+www.ers.usda.gov                     # usda-ers-rural-urban-codes
+www.fec.gov                          # fec-all-candidates
+www.federalregister.gov              # federal-register-documents
+www.fema.gov                         # fema-disaster-declarations
+www.fhfa.gov                         # fhfa-hpi
+www2.census.gov                      # census-acs-summary-file (+ other Census bulk files); census-acs-summary-file, census-pep, census-saipe, census-gazetteer, census-decennial-2020-pl

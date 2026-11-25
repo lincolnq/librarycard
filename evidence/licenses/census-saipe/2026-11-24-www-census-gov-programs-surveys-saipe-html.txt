@@ -1,0 +1,731 @@
+URL: https://www.census.gov/programs-surveys/saipe.html
+Final-URL: https://www.census.gov/programs-surveys/saipe.html
+Retrieved: 2026-11-24T23:39:58+00:00
+HTTP-Status: 200
+Raw-SHA256: 4d0a5e4eef7f888f12497e95f1039276f9cce61152917821ec6087fb9c2b05c2
+Raw-Bytes: 352912
+---
+United States Census Bureau | An official website of the United States Government 
+
+ An official website of the United States government 
+
+ Here’s how you know 
+
+ Here’s how you know 
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States. 
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( 
+
+ ) or https:// means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites. 
+
+ Skip Header 
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ Explore Census.gov for...
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ -->
+
+ Search census.gov 
+
+ Search
+
+ Search
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Helpful Links
+
+ Advanced Data Search 
+
+ Get Survey Help 
+
+ Census Bureau Data and Maps 
+
+ American Community Survey (ACS) 
+
+ Census Records & Genealogy 
+
+ Search
+
+ Menu
+
+ Topics 
+
+ Browse our topics and subtopics to find information and data. 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Data & Maps 
+
+ Access demographic, economic and population data from the U.S. Census Bureau. Explore census data with visualizations and view tutorials. 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Surveys & Programs 
+
+ Our surveys provide periodic and comprehensive statistics about the nation. This data is critical for government programs, policies, and decision-making. 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ Resource Library 
+
+ Browse our collection of stories and more. 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ Topics 
+
+ Data & Maps 
+
+ Surveys & Programs 
+
+ Resource Library 
+
+ Topics
+
+ Data & Maps
+
+ Surveys & Programs
+
+ Resource Library
+
+ Partners 
+
+ Researchers 
+
+ Educators 
+
+ Survey Respondents 
+
+ News 
+
+ NAICS Codes 
+
+ Jobs 
+
+ About Us 
+
+ Contact Us 
+
+ Help 
+
+ View All Topics and Subtopics 
+
+ Index A to Z 
+
+ Business and Economy 
+
+ Education 
+
+ Emergency Management / Disasters 
+
+ Employment 
+
+ Families and Living Arrangements 
+
+ Geography 
+
+ Health 
+
+ Hispanic Origin 
+
+ Housing 
+
+ Income and Poverty 
+
+ International Trade 
+
+ Migration/Geographic Mobility 
+
+ Population 
+
+ Population Estimates 
+
+ Public Sector 
+
+ Race 
+
+ Redistricting 
+
+ Research 
+
+ Voting and Registration 
+
+ Explore Data on data.census.gov 
+
+ View All Data Resources 
+
+ Census Academy 
+
+ Combining Data 
+
+ Data Tools and Apps 
+
+ Datasets 
+
+ Developers 
+
+ Experimental Data Products 
+
+ Interactive Maps 
+
+ Mapping Files 
+
+ Profiles 
+
+ Related Sites 
+
+ Software 
+
+ Tables 
+
+ Training and Workshops 
+
+ Visualizations 
+
+ Survey Help 
+
+ View All Surveys & Programs 
+
+ 2020 Census 
+
+ 2026 Census Test 
+
+ 2030 Census 
+
+ American Community Survey (ACS) 
+
+ American Housing Survey (AHS) 
+
+ Annual Business Survey (ABS) 
+
+ Annual Integrated Economic Survey (AIES) 
+
+ County Business Patterns (CBP) 
+
+ Current Population Survey (CPS) 
+
+ Economic Census 
+
+ Household Pulse Survey 
+
+ International Programs 
+
+ Metro and Micro Areas 
+
+ Population Estimates 
+
+ Population Projections 
+
+ Small Area Income and Poverty 
+
+ Statistics of U.S. Businesses 
+
+ Survey of Income and Program Participation (SIPP) 
+
+ View All Library Resources 
+
+ Glossary 
+
+ America Counts: Stories 
+
+ Blogs 
+
+ Facts for Features 
+
+ Fact Sheets 
+
+ Infographics and Visualizations 
+
+ Publications 
+
+ Spotlights 
+
+ Stats for Stories 
+
+ Training (Census Academy) 
+
+ Videos 
+
+ Working Papers 
+
+ // 
+
+ Census.gov 
+
+ / 
+
+ Our Surveys & Programs 
+
+ / 
+
+ Small Area Income and Poverty Estimates (SAIPE) Program 
+
+ Small Area Income and Poverty Estimates (SAIPE) Program
+
+ Skip Navigation 
+
+ Within Small Area Income and Poverty Estimates (SAIPE) Program
+
+ About this Program 
+
+ Data 
+
+ Guidance for Data Users 
+
+ Guidance for Geography Users 
+
+ Library 
+
+ News & Updates 
+
+ Technical Documentation 
+
+ Within Small Area Income and Poverty Estimates (SAIPE) Program
+
+ Within Small Area Income and Poverty Estimates (SAIPE) Program 
+
+ About this Program 
+
+ Data 
+
+ Guidance for Data Users 
+
+ Guidance for Geography Users 
+
+ Library 
+
+ News & Updates 
+
+ Technical Documentation 
+
+ -->
+
+ Small Area Income and Poverty Estimates (SAIPE) Program
+
+ The U.S. Census Bureau’s Small Area Income and Poverty Estimates program produces single-year estimates of income and poverty for all U.S. states and counties as well as estimates of school-age children in poverty for all 13,000+ school districts.
+
+ Read More 
+
+ Featured
+
+ indexPagination: false 
+ indexFiltering: false 
+ indexSorting: false 
+
+ --> 
+
+ Data Tool
+
+ Income and Poverty Interactive Data Tool
+
+ An interactive application for exploring data from the Small Area Income and Poverty Estimates (SAIPE) program.
+
+ About SAIPE Model Inputs
+
+ Learn more about the surveys, censuses, and programs that contribute data and other content to SAIPE.
+
+ SAIPE Methodology
+
+ The methods we use to collect and produce SAIPE, including sampling, questions, collection, review, quality, weighting, etc. 
+
+ Datasets
+
+ View More 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ SAIPE School District Estimates for 2024
+
+ February 2026
+
+ View and download 2024 school district estimates for Small Area Income and Poverty Estimates.
+
+ SAIPE Model Input Data
+
+ January 27, 2026
+
+ These datasets provide the aggregated tax, SNAP benefits, and poverty universe data used in producing the SAIPE estimates.
+
+ SAIPE State and County Estimates for 2024
+
+ January 2026
+
+ View and download 2024 state and county estimates for Small Area Income and Poverty Estimates.
+
+ Publications
+
+ View More 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Small Area Income and Poverty Estimates: 2024
+
+ August 2026
+
+ This document presents highlights of the 2024 Small Area Income and Poverty Estimates Program of the U.S. Census Bureau in January 2026.
+
+ Small Area Income and Poverty Estimates: 2023
+
+ August 2025
+
+ This document presents highlights of the 2023 Small Area Income and Poverty Estimates Program of the U.S. Census Bureau in December 2024.
+
+ Small Area Income and Poverty Estimates: 2022
+
+ August 2025
+
+ This document presents highlights of the 2022 Small Area Income and Poverty Estimates Program of the U.S. Census Bureau in December 2023
+
+ Visualizations
+
+ View More 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ Visualization
+
+ Childhood Poverty, 2007 - 2024
+
+ August 2026 
+
+ View poverty ratios of school-age children by school districts since 2007.
+
+ Visualization
+
+ State and County Maps 2024
+
+ August 2026 
+
+ View and download 2024 state and county maps for Small Area Income and Poverty Estimates.
+
+ Visualization
+
+ Small Area Income and Poverty Estimates: Release Highlights of 2024
+
+ August 2026 
+
+ View and download 2024 release highlights for Small Area Income and Poverty Estimates.
+
+ Visualization
+
+ Small Area Income and Poverty Estimates: Release Highlights of 2023
+
+ December 17, 2024 
+
+ View and download 2023 release highlights for Small Area Income and Poverty Estimates.
+
+ Working Papers
+
+ View More 
+
+ indexPagination: true 
+ indexFiltering: true 
+ indexSorting: true 
+
+ --> 
+
+ An Empirical Study on Using Previous American Community Survey Data...
+
+ April 25, 2012
+
+ An Empirical Study on Using Previous American Community Survey Data Versus Census 2000 Data in SAIPE Models for Poverty Estimates
+
+ A Simulation Study of the Distribution of Fay’s Estimator
+
+ January 01, 2011
+
+ Small area estimation with area level models requires variance estimates of the direct survey point estimates being modeled.
+
+ Variation for the Minimum Change School District Poverty Estimates
+
+ November 21, 2008
+
+ This paper proposes a method that can be used to calculate the coefficient of variation for estimates of the number of children in poverty for school districts.
+
+ Page Last Revised - April 9, 2026 
+
+ ✕
+
+ Is this page helpful? 
+
+ Yes 
+
+ No 
+
+ ✕
+
+ NO THANKS 
+
+ 255 characters maximum 
+ 255 characters maximum reached 
+
+ ✕
+
+ Thank you for your feedback. 
+
+ Comments or suggestions? 
+
+ Top
+
+ Back to Header 
+
+ Receive Updates
+
+ To sign up for updates please enter your email address.
+
+ Enter your email address 
+
+ Subscribe
+
+ Stay Current
+
+ America Counts
+
+ Director’s Blog
+
+ Deputy Director’s Blog
+
+ Random Samplings
+
+ Research Matters
+
+ Stay Connected
+
+ Contact
+
+ Support
+
+ Jobs
+
+ Follow
+
+ Information Quality
+
+ | 
+
+ Data Linkage Infrastructure
+
+ | 
+
+ Data Protection and Privacy Policy
+
+ | 
+
+ Accessibility
+
+ | 
+
+ FOIA
+
+ | 
+
+ Inspector General
+
+ | 
+
+ No FEAR Act
+
+ | 
+
+ U.S. Department of Commerce
+
+ | 
+
+ USA.gov
+
+ Measuring America's People and Economy

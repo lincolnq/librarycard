@@ -1,0 +1,8 @@
+URL: https://www.usa.gov/government-works
+Final-URL: https://www.usa.gov/government-works
+Retrieved: 2026-11-24T23:46:30+00:00
+HTTP-Status: 200
+Raw-SHA256: b5128fd8bd0fbcb642b2cc21647a3352bfeea66030abe6221084b41db2cc1c71
+Raw-Bytes: 521
+---
+Redirecting to https://www.usa.gov/government-copyright .
