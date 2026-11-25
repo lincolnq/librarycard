@@ -16,6 +16,7 @@ NAICS codes use "-" / "/" padding: "------" all sectors, "23----" sector, "236//
 
 from __future__ import annotations
 
+import csv
 import datetime as dt
 
 from .. import http
@@ -86,7 +87,7 @@ def _num(v):
 
 class CensusCbp(SourceAdapter):
     source_id = "census-cbp"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per area x NAICS code (x legal form of organization for level us/state): establishments (est), "
              "mid-March employment (emp), Q1 payroll (qp1) and annual payroll (ap), both in $1,000. Pick a level "
              "(county, state, msa, us), a year (default latest), and narrow with state / county_fips / naics. "
@@ -129,6 +130,21 @@ class CensusCbp(SourceAdapter):
     ]
 
     def _fetch(self, f: dict, limit: int, cache_allowed: bool) -> FetchResult:
+        url, keep, shape, notes, meta = self._prepare(f)
+        try:
+            rows, matched = scan_csv(url, cache_allowed=cache_allowed, predicate=keep, limit=limit,
+                                     transform=shape, max_age_s=30 * 86400)
+        except SourceError as e:
+            if e.status == 404:
+                raise FilterError(f"no CBP {meta['level']} file for {meta['year']} ({url}); the latest year may not be released yet") from None
+            raise
+        if rows:
+            require("naics" in rows[0] and "est" in rows[0], f"{url}: expected naics/est columns, got {list(rows[0])[:15]}")
+        return FetchResult(rows, [url], notes, total_available=matched, metadata=meta)
+
+    def _prepare(self, f: dict, all_lfo: bool = False):
+        """Validate filters and return (url, keep, shape, notes, metadata). all_lfo=True keeps every legal form
+        of organization (used by the mirror, which stores all rows)."""
         level = f.get("level", "county")
         year = f.get("year") or latest_year()
         if year < FIRST_YEAR:
@@ -170,7 +186,7 @@ class CensusCbp(SourceAdapter):
                 return False
             if depth is not None and naics_depth(code) != depth:
                 return False
-            if "lfo" in r and r["lfo"] != lfo:
+            if not all_lfo and "lfo" in r and r["lfo"] != lfo:
                 return False
             return True
 
@@ -192,25 +208,56 @@ class CensusCbp(SourceAdapter):
             return out
 
         url = _url(year, level)
-        try:
-            rows, matched = scan_csv(url, cache_allowed=cache_allowed, predicate=keep, limit=limit,
-                                     transform=shape, max_age_s=30 * 86400)
-        except SourceError as e:
-            if e.status == 404:
-                raise FilterError(f"no CBP {level} file for {year} ({url}); the latest year may not be released yet") from None
-            raise
-        if rows:
-            require("naics" in rows[0] and "est" in rows[0], f"{url}: expected naics/est columns, got {list(rows[0])[:15]}")
         notes = ["emp = mid-March employment; qp1 = first-quarter payroll and ap = annual payroll, both in $1,000.",
                  "Size-class 'N' (not available) values are returned as null."]
         if year >= 2018:
-            notes.append("Values are noise-infused; *_nf flags give noise level (G <2%, H 2-5%, J >=5%). Cells with fewer than 3 establishments are not published (rows absent).")
+            notes.append("2018 on: values are noise-infused; *_nf flags give noise level (G <2%, H 2-5%, J >=5%). Cells with fewer than 3 establishments are not published (rows absent).")
         else:
             notes.append("Before 2018: where empflag is set, emp/qp1/ap were withheld to avoid disclosure and are returned as null "
                          "(empflag gives the employment size range).")
         if level == "county":
             notes.append("fipscty '999' = statewide establishments with no fixed county location.")
-        return FetchResult(rows, [url], notes, total_available=matched, metadata={"year": year, "level": level})
+        return url, keep, shape, notes, {"year": year, "level": level}
+
+    # -------------------------------------------------------- mirror
+    # Everything the adapter serves: every year FIRST_YEAR..latest x level, all NAICS codes, all legal forms of
+    # organization (us/state files), with size-class columns. Partitioned by year, level and state (fipstate; empty
+    # for us/msa). Rows gain a `level` column. A county file has ~1-2M rows, so rows are streamed, not listed.
+    mirror_partition_keys = ["year", "level", "fipstate"]
+    mirror_semantics = {"fipstate": "state_fips", "fips": "county_fips", "year": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for year in range(FIRST_YEAR, latest_year() + 1):
+            for level in ("us", "state", "county", "msa"):
+                by_state = level in ("state", "county")
+                yield MirrorUnit(partition={"year": str(year), "level": level, **({} if by_state else {"fipstate": ""})},
+                                 filters={"year": year, "level": level, "include_size_classes": True},
+                                 split_by=["fipstate"] if by_state else [])
+
+    def mirror_rows(self, unit):
+        f = self.validate_filters(unit.filters)
+        url, keep, shape, notes, meta = self._prepare(f, all_lfo=True)
+        level = meta["level"]
+        if level in ("us", "state"):
+            notes = notes + ["level us/state: rows for every legal form of organization (lfo '-' = all establishments, "
+                             "C, Z, S, P, N, G, O); filter lfo='-' for totals."]
+
+        def rows():
+            with http.download(url, cache_allowed=True, max_age_s=30 * 86400) as path:
+                with http.open_text(path) as fh:
+                    reader = csv.DictReader(fh)
+                    reader.fieldnames = [c.strip() for c in reader.fieldnames or []]
+                    require("naics" in reader.fieldnames and "est" in reader.fieldnames,
+                            f"{url}: expected naics/est columns, got {reader.fieldnames[:15]}")
+                    n = 0
+                    for r in reader:
+                        if keep(r):
+                            n += 1
+                            yield {"level": level, **shape(r)}
+                    require(n > 0, f"{url}: no rows")
+
+        return rows(), [url], notes, {}
 
 
 def _assert_us_total(rows: list[dict]) -> None:
