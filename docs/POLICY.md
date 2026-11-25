@@ -45,6 +45,9 @@ A source may be onboarded only if **all** of these hold:
      contributions or any commercial purpose). Keep the agency's "salted" decoy entries as published.
    - No tools or filters whose purpose is profiling one private person beyond what the agency's own search offers.
    - Remove a record within one batch cycle if the agency removes or amends it (the mirror is rebuilt per release).
+   - The statutory use restriction does not by itself force `link_only` under §Licensing rules 7 and 9(a): such
+     sources are `redistribution: allowed`, `commercial_use: no`, with the restriction as the first caveat. Mark
+     name-like columns `mirror_private_columns` so `describe_source` does not show example names.
 4. **In domain** for this catalog (currently: US domestic policy research — elections & politics,
    demographics/Census, economy & labor, income/poverty, housing, health, education, public
    finance & spending, legislation/regulation, crime/justice, environment/disasters as they

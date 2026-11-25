@@ -25,5 +25,6 @@
  "crime rates": "fbi-crime-data-explorer",
  "redistricting block population": "census-decennial-2020-pl",
  "county land area latitude longitude": "census-gazetteer",
- "county health outcomes rankings": "county-health-rankings"
+ "county health outcomes rankings": "county-health-rankings",
+ "individual campaign contributions donors": "fec-individual-contributions"
 }

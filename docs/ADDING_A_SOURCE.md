@@ -170,9 +170,16 @@ Access
 - **HTML error pages with status 200** (BEA for unknown tables): `http.download` now rejects HTML responses unless
   `allow_html=True`, so they're never cached or parsed as data.
 
+- **FEC bulk zips** (www.fec.gov/files/bulk-downloads → S3) accept Range requests. `indivYY.zip` holds every row twice
+  (`itcont.txt` and `by_date/` files split by transaction date): read only the by_date members you need. The download
+  rate varies (2–20 MB/s), so never fetch a whole multi-GB file in a contract test; stream and stop at `limit`.
+
 Change detection
 - **Live/continuous APIs** (OpenFEMA): watch dataset *metadata* (definition modified date, deprecation fields), not
   refresh timestamps. **Nightly-regenerated files**: watch a header line, a layout/description page or a version file.
+
+- **Sources whose policy guardrails demand prompt removals** (FEC contributions, POLICY §Scope 3): watch the weekly
+  file itself (`http_headers`), so each regeneration is a release and the mirror is rebuilt.
 
 Licensing
 - FEC's data.json spells the field `licence`; CMS puts licenses only on distributions; CDC PLACES has it only in Socrata

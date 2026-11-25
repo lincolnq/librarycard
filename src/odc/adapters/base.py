@@ -180,6 +180,7 @@ class SourceAdapter:
     # To opt in, define mirror_plan(); see docs/MIRROR.md.
     mirror_partition_keys: list[str] = []   # partition key names, coarse to fine (e.g. ["table", "geography", "state"])
     mirror_required: list[str] = []         # partition keys a reader must filter on (for very large sources)
+    mirror_private_columns: list[str] = []  # personal-data columns: manifest omits their min/max/values
     mirror_semantics: dict[str, str] = {}   # column -> state_postal | state_fips | county_fips | year | date
 
     def mirror_plan(self):

@@ -42,6 +42,8 @@ release. The two most recent releases are kept.
 ```bash
 odc mirror <id>                 # ingest + publish (needs CLOUDFLARE_ACCOUNT_ID, and CLOUDFLARE_API_TOKEN unless a proxy injects it)
 odc mirror <id> --dry-run --out /tmp/packs   # build locally; inspect /tmp/packs/<id>/manifest.json
+odc mirror <id> --out DIR --resume          # long ingests: checkpoint after each unit; rerun the same command after
+                                             # an interruption to continue (and to finish a cut-off upload)
 odc mirror --due                # every mirrorable source that is missing, stale (30 days), has a new adapter_version,
                                 # or whose change_detection fingerprint moved
 ```
@@ -74,6 +76,14 @@ Rules and guidance:
 - **Memory:** the default `mirror_rows` calls `_fetch` with no row limit, holding one unit's rows in memory. Keep
   units below ~1M rows, or override `mirror_rows` to return a generator.
 - **Disk:** rows are spooled and packed per unit, so peak disk is one unit's raw NDJSON plus the compressed packs.
+- **Multi-GB upstream files:** don't download them. `_common.remote_zip_members` / `remote_zip_lines` read a remote
+  zip's central directory with HTTP Range requests and stream single members; `http.iter_bytes` resumes a dropped
+  stream. Return a generator from `mirror_rows` so memory stays flat (`fec_individual_contributions.py`: 97M rows,
+  ~300 MB RSS during ingest).
+- **Bounded runs (agent sessions):** keep each unit to a few minutes and use `--resume` with `timeout`, e.g.
+  `timeout 560 odc mirror <id> --out DIR --resume`, repeated until it exits 0. Work in an unfinished unit is lost on
+  each interruption, so split heavy units (FEC splits its busiest months into two state groups). Publishing with
+  `--resume` skips packs already uploaded. Upload runs at roughly 7 MB/s from cloud sessions.
 - **Scope big sources deliberately**, e.g. ACS: the most-used tables. Write the scope into the catalog entry's
   `access.notes` and a caveat ("the mirror covers tables X..."), and say how to widen it.
 - **Test:** `odc mirror <id> --dry-run --out /tmp/p`, inspect the manifest (row_count, partitions, column types),

@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import datetime as dt
 import gzip
+import hashlib
 import json
 import os
 import shutil
@@ -99,6 +100,17 @@ class ColumnStats:
                 self.too_many = True
                 self.distinct = set()
 
+    def to_json(self) -> dict:
+        return {"types": sorted(self.types), "nulls": self.nulls, "count": self.count, "min": self.min, "max": self.max,
+                "distinct": list(self.distinct), "too_many": self.too_many}
+
+    @classmethod
+    def from_json(cls, d: dict) -> "ColumnStats":
+        s = cls()
+        s.types, s.nulls, s.count, s.min, s.max = set(d["types"]), d["nulls"], d["count"], d["min"], d["max"]
+        s.distinct, s.too_many = set(d["distinct"]), d["too_many"]
+        return s
+
     def summary(self) -> dict:
         types = self.types or {"null"}
         t = "number" if types == {"integer", "number"} else (types.pop() if len(types) == 1 else "mixed")
@@ -108,6 +120,11 @@ class ColumnStats:
         if not self.too_many and self.distinct:
             out["values"] = sorted(self.distinct, key=lambda x: (str(type(x)), x))
         return out
+
+
+def _private(summary: dict) -> dict:
+    """Column summary without example values (min/max/values would expose individuals' names in describe_source)."""
+    return {k: v for k, v in summary.items() if k not in ("min", "max", "values")}
 
 
 # ------------------------------------------------------------------ partition spooling
@@ -148,29 +165,52 @@ class Spool:
 
 # ------------------------------------------------------------------ ingest
 
-def ingest(entry: dict, out_dir: Path, log=print) -> dict:
-    """Run the adapter's mirror plan and write packs + manifest into out_dir. Returns the manifest."""
+CHECKPOINT = ".checkpoint.json"
+
+
+def ingest(entry: dict, out_dir: Path, log=print, resume: bool = False) -> dict:
+    """Run the adapter's mirror plan and write packs + manifest into out_dir. Returns the manifest.
+
+    resume=True continues an interrupted ingest in the same out_dir: after each unit the state is saved to
+    out_dir/.checkpoint.json, and a resumed run truncates the packs to that state and skips finished units.
+    If out_dir already holds a finished manifest (and no checkpoint), it is returned as is."""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    ckpt_path = out_dir / CHECKPOINT
+    if resume and not ckpt_path.exists() and (out_dir / "manifest.json").exists():
+        log("  resume: ingest already finished, reusing manifest.json")
+        return json.loads((out_dir / "manifest.json").read_text())
+    ckpt = json.loads(ckpt_path.read_text()) if resume and ckpt_path.exists() else None
     adapter = adapter_for(entry)
-    release = dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    started = time.time()
-    upstream_fp, upstream_detail = None, None
-    if entry["change_detection"]["method"] != "none":
+    private = set(getattr(adapter, "mirror_private_columns", []))
+    release = ckpt["release"] if ckpt else dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    started = time.time() - (ckpt["elapsed"] if ckpt else 0)
+    upstream_fp, upstream_detail = (ckpt["upstream_fp"], ckpt["upstream_detail"]) if ckpt else (None, None)
+    if not ckpt and entry["change_detection"]["method"] != "none":
         try:
             upstream_fp, upstream_detail = fingerprint(entry["change_detection"])
         except Exception as e:  # noqa: BLE001 - recorded, not fatal
             upstream_detail = f"fingerprint failed: {e}"
     work = Path(tempfile.mkdtemp(prefix="odc-mirror-"))
     spool = Spool(work)
-    stats: dict[str, ColumnStats] = {}
-    urls: list[str] = []
-    notes: list[str] = []
-    metadata: dict[str, Any] = {}
+    stats: dict[str, ColumnStats] = {c: ColumnStats.from_json(d) for c, d in ckpt["stats"].items()} if ckpt else {}
+    urls: list[str] = ckpt["urls"] if ckpt else []
+    notes: list[str] = ckpt["notes"] if ckpt else []
+    metadata: dict[str, Any] = ckpt["metadata"] if ckpt else {}
     partition_keys: list[str] = list(adapter.mirror_partition_keys)
-    packer = Packer(out_dir)
-    seen_keys: set[str] = set()
+    packer = Packer(out_dir, resume=ckpt["packer"] if ckpt else None)
+    seen_keys: set[str] = set(ckpt["seen_keys"]) if ckpt else set()
     try:
         units = list(adapter.mirror_plan())
+        plan_id = fingerprint_plan(units)
+        done = 0
+        if ckpt:
+            if ckpt["plan"] != plan_id:
+                raise ValueError(f"mirror plan changed since the checkpoint in {out_dir}; delete it and start over")
+            done = ckpt["done"]
+            log(f"  resume: {done}/{len(units)} units already ingested")
         for i, unit in enumerate(units, 1):
+            if i <= done:
+                continue
             t0 = time.time()
             rows, u_urls, u_notes, u_meta = adapter.mirror_rows(unit)
             n = 0
@@ -199,6 +239,14 @@ def ingest(entry: dict, out_dir: Path, log=print) -> dict:
             u_idx = sorted({urls.index(u) for u in u_urls if u in urls})
             for part in packer.parts[first_new:]:
                 part["u"] = u_idx
+            if resume:
+                tmp = ckpt_path.with_suffix(".tmp")
+                tmp.write_text(json.dumps({
+                    "release": release, "plan": plan_id, "done": i, "elapsed": time.time() - started,
+                    "upstream_fp": upstream_fp, "upstream_detail": upstream_detail, "packer": packer.state(),
+                    "stats": {c: s.to_json() for c, s in stats.items()}, "urls": urls, "notes": notes,
+                    "metadata": metadata, "seen_keys": sorted(seen_keys)}, default=str))
+                tmp.replace(ckpt_path)
             log(f"  [{i}/{len(units)}] {unit.partition} -> {n} rows ({time.time() - t0:.1f}s, packs {sum((out_dir / p).stat().st_size for p in packer.packs) / 1e6:.1f} MB)")
         packer.close()
         manifest = {
@@ -223,13 +271,19 @@ def ingest(entry: dict, out_dir: Path, log=print) -> dict:
         "partition_keys": partition_keys,
         "required_filters": list(adapter.mirror_required),
         "semantics": dict(adapter.mirror_semantics),
-        "columns": {c: s.summary() for c, s in stats.items()},
+        "columns": {c: _private(s.summary()) if c in private else s.summary() for c, s in stats.items()},
         "notes": notes,
         "metadata": metadata,
         "ingest_seconds": round(time.time() - started, 1),
     })
     (out_dir / "manifest.json").write_text(json.dumps(manifest, separators=(",", ":"), default=str))
+    ckpt_path.unlink(missing_ok=True)
     return manifest
+
+
+def fingerprint_plan(units: list[MirrorUnit]) -> str:
+    return hashlib.sha256(json.dumps([[u.partition, u.filters, u.split_by] for u in units], sort_keys=True,
+                                     default=str).encode()).hexdigest()[:16]
 
 
 def _merge_meta(into: dict, new: dict) -> None:
@@ -243,7 +297,7 @@ def _merge_meta(into: dict, new: dict) -> None:
 class Packer:
     """Appends gzip members to pack files (rolling over at PACK_TARGET_BYTES) and records partition offsets."""
 
-    def __init__(self, out_dir: Path):
+    def __init__(self, out_dir: Path, resume: dict | None = None):
         self.out_dir = out_dir
         out_dir.mkdir(parents=True, exist_ok=True)
         self.packs: list[str] = []
@@ -251,7 +305,24 @@ class Packer:
         self.fh = None
         self.size = 0
         self.total = 0
-        self._new()
+        if not resume:
+            self._new()
+            return
+        # Continue from a checkpoint (Packer.state()): drop anything written after it.
+        self.packs, self.parts, self.total = list(resume["packs"]), list(resume["parts"]), resume["total"]
+        for name, size in zip(self.packs, resume["pack_bytes"]):
+            with open(out_dir / name, "r+b") as fh:
+                fh.truncate(size)
+        for p in out_dir.glob("pack-*.bin"):
+            if p.name not in self.packs:
+                p.unlink()
+        self.fh = open(out_dir / self.packs[-1], "ab")
+        self.size = resume["pack_bytes"][-1]
+
+    def state(self) -> dict:
+        self.fh.flush()
+        return {"packs": self.packs, "parts": self.parts, "total": self.total,
+                "pack_bytes": [os.path.getsize(self.out_dir / p) for p in self.packs]}
 
     def _new(self) -> None:
         if self.fh:
@@ -300,12 +371,19 @@ class Packer:
 
 # ------------------------------------------------------------------ publish
 
-def publish(entry: dict, out_dir: Path, r2: R2, log=print) -> str:
-    """Upload packs, then the manifest, then flip current.json (readers never see a half-written release)."""
+def publish(entry: dict, out_dir: Path, r2: R2, log=print, resume: bool = False) -> str:
+    """Upload packs, then the manifest, then flip current.json (readers never see a half-written release).
+
+    resume=True skips packs this release already has in R2 (an R2 PUT is atomic, so a listed object is complete);
+    release ids are unique per ingest, so these can only come from an earlier, cut-off publish of the same packs."""
     manifest = json.loads((out_dir / "manifest.json").read_text())
     sid, release = entry["id"], manifest["release"]
     prefix = f"mirror/{sid}/{release}/"
+    have = set(r2.list(prefix)) if resume else set()
     for p in manifest["packs"]:
+        if prefix + p in have:
+            log(f"  resume: {prefix}{p} already uploaded")
+            continue
         r2.put(prefix + p, out_dir / p)
         log(f"  uploaded {prefix}{p} ({(out_dir / p).stat().st_size / 1e6:.1f} MB)")
     r2.put(prefix + "manifest.json", out_dir / "manifest.json", "application/json")
@@ -353,7 +431,7 @@ def due(entry: dict, r2: R2, max_age_days: int = 30) -> tuple[bool, str]:
 
 
 def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: Path | None = None, log=print,
-        report_path: Path | None = None) -> int:
+        report_path: Path | None = None, resume: bool = False) -> int:
     cat = Catalog.load()
     ids = source_ids or sorted(sid for sid, e in cat.entries.items() if mirrorable(e))
     r2 = None if dry_run else R2()
@@ -374,11 +452,11 @@ def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: P
         out = (out_root or Path(tempfile.mkdtemp(prefix="odc-pack-"))) / sid
         try:
             log(f"ingest {sid}")
-            m = ingest(e, out, log)
+            m = ingest(e, out, log, resume=resume and out_root is not None)
             log(f"  {m['row_count']} rows, {len(m['partitions'])} partitions, "
                 f"{sum(m['pack_bytes']) / 1e6:.1f} MB in {m['ingest_seconds']}s")
             if not dry_run:
-                publish(e, out, r2, log)
+                publish(e, out, r2, log, resume=resume and out_root is not None)
             report["published"].append({"source_id": sid, "release": m["release"], "rows": m["row_count"],
                                         "bytes": sum(m["pack_bytes"]), "seconds": m["ingest_seconds"]})
         except Exception as ex:  # noqa: BLE001 - keep going; failures become needs-repair issues
