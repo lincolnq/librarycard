@@ -470,7 +470,14 @@ def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: P
             log(f"skip {sid}: not mirrorable (needs adapter with mirror_plan, healthy/degraded, redistribution: allowed)")
             continue
         if only_due and r2 is not None:
-            is_due, why = due(e, r2)
+            try:
+                is_due, why = due(e, r2)
+            except Exception as ex:  # noqa: BLE001 - e.g. an R2 5xx on one current.json must not stop the other sources
+                failures += 1
+                log(f"FAILED {sid}: due check: {type(ex).__name__}: {ex}")
+                report["failed"].append({"source_id": sid, "kind": getattr(ex, "kind", "error"),
+                                         "error": f"due check failed: {type(ex).__name__}: {ex}"[-4000:]})
+                continue
             if not is_due:
                 log(f"skip {sid}: {why}")
                 report["skipped"].append({"source_id": sid, "reason": why})

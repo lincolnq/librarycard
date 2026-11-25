@@ -232,3 +232,23 @@ def test_publish_refuses_to_flip_to_incomplete_release(stub_entry, tmp_path):
     with pytest.raises(Exception, match="missing"):
         mirror.publish(stub_entry, tmp_path, r2, log=lambda *a: None)
     assert "mirror/stub/current.json" not in r2.objects
+
+
+def test_due_check_error_does_not_stop_the_run(cat, monkeypatch, tmp_path):
+    ids = sorted(sid for sid, e in cat.entries.items() if mirror.mirrorable(e))[:2]
+    assert len(ids) == 2
+    monkeypatch.setattr(mirror, "R2", lambda: object())
+    calls = []
+
+    def fake_due(entry, r2):
+        calls.append(entry["id"])
+        if entry["id"] == ids[0]:
+            raise RuntimeError("R2 GET -> 503")
+        return False, "up to date"
+
+    monkeypatch.setattr(mirror, "due", fake_due)
+    rc = mirror.run(ids, only_due=True, dry_run=False, log=lambda *a: None, report_path=tmp_path / "r.json")
+    report = json.loads((tmp_path / "r.json").read_text())
+    assert rc == 1 and calls == ids
+    assert [f["source_id"] for f in report["failed"]] == [ids[0]]
+    assert [s["source_id"] for s in report["skipped"]] == [ids[1]]
