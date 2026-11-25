@@ -164,6 +164,8 @@ def ingest(entry: dict, out_dir: Path, log=print) -> dict:
     notes: list[str] = []
     metadata: dict[str, Any] = {}
     partition_keys: list[str] = list(adapter.mirror_partition_keys)
+    packer = Packer(out_dir)
+    seen_keys: set[str] = set()
     try:
         units = list(adapter.mirror_plan())
         for i, unit in enumerate(units, 1):
@@ -182,14 +184,30 @@ def ingest(entry: dict, out_dir: Path, log=print) -> dict:
             urls += [u for u in u_urls if u not in urls]
             notes += [x for x in u_notes if x not in notes]
             _merge_meta(metadata, u_meta)
-            log(f"  [{i}/{len(units)}] {unit.partition} -> {n} rows ({time.time() - t0:.1f}s)")
-        spool.close()
-        missing = [k for k in partition_keys if any(k not in key for key in spool.keys.values())]
-        if missing:
-            raise ValueError(f"mirror_partition_keys {missing} not set on every partition; fix mirror_plan/split_by")
-        manifest = _pack(entry, adapter, spool, out_dir, release)
+            for k, key in spool.keys.items():
+                missing = [pk for pk in partition_keys if pk not in key]
+                if missing:
+                    raise ValueError(f"partition {key} lacks mirror_partition_keys {missing}; fix mirror_plan/split_by")
+                if k in seen_keys:
+                    raise ValueError(f"partition {key} produced by two units; units must not overlap")
+                seen_keys.add(k)
+            packer.drain(spool)
+            log(f"  [{i}/{len(units)}] {unit.partition} -> {n} rows ({time.time() - t0:.1f}s, packs {sum((out_dir / p).stat().st_size for p in packer.packs) / 1e6:.1f} MB)")
+        packer.close()
+        manifest = {
+            "format": FORMAT,
+            "source_id": entry["id"],
+            "release": release,
+            "ingested_at": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
+            "adapter_version": adapter.version,
+            "row_count": packer.total,
+            "packs": packer.packs,
+            "pack_bytes": [os.path.getsize(out_dir / p) for p in packer.packs],
+            "partitions": packer.parts,
+        }
     finally:
         spool.close()
+        packer.close()
         shutil.rmtree(work, ignore_errors=True)
     lic = entry["license"]
     manifest.update({
@@ -215,62 +233,60 @@ def _merge_meta(into: dict, new: dict) -> None:
             into[k] = v
 
 
-def _pack(entry: dict, adapter: SourceAdapter, spool: Spool, out_dir: Path, release: str) -> dict:
-    out_dir.mkdir(parents=True, exist_ok=True)
-    parts = []
-    packs: list[str] = []
-    pack_fh = None
-    pack_size = 0
+class Packer:
+    """Appends gzip members to pack files (rolling over at PACK_TARGET_BYTES) and records partition offsets."""
 
-    def new_pack():
-        nonlocal pack_fh, pack_size
-        if pack_fh:
-            pack_fh.close()
-        name = f"pack-{len(packs)}.bin"
-        packs.append(name)
-        pack_fh = open(out_dir / name, "wb")
-        pack_size = 0
+    def __init__(self, out_dir: Path):
+        self.out_dir = out_dir
+        out_dir.mkdir(parents=True, exist_ok=True)
+        self.packs: list[str] = []
+        self.parts: list[dict] = []
+        self.fh = None
+        self.size = 0
+        self.total = 0
+        self._new()
 
-    new_pack()
-    order = sorted(spool.files, key=lambda k: json.dumps(spool.keys[k], sort_keys=True))
-    total = 0
-    for k in order:
-        with open(spool.files[k], encoding="utf-8") as fh:
-            chunk: list[str] = []
+    def _new(self) -> None:
+        if self.fh:
+            self.fh.close()
+        name = f"pack-{len(self.packs)}.bin"
+        self.packs.append(name)
+        self.fh = open(self.out_dir / name, "wb")
+        self.size = 0
+
+    def add(self, key: dict, chunk_no: int, lines: list[str]) -> None:
+        blob = gzip.compress("".join(lines).encode("utf-8"), compresslevel=6, mtime=0)
+        if self.size and self.size + len(blob) > PACK_TARGET_BYTES:
+            self._new()
+        self.fh.write(blob)
+        self.parts.append({"k": key, "c": chunk_no, "p": len(self.packs) - 1, "o": self.size, "n": len(blob), "r": len(lines)})
+        self.size += len(blob)
+        self.total += len(lines)
+
+    def drain(self, spool: Spool) -> None:
+        """Pack every spooled partition, then delete the spool files. Units never share partitions, so this is
+        safe to call after each unit; it keeps peak disk use to one unit's raw rows."""
+        spool.close()
+        for k in sorted(spool.files, key=lambda k: json.dumps(spool.keys[k], sort_keys=True)):
+            lines: list[str] = []
             chunk_no = 0
+            with open(spool.files[k], encoding="utf-8") as fh:
+                for line in fh:
+                    lines.append(line)
+                    if len(lines) >= MAX_PARTITION_ROWS:
+                        self.add(spool.keys[k], chunk_no, lines)
+                        lines, chunk_no = [], chunk_no + 1
+            if lines:
+                self.add(spool.keys[k], chunk_no, lines)
+            spool.files[k].unlink(missing_ok=True)
+        spool.files.clear()
+        spool.keys.clear()
+        spool.counts.clear()
 
-            def flush():
-                nonlocal pack_size, chunk_no, total
-                if not chunk:
-                    return
-                blob = gzip.compress("".join(chunk).encode("utf-8"), compresslevel=6, mtime=0)
-                if pack_size and pack_size + len(blob) > PACK_TARGET_BYTES:
-                    new_pack()
-                pack_fh.write(blob)
-                parts.append({"k": spool.keys[k], "c": chunk_no, "p": len(packs) - 1, "o": pack_size,
-                              "n": len(blob), "r": len(chunk)})
-                pack_size += len(blob)
-                total += len(chunk)
-                chunk.clear()
-                chunk_no += 1
-
-            for line in fh:
-                chunk.append(line)
-                if len(chunk) >= MAX_PARTITION_ROWS:
-                    flush()
-            flush()
-    pack_fh.close()
-    return {
-        "format": FORMAT,
-        "source_id": entry["id"],
-        "release": release,
-        "ingested_at": dt.datetime.now(dt.timezone.utc).replace(microsecond=0).isoformat(),
-        "adapter_version": adapter.version,
-        "row_count": total,
-        "packs": packs,
-        "pack_bytes": [os.path.getsize(out_dir / p) for p in packs],
-        "partitions": parts,
-    }
+    def close(self) -> None:
+        if self.fh:
+            self.fh.close()
+            self.fh = None
 
 
 # ------------------------------------------------------------------ publish
@@ -327,11 +343,13 @@ def due(entry: dict, r2: R2, max_age_days: int = 30) -> tuple[bool, str]:
     return False, "up to date"
 
 
-def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: Path | None = None, log=print) -> int:
+def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: Path | None = None, log=print,
+        report_path: Path | None = None) -> int:
     cat = Catalog.load()
     ids = source_ids or sorted(sid for sid, e in cat.entries.items() if mirrorable(e))
     r2 = None if dry_run else R2()
     failures = 0
+    report: dict[str, list] = {"published": [], "skipped": [], "failed": []}
     for sid in ids:
         e = cat.get(sid)
         if not mirrorable(e):
@@ -341,6 +359,7 @@ def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: P
             is_due, why = due(e, r2)
             if not is_due:
                 log(f"skip {sid}: {why}")
+                report["skipped"].append({"source_id": sid, "reason": why})
                 continue
             log(f"{sid}: due ({why})")
         out = (out_root or Path(tempfile.mkdtemp(prefix="odc-pack-"))) / sid
@@ -351,10 +370,18 @@ def run(source_ids: list[str] | None, only_due: bool, dry_run: bool, out_root: P
                 f"{sum(m['pack_bytes']) / 1e6:.1f} MB in {m['ingest_seconds']}s")
             if not dry_run:
                 publish(e, out, r2, log)
-        except Exception as ex:  # noqa: BLE001 - keep going; the monitor reports failures
+            report["published"].append({"source_id": sid, "release": m["release"], "rows": m["row_count"],
+                                        "bytes": sum(m["pack_bytes"]), "seconds": m["ingest_seconds"]})
+        except Exception as ex:  # noqa: BLE001 - keep going; failures become needs-repair issues
+            import traceback
             failures += 1
             log(f"FAILED {sid}: {type(ex).__name__}: {ex}")
+            report["failed"].append({"source_id": sid, "kind": getattr(ex, "kind", "error"),
+                                     "error": "".join(traceback.format_exception(ex))[-4000:]})
         finally:
             if out_root is None:
                 shutil.rmtree(out.parent, ignore_errors=True)
+    if report_path:
+        report_path.parent.mkdir(parents=True, exist_ok=True)
+        report_path.write_text(json.dumps(report, indent=2))
     return 1 if failures else 0

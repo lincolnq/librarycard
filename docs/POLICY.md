@@ -97,15 +97,22 @@ direction.
    year (`license.checked_at` older than 365 days is a reason to re-check during any visit).
    Each re-check adds a new dated snapshot; never delete old snapshots.
 
-## Caching and redistribution
+## Mirroring, caching and redistribution
 
-- This service fetches from the original publisher **on demand**. It never mirrors datasets
-  wholesale into the repo or any bucket we control.
-- Adapters must use `odc.http.download(..., cache_allowed=...)`; the base class passes
-  `cache_allowed = (license.redistribution == "allowed")`. `link_only` sources are streamed to
-  a temp file that is deleted after the request.
-- Do not commit data files. Test fixtures must be tiny (< 20 KB) synthetic or excerpted samples,
-  and only from `allowed` sources.
+- **Default for redistributable data: mirror it.** Sources with `license.redistribution: allowed` are downloaded
+  once per upstream release, partitioned, and stored in our R2 bucket. The production MCP server serves them from
+  there (docs/MIRROR.md). This is cheaper and faster than per-request passthrough and puts far less load on publishers.
+  (This supersedes the original bootstrap brief's "no mirroring" rule; decided by the operator on 2026-11-25.)
+- **`link_only` sources are never mirrored or cached.** The production server returns `how_to_access` for them, and
+  the local `odc-server` fetches them from the publisher on demand, streaming to a temp file that is deleted
+  afterwards. Upgrading a source to `allowed` (with evidence, per §Licensing) is what makes it mirrorable.
+- Every served row keeps its provenance: publisher, original URLs, upstream release fingerprint, mirror time, license
+  and attribution. Never strip or alter attribution.
+- Adapters must use `odc.http.download(..., cache_allowed=...)` for local fetches; the base class passes
+  `cache_allowed = (license.redistribution == "allowed")`.
+- Never commit data files to git. Test fixtures must be tiny (< 20 KB) and only from `allowed` sources.
+- Mirror storage and Worker usage cost money (R2 storage, Workers Paid). Scope very large sources deliberately (see
+  docs/MIRROR.md). An unexpected jump in storage or request volume is an Escalation §1 spend anomaly.
 
 ## Status transitions
 

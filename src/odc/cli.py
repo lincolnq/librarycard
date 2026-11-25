@@ -43,6 +43,7 @@ def main(argv: list[str] | None = None) -> int:
     m.add_argument("--due", action="store_true", help="only sources whose upstream changed / never mirrored / stale")
     m.add_argument("--dry-run", action="store_true", help="build packs locally, do not upload")
     m.add_argument("--out", help="keep packs in this directory (default: temp, deleted)")
+    m.add_argument("--report", help="write a JSON report of published/skipped/failed sources")
     e = sub.add_parser("export", help="write the catalog JSON bundled into the Worker")
     e.add_argument("--out", default="worker/src/generated/catalog.json")
     a = ap.parse_args(argv)
@@ -62,7 +63,8 @@ def main(argv: list[str] | None = None) -> int:
         from pathlib import Path
 
         from .mirror import run
-        return run(a.source_ids or None, a.due, a.dry_run, Path(a.out) if a.out else None)
+        return run(a.source_ids or None, a.due, a.dry_run, Path(a.out) if a.out else None,
+                   report_path=Path(a.report) if a.report else None)
     if a.cmd == "export":
         from pathlib import Path
 

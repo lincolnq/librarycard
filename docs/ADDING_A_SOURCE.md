@@ -91,6 +91,15 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
       fact when useful (e.g. Phoenix July 2023 had ≥ 43 °C days). These are what detect silent breakage.
 - [ ] `version = "1.0.0"`, `source_id = "<id>"`, and module-level `ADAPTER = YourAdapter()`.
 
+## 4b. Mirror plan (only if `license.redistribution: allowed`)
+
+- [ ] Add `mirror_partition_keys`, `mirror_semantics`, optionally `mirror_required`, and `mirror_plan()` to the
+      adapter, following `docs/MIRROR.md#adding-mirror_plan-to-an-adapter`.
+- [ ] `odc mirror <id> --dry-run --out /tmp/odc-<id>-packs`: check the row_count, partition count and sizes, and the
+      column types in the manifest.
+- [ ] If you have R2 access (`CLOUDFLARE_ACCOUNT_ID` set): `odc mirror <id>` to publish. Otherwise the daily
+      `mirror.yml` workflow publishes it after merge.
+
 ## 5. Catalog entry
 
 - [ ] Copy `catalog/_TEMPLATE.yaml` to `catalog/<id>.yaml` and fill **every** field (see `docs/SCHEMA.md`):

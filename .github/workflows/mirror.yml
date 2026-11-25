@@ -1,0 +1,54 @@
+# Rebuild R2 mirrors for sources whose upstream changed (or that are missing / stale / have a new adapter_version).
+# See docs/MIRROR.md. Failures are filed as needs-repair issues.
+name: mirror
+
+on:
+  schedule:
+    - cron: "41 11 * * *"   # daily, after monitor.yml
+  workflow_dispatch:
+    inputs:
+      sources:
+        description: "Space-separated source ids to (re)build regardless of due-ness (blank = all due)"
+        type: string
+        default: ""
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: mirror
+  cancel-in-progress: false
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -e .
+      - name: Build and publish mirrors
+        continue-on-error: true
+        run: |
+          if [ -n "${{ inputs.sources }}" ]; then
+            odc mirror ${{ inputs.sources }} --report reports/mirror.json
+          else
+            odc mirror --due --report reports/mirror.json
+          fi
+      - name: File needs-repair issues for failed ingests
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python monitor/file_issues.py --changes /dev/null --contracts /dev/null --mirror reports/mirror.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mirror-report
+          path: reports/
+          retention-days: 30
