@@ -35,7 +35,11 @@ access:
   formats: [pipe-delimited text (zip)]
   rate_limits: None published for bulk downloads. Cached for 1 day (public domain; file is regenerated daily).
   auth: none
-  notes: The OpenFEC API (api.open.fec.gov) serves the same totals but requires an API key, so it is not used.
+  notes: >-
+    The OpenFEC API (api.open.fec.gov) serves the same totals but requires an API key, so it is not used.
+    Mirror: every cycle 1980 through the current cycle, partitioned by `cycle` and `CAND_OFFICE` (H/S/P); mirrored rows
+    carry an added `cycle` column. The mirror is rebuilt when the adapter version changes or every 30 days (change
+    detection watches the column layout, not the daily data regeneration).
 update:
   cadence: daily
   expected_lag: ~1 day after reports are processed; campaign reports themselves are filed quarterly/monthly and pre-/post-election.
@@ -89,10 +93,11 @@ caveats:
   - Excludes outside spending (super PACs, independent expenditures, party coordinated spending) and joint fundraising committees; it is not a measure of all money spent on a race.
   - Election outcome columns (SPEC_ELECTION, PRIM_ELECTION, RUN_ELECTION, GEN_ELECTION, GEN_ELECTION_PRECENT — FEC's spelling) are only populated in the 1996-2006 files; use an election-returns source (e.g. mit-election-senate-state) for results.
   - Legal restriction — under 52 U.S.C. 30111(a)(4), information about individual contributors copied from FEC reports may not be sold or used to solicit contributions or for commercial purposes. This file holds no contributor names, but do not join it with itemized contribution data for those purposes. Amounts are nominal dollars (not inflation-adjusted).
+  - The production mirror is a snapshot (see provenance.mirrored_at) refreshed about every 30 days, while FEC regenerates the file daily; for up-to-the-day current-cycle totals fetch from FEC via the local odc-server.
 related: [mit-election-senate-state, mit-election-president-state, mit-election-house]
 status: healthy
 status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: fec_all_candidates
-adapter_version: 1.0.0
+adapter_version: 1.1.0
