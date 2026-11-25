@@ -1,0 +1,121 @@
+schema_version: 1
+id: fec-individual-contributions
+name: FEC Contributions by Individuals (itemized individual contributions bulk file, indiv)
+publisher:
+  name: Federal Election Commission (FEC)
+  url: https://www.fec.gov
+  type: us_federal
+homepage: https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/
+description: >-
+  Every itemized contribution from individuals (and some organizations) to federal political committees, as disclosed
+  on the committees' FEC reports: recipient committee, contributor name, city, state, ZIP code, employer, occupation,
+  date, amount, transaction type, memo text and report identifiers. FEC itemizes contributors whose giving to a
+  committee exceeds $200 per election cycle (candidate committees) or calendar year (PACs and parties), and publishes
+  the records by law; this is the raw record-level file behind FEC's individual contribution search, served exactly as
+  FEC publishes it (Data Commons has no record-level campaign-finance data).
+domains: [elections, politics_legislation]
+tags: [fec, campaign-finance, contributions, donors, itemized-receipts, individual-contributions, donations, actblue, winred, earmarked, schedule-a, money-in-politics, bulk-data, indiv, itcont]
+coverage:
+  geography: United States — contributors in all states, DC, territories, military (AA/AE/AP) and abroad; federal committees
+  countries: [US]
+  geographic_granularity: [state, zip, person]
+  time_range:
+    start: "1980"
+    end: null
+    notes: >-
+      Direct fetch: any two-year cycle 1979-80 through the current one (fetched from FEC on demand). Mirror (production
+      server): the 2023-24 cycle in full (58.2M rows) and the current 2025-26 cycle as of the latest weekly file. Older
+      cycles are not mirrored (see caveats).
+  temporal_granularity: daily
+  unit_of_observation: One itemized contribution record (Schedule A line) as reported by the recipient committee
+access:
+  method: bulk_download
+  endpoints:
+    - url: https://www.fec.gov/files/bulk-downloads/{CYCLE}/indiv{YY}.zip
+      description: >-
+        Zip (2024: 4.2 GB; 2026: 2.7 GB so far) holding itcont.txt (pipe-delimited, no header, 21 columns) and, for
+        recent cycles, the same rows split by transaction date in by_date/itcont_<CYCLE>_<YYYYMMDD>_<YYYYMMDD>.txt plus
+        by_date/itcont_<CYCLE>_invalid_dates.txt. Redirects (302) to FEC's S3 bucket
+        cg-519a459a-0ea3-42c2-b7bc-fa1143481f74.s3-us-gov-west-1.amazonaws.com. Never downloaded whole: the adapter reads
+        the zip's central directory with HTTP Range requests and streams only the members it needs.
+    - url: https://www.fec.gov/files/bulk-downloads/data_dictionaries/indiv_header_file.csv
+      description: Column header file; the contract test checks it still matches the adapter's 21 columns.
+  formats: [pipe-delimited text (zip)]
+  rate_limits: None published for bulk downloads. The mirror reads each weekly file about 1.3 times; direct fetches stop streaming once they have `limit` rows.
+  auth: none
+  notes: >-
+    Mirror scope: cycles 2024 and 2026 (MIRROR_CYCLES in the adapter); add a cycle there to widen it (~2.7 GB of
+    mirror per presidential cycle). Partitions are cycle / month (YYYY-MM of TRANSACTION_DT; 'YYYY' for dates outside
+    the cycle, 'unknown' for blank dates) / STATE (contributor state). The OpenFEC API (api.open.fec.gov) serves the
+    same records with more filters but requires an API key, so it is not used. Column definitions:
+    https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/
+update:
+  cadence: weekly
+  expected_lag: Records appear after FEC processes the filed reports (electronic filings within days; paper filings weeks). The bulk file is regenerated weekly (Sundays).
+change_detection:
+  method: http_headers
+  url: https://www.fec.gov/files/bulk-downloads/2026/indiv26.zip
+  headers: [etag, last-modified]
+  poll_interval_days: 7
+  notes: >-
+    Deliberately fires on every weekly regeneration of the current-cycle file (both cycles' zips are rebuilt the same
+    day): POLICY §Scope 3's guardrail requires records FEC removes or amends to leave the mirror within one batch
+    cycle, so each weekly file is a release. Layout changes are caught by the adapter (field-count check) and the
+    contract test (header file). Update the URL to the new current cycle in odd years.
+license:
+  name: "Public domain (U.S. Government work, 17 U.S.C. \xA7105); use of contributor information restricted by 52 U.S.C. 30111(a)(4)"
+  spdx: null
+  url: https://www.fec.gov/updates/sale-or-use-contributor-information/
+  redistribution: allowed
+  commercial_use: "no"
+  attribution: "Federal Election Commission, Contributions by individuals file (indiv<YY>), FEC bulk data, https://www.fec.gov/data/browse-data/?tab=bulk-data. Contributor information may not be sold or used to solicit contributions or for commercial purposes (52 U.S.C. 30111(a)(4))."
+  evidence: evidence/licenses/fec-individual-contributions/
+  checked_at: "2026-11-25"
+  notes: >-
+    Served under POLICY §Scope 3's exception for statutory disclosure of political contributions, with its guardrails.
+    Redistribution allowed under §Licensing rule 9 (federal work, no copyright terms). The statutory sale-or-use
+    restriction binds every user of the data: it is stated in the first caveat, in every fetch's notes and in the
+    attribution. commercial_use is "no" because commercial use of contributor information is unlawful. See NOTES.md.
+key_variables:
+  - name: CMTE_ID
+    definition: FEC id of the committee that received and reported the contribution (C + 8 digits). Look up the committee/candidate in FEC's committee master file or fec-all-candidates.
+  - name: NAME
+    definition: Contributor name as reported ("LAST, FIRST"). Not standardized; the same person can appear under several spellings. Includes committees' salted (fictitious) entries.
+  - name: STATE
+    definition: Contributor's state (postal code; AA/AE/AP = armed forces, ZZ = foreign). Mirror partition key.
+  - name: ZIP_CODE
+    definition: Contributor ZIP as reported (5 or 9 digits). ZIP5 = its first 5 characters (added for filtering).
+  - name: EMPLOYER
+    definition: Employer as reported (free text; also NOT EMPLOYED, RETIRED, SELF-EMPLOYED, INFORMATION REQUESTED).
+  - name: OCCUPATION
+    definition: Occupation as reported (free text).
+  - name: TRANSACTION_DT
+    unit: ISO date
+    definition: Contribution date, converted from FEC's MMDDYYYY. month = its YYYY-MM (mirror partition key).
+  - name: TRANSACTION_AMT
+    unit: USD (nominal)
+    definition: Amount of this transaction (negative for refunds/redesignations). Not the contributor's aggregate.
+  - name: TRANSACTION_TP
+    definition: "FEC transaction type: 15 contribution, 15E earmarked (via a conduit), 24T earmark forwarded by a conduit such as ActBlue/WinRed, 22Y refund, 11 tribal, 30/31/32 convention/headquarters/recount accounts, etc."
+  - name: MEMO_CD
+    definition: "'X' = memo entry not counted in the report's totals (e.g. earmark detail, partnership attributions). FEC says to include memo items in analysis, but avoid double counting."
+  - name: SUB_ID
+    definition: FEC's unique record id (string; 19 digits exceed JavaScript's integer precision).
+  - name: cycle
+    definition: Two-year election cycle (even end year) of the file the row came from. Added by the adapter.
+caveats:
+  - "LEGAL USE RESTRICTION (52 U.S.C. 30111(a)(4), 11 CFR 104.15): information about individual contributors copied from FEC reports may not be sold or used for soliciting contributions (political or charitable) or for any commercial purpose. Research, journalism and analysis that do not solicit or sell are permitted (e.g. FEC AO 1986-25). Committees may 'salt' reports with fictitious contributors to detect misuse; those decoy rows are kept as published. Do not use this data to contact, profile or market to contributors."
+  - Earmarked contributions are reported twice, by the conduit (ActBlue C00401224, WinRed C00694323; TRANSACTION_TP 24T, typically with MEMO_TEXT 'EARMARKED FOR ...') and again by the recipient committee (15E). Summing all rows double counts. For a committee's totals use its own rows, and use fec-all-candidates (or FEC's summaries) for official totals.
+  - "Only itemized contributions are included: contributors whose giving to a committee exceeds $200 per cycle (candidate committees) or per calendar year (PACs, parties) since 2015 ($200+ per reporting period 1989-2014; $500+ before 1989). Small-dollar unitemized money is invisible here, so row counts and sums understate total individual giving."
+  - TRANSACTION_AMT is the single transaction, not the contributor's aggregate, and includes refunds, redesignations and reattributions (often negative). Rows come from original and amended reports (AMNDT_IND N/A/T), so the same transaction (CMTE_ID + TRAN_ID) can appear more than once; deduplicate before summing.
+  - Contributor names, employers and occupations are free text as filed (misspellings, 'INFORMATION REQUESTED', abbreviations). One person can appear under many spellings and different people share names; do not treat NAME as an identifier.
+  - The file is regenerated weekly from reports as filed and amended; the current cycle grows every week and past cycles still change. Cite provenance (release, mirrored_at). The mirror is rebuilt when FEC's file changes, so records FEC removes disappear within one weekly batch.
+  - "Mirror scope: only the 2023-24 and 2025-26 cycles are mirrored (partitions cycle / month / STATE). A query filtered only on CMTE_ID must scan every partition and stops after ~60 MB with scan_stopped_early; filter STATE and a month range too (e.g. {cycle: 2024, STATE: 'NV', month: {gte: '2024-07', lte: '2024-10'}, CMTE_ID: 'C00703975'}). Older cycles are available through the local odc-server, which streams FEC's file directly."
+  - Dates outside the cycle (typos, late reports) are kept; their month partition is the year ('2022'), and blank/invalid dates have month 'unknown' and TRANSACTION_DT null.
+related: [fec-all-candidates]
+status: healthy
+status_reason: Onboarded; contract tests pass.
+status_since: "2026-11-25"
+last_verified: "2026-11-25"
+adapter: fec_individual_contributions
+adapter_version: 1.0.0

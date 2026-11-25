@@ -33,7 +33,7 @@ access:
   formats: [csv (zipped)]
   rate_limits: None published. The adapter caches files for 30 days (license allows) to avoid re-downloading.
   auth: none
-  notes: ZIP Code Business Patterns (zbp<yy>detail/totals) and congressional-district files are in the same directories but not served by this adapter.
+  notes: ZIP Code Business Patterns (zbp<yy>detail/totals) and congressional-district files are in the same directories but not served by this adapter. Mirror (R2) holds every year the adapter serves (2008 to latest) at all four levels (us, state, county, msa), all NAICS codes, all legal forms of organization and the size-class columns, partitioned by year, level and fipstate (empty for us/msa). Rows carry a level column.
 update:
   cadence: annual
   expected_lag: ~17-18 months after the reference year (e.g. 2023 data released mid-2025).
@@ -91,6 +91,7 @@ caveats:
   - Disclosure protection changed over time. CBP has used noise infusion since 2007 (*_nf flags G/H/J); before 2015 high-noise cells were suppressed with flag 'D'. Through 2017, cells withheld for disclosure carried an employment size-range EMPFLAG and zero emp/payroll; the adapter returns those emp/qp1/ap as null, not 0. From 2017 on, county x industry cells with fewer than 3 establishments are dropped entirely (the row is absent, not zero).
   - Sums across counties or detailed industries do not equal published totals exactly (noise, 'statewide' county 999 records, and suppressed detail). Use the published total row (naics '------') rather than summing.
   - NAICS versions change (2012 → 2017 in the 2017 data; 2022 NAICS from the 2022 data), so some detailed codes are not comparable across years. Compare at the sector level or use NAICS concordances.
+  - "Mirror: us/state rows include every legal form of organization (lfo '-' = all establishments, C, Z, S, P, N, G, O). Filter lfo='-' for totals, or sums double-count. Also filter level and year."
   - Payroll is in thousands of nominal dollars; deflate before comparing across years.
   - Data are by place of work (establishment location), not where employees live; compare carefully with LAUS or ACS (residence-based).
 related: [census-data-api, bls-laus, lehd-lodes, bea-regional]
@@ -99,4 +100,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: census_cbp
-adapter_version: 1.0.0
+adapter_version: 1.1.1

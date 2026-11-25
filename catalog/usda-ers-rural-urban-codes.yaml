@@ -38,6 +38,7 @@ access:
   formats: [csv, xlsx]
   rate_limits: None published. CSVs are ~0.6 MB; cached 30 days (license allows).
   auth: none
+  notes: Mirror (R2) holds both current editions, one partition per product (rows carry a product column, rucc or uic).
 update:
   cadence: decennial
   expected_lag: ~3-4 years after the decennial census (after OMB metro delineations and Census urban areas are released); occasional corrections in between.
@@ -90,4 +91,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: usda_ers_rural_urban_codes
-adapter_version: 1.0.0
+adapter_version: 1.1.0

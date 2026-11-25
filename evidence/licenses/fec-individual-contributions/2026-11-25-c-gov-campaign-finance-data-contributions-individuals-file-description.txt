@@ -1,0 +1,440 @@
+URL: https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/
+Final-URL: https://www.fec.gov/campaign-finance-data/contributions-individuals-file-description/
+Retrieved: 2026-11-25T01:46:45+00:00
+HTTP-Status: 200
+Raw-SHA256: 7726f7545ff6b33d14f96bb6e0a4ef26f5618564b49db7b13e2be26df2ec2822
+Raw-Bytes: 33550
+---
+Your web browser is not supported
+
+ This site uses features that are not supported by this browser. For a better experience, please switch to a modern browser.
+
+ skip navigation 
+
+ Here's how you know 
+
+ An official website of the United States government
+
+ Here's how you know
+
+ Official websites use .gov 
+
+ A .gov website belongs to an official government organization in the United States.
+
+ Secure .gov websites use HTTPS 
+
+ A lock ( ) or https:// means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+
+ Federal Election Commission | United States of America 
+
+ Calendar 
+
+ Glossary 
+
+ Search 
+
+ Search 
+
+ Menu 
+
+ Menu
+
+ Home 
+
+ Campaign finance data 
+
+ All data 
+
+ Raising 
+
+ Spending 
+
+ Loans and debts 
+
+ Filings and reports 
+
+ Candidates 
+
+ Committees 
+
+ Bulk data 
+
+ Campaign finance statistics 
+
+ Find elections. Search by state or ZIP code 
+
+ Look up contributions from specific individuals 
+
+ Help for candidates and committees 
+
+ All compliance resources 
+
+ Guides 
+
+ Forms 
+
+ Dates and deadlines 
+
+ Trainings 
+
+ Learn about electronic filing 
+
+ Find and contact your committee's analyst 
+
+ Legal resources 
+
+ All legal resources 
+
+ Advisory opinions 
+
+ Enforcement 
+
+ Statutes 
+
+ Legislation 
+
+ Regulations and rulemakings
+
+ Court cases 
+
+ Policy and other guidance 
+
+ Search across legal resources 
+
+ Search guidance documents 
+
+ About 
+
+ All about the FEC 
+
+ News and announcements 
+
+ Commission meetings 
+
+ Mission and history 
+
+ Leadership and structure 
+
+ Reports about the FEC 
+
+ Careers 
+
+ Working with the FEC 
+
+ Contact 
+
+ Introduction to campaign finance and elections 
+
+ Federal Election Commission | United States of America 
+
+ Home 
+
+ › 
+ Campaign finance data 
+
+ › 
+ Contributions by individuals file description 
+
+ Contributions by individuals file description
+
+ The contributions by individuals file contains information for contributions given by individuals. The method used to include contributions in this file has changed over time. This file is a subset of all itemized contributions made by individuals disclosed to the FEC.
+ 2015 - present: greater than $200 
+ A contribution will be included if: 
+ The contribution’s election cycle-to-date amount is over $200 for contributions to candidate committees
+ The contribution’s calendar year-to-date amount is over $200 for contributions to political action committees (PACs) and party committees.
+ 1989 - 2014: $200 and above 
+ A contribution will be included if the reporting period amount is $200 or more.
+ 1975 - 1988: $500 and above 
+ A contribution will be included if the reporting period amount is $500 or more. 
+ The file contains information about the committee receiving the contribution, the report where the contribution is disclosed, the individual giving the contribution, the contribution’s date, amount, and additional information about the contribution (if provided).The end-of-line (EOL) marker is line feed '\n' (LF, 0x0A, 10 in decimal). 
+ Contributions by individuals file format 
+
+ Column name 
+ Field name 
+ Position 
+ Null 
+ Data type 
+ Description 
+ Example data 
+
+ CMTE_ID 
+ Filer identification number 
+ 1 
+ N 
+ VARCHAR2 (9) 
+ A 9-character alpha-numeric code assigned to a committee by the Federal Election Commission 
+ C00100005 
+
+ AMNDT_IND 
+ Amendment indicator 
+ 2 
+ Y 
+ VARCHAR2 (1) 
+ Indicates if the report being filed is new (N), an amendment (A) to a previous report or a termination (T) report. 
+ N 
+
+ RPT_TP 
+ Report type 
+ 3 
+ Y 
+ VARCHAR2 (3) 
+ Indicates the type of report filed List of report type codes 
+ 12G 
+
+ TRANSACTION_PGI 
+ Primary-general indicator 
+ 4 
+ Y 
+ VARCHAR2 (5) 
+ This code indicates the election for which the contribution was made. EYYYY (election plus election year)
+
+ P = Primary
+
+ G = General
+
+ O = Other
+
+ C = Convention
+
+ R = Runoff
+
+ S = Special
+
+ E = Recount
+
+ P2018 
+
+ IMAGE_NUM 
+ Image number 
+ 5 
+ Y 
+ VARCHAR2 (11) or VARCHAR2(18) 
+ 11-digit Image Number Format
+
+ YYOORRRFFFF
+
+ YY - scanning year 
+
+ OO - office (01 - House, 02 - Senate, 03 - FEC Paper, 90-99- FEC Electronic) 
+
+ RRR - reel number 
+
+ FFFF- frame number
+
+ 18-digit Image Number Format (June 29, 2015)
+
+ YYYYMMDDSSPPPPPPPP
+
+ YYYY - scanning year 
+
+ MM - scanning month 
+
+ DD - scanning day 
+
+ SS - source (02 - Senate, 03 - FEC Paper, 90-99 - FEC Electronic) 
+
+ PPPPPPPP - page (reset to zero every year on January 1) 
+ 201810170912345678 
+
+ TRANSACTION_TP 
+ Transaction type 
+ 6 
+ Y 
+ VARCHAR2 (3) 
+ Transaction types 10, 11, 15, 15C, 15E, 15I, 15T, 19, 22Y, 24I, 24T, 20Y and 21Y are included in the INDIV file. Beginning with 2016 transaction types 30, 30T, 31, 31T, 32, 32T, 40T, 40Y, 41T, 41Y, 42T and 42Y are included in the INDIV file. Beginning with 2020 transaction types 30E, 31E and 32E are also included in the INDIV file.
+
+ For more information about transaction type codes see this list of transaction type codes 
+ 30T 
+
+ ENTITY_TP 
+ Entity type 
+ 7 
+ Y 
+ VARCHAR2 (3) 
+ ONLY VALID FOR ELECTRONIC FILINGS received after April 2002. 
+ CAN = Candidate
+
+ CCM = Candidate Committee
+
+ COM = Committee
+
+ IND = Individual (a person)
+
+ ORG = Organization (not a committee and not a person)
+
+ PAC = Political Action Committee
+
+ PTY = Party Organization 
+ IND 
+
+ NAME 
+ Contributor/Lender/Transfer Name 
+ 8 
+ Y 
+ VARCHAR2 (200) 
+
+ Abigail Adams 
+
+ CITY 
+ City 
+ 9 
+ Y 
+ VARCHAR2 (30) 
+
+ Braintree 
+
+ STATE 
+ State 
+ 10 
+ Y 
+ VARCHAR2 (2) 
+
+ MA 
+
+ ZIP_CODE 
+ ZIP code 
+ 11 
+ Y 
+ VARCHAR2 (9) 
+
+ 02184 
+
+ EMPLOYER 
+ Employer 
+ 12 
+ Y 
+ VARCHAR2 (38) 
+
+ Self employed 
+
+ OCCUPATION 
+ Occupation 
+ 13 
+ Y 
+ VARCHAR2 (38) 
+
+ Homemaker 
+
+ TRANSACTION_DT 
+ Transaction date (MMDDYYYY) 
+ 14 
+ Y 
+ DATE 
+
+ 10132018 
+
+ TRANSACTION_AMT 
+ Transaction amount 
+ 15 
+ Y 
+ NUMBER (14,2) 
+
+ 1000.00 
+
+ OTHER_ID 
+ Other identification number 
+ 16 
+ Y 
+ VARCHAR2 (9) 
+ For contributions from individuals this column is null. For contributions from candidates or other committees this column will contain that contributor's FEC ID. 
+ C00100309 
+
+ TRAN_ID 
+ Transaction ID 
+ 17 
+ Y 
+ VARCHAR2 (32) 
+ ONLY VALID FOR ELECTRONIC FILINGS. A unique identifier associated with each itemization or transaction appearing in an FEC electronic file. A transaction ID is unique for a specific committee for a specific report. In other words, if committee, C1, files a Q3 New with transaction SA123 and then files 3 amendments to the Q3 transaction SA123 will be identified by transaction ID SA123 in all 4 filings. 
+ SA11A1A.8317 
+
+ FILE_NUM 
+ File number / Report ID 
+ 18 
+ Y 
+ NUMBER (22) 
+ Unique report id 
+ 1197695 
+
+ MEMO_CD 
+ Memo code 
+ 19 
+ Y 
+ VARCHAR2 (1) 
+ 'X' indicates that the amount of the transaction is not incorporated into the total figure disclosed on the detailed summary page of the committee’s report. 'X' may also indicate that the amount was received as part of a partnership contribution, received and forwarded as an earmarked contribution, or that a transaction was previously reported. When using the bulk data file these memo items should be included in your analysis. 
+ X 
+
+ MEMO_TEXT 
+ Memo text 
+ 20 
+ Y 
+ VARCHAR2 (100) 
+ A description of the activity. Memo Text is available on itemized amounts on Schedules A and B. These transactions are included in the itemization total. 
+ Reattributed from John Adams 10/5/18 
+
+ SUB_ID 
+ FEC record number 
+ 21 
+ N 
+ NUMBER (19) 
+ Unique row ID 
+ 1234567891234567891 
+
+ Need help?
+
+ Get help from the FEC by phone or email 
+
+ This information is not intended to replace the law or to change its meaning, nor does this information create or confer any rights for or on any person or bind the Federal Election Commission or the public.
+
+ The reader is encouraged also to consult the Federal Election Campaign Act of 1971, as amended (52 U.S.C. 30101 et seq.), Commission regulations (Title 11 of the Code of Federal Regulations), Commission advisory opinions and applicable court decisions.
+
+ About 
+
+ Careers 
+
+ Press 
+
+ Contact 
+
+ Privacy and security policy 
+
+ Plain language 
+
+ Accessibility statement 
+
+ Strategy, budget and performance 
+
+ No FEAR Act 
+
+ Open government 
+
+ USA.gov 
+
+ Inspector General 
+
+ FOIA 
+
+ OpenFEC API 
+
+ GitHub repository 
+
+ Release notes 
+
+ FEC.gov status 
+
+ Federal Election Commission
+
+ The FEC's Twitter page 
+
+ The FEC's YouTube page 
+
+ Sign up for FECMail 
+
+ This information is produced and disseminated at U.S. taxpayer expense.
+
+ Hide glossary 
+
+ Glossary
+
+ Search terms 
+
+ Examples: receipt; Hybrid PAC

@@ -1,0 +1,46 @@
+name: Data request
+description: Ask for a public dataset to be added to the librarycard catalog. Requests are reviewed in weekly batches.
+title: "[data request] "
+labels: ["data-request"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is **public**. Don't include anything you wouldn't want published: no private plans, names of
+        clients or personal data. Requests are reviewed weekly (see docs/REQUESTS.md); we'll comment with the decision.
+  - type: textarea
+    id: data
+    attributes:
+      label: What data do you need?
+      description: The measures, records or tables, as specifically as you can.
+    validations:
+      required: true
+  - type: textarea
+    id: use_case
+    attributes:
+      label: What question would it help answer?
+      description: One or two example questions. This helps us prioritise and choose the right granularity.
+    validations:
+      required: true
+  - type: input
+    id: geography
+    attributes:
+      label: Geography and granularity
+      placeholder: "e.g. all US counties; precincts in Wisconsin"
+  - type: input
+    id: time_range
+    attributes:
+      label: Time range
+      placeholder: "e.g. 2010-present, annual"
+  - type: textarea
+    id: sources
+    attributes:
+      label: Known sources (optional)
+      description: Publisher pages or download links, if you know them.
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Acknowledgement
+      options:
+        - label: I understand this request is public and reviewed in batches; data requiring sign-up or API keys can only be listed, not served.
+          required: true

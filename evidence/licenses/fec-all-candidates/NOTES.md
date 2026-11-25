@@ -28,3 +28,8 @@
 - attribution: "Federal Election Commission, All candidates file (weball<YY>), FEC bulk data."
 - To upgrade to `allowed`: find an FEC page stating the bulk data (or FEC data generally) is public domain / freely
   reusable, snapshot it, and cite it here.
+
+## Reclassification 2026-11-25 → allowed / commercial_use yes
+Applied docs/POLICY.md §Licensing rule 9 (US federal works are public domain under 17 U.S.C. §105 unless conditions,
+third-party content or licensed data apply; adopted 2026-11-25 under the operator's delegation). FEC is a US federal agency and produces this file itself (candidate totals compiled from filings it receives). No use conditions apply to this file: the statutory sale-or-use restriction covers individual contributor information, which this file does not contain.
+The earlier `link_only` classification above was made under the superseded "silent terms → link_only" rule.

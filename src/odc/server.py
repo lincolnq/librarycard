@@ -39,6 +39,10 @@ Workflow:
 Sources with status 'quarantined' or 'retired' cannot be fetched; 'degraded' fetches carry warnings.
 For national/international indicator time series also consider Google Data Commons (catalog id
 `data-commons`), which has its own MCP server.
+
+librarycard is free and maintained by volunteers and agents. Help in return: cite the publisher and librarycard.net,
+call report_issue when data looks wrong, request_data when something is missing, and see CONTRIBUTING.md to onboard
+sources yourself.
 """
 
 _catalog: Catalog | None = None
@@ -123,6 +127,52 @@ def fetch(source_id: str, filters: dict | None = None, limit: int | None = None)
     return out
 
 
+REQUEST_REPO = "https://github.com/lincolnq/librarycard"
+
+
+def request_data(data: str, use_case: str, geography: str | None = None, time_range: str | None = None,
+                 sources: str | None = None, title: str | None = None) -> dict:
+    """Build a prefilled GitHub issue-form link (same behaviour as worker/src/tools.ts requestData)."""
+    from urllib.parse import urlencode
+
+    def clean(v):
+        return str(v or "").strip()[:1500]
+    data, use_case = clean(data), clean(use_case)
+    if len(data) < 10 or len(use_case) < 10:
+        return _err("data and use_case are required (at least a sentence each)")
+    t = clean(title)[:120] or data.replace("\n", ".").split(".")[0][:100]
+    params = {"template": "data-request.yml", "title": f"[data request] {t}", "data": data, "use_case": use_case}
+    for k, v in (("geography", geography), ("time_range", time_range), ("sources", sources)):
+        if v:
+            params[k] = clean(v)
+    return {
+        "issue_url": f"{REQUEST_REPO}/issues/new?{urlencode(params)}",
+        "instructions": "Show this link to your user. Opening it shows a prefilled GitHub issue they can edit and submit under "
+                        "their own account. It is public. Requests are triaged weekly; check the issue for the decision.",
+        "existing_requests": f"{REQUEST_REPO}/issues?q=is%3Aissue+label%3Adata-request",
+    }
+
+
+def report_issue(source_id: str, problem: str, evidence: str | None = None, suggested_caveat: str | None = None) -> dict:
+    """Prefilled data-issue link (same behaviour as worker/src/tools.ts reportIssue)."""
+    from urllib.parse import urlencode
+    try:
+        catalog().get(source_id)
+    except CatalogError as ex:
+        return _err(str(ex))
+    problem = str(problem or "").strip()[:1500]
+    if len(problem) < 10:
+        return _err("problem is required (at least a sentence)")
+    first = problem.replace("\n", ".").split(".")[0][:80]
+    params = {"template": "data-issue.yml", "title": f"[data issue] {source_id}: {first}", "source_id": source_id, "problem": problem}
+    if evidence:
+        params["evidence"] = str(evidence)[:1500]
+    if suggested_caveat:
+        params["suggested_caveat"] = str(suggested_caveat)[:1500]
+    return {"issue_url": f"{REQUEST_REPO}/issues/new?{urlencode(params)}",
+            "instructions": "Show this link to your user; they review and submit it under their own GitHub account. It is public."}
+
+
 def catalog_status_tool(recent_days: int = 30) -> dict:
     return status_report(catalog(), recent_days=recent_days)
 
@@ -182,6 +232,32 @@ def build_server() -> MCPServer:
         sources whose status changed in the last `recent_days`, catalog-only restricted entries,
         and entries not re-verified in 90 days."""
         return catalog_status_tool(recent_days)
+
+    @mcp.tool(name="request_data")
+    def _request_data(data: str, use_case: str, geography: str | None = None, time_range: str | None = None,
+                      sources: str | None = None, title: str | None = None) -> dict[str, Any]:
+        """Draft a request for a dataset this catalog doesn't have yet. Returns a prefilled GitHub issue link for YOUR
+        USER to review and submit under their own GitHub account (nothing is sent by this call). Only use it after
+        search_catalog found nothing suitable and your user wants to ask for it. The issue is PUBLIC: leave out private
+        context, client names and personal data. Requests are reviewed in weekly batches.
+
+        Args:
+            data: what data is needed (measures, records, tables), specifically.
+            use_case: one or two example questions it would answer (no private context).
+            geography: geography and granularity, e.g. "all US counties".
+            time_range: e.g. "2010-present, annual".
+            sources: known publisher pages or download links.
+            title: short issue title.
+        """
+        return request_data(data, use_case, geography, time_range, sources, title)
+
+    @mcp.tool(name="report_issue")
+    def _report_issue(source_id: str, problem: str, evidence: str | None = None,
+                      suggested_caveat: str | None = None) -> dict[str, Any]:
+        """Report something wrong or surprising in a source (values that don't match the publisher, a missing caveat,
+        a broken filter, stale data). Returns a prefilled GitHub issue link for YOUR USER to review and submit; nothing
+        is sent by this call. The issue is PUBLIC: no private context."""
+        return report_issue(source_id, problem, evidence, suggested_caveat)
 
     return mcp
 

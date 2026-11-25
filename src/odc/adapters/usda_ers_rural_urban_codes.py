@@ -37,7 +37,7 @@ def csv_url(product: str) -> tuple[str, int, str]:
 
 class UsdaErsRuralUrbanCodes(SourceAdapter):
     source_id = "usda-ers-rural-urban-codes"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per county (or county-equivalent, incl. Puerto Rico and Island Areas) with the ERS code, its "
              "text Description and the 2020 Census population. product='rucc' (default) gives Rural-Urban Continuum "
              "Codes 2023 (1-3 metro by metro size, 4-9 nonmetro by urban population and metro adjacency); "
@@ -111,6 +111,20 @@ class UsdaErsRuralUrbanCodes(SourceAdapter):
                  "Entities without a code (Description 'Not Applicable') have a null code."]
         return FetchResult(rows[:limit], [url, page], notes, total_available=len(rows),
                            metadata={"product": product, "code_column": code_col, "code_year": year})
+
+    # Mirror: two small files (~3,300 counties each), one partition per product. Rows gain a `product` column
+    # so readers filter the same way as with the publisher adapter.
+    mirror_partition_keys = ["product"]
+    mirror_semantics = {"FIPS": "county_fips", "State": "state_postal"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for product in PAGES:
+            yield MirrorUnit(partition={"product": product}, filters={"product": product})
+
+    def mirror_rows(self, unit):
+        rows, urls, notes, meta = super().mirror_rows(unit)
+        return [{"product": unit.partition["product"], **r} for r in rows], urls, notes, {unit.partition["product"]: meta}
 
 
 def _check_cook(rows: list[dict]) -> None:

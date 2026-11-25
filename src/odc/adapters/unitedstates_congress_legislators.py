@@ -182,4 +182,17 @@ class UnitedStatesCongressLegislators(SourceAdapter):
         return FetchResult(rows, urls, notes, total_available=matched, metadata={"table": table})
 
 
+    mirror_partition_keys = ["table"]
+    mirror_semantics = {"state": "state_postal"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for table in ("current", "historical", "committee_membership"):
+            yield MirrorUnit(partition={"table": table}, filters={"table": table})
+
+    def mirror_rows(self, unit):
+        rows, urls, notes, meta = super().mirror_rows(unit)
+        return [{"table": unit.partition["table"], **r} for r in rows], urls, notes, meta
+
+
 ADAPTER = UnitedStatesCongressLegislators()

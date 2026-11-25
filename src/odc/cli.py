@@ -38,6 +38,18 @@ def main(argv: list[str] | None = None) -> int:
     c = sub.add_parser("contract")
     c.add_argument("source_ids", nargs="+")
     sub.add_parser("status")
+    m = sub.add_parser("mirror", help="ingest allowed sources into R2 (see docs/MIRROR.md)")
+    m.add_argument("source_ids", nargs="*", help="default: every mirrorable source")
+    m.add_argument("--due", action="store_true", help="only sources whose upstream changed / never mirrored / stale")
+    m.add_argument("--dry-run", action="store_true", help="build packs locally, do not upload")
+    m.add_argument("--out", help="keep packs in this directory (default: temp, deleted)")
+    m.add_argument("--report", help="write a JSON report of published/skipped/failed sources")
+    m.add_argument("--resume", action="store_true",
+                   help="with --out: continue an interrupted ingest from its checkpoint (or publish a finished one)")
+    m.add_argument("--plan", action="store_true",
+                   help="with --due --report: only list due sources in the report's \"due\" key (no ingest)")
+    e = sub.add_parser("export", help="write the catalog JSON bundled into the Worker")
+    e.add_argument("--out", default="worker/src/generated/catalog.json")
     a = ap.parse_args(argv)
 
     if a.cmd == "validate":
@@ -51,6 +63,19 @@ def main(argv: list[str] | None = None) -> int:
             print(p)
         print(f"{len(cat.entries)} entries; {len(problems)} consistency problems")
         return 1 if problems else 0
+    if a.cmd == "mirror":
+        from pathlib import Path
+
+        from .mirror import run
+        return run(a.source_ids or None, a.due, a.dry_run, Path(a.out) if a.out else None,
+                   report_path=Path(a.report) if a.report else None, resume=a.resume, plan_only=a.plan)
+    if a.cmd == "export":
+        from pathlib import Path
+
+        from .export import export_catalog
+        n = export_catalog(Path(a.out))
+        print(f"wrote {a.out} ({n} entries)")
+        return 0
     if a.cmd == "search":
         out = server.search_catalog(a.query, a.domain, a.geography, a.time_range)
     elif a.cmd == "describe":

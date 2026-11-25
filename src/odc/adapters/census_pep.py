@@ -191,4 +191,17 @@ class CensusPep(SourceAdapter):
         return FetchResult(out, [url], notes, total_available=matched, metadata={"vintage": vintage, "geography": geo})
 
 
+    mirror_partition_keys = ["geography", "STATE"]
+    mirror_semantics = {"STATE": "state_fips", "GEOID": "county_fips"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for geo in SUMLEV:
+            yield MirrorUnit(partition={"geography": geo}, filters={"geography": geo}, split_by=["STATE"])
+
+    def mirror_rows(self, unit):
+        rows, urls, notes, meta = super().mirror_rows(unit)
+        return [{"geography": unit.partition["geography"], **r} for r in rows], urls, notes, meta
+
+
 ADAPTER = CensusPep()

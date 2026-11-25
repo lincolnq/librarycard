@@ -9,9 +9,13 @@
 from __future__ import annotations
 
 import csv
+import io
 import re
 import sys
-from typing import Any, Callable, Iterable
+import zipfile
+import zlib
+from dataclasses import dataclass
+from typing import Any, Callable, Iterable, Iterator
 
 from .. import http
 from ..http import SourceError
@@ -150,6 +154,14 @@ def socrata(domain: str, dataset_id: str, *, where: str | None = None, select: s
     return r.json(), str(r.request.url)
 
 
+def polite_pause(response, seconds: float = 1.0) -> None:
+    """Between pages of a bulk (mirror) pull: sleep briefly if the publisher sends rate-limit headers."""
+    import time
+    names = [k.lower() for k in response.headers.keys()]
+    if any("ratelimit" in k or k == "retry-after" for k in names):
+        time.sleep(seconds)
+
+
 def soql_quote(v: str) -> str:
     return "'" + str(v).replace("'", "''") + "'"
 
@@ -267,3 +279,128 @@ def openfema(entity: str, version: int, *, filter_expr: str | None, limit: int,
 
 def odata_quote(v: str) -> str:
     return "'" + str(v).replace("'", "''") + "'"
+
+
+# ------------------------------------------------------------------ remote zip (HTTP Range)
+
+@dataclass
+class RemoteZipMember:
+    name: str
+    header_offset: int   # local file header position in the archive
+    data_end: int        # last byte (inclusive) that can belong to this member (next header / central dir - 1)
+    compress_size: int
+    file_size: int
+    method: int          # 0 stored, 8 deflate
+
+
+class _RangeFile(io.RawIOBase):
+    """Seekable read-only view of a remote file over HTTP Range requests, with a small block cache.
+    Only used to let zipfile parse the central directory (a few requests at the end of the file)."""
+
+    BLOCK = 1 << 20
+
+    def __init__(self, url: str, size: int):
+        self.url, self.size, self.pos = url, size, 0
+        self.blocks: dict[int, bytes] = {}
+
+    def readable(self) -> bool:
+        return True
+
+    def seekable(self) -> bool:
+        return True
+
+    def tell(self) -> int:
+        return self.pos
+
+    def seek(self, offset: int, whence: int = 0) -> int:
+        self.pos = offset if whence == 0 else self.pos + offset if whence == 1 else self.size + offset
+        return self.pos
+
+    def readinto(self, b) -> int:
+        if self.pos >= self.size:
+            return 0
+        bi = self.pos // self.BLOCK
+        if bi not in self.blocks:
+            start = bi * self.BLOCK
+            self.blocks[bi] = http.read_range(self.url, start, min(self.BLOCK, self.size - start))
+        blk = self.blocks[bi]
+        off = self.pos - bi * self.BLOCK
+        data = blk[off:off + len(b)]
+        b[:len(data)] = data
+        self.pos += len(data)
+        return len(data)
+
+
+def remote_zip_members(url: str) -> tuple[str, list[RemoteZipMember]]:
+    """List the members of a (possibly multi-GB, zip64) zip over HTTP Range requests, without downloading it.
+    Returns (resolved_url, members). The resolved URL is the redirect target, used for the range reads."""
+    r = http.head(url)
+    final = str(r.url)
+    try:
+        size = int(r.headers["content-length"])
+    except (KeyError, ValueError):
+        raise SourceError(f"{url}: no Content-Length; cannot range-read the zip", kind="schema", url=url) from None
+    if (r.headers.get("accept-ranges") or "bytes").lower() != "bytes":
+        raise SourceError(f"{url}: server does not accept byte ranges", kind="schema", url=url)
+    try:
+        zf = zipfile.ZipFile(io.BufferedReader(_RangeFile(final, size), buffer_size=1 << 16))
+    except zipfile.BadZipFile as e:
+        raise SourceError(f"{url}: not a zip ({e})", kind="parse", url=url) from None
+    infos = sorted(zf.infolist(), key=lambda i: i.header_offset)
+    ends = [i.header_offset - 1 for i in infos[1:]] + [zf.start_dir - 1]
+    return final, [RemoteZipMember(i.filename, i.header_offset, e, i.compress_size, i.file_size, i.compress_type)
+                   for i, e in zip(infos, ends)]
+
+
+def remote_zip_lines(url: str, m: RemoteZipMember, encoding: str = "utf-8") -> Iterator[str]:
+    """Stream one member of a remote zip and yield its text lines (without line endings).
+
+    Only this member's compressed bytes are requested, as one streamed Range request; nothing is stored.
+    Stop iterating to stop the download (e.g. once a small ``fetch`` has enough rows)."""
+    if m.method not in (0, 8):
+        raise SourceError(f"{url}!{m.name}: unsupported zip compression method {m.method}", kind="parse", url=url)
+    stream = http.iter_bytes(url, m.header_offset, m.data_end)
+    try:
+        head = b""
+        for chunk in stream:
+            head += chunk
+            if len(head) >= 30:
+                break
+        if head[:4] != b"PK\x03\x04":
+            raise SourceError(f"{url}!{m.name}: no local file header at offset {m.header_offset}", kind="parse", url=url)
+        skip = 30 + int.from_bytes(head[26:28], "little") + int.from_bytes(head[28:30], "little")
+        d = zlib.decompressobj(-15) if m.method == 8 else None
+        remaining = m.compress_size
+        tail = b""
+        done = False
+
+        def compressed() -> Iterator[bytes]:
+            yield head
+            yield from stream
+
+        pending = skip
+        for chunk in compressed():
+            if pending:
+                cut = min(pending, len(chunk))
+                chunk, pending = chunk[cut:], pending - cut
+                if not chunk:
+                    continue
+            if d is not None:
+                data = d.decompress(chunk)
+                done = d.eof
+            else:
+                data, remaining = chunk[:remaining], remaining - min(remaining, len(chunk))
+                done = remaining == 0
+            if data:
+                tail += data
+                *lines, tail = tail.split(b"\n")
+                for ln in lines:
+                    yield ln.rstrip(b"\r").decode(encoding, errors="replace")
+            if done:
+                break
+        if not done:
+            raise SourceError(f"{url}!{m.name}: compressed stream ended early", kind="parse", url=url)
+        if tail:
+            yield tail.rstrip(b"\r").decode(encoding, errors="replace")
+    finally:
+        stream.close()

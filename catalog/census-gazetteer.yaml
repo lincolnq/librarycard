@@ -37,6 +37,11 @@ access:
   formats: [tab-delimited text (to 2024), pipe-delimited text (2025+), zip]
   rate_limits: None published. National zips are 3 KB-2.5 MB; cached 60 days (license allows).
   auth: none
+  notes: >-
+    Mirror: every edition the adapter serves (2020 onward; 2026 is the latest as of 2026-11) and every layer each edition
+    publishes, partitioned by `year`, `layer` and `USPS` (state postal code; empty for zcta, metro_area, urban_area and
+    aiannh). Mirrored rows carry added `year` and `layer` columns. Pre-2020 editions (2010-based geography, different
+    file naming) are not served or mirrored.
 update:
   cadence: annual
   expected_lag: Released ~August-September of the boundary year (boundaries as of January 1).
@@ -51,11 +56,11 @@ license:
   name: Creative Commons Zero 1.0 (public domain dedication) — Census Bureau open-data license; see NOTES.md for how it applies to the Gazetteer
   spdx: CC0-1.0
   url: https://creativecommons.org/publicdomain/zero/1.0/
-  redistribution: link_only
-  commercial_use: unclear
+  redistribution: allowed
+  commercial_use: "yes"
   attribution: "U.S. Census Bureau, Geography Division, <YEAR> Gazetteer Files."
   evidence: evidence/licenses/census-gazetteer/
-  checked_at: "2026-11-24"
+  checked_at: "2026-11-25"
   notes: The Gazetteer itself is not listed in census.gov/data.json; the classification rests on the Bureau-wide CC0 declaration (all 1,800 catalogued datasets) and the CC0 / "free to use ... acknowledgement must be given" terms on sibling Geography Division products. See NOTES.md.
 key_variables:
   - name: GEOID
@@ -89,10 +94,11 @@ caveats:
   - Columns differ by layer and edition (e.g. NAME is absent for tracts and ZCTAs; LSAD/FUNCSTAT appear for places; GEOIDFQ exists only from 2025; the delimiter changed from tab to pipe in 2025). Code against column names, not positions.
   - ZCTAs approximate USPS ZIP Code delivery areas but are not ZIP codes; many ZIP codes (PO boxes, single buildings) have no ZCTA.
   - Connecticut uses 9 planning regions as county-equivalents from the 2022 edition onward.
+  - The mirror covers the 2020-and-later editions only (2020-based geography); 2012-2019 Gazetteers must be downloaded from the Census directory directly. Layers missing from an edition (state before 2024, metro_area in 2022) are absent from the mirror too.
 related: [census-acs-summary-file, census-pep, census-saipe]
 status: healthy
 status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: census_gazetteer
-adapter_version: 1.0.0
+adapter_version: 1.1.0

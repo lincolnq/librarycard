@@ -167,6 +167,11 @@ def download(url: str, *, cache_allowed: bool, max_age_s: int = 7 * 86400, param
         tmp.unlink(missing_ok=True)
 
 
+def evict(url: str, params: dict | None = None) -> None:
+    """Drop a cached download (e.g. pages a mirror ingest kept only so an interrupted run could resume)."""
+    _cache_path(str(httpx.URL(url, params=params)) if params else url).unlink(missing_ok=True)
+
+
 def _stream_to(url: str, dest: Path) -> None:
     for attempt in range(3):
         try:
@@ -185,6 +190,42 @@ def _stream_to(url: str, dest: Path) -> None:
             if attempt == 2:
                 raise SourceError(f"{type(exc).__name__} downloading {url}: {exc}", kind="network", url=url) from exc
             time.sleep(2 ** attempt)
+
+
+def iter_bytes(url: str, start: int = 0, end: int | None = None, chunk: int = 1 << 20, retries: int = 4) -> Iterator[bytes]:
+    """Stream ``url`` (optionally the byte range ``start``..``end`` inclusive) without storing it.
+
+    For files too big to download (multi-GB bulk zips read once by the mirror, or read only partly by a
+    small ``fetch``). A dropped connection is resumed with a Range request from the last byte received, so
+    the caller sees one uninterrupted byte stream. Nothing is written to disk or cached: a caller that stops
+    early just stops iterating, and the connection is closed."""
+    pos = start
+    for attempt in range(retries + 1):
+        headers = {"Accept-Encoding": "identity"}
+        ranged = bool(pos) or end is not None
+        if ranged:
+            headers["Range"] = f"bytes={pos}-{'' if end is None else end}"
+        try:
+            with client(300) as c, c.stream("GET", url, headers=headers) as r:
+                if r.status_code != (206 if ranged else 200):
+                    raise SourceError(f"HTTP {r.status_code} streaming {url} ({headers.get('Range', 'whole file')})",
+                                      kind="http", url=url, status=r.status_code)
+                for b in r.iter_bytes(chunk):
+                    pos += len(b)
+                    yield b
+            if end is not None and pos <= end:
+                raise httpx.ReadError(f"stream ended at byte {pos}, expected {end + 1}")
+            return
+        except httpx.HTTPError as exc:
+            if attempt == retries:
+                raise SourceError(f"{type(exc).__name__} streaming {url} at byte {pos}: {exc}", kind="network", url=url) from exc
+            time.sleep(2 ** attempt)
+
+
+def read_range(url: str, start: int, length: int) -> bytes:
+    """``length`` bytes of ``url`` from ``start`` via an HTTP Range request (negative ``start``: the last -start bytes)."""
+    rng = f"bytes={start}-{start + length - 1}" if start >= 0 else f"bytes={start}"
+    return request("GET", url, headers={"Range": rng, "Accept-Encoding": "identity"}, ok_statuses=(206,)).content
 
 
 def open_text(path: Path, member: str | None = None, encoding: str = "utf-8-sig") -> io.TextIOBase:

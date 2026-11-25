@@ -26,3 +26,8 @@
 Superseded onboarding classification: "allowed — ... The Bureau declares CC0 for all of its catalogued data, and the
 Geography Division's sibling products from the same database are CC0 / 'free to use ... acknowledgement must be
 given'. This is an agency-policy-level statement rather than a Gazetteer-specific one."
+
+## Reclassification 2026-11-25 → allowed / commercial_use yes
+Applied docs/POLICY.md §Licensing rule 9 (US federal works are public domain under 17 U.S.C. §105 unless conditions,
+third-party content or licensed data apply; adopted 2026-11-25 under the operator's delegation). Produced by the Census Bureau Geography Division from MAF/TIGER; no third-party content; no use conditions.
+The earlier `link_only` classification above was made under the superseded "silent terms → link_only" rule.

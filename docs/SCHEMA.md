@@ -37,6 +37,7 @@ otherwise it is parsed as a mapping/other type and the entry fails validation.
 | `key_variables` | `{name, label?, unit?, definition}` — names exactly as returned by `fetch`. For restricted entries whose codebook is itself gated, list a few from public documentation and say "per publisher documentation, not verified". |
 | `caveats` | ≥ 1 string, each ≥ 20 chars. Anything that makes naive use wrong. Returned with every `fetch`. |
 | `related` | Other catalog ids (validated to exist). |
+| `contributors` | Optional credit list: GitHub handles and/or agent names that onboarded or substantially improved the entry (CONTRIBUTING.md). |
 | `status` | `healthy` \| `degraded` \| `quarantined` \| `retired` (`docs/POLICY.md#status-transitions`). |
 | `status_reason`, `status_since` | Why, and since when (date). |
 | `last_verified` | Date an agent last confirmed the entry against the publisher and contract tests passed. |
@@ -80,4 +81,4 @@ The schema will change. Rules:
 
 ## Changelog
 
-- v1 (2026-11-24): initial schema. `change_detection.json_path` accepts a list. Queue reason `publisher_blocked` added.
+- v1 (2026-11-24): initial schema. `change_detection.json_path` accepts a list. Queue reason `publisher_blocked` added. Optional `contributors` added.

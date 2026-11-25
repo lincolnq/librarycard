@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>librarycard</title>
+<meta name="description" content="A library card for AI agents: find, understand and fetch US public-policy data with caveats and provenance attached. Free MCP server.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='3' y='7' width='26' height='18' rx='2' fill='%23F4EBD3' stroke='%231F4E9C' stroke-width='2'/%3E%3Cline x1='7' y1='13' x2='25' y2='13' stroke='%231F4E9C' stroke-width='1.5'/%3E%3Cline x1='7' y1='18' x2='20' y2='18' stroke='%23B9A77A' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='23' r='1.4' fill='%231F4E9C'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap masthead-row">
+    <a class="wordmark" href="/" aria-label="librarycard home">
+      <span class="card-glyph" aria-hidden="true"></span>librarycard
+    </a>
+    <nav class="topnav" aria-label="Sections">
+      <a href="#search">Search</a>
+      <a href="#connect">Connect</a>
+      <a href="#how">How it works</a>
+      <a href="https://github.com/lincolnq/librarycard">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Free MCP server · US public-policy data</p>
+        <h1>A library card for your AI.</h1>
+        <p class="lede">librarycard helps AI agents find the right public dataset, understand its fine print, and fetch exactly the rows they need,
+          with the publisher, release and license attached to every answer. Census tables, election returns, labor statistics, health
+          indicators, federal spending and more, from the agencies that publish them.</p>
+        <p class="lede-small">It doesn't answer questions for you. It gets your agent to the primary source and makes sure it reads the caveats.</p>
+      </div>
+      <aside class="connect-card" id="connect" aria-labelledby="connect-h">
+        <h2 id="connect-h">Connect your agent</h2>
+        <p class="mono-label">MCP endpoint · Streamable HTTP · no key</p>
+        <div class="copyrow">
+          <code id="endpoint">https://mcp.librarycard.net/mcp</code>
+          <button type="button" class="btn" id="copy-endpoint" data-copy="https://mcp.librarycard.net/mcp">Copy</button>
+        </div>
+        <dl class="howto">
+          <dt>Claude (web &amp; desktop)</dt>
+          <dd>Settings → Connectors → Add custom connector, and paste the endpoint.</dd>
+          <dt>Claude Code</dt>
+          <dd class="copyrow small"><code id="cc-cmd">claude mcp add --transport http librarycard https://mcp.librarycard.net/mcp</code>
+            <button type="button" class="btn btn-quiet" data-copy="claude mcp add --transport http librarycard https://mcp.librarycard.net/mcp">Copy</button></dd>
+          <dt>Anything else</dt>
+          <dd>Any client that speaks remote MCP over HTTP. Tools: <span class="mono">search_catalog</span>, <span class="mono">describe_source</span>,
+            <span class="mono">fetch</span>, <span class="mono">catalog_status</span>, <span class="mono">request_data</span>, <span class="mono">report_issue</span>.</dd>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="search-section" id="search" aria-labelledby="search-h">
+    <div class="wrap">
+      <div class="search-head">
+        <h2 id="search-h">Search the catalog</h2>
+        <p class="stats" id="stats">Loading catalog…</p>
+      </div>
+      <form class="searchbar" id="search-form" role="search">
+        <label for="q" class="visually-hidden">Search sources</label>
+        <input id="q" name="q" type="search" autocomplete="off" placeholder="Try: county unemployment, median income by tract, senate results" >
+        <label for="geo" class="visually-hidden">Geography</label>
+        <select id="geo" name="geo">
+          <option value="">Any geography</option>
+          <option value="state">State</option>
+          <option value="county">County</option>
+          <option value="tract">Census tract</option>
+          <option value="congressional_district">Congressional district</option>
+          <option value="place">City / place</option>
+          <option value="zcta">ZIP code area</option>
+          <option value="school_district">School district</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+      <div class="chips" id="domain-chips" role="group" aria-label="Filter by topic"></div>
+      <div class="results" id="results" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="detail" id="detail" hidden aria-live="polite">
+    <div class="wrap" id="detail-inner"></div>
+  </section>
+
+  <section class="how" id="how" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">How an agent uses it</h2>
+      <ol class="steps">
+        <li><h3>Find</h3><p><span class="mono">search_catalog</span> ranks sources by topic, geography and years, and says up front which ones it can serve.</p></li>
+        <li><h3>Read the fine print</h3><p><span class="mono">describe_source</span> returns coverage, units, and the caveats that make naive use wrong: margins of error, breaks in series, suppressed cells, license limits.</p></li>
+        <li><h3>Fetch with provenance</h3><p><span class="mono">fetch</span> returns only the rows asked for, with the publisher, original file, release and citation on every response.</p></li>
+      </ol>
+      <div class="notes">
+        <div>
+          <h3>Where the data comes from</h3>
+          <p>Every source is published by a government agency, research institution or established open-data project. When a license allows
+            redistribution, we keep a mirror that is rebuilt whenever the publisher releases new data, so answers are fast and don't burden the
+            publisher. When it doesn't, the catalog says so and points to the publisher. Sources that need a sign-up or API key are listed but never served.</p>
+        </div>
+        <div>
+          <h3>Missing something? Something wrong?</h3>
+          <p>Ask for it. Your agent can draft a request with <span class="mono">request_data</span>, or you can
+            <a href="https://github.com/lincolnq/librarycard/issues/new?template=data-request.yml">open a data request</a>. Requests are reviewed in weekly batches.</p>
+          <p>Found something wrong? <a href="https://github.com/lincolnq/librarycard/issues/new?template=data-issue.yml">Report a data issue</a>, or let your agent do it with <span class="mono">report_issue</span>. Missing caveats are the most useful reports we get.</p>
+          <p>Want to give back? librarycard is free. Cite it, report issues, or have your coding agent <a href="https://github.com/lincolnq/librarycard/blob/main/CONTRIBUTING.md">onboard a source</a>; the repo is written so an agent can do it end to end.</p>
+          <p>For headline national and international indicators, <a href="https://datacommons.org">Google Data Commons</a> is a great complement; librarycard focuses on records, fine geography and source detail.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <p>librarycard is open source and maintained mostly by AI agents under a <a href="https://github.com/lincolnq/librarycard/blob/main/docs/POLICY.md">written policy</a>.
+      Data belongs to its publishers; always cite them.</p>
+    <p class="mono-label"><a href="https://github.com/lincolnq/librarycard">github.com/lincolnq/librarycard</a></p>
+  </div>
+</footer>
+
+<script src="/app.js" defer></script>
+</body>
+</html>

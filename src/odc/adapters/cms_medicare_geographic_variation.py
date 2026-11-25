@@ -49,7 +49,7 @@ def _check_de(rows: list[dict]) -> None:
 
 class CmsMedicareGeographicVariation(SourceAdapter):
     source_id = "cms-medicare-geographic-variation"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per year x geography x age group for Original (fee-for-service) Medicare: beneficiary counts and "
              "demographics, total and standardized (price-adjusted) Medicare payments per capita, and use by service "
              "type (inpatient, outpatient, SNF, home health, hospice, E&M, imaging, tests, ...), plus prevention-quality "
@@ -146,6 +146,44 @@ class CmsMedicareGeographicVariation(SourceAdapter):
                  "spending/use measures.",
                  "Cells suppressed by CMS for small counts ('*') were converted to null; values converted from strings."]
         return FetchResult(rows[:limit], urls, notes, total_available=total, metadata={"dataset_uuid": UUID})
+
+    # ------------------------------------------------------------------ mirror (docs/MIRROR.md)
+    # Whole dataset (~37k rows, all years x levels x the three age groups), one partition per level x year.
+    mirror_partition_keys = ["BENE_GEO_LVL", "YEAR"]
+    mirror_semantics = {"YEAR": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        nat = self._fetch({"level": "national", "age_group": "all", "columns": ["BENES_TOTAL_CNT"]}, 1000, True).rows
+        years = sorted({int(r["YEAR"]) for r in nat})
+        require(years and min(years) >= 2014, f"unexpected YEAR values in national rows: {years}")
+        for level in ("national", "state", "county"):
+            for y in years:
+                yield MirrorUnit(partition={"BENE_GEO_LVL": LEVELS[level], "YEAR": str(y)},
+                                 filters={"level": level, "year": y})
+
+    def mirror_rows(self, unit):
+        """All age groups (the fetch filter defaults to 'all'; county rows exist for All only), checked against the API's row counts."""
+        rows: list[dict] = []
+        urls: list[str] = []
+        seen: set = set()
+        for age in AGES:
+            f = self.validate_filters({**unit.filters, "age_group": age})
+            res = self._fetch(f, 10**9, True)
+            require(res.total_available is None or len(res.rows) == res.total_available,
+                    f"{unit.partition} {age}: got {len(res.rows)} rows, API reports {res.total_available}")
+            for r in res.rows:
+                k = (r["YEAR"], r["BENE_GEO_LVL"], r["BENE_GEO_CD"], r["BENE_GEO_DESC"], r["BENE_AGE_LVL"])
+                require(k not in seen, f"duplicate row {k} while paging {unit.partition} (unstable API ordering?)")
+                seen.add(k)
+            rows += res.rows
+            urls += res.request_urls[:1]
+        notes = ["Original Medicare (fee-for-service) beneficiaries only; Medicare Advantage enrollees are excluded from "
+                 "spending/use measures.",
+                 "Cells suppressed by CMS for small counts ('*') were converted to null; values converted from strings.",
+                 "National and state rows come in three beneficiary age groups (BENE_AGE_LVL All, <65, >=65; county rows "
+                 "are All only): filter BENE_AGE_LVL = 'All' to avoid mixing them."]
+        return rows, urls, notes, {"dataset_uuid": UUID}
 
 
 ADAPTER = CmsMedicareGeographicVariation()

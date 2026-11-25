@@ -309,14 +309,35 @@ def plan_and_file(gh, cat: Catalog | None, changes: dict, contracts: dict) -> li
     return log
 
 
+def merge_mirror_failures(contracts: dict, mirror_report: dict) -> dict:
+    """Treat a failed mirror ingest like a failed contract case, so it flows through the same
+    needs-repair dedup/systemic logic. The case name 'mirror_ingest' tells the agent which runbook step applies."""
+    if not mirror_report.get("failed"):
+        return contracts
+    out = {**contracts, "results": list(contracts.get("results", []))}
+    for f in mirror_report["failed"]:
+        case = {"case": "mirror_ingest", "passed": False, "kind": f.get("kind", "error"),
+                "message": "odc mirror failed (docs/MIRROR.md; reproduce with `odc mirror " + f["source_id"] +
+                           " --dry-run --out /tmp/p`):\n" + f["error"], "seconds": 0, "rows": 0}
+        existing = next((r for r in out["results"] if r["source_id"] == f["source_id"]), None)
+        if existing:
+            existing["passed"] = False
+            existing["cases"] = existing["cases"] + [case]
+        else:
+            out["results"].append({"source_id": f["source_id"], "status": "healthy", "status_since": "", "passed": False, "cases": [case]})
+    return out
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--changes", default="reports/changes.json")
     ap.add_argument("--contracts", default="reports/contracts.json")
+    ap.add_argument("--mirror", default="reports/mirror.json", help="report from `odc mirror --report`")
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
-    load = lambda p: json.loads(Path(p).read_text()) if Path(p).exists() else {}  # noqa: E731
+    load = lambda p: json.loads(Path(p).read_text() or "{}") if Path(p).exists() else {}  # noqa: E731
     changes, contracts = load(a.changes), load(a.contracts)
+    contracts = merge_mirror_failures(contracts, load(a.mirror))
     cat = Catalog.load()
     if a.dry_run or not os.environ.get("GITHUB_TOKEN"):
         gh = DryRun()

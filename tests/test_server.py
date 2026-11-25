@@ -94,7 +94,7 @@ def test_mcp_protocol_roundtrip():
     async def go():
         async with Client(server.build_server()) as c:
             tools = {t.name: t for t in (await c.list_tools()).tools}
-            assert set(tools) == {"search_catalog", "describe_source", "fetch", "catalog_status"}
+            assert set(tools) == {"search_catalog", "describe_source", "fetch", "catalog_status", "request_data", "report_issue"}
             assert "caveats" in tools["describe_source"].description.lower()
             assert "provenance" in tools["fetch"].description.lower()
             r = await c.call_tool("search_catalog", {"query": "county temperature"})
@@ -103,3 +103,21 @@ def test_mcp_protocol_roundtrip():
             r = await c.call_tool("catalog_status", {})
             assert r.structured_content["total_sources"] > 0
     anyio.run(go)
+
+
+def test_request_data_link():
+    from urllib.parse import parse_qs, urlparse
+    out = server.request_data("County-level SNAP participation by month", "How did SNAP enrollment change after 2023?", geography="US counties")
+    u = urlparse(out["issue_url"])
+    q = parse_qs(u.query)
+    assert u.path == "/lincolnq/librarycard/issues/new" and q["template"] == ["data-request.yml"]
+    assert q["geography"] == ["US counties"] and q["title"][0].startswith("[data request] County-level SNAP")
+    assert "error" in server.request_data("x", "y")
+
+
+def test_report_issue_link():
+    from urllib.parse import parse_qs, urlparse
+    out = server.report_issue("census-pep", "County totals for 2025 look one year stale compared with the publisher page.")
+    q = parse_qs(urlparse(out["issue_url"]).query)
+    assert q["template"] == ["data-issue.yml"] and q["source_id"] == ["census-pep"]
+    assert "error" in server.report_issue("no-such-source", "something looks wrong here")

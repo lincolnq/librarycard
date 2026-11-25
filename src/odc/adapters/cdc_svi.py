@@ -13,6 +13,9 @@ Variables differ by release (e.g. E_POV in 2018 vs E_POV150 in 2020+); columns a
 
 from __future__ import annotations
 
+import csv
+
+from .. import http
 from ..http import SourceError
 from ._common import scan_csv, state_abbr
 from .base import Check, ContractCase, FetchResult, FilterError, FilterSpec, SourceAdapter, require
@@ -69,7 +72,7 @@ def _check_county_ranks(rows: list[dict]) -> None:
 
 class CdcSvi(SourceAdapter):
     source_id = "cdc-svi"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per county, census tract or ZCTA (2022 only) with ~150 columns: E_* estimates and M_* margins "
              "of error (ACS 5-year), EP_* percentages, EPL_* variable percentile ranks, RPL_THEME1-4 theme ranks and "
              "RPL_THEMES (overall SVI, 0-1, higher = more vulnerable), F_* flags. `ranking` 'us' ranks against the whole "
@@ -151,6 +154,54 @@ class CdcSvi(SourceAdapter):
                  "Publisher sentinel -999 (data unavailable or not calculable) was converted to null."]
         return FetchResult(rows, [url], notes, total_available=matched,
                            metadata={"year": year, "geography": geo, "ranking": ranking})
+
+    # -------------------------------------------------------- mirror
+    # Every year in YEARS for county and tract, US-ranked and state-ranked files, partitioned by year, geography,
+    # ranking and state (ST_ABBR). ZCTA (2022 only) is not mirrored. Rows gain year/geography/ranking columns.
+    # The US tract file is ~85k rows x ~160 columns, so rows are streamed rather than listed.
+    mirror_partition_keys = ["year", "geography", "ranking", "ST_ABBR"]
+    mirror_semantics = {"ST_ABBR": "state_postal", "ST": "state_fips", "year": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for year in YEARS:
+            for geo in ("county", "tract"):
+                part = {"year": str(year), "geography": geo}
+                yield MirrorUnit(partition={**part, "ranking": "us"},
+                                 filters={"year": year, "geography": geo, "ranking": "us"}, split_by=["ST_ABBR"])
+                for st in STATE_NAMES:
+                    yield MirrorUnit(partition={**part, "ranking": "state", "ST_ABBR": st},
+                                     filters={"year": year, "geography": geo, "ranking": "state", "state": st})
+
+    def mirror_rows(self, unit):
+        f = self.validate_filters(unit.filters)
+        year, geo, ranking = f["year"], f["geography"], f["ranking"]
+        st = state_abbr(f["state"]) if f.get("state") else None
+        url = file_url(year, geo, ranking, st)
+        extra = {"year": year, "geography": geo, "ranking": ranking}
+
+        def rows():
+            n = 0
+            with http.download(url, cache_allowed=True, max_age_s=30 * 86400) as path:
+                with http.open_text(path) as fh:
+                    reader = csv.DictReader(fh)
+                    reader.fieldnames = [c.strip() for c in reader.fieldnames or []]
+                    require("FIPS" in reader.fieldnames and "ST_ABBR" in reader.fieldnames,
+                            f"{url}: FIPS/ST_ABBR missing; columns {reader.fieldnames[:20]}")
+                    for r in reader:
+                        rec = {k: _value(k, v) for k, v in r.items() if k is not None}
+                        if st and (rec.get("ST_ABBR") or "").upper() != st:
+                            continue
+                        n += 1
+                        yield {**extra, **rec}
+            require(n > 0, f"{url}: no rows")
+
+        notes = [f"CDC/ATSDR SVI {y} = ACS {y - 4}-{y} 5-year estimates." for y in YEARS] + [
+            "ranking 'us' = percentile ranks against all US areas (50 states + DC); ranking 'state' = ranks within the "
+            "state only (state-ranked files, incl. Puerto Rico). Filter on ranking to avoid mixing the two.",
+            "Publisher sentinel -999 (data unavailable or not calculable) was converted to null.",
+            "Variables differ by year (e.g. E_POV in 2018 vs E_POV150 in 2020+)."]
+        return rows(), [url], notes, {}
 
 
 ADAPTER = CdcSvi()

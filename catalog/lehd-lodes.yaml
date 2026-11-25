@@ -33,9 +33,17 @@ access:
     - url: https://lehd.ces.census.gov/doc/help/onthemap/LODESTechDoc.pdf
       description: Technical documentation (file layout, variable definitions, coverage table).
   formats: [csv (gzip)]
-  rate_limits: None published. Files range from ~100 KB (small-state WAC) to >100 MB (large-state OD main); nothing is cached (link_only license), so each call re-downloads its file.
+  rate_limits: None published. Files range from ~100 KB (small-state WAC) to >100 MB (large-state OD main); downloads are cached locally for 7 days (public domain).
   auth: none
-  notes: Block-to-higher-geography crosswalks are at <st>/<st>_xwalk.csv.gz (not used; the adapter aggregates by geocode prefix).
+  notes: >-
+    Block-to-higher-geography crosswalks are at <st>/<st>_xwalk.csv.gz (not used; the adapter aggregates by geocode prefix).
+    Mirror scope: the latest year (2024 as of 2026-11) of WAC and RAC, segment S000 and job type JT00 only, for all 50
+    states and DC, at census-block level as published (7.65M rows, ~381 MB), partitioned by `state` (required),
+    `file_type`, `segment` and `job_type`; rows add `state`, `file_type`, `segment`, `job_type`, `year` and `county_fips`.
+    All segments and job types would be ~240M rows / ~9 GB and a 4-5 hour single-threaded ingest (measured on DE and CA),
+    so they are left out; widen MIRROR_SEGMENTS / MIRROR_JOB_TYPES in the adapter once mirror ingest can be chunked.
+    OD (origin-destination) is not mirrored: its 2024 files alone are ~2.8 GB of csv.gz, over the ~5 GB budget; fetch OD
+    from the publisher via the local odc-server. The mirror has no aggregate filter: filter on county_fips and sum blocks.
 update:
   cadence: annual
   expected_lag: ~2 years after the reference year (2024 data released October 2026).
@@ -47,15 +55,15 @@ change_detection:
   poll_interval_days: 7
   notes: version.txt is rewritten only when a new LODES vintage (new year or correction) is published; a change means check new years, the tech doc revision, and the coverage table.
 license:
-  name: No explicit license (U.S. Census Bureau public-use data; no dataset-level terms found)
+  name: "Public domain (U.S. Government work, 17 U.S.C. \xA7105)"
   spdx: null
   url: https://lehd.ces.census.gov/data/
-  redistribution: link_only
-  commercial_use: unclear
+  redistribution: allowed
+  commercial_use: "yes"
   attribution: "U.S. Census Bureau. LEHD Origin-Destination Employment Statistics (LODES8) <file name>, <data vintage>. Washington, DC: U.S. Census Bureau, Longitudinal-Employer Household Dynamics Program, accessed <date> at https://lehd.ces.census.gov/data/#lodes."
   evidence: evidence/licenses/lehd-lodes/
-  checked_at: "2026-11-24"
-  notes: LODES is not listed in census.gov/data.json (only LEHD QWI is, as CC0) and the LEHD pages give a citation format but no license; classified link_only per POLICY (terms silent). Re-check if a dataset-level license appears.
+  checked_at: "2026-11-25"
+  notes: "Public domain as a US federal work (POLICY \xA7Licensing rule 9, adopted 2026-11-25); LODES is not separately listed in census.gov/data.json. See NOTES.md."
 key_variables:
   - name: w_geocode
     definition: Workplace 2020 census block (15 digits), or its prefix when aggregated (12 block group, 11 tract, 5 county, 2 state).
@@ -88,10 +96,12 @@ caveats:
   - OD 'main' files only contain pairs with both ends in the state; commuters from other states are in the 'aux' file of the workplace state. Summing OD main does not reproduce WAC totals.
   - Geography is 2020 census blocks for all years (LODES8); prefix-based aggregation gives 2020 tracts/counties. Connecticut blocks carry the 8 legacy county codes (09001-09015), not the planning regions (091xx) used by Census products from 2022.
   - Only blocks with at least one job appear; absent blocks mean zero jobs.
+  - "Mirror scope: the production server holds only the latest year's WAC and RAC for segment S000 and job type JT00, at block level (filter county_fips and sum blocks yourself; the mirror has no aggregate option). OD (origin-destination) flows, earlier years, segments SA01-SI03 and job types JT01-JT05 are not mirrored; fetch them from the publisher via the local odc-server."
+  - Alaska and Michigan have no 2024 WAC file, so the mirror has only their RAC partitions.
 related: [census-cbp, bls-laus]
 status: healthy
 status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: lehd_lodes
-adapter_version: 1.0.0
+adapter_version: 1.1.0

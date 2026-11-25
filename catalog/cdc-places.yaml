@@ -43,7 +43,13 @@ access:
   formats: [json, csv]
   rate_limits: Anonymous SODA requests are throttled per IP (no fixed published number); adapter makes 1-2 requests per fetch.
   auth: none
-  notes: GIS-friendly wide-format versions (one row per location) also exist on data.cdc.gov but are not used.
+  notes: >-
+    GIS-friendly wide-format versions (one row per location) also exist on data.cdc.gov but are not used. Mirror
+    (docs/MIRROR.md, production server): county, place and ZCTA level for every release 2020-2025, plus tract level
+    for the latest release only (~22M rows; MIRROR_TRACT_RELEASES in the adapter, add releases there to widen; all
+    releases x levels would be ~34M rows). Partitioned by release, geography and stateabbr; `release` and `geography`
+    are required filters and are also row columns. ZCTA rows have no state, so each ZCTA release is one partition read
+    in 100k-row chunks (filter locationid).
 update:
   cadence: annual
   expected_lag: ~2 years from BRFSS data year to release (e.g. 2025 release = mostly 2023 BRFSS); released around August-December.
@@ -101,6 +107,7 @@ caveats:
   - Within one release, measures come from different BRFSS years (the `year` column), e.g. the 2025 release mixes 2023 data for most measures with 2022 data for biennial measures (screenings, dental, sleep).
   - In the 2025 release, 2023-year measures are missing for all counties in Kentucky and Pennsylvania (observed 2026-11-24; those states lack 2023 BRFSS data in the model), and health-related social needs measures cover fewer counties (~2,300 vs ~2,960).
   - Tract and ZCTA rows have crude prevalence only; ZCTA rows have no state column (use location_id).
+  - The production (mirror) server holds tract estimates for the latest release only, and county, place and ZCTA estimates for every release; earlier tract releases are available from data.cdc.gov or the local odc-server. In the mirror, filter on columns (release, geography, stateabbr, measureid, locationid) rather than the adapter's filter names.
   - Blank data_value with a footnote means the estimate was suppressed (e.g. small population) — the adapter returns null.
 related: [cdc-svi, county-health-rankings]
 status: healthy
@@ -108,4 +115,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: cdc_places
-adapter_version: 1.0.0
+adapter_version: 1.1.0

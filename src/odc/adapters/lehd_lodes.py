@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import csv
 import datetime as dt
+import re
 
 from .. import http
 from ..http import SourceError
@@ -58,7 +59,7 @@ def _assert_de_total(rows: list[dict]) -> None:
 
 class LehdLodes(SourceAdapter):
     source_id = "lehd-lodes"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("Census-block job counts for one state and year. file_type wac = jobs by workplace block, rac = jobs by "
              "residence block (columns C000 total, CA01-03 age, CE01-03 earnings, CNS01-20 NAICS sector, CR/CT race/"
              "ethnicity, CD education, CS sex, CFA/CFS firm age/size), od = home-work block pairs (S000 and segment "
@@ -172,6 +173,81 @@ class LehdLodes(SourceAdapter):
             notes.append("od aux: workplace in this state, residence in another state.")
         return FetchResult(out, [url], notes, total_available=matched,
                            metadata={"year": year, "file_type": ftype, "segment": seg, "job_type": jt, "aggregate": agg})
+
+
+    # Mirror (measured 2026-11-25 on the 2024 files): WAC+RAC for every segment and job type would be ~240M rows and
+    # ~9 GB as NDJSON gzip (2x the publisher's 4.5 GB of csv.gz; DE alone 0.77M rows / 28 MB, CA ~23M rows / ~850 MB)
+    # and take 4-5 hours to ingest single-threaded, beyond the mirror workflow's time and disk budget. So the mirror
+    # holds the latest year's WAC and RAC for segment S000 (all workers; the age/earnings/industry breakdowns are still
+    # columns CA*/CE*/CNS*) and job type JT00 (all jobs), every state, at census-block level as published. Widen with
+    # MIRROR_SEGMENTS / MIRROR_JOB_TYPES once ingest can be chunked; partition keys already include both.
+    # OD is not mirrored: its 2024 files alone are ~2.8 GB of csv.gz (~5.6 GB as NDJSON gzip).
+    # Rows gain state, file_type, segment, job_type, year and county_fips (first 5 digits of the block geocode).
+    mirror_partition_keys = ["state", "file_type", "segment", "job_type"]
+    mirror_required = ["state"]
+    mirror_semantics = {"state": "state_postal", "county_fips": "county_fips"}
+    MIRROR_TYPES = ("wac", "rac")
+    MIRROR_SEGMENTS = ("S000",)
+    MIRROR_JOB_TYPES = ("JT00",)
+
+    def mirror_plan(self):
+        from concurrent.futures import ThreadPoolExecutor
+
+        from ..mirror import MirrorUnit
+        from ._common import STATE_FIPS
+        states = sorted(s.lower() for s, f in STATE_FIPS.items() if int(f) <= 56)  # 50 states + DC; no PR in LODES
+        dirs = [(st, ftype) for st in states for ftype in self.MIRROR_TYPES]
+
+        def listing(d):
+            st, ftype = d
+            html = http.get_text(f"{BASE}/{st}/{ftype}/")
+            pat = rf'href="{st}_{ftype}_(S\d{{3}}|S[AEI]\d\d)_(JT0\d)_(\d{{4}})\.csv\.gz"'
+            return {(seg, jt, int(y)) for seg, jt, y in re.findall(pat, html)}
+
+        with ThreadPoolExecutor(8) as pool:
+            files = dict(zip(dirs, pool.map(listing, dirs)))
+        year = max(y for fs in files.values() for _, _, y in fs)
+        for (st, ftype), fs in files.items():
+            for seg in self.MIRROR_SEGMENTS:
+                for jt in self.MIRROR_JOB_TYPES:
+                    if (seg, jt, year) in fs:
+                        yield MirrorUnit(partition={"state": st.upper(), "file_type": ftype, "segment": seg, "job_type": jt},
+                                         filters={"state": st, "file_type": ftype, "segment": seg, "job_type": jt, "year": year})
+
+    def mirror_rows(self, unit):
+        f = unit.filters
+        st, ftype, seg, jt, year = f["state"], f["file_type"], f["segment"], f["job_type"], f["year"]
+        url = file_url(st, ftype, seg, jt, year, "main")
+        geo = "w_geocode" if ftype == "wac" else "h_geocode"
+        fixed = {"state": st.upper(), "file_type": ftype, "segment": seg, "job_type": jt, "year": year}
+
+        def rows():
+            with http.download(url, cache_allowed=True) as path, http.open_text(path, encoding="utf-8") as fh:
+                reader = csv.reader(fh)
+                header = next(reader, [])
+                require(header[:1] == [geo] and "C000" in header and header[-1] == "createdate",
+                        f"{url}: unexpected header {header[:8]}")
+                num = header[1:-1]
+                for r in reader:
+                    if not r:
+                        continue
+                    try:
+                        rec = {**fixed, "county_fips": r[0][:5], geo: r[0]}
+                        rec.update(zip(num, map(int, r[1:-1])))
+                    except ValueError as e:
+                        raise SourceError(f"{url}: non-integer count ({e})", kind="parse", url=url) from None
+                    rec["createdate"] = r[-1]
+                    yield rec
+
+        notes = [f"LODES8 WAC (jobs by workplace block) and RAC (jobs by residence block), {year}, every state, segment "
+                 f"{'/'.join(self.MIRROR_SEGMENTS)}, job type {'/'.join(self.MIRROR_JOB_TYPES)}, by 2020 census block "
+                 "as published. `state`, `file_type`, `segment`, `job_type`, `year` and `county_fips` (first 5 digits "
+                 "of the geocode) are added by the mirror.",
+                 "Jobs are beginning-of-2nd-quarter (about April 1) jobs. Counts are noise-infused for confidentiality; "
+                 "small-area values are approximate. Only blocks with at least one job appear.",
+                 "Not mirrored: earlier years, other segments (SA01-SI03) and job types (JT01-JT05), and OD "
+                 "(origin-destination) files; fetch those from the publisher via the local odc-server."]
+        return rows(), [url], notes, {"year": year}
 
 
 ADAPTER = LehdLodes()

@@ -72,4 +72,13 @@ class MitElectionPresidentState(SourceAdapter):
         return FetchResult(rows, urls, notes, total_available=matched, metadata=meta)
 
 
+    # Mirror: one small file; partition by state for fast state queries.
+    mirror_partition_keys = ["state_po"]
+    mirror_semantics = {"state_po": "state_postal", "state_fips": "state_fips", "year": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        yield MirrorUnit(partition={}, filters={}, split_by=["state_po"])
+
+
 ADAPTER = MitElectionPresidentState()

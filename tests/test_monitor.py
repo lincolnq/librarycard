@@ -118,3 +118,11 @@ def test_systemic_escalation(cat):
 
 def test_quarantine_backoff():
     assert [d for d in range(0, 35) if rc.quarantine_retry_due(d)] == [1, 2, 4, 8, 16, 30, 31, 32, 33, 34]
+
+
+def test_mirror_failure_becomes_repair_issue(cat):
+    rep = {"failed": [{"source_id": "census-pep", "kind": "http", "error": "HTTP 404 from https://www2.census.gov/x"}]}
+    gh = fi.DryRun()
+    fi.plan_and_file(gh, cat, {"changed": []}, fi.merge_mirror_failures({"results": []}, rep))
+    assert len(gh.actions) == 1 and gh.actions[0]["labels"] == ["needs-repair"]
+    assert "mirror_ingest" in gh.actions[0]["body"] and "odc mirror census-pep" in gh.actions[0]["body"]

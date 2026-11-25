@@ -8,13 +8,20 @@ Agents use it to **discover** which sources can answer a question, **understand*
 **fetch** data on demand from the original publisher, with provenance attached. They do the analysis themselves.
 
 - It does not answer questions or ship precomputed "answers".
-- It does not mirror datasets. Data are fetched from the publisher on demand; caching only where the license allows.
+- It mirrors data only where the license allows redistribution, and serves it with full provenance. Other sources are
+  listed with instructions to fetch them from the publisher.
 - It does not handle data needing sign-up, keys or data-use agreements. Those sources get catalog-only `restricted`
   entries so agents know they exist (e.g. the Census Data API, Google Data Commons).
 
 The repo is maintained mostly by autonomous agents. **Start with [CLAUDE.md](CLAUDE.md).**
 
 ## Using the MCP server
+
+**Hosted:** add `https://mcp.librarycard.net/mcp` to your MCP client as a Streamable HTTP server. No key is needed.
+Redistributable sources are served from a mirror that is refreshed when publishers release new data
+(see [docs/MIRROR.md](docs/MIRROR.md)).
+
+**Local** (fetches directly from publishers, including `link_only` sources):
 
 ```bash
 uv venv && . .venv/bin/activate && uv pip install -e .
@@ -39,6 +46,7 @@ Tools:
 | `search_catalog(query, domain?, geography?, time_range?, limit?)` | Ranked source summaries, including status and whether each is fetchable |
 | `describe_source(source_id)` | Full entry: coverage, key variables, **caveats**, license, status, and `fetch_parameters` |
 | `fetch(source_id, filters, limit?)` | `rows` + `provenance` (publisher, request URLs, retrieval time, license, citation) + caveats + warnings. Refuses quarantined, retired and restricted sources; warns on degraded ones |
+| `request_data(data, use_case, ...)` | A prefilled GitHub issue link for the user to submit when the catalog lacks something. Requests are triaged weekly ([docs/REQUESTS.md](docs/REQUESTS.md)) |
 | `catalog_status()` | Counts by status, recent status changes, catalog-only entries, entries not re-verified in 90 days |
 
 ## How it stays healthy

@@ -35,3 +35,14 @@ def test_filter_specs_documented(sid):
     if required:
         with pytest.raises(FilterError):
             a.validate_filters({})
+
+
+def test_census_cbp_upper_case_headers():
+    """cbp15us.txt ships upper-case headers; rows are normalised so filters and shaping still work."""
+    from odc.adapters.census_cbp import ADAPTER
+    f = ADAPTER.validate_filters({"level": "us", "year": 2015, "naics": ["total"]})
+    _, keep, shape, _, _ = ADAPTER._prepare(f)
+    r = {"USCODE": "0", "NAICS": "------", "LFO": "-", "EMPFLAG": "", "EMP": "100", "EST": "5"}
+    assert keep(r)
+    out = shape(r)
+    assert out["naics"] == "------" and out["emp"] == 100 and out["est"] == 5

@@ -91,6 +91,15 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
       fact when useful (e.g. Phoenix July 2023 had ≥ 43 °C days). These are what detect silent breakage.
 - [ ] `version = "1.0.0"`, `source_id = "<id>"`, and module-level `ADAPTER = YourAdapter()`.
 
+## 4b. Mirror plan (only if `license.redistribution: allowed`)
+
+- [ ] Add `mirror_partition_keys`, `mirror_semantics`, optionally `mirror_required`, and `mirror_plan()` to the
+      adapter, following `docs/MIRROR.md#adding-mirror_plan-to-an-adapter`.
+- [ ] `odc mirror <id> --dry-run --out /tmp/odc-<id>-packs`: check the row_count, partition count and sizes, and the
+      column types in the manifest.
+- [ ] If you have R2 access (`CLOUDFLARE_ACCOUNT_ID` set): `odc mirror <id>` to publish. Otherwise the daily
+      `mirror.yml` workflow publishes it after merge.
+
 ## 5. Catalog entry
 
 - [ ] Copy `catalog/_TEMPLATE.yaml` to `catalog/<id>.yaml` and fill **every** field (see `docs/SCHEMA.md`):
@@ -122,7 +131,7 @@ Failing a screen → add an entry to `ops/queue.yaml` (`id`, `name`, `homepage`,
 - [ ] Fallback paths you can't exercise live (e.g. an API used only when the bulk host fails) need an offline test
       with a mocked response (`tests/test_<id>_*.py`).
 - [ ] `odc describe <id>` reads well; `odc fetch <id> '<typical filters>' --limit 5` returns sensible rows with provenance.
-- [ ] `odc search "<words a user would type>"` ranks the source first; add that query to `TOP1` in `tests/test_search.py`.
+- [ ] `odc search "<words a user would type>"` ranks the source first; add that query to `tests/search_cases.json` (used by both the Python and Worker search tests).
 
 ## 7. Commit
 
@@ -161,9 +170,16 @@ Access
 - **HTML error pages with status 200** (BEA for unknown tables): `http.download` now rejects HTML responses unless
   `allow_html=True`, so they're never cached or parsed as data.
 
+- **FEC bulk zips** (www.fec.gov/files/bulk-downloads → S3) accept Range requests. `indivYY.zip` holds every row twice
+  (`itcont.txt` and `by_date/` files split by transaction date): read only the by_date members you need. The download
+  rate varies (2–20 MB/s), so never fetch a whole multi-GB file in a contract test; stream and stop at `limit`.
+
 Change detection
 - **Live/continuous APIs** (OpenFEMA): watch dataset *metadata* (definition modified date, deprecation fields), not
   refresh timestamps. **Nightly-regenerated files**: watch a header line, a layout/description page or a version file.
+
+- **Sources whose policy guardrails demand prompt removals** (FEC contributions, POLICY §Scope 3): watch the weekly
+  file itself (`http_headers`), so each regeneration is a release and the mirror is rebuilt.
 
 Licensing
 - FEC's data.json spells the field `licence`; CMS puts licenses only on distributions; CDC PLACES has it only in Socrata

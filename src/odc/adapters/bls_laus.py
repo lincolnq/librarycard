@@ -25,7 +25,7 @@ import datetime as dt
 
 from .. import http
 from ..http import SourceError
-from ._common import state_fips
+from ._common import FIPS_STATE, state_fips
 from .base import Check, ContractCase, FetchResult, FilterError, FilterSpec, SourceAdapter, require
 
 BASE = "https://download.bls.gov/pub/time.series/la"
@@ -66,6 +66,19 @@ FOOTNOTES = {"A": "area boundaries do not reflect official OMB definitions", "G"
              "X": "unavailable due to the 2025 lapse in appropriations",
              "Y": "controlled to interpolated statewide totals (survey not conducted)"}
 API_MAX_SERIES, API_MAX_YEARS = 25, 10
+# la.area type code -> area_type filter value; fallback by area_code prefix when names are unavailable (API v1)
+TYPE_NAME = {c: name for name, (codes, _) in AREA_TYPES.items() for c in codes}
+PREFIX_TYPE = {"ST": "state", "CN": "county", "MT": "metro", "DV": "metro_division", "MC": "micro", "CA": "combined",
+               "CT": "city", "CS": "city", "RD": "region_division"}
+# Mirror scope: area_type -> national flat files (bulk only; the API v1 fallback never runs during ingest)
+MIRROR_FILES = {
+    "state": ["2.AllStatesU", "3.AllStatesS"],
+    "county": ["64.County"],
+    "metro": ["60.Metro"],
+    "metro_division": ["61.Division"],
+    "micro": ["62.Micro"],
+    "combined": ["63.Combined"],
+}
 
 
 def _num(v: str):
@@ -110,12 +123,13 @@ def _assert_de_2020_spike(rows: list[dict]) -> None:
 
 class BlsLaus(SourceAdapter):
     source_id = "bls-laus"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("Monthly (M01-M12) and annual-average (M13) labor force, employment, unemployment and unemployment "
              "rate by place of residence. Pick area_type (state, county, metro, city, ...) and narrow with state "
              "or county_fips; county/city without a state reads a ~340 MB national file. Default is not seasonally "
              "adjusted (seasonal='U'); 'S' exists only for states, regions/divisions and a handful of large metros/cities. "
-             "One row per series x period; `value` is a percent for rates and persons for levels.")
+             "One row per series x period; `value` is a percent for rates and persons for levels. Rows carry `area_type` and "
+             "`state` (postal; a metro's principal state).")
     filters = [
         FilterSpec("area_type", "string", "state (default), county, metro, metro_division, micro, combined, city, region_division.",
                    enum=sorted(AREA_TYPES), default="state"),
@@ -248,6 +262,8 @@ class BlsLaus(SourceAdapter):
         atc, name = names.get(ac, (None, None))
         fn = (fn or "").strip()
         return {"series_id": sid, "area_code": ac, "area_type_code": atc, "area_name": name, "fips": _fips(ac),
+                "area_type": TYPE_NAME.get(atc) if atc else PREFIX_TYPE.get(ac[:2]),
+                "state": None if ac.startswith("RD") else FIPS_STATE.get(ac[2:4]),
                 "measure_code": sid[18:20], "measure": MEASURE_NAME.get(sid[18:20]), "seasonal": sid[2],
                 "year": int(year), "period": period, "value": _num(value), "footnote_codes": fn or None,
                 "footnote_text": "; ".join(FOOTNOTES.get(c, c) for c in fn.replace(",", "")) if fn else None}
@@ -311,6 +327,44 @@ class BlsLaus(SourceAdapter):
                  "(no area names, no annual averages, max 10 years; ~25 queries/day shared per IP).",
                  f"API v1 POST body: series {series}, years {start}-{end}."]
         return out, matched, API_V1, notes
+
+    # ----------------------------------------------------------------- mirror (docs/MIRROR.md)
+    # One unit per area type, read from the national bulk files (all measures, U and S), split by state.
+    # Reads download.bls.gov only: a 403 fails the ingest, it never falls back to the quota-limited API v1.
+    mirror_partition_keys = ["area_type", "state"]
+    mirror_semantics = {"state": "state_postal", "year": "year"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for atype in MIRROR_FILES:
+            yield MirrorUnit(partition={"area_type": atype}, filters={"area_type": atype}, split_by=["state"])
+
+    def mirror_rows(self, unit):
+        atype = unit.partition["area_type"]
+        type_codes = AREA_TYPES[atype][0]
+        urls = [f"{BASE}/la.data.{stem}" for stem in MIRROR_FILES[atype]] + [f"{BASE}/la.area"]
+        names = self._area_names(True)
+
+        def rows():
+            for url in urls[:-1]:
+                with http.download(url, cache_allowed=True, max_age_s=86400) as p, http.open_text(p, encoding="latin-1") as fh:
+                    reader = csv.reader(fh, delimiter="\t")
+                    header = [h.strip() for h in next(reader, [])]
+                    require(header[:4] == ["series_id", "year", "period", "value"], f"{url}: unexpected header {header}")
+                    for rec in reader:
+                        if len(rec) < 4:
+                            continue
+                        sid = rec[0].strip()
+                        if len(sid) != 20 or names.get(sid[3:18], ("?",))[0] not in type_codes:
+                            continue
+                        yield self._row(sid, rec[1].strip(), rec[2].strip(), rec[3], rec[4] if len(rec) > 4 else "", names)
+
+        notes = ["Mirror scope: states (NSA and SA), counties, metro areas, metro divisions, micro areas and combined areas, "
+                 "every measure and period in the BLS bulk files. Cities/towns and census regions/divisions are not mirrored; "
+                 "the local odc-server reads them from download.bls.gov.",
+                 "Rates are percents (one decimal); levels are persons. Data are by place of residence.",
+                 "Value '-' (not available) is null; footnote_codes are explained in footnote_text."]
+        return rows(), urls, notes, {"footnotes": FOOTNOTES}
 
 
 ADAPTER = BlsLaus()

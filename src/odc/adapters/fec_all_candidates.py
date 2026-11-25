@@ -85,7 +85,7 @@ def _aoc_2024(rows: list[dict]) -> None:
 
 class FecAllCandidates(SourceAdapter):
     source_id = "fec-all-candidates"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("One row per federal candidate per two-year cycle with financial totals summed over all of the "
              "candidate's authorized committees (receipts, disbursements, cash on hand, loans, debts, individual/PAC/"
              "party contributions). `cycle` (even year) is required. Filter by state, office (H/S/P), party or "
@@ -185,6 +185,26 @@ class FecAllCandidates(SourceAdapter):
             notes.append("SPEC/PRIM/RUN/GEN_ELECTION and GEN_ELECTION_PRECENT (sic) are only populated in 1996-2006 files.")
         return FetchResult(out, [url], notes, total_available=matched,
                            metadata={"cycle": cycle, "column_doc": "https://www.fec.gov/campaign-finance-data/all-candidates-file-description/"})
+
+
+    # Mirror: every cycle (one ~0.2 MB zip each), partitioned by cycle and office. Rows gain a `cycle` column.
+    mirror_partition_keys = ["cycle", "CAND_OFFICE"]
+    mirror_semantics = {"CAND_OFFICE_ST": "state_postal"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        y = dt.date.today().year
+        for cycle in range(FIRST_CYCLE, y + y % 2 + 1, 2):  # through the current cycle
+            yield MirrorUnit(partition={"cycle": str(cycle)}, filters={"cycle": cycle}, split_by=["CAND_OFFICE"])
+
+    def mirror_rows(self, unit):
+        rows, urls, notes, _ = super().mirror_rows(unit)
+        cycle = int(unit.partition["cycle"])
+        notes = [n for n in notes if not n.startswith("SPEC/PRIM")] + [
+            "SPEC/PRIM/RUN/GEN_ELECTION and GEN_ELECTION_PRECENT (sic) are only populated in 1996-2006 files.",
+            "`cycle` (even end year of the two-year cycle) is added by the mirror; it is the adapter's `cycle` filter."]
+        meta = {"column_doc": "https://www.fec.gov/campaign-finance-data/all-candidates-file-description/"}
+        return [{"cycle": cycle, **r} for r in rows], urls, notes, meta
 
 
 ADAPTER = FecAllCandidates()

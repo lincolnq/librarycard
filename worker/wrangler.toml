@@ -1,0 +1,23 @@
+# Cloudflare Worker serving the MCP endpoint (https://mcp.librarycard.net/mcp) and the homepage (https://librarycard.net)
+# Deployed by .github/workflows/deploy.yml (or `npm run deploy` with CLOUDFLARE_API_TOKEN/CLOUDFLARE_ACCOUNT_ID set).
+name = "librarycard-mcp"
+main = "src/index.ts"
+compatibility_date = "2025-09-01"
+workers_dev = false
+
+routes = [
+  { pattern = "mcp.librarycard.net", custom_domain = true },
+  { pattern = "librarycard.net", custom_domain = true },
+  { pattern = "www.librarycard.net", custom_domain = true },
+]
+
+
+[[r2_buckets]]
+binding = "DATA"
+bucket_name = "librarycard-data"
+
+[observability]
+enabled = true
+
+[limits]
+cpu_ms = 30000
