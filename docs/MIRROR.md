@@ -78,6 +78,15 @@ Rules and guidance:
   `access.notes` and a caveat ("the mirror covers tables X..."), and say how to widen it.
 - **Test:** `odc mirror <id> --dry-run --out /tmp/p`, inspect the manifest (row_count, partitions, column types),
   then publish and query through the Worker. Add a TOP1 search case if you onboarded a new source.
+- **Budgets:** an ingest should finish in about 30 minutes and stay under about 5 GB compressed. Bigger sources are scoped
+  (e.g. NOAA from 2024, LODES S000/JT00 for the latest year), with the scope in `access.notes` plus a caveat and a module
+  constant (e.g. `MIRROR_START_YEAR`, `MIRROR_SEGMENTS`) that says how to widen it.
+- **`odc mirror <id>` ingests from scratch**; it doesn't publish an earlier `--dry-run` output. For long runs, set
+  `TMPDIR` to a private directory (other jobs on a shared machine may clean `/tmp`).
+- **Metadata:** the Worker returns `metadata.variable_labels` trimmed to the columns in each response; keep other
+  metadata small (it is sent with every fetch). Put links to codebooks there rather than large label tables.
+- **Provenance:** each partition records which upstream URLs its unit read (`u` indices into `upstream.urls`), so
+  fetch cites the files behind the rows returned. Return the exact file URLs from `mirror_rows`.
 - Bump `adapter_version` when the row shape changes. That marks the mirror `--due` for re-ingest.
 
 ## The Worker (`worker/`)
@@ -93,7 +102,7 @@ Rules and guidance:
 
 Fetch filter language (what agents send): `{"column": value}` exact (case-insensitive); `[v1, v2]` any of;
 `{"gte": a, "lte": b}` range (also `gt`/`lt`; numeric when both sides are numbers, else string order, which suits
-ISO dates); `{"contains": "text"}`. `columns: [...]` selects output columns. The request reads at most
+ISO dates); `{"contains": "text"}`; `{"prefix": "06037"}` (starts with, for GEOIDs and other codes). `columns: [...]` selects output columns. The request reads at most
 `MAX_SCAN_BYTES` (60 MB compressed) and then reports `scan_stopped_early`.
 
 ## Relationship to the Python server

@@ -1,6 +1,6 @@
 // Read mirrored data from R2. Format is defined by src/odc/mirror.py (manifest "format": 1).
 
-export interface Part { k: Record<string, string>; c: number; p: number; o: number; n: number; r: number }
+export interface Part { k: Record<string, string>; c: number; p: number; o: number; n: number; r: number; u?: number[] }
 export interface Manifest {
   format: number;
   source_id: string;
@@ -85,18 +85,19 @@ function normalize(semantic: string | undefined, v: any): any {
 
 // ------------------------------------------------------------------ filters
 
-type Cond = { kind: "in"; values: any[] } | { kind: "range"; gte?: any; lte?: any; gt?: any; lt?: any } | { kind: "contains"; value: string };
+type Cond = { kind: "in"; values: any[] } | { kind: "range"; gte?: any; lte?: any; gt?: any; lt?: any } | { kind: "contains"; value: string } | { kind: "prefix"; value: string };
 
 function parseCond(name: string, raw: any, semantic?: string): Cond {
   if (raw !== null && typeof raw === "object" && !Array.isArray(raw)) {
     const keys = Object.keys(raw);
     if (keys.length === 1 && keys[0] === "contains") return { kind: "contains", value: String(raw.contains).toLowerCase() };
+    if (keys.length === 1 && keys[0] === "prefix") return { kind: "prefix", value: String(normalize(semantic, raw.prefix)).toLowerCase() };
     if (keys.length && keys.every((k) => ["gte", "lte", "gt", "lt"].includes(k))) {
       const c: any = { kind: "range" };
       for (const k of keys) c[k] = normalize(semantic, raw[k]);
       return c;
     }
-    throw new QueryError(`filter '${name}': object conditions must use gte/lte/gt/lt or contains, got ${JSON.stringify(raw)}`);
+    throw new QueryError(`filter '${name}': object conditions must use gte/lte/gt/lt, contains or prefix, got ${JSON.stringify(raw)}`);
   }
   const values = (Array.isArray(raw) ? raw : [raw]).map((v) => normalize(semantic, v));
   return { kind: "in", values };
@@ -123,6 +124,7 @@ function test(c: Cond, v: any): boolean {
   if (c.kind === "in") return c.values.some((x) => eq(v, x));
   if (v === null || v === undefined || v === "") return false;
   if (c.kind === "contains") return String(v).toLowerCase().includes(c.value);
+  if (c.kind === "prefix") return String(v).toLowerCase().startsWith(c.value);
   if (c.gte !== undefined && cmp(v, c.gte) < 0) return false;
   if (c.gt !== undefined && cmp(v, c.gt) <= 0) return false;
   if (c.lte !== undefined && cmp(v, c.lte) > 0) return false;
@@ -149,7 +151,8 @@ export function fetchParameters(m: Manifest, keyVariables: any[] = []): Record<s
     row_count: m.row_count,
     how_to_filter:
       "filters is an object of {column: condition}. A condition is a value (exact match, case-insensitive), " +
-      "a list of values (any of), {\"gte\":x,\"lte\":y} (range; also gt/lt), or {\"contains\":\"text\"}. " +
+      "a list of values (any of), {\"gte\":x,\"lte\":y} (range; also gt/lt), {\"contains\":\"text\"}, or " +
+      "{\"prefix\":\"06037\"} (starts with; use it for geographic codes such as GEOIDs). " +
       "Partition keys select which slices are read, so always filter on them when you can. " +
       "Use `columns` to return a subset of columns.",
     partition_keys: m.partition_keys.map((k) => ({
@@ -178,6 +181,7 @@ export interface QueryResult {
   partitions_matched: number;
   bytes_read: number;
   scan_stopped_early: boolean;
+  source_urls: string[];
 }
 
 export async function query(store: Store, m: Manifest, filters: Record<string, any>, columns: string[] | undefined, limit: number): Promise<QueryResult> {
@@ -205,6 +209,7 @@ export async function query(store: Store, m: Manifest, filters: Record<string, a
   let bytes = 0;
   let read = 0;
   let stoppedEarly = false;
+  const urlIdx = new Set<number>();
   for (const p of parts) {
     if (out.length > limit) break;
     if (bytes + p.n > MAX_SCAN_BYTES && read > 0) {
@@ -217,6 +222,7 @@ export async function query(store: Store, m: Manifest, filters: Record<string, a
     const text = await gunzip(await obj.arrayBuffer());
     bytes += p.n;
     read++;
+    for (const i of p.u ?? []) urlIdx.add(i);
     for (const line of text.split("\n")) {
       if (!line) continue;
       const row = JSON.parse(line);
@@ -233,6 +239,7 @@ export async function query(store: Store, m: Manifest, filters: Record<string, a
     partitions_matched: parts.length,
     bytes_read: bytes,
     scan_stopped_early: stoppedEarly,
+    source_urls: [...urlIdx].sort((a, b) => a - b).map((i) => m.upstream.urls[i]).filter(Boolean),
   };
 }
 

@@ -193,7 +193,12 @@ def ingest(entry: dict, out_dir: Path, log=print) -> dict:
                 if k in seen_keys:
                     raise ValueError(f"partition {key} produced by two units; units must not overlap")
                 seen_keys.add(k)
+            first_new = len(packer.parts)
             packer.drain(spool)
+            # Per-partition provenance: indices into upstream.urls of the files/requests this unit read.
+            u_idx = sorted({urls.index(u) for u in u_urls if u in urls})
+            for part in packer.parts[first_new:]:
+                part["u"] = u_idx
             log(f"  [{i}/{len(units)}] {unit.partition} -> {n} rows ({time.time() - t0:.1f}s, packs {sum((out_dir / p).stat().st_size for p in packer.packs) / 1e6:.1f} MB)")
         packer.close()
         manifest = {
@@ -213,7 +218,7 @@ def ingest(entry: dict, out_dir: Path, log=print) -> dict:
         shutil.rmtree(work, ignore_errors=True)
     lic = entry["license"]
     manifest.update({
-        "upstream": {"urls": urls[:200], "fingerprint": upstream_fp, "detail": upstream_detail},
+        "upstream": {"urls": urls, "fingerprint": upstream_fp, "detail": upstream_detail},
         "license": {k: lic[k] for k in ("name", "url", "redistribution", "commercial_use", "attribution")},
         "partition_keys": partition_keys,
         "required_filters": list(adapter.mirror_required),

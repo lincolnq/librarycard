@@ -56,7 +56,7 @@ export const TOOLS = [
     name: "fetch",
     description:
       "Fetch rows with provenance attached. `filters` is {column: condition}: a value (exact, case-insensitive), a list (any of), " +
-      '{"gte":x,"lte":y} (range), or {"contains":"text"}. Filter on the partition keys listed in describe_source.fetch_parameters ' +
+      '{"gte":x,"lte":y} (range), {"contains":"text"}, or {"prefix":"06"} (starts with, for codes like GEOIDs). Filter on the partition keys listed in describe_source.fetch_parameters ' +
       "to read less data. Returns {rows, columns, row_count, truncated, warnings, caveats, provenance}. Check caveats before " +
       "analysis and cite provenance in any output.",
     inputSchema: {
@@ -236,7 +236,9 @@ export class Tools {
     for (const r of res.rows.slice(0, 50)) for (const k of Object.keys(r)) if (!cols.includes(k)) cols.push(k);
     const retrieved = new Date().toISOString().replace(/\.\d+Z$/, "Z");
     const lic = e.license;
-    const origin = m.upstream.urls[0] ?? e.homepage;
+    // Cite the files behind the rows returned when the manifest records them (format 1 + per-partition "u").
+    const sourceUrls = res.source_urls.length ? res.source_urls : m.upstream.urls.slice(0, 20);
+    const origin = sourceUrls[0] ?? e.homepage;
     return {
       source_id: id,
       row_count: res.rows.length,
@@ -252,7 +254,7 @@ export class Tools {
         source_name: e.name,
         publisher: e.publisher.name,
         homepage: e.homepage,
-        original_urls: m.upstream.urls.slice(0, 20),
+        original_urls: sourceUrls.slice(0, 20),
         mirrored_at: m.ingested_at,
         mirror_release: m.release,
         upstream_version: m.upstream.detail,

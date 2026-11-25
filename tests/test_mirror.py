@@ -57,6 +57,7 @@ def test_ingest_roundtrip(stub_entry, tmp_path, monkeypatch):
     assert m["metadata"] == {"labels": {"value": "v"}} and m["notes"] == ["n1"]
     assert m["partition_keys"] == ["year", "state"] and m["semantics"] == {"state": "state_postal"}
     assert m["upstream"]["urls"] == ["https://example.gov/2019.csv", "https://example.gov/2020.csv"]
+    assert all(p["u"] == ([1] if p["k"]["year"] == "2020" else [0]) for p in m["partitions"]), "per-partition source urls"
 
 
 def test_chunks_split_by_uncompressed_bytes(stub_entry, tmp_path, monkeypatch):

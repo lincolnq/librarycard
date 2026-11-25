@@ -22,7 +22,7 @@ async function fixture(metadata: Record<string, any> = {}) {
   let off = 0;
   for (const [st, rows] of Object.entries(rowsByState)) {
     const blob = await gz(rows.map((r) => JSON.stringify(r)).join("\n") + "\n");
-    partitions.push({ k: { state_po: st }, c: 0, p: 0, o: off, n: blob.length, r: rows.length });
+    partitions.push({ k: { state_po: st }, c: 0, p: 0, o: off, n: blob.length, r: rows.length, u: [st === "GA" ? 1 : 0] });
     chunks.push(blob);
     off += blob.length;
   }
@@ -35,7 +35,7 @@ async function fixture(metadata: Record<string, any> = {}) {
     semantics: { state_po: "state_postal", state_fips: "state_fips" },
     columns: { year: { type: "integer", nulls: 0, min: 2016, max: 2020 }, state_po: { type: "string", nulls: 0 },
                state_fips: { type: "string", nulls: 0 }, candidate: { type: "string", nulls: 0 }, candidatevotes: { type: "integer", nulls: 0 } },
-    notes: ["note"], metadata, upstream: { urls: ["https://example.gov/data.csv"], fingerprint: "x", detail: "v1" },
+    notes: ["note"], metadata, upstream: { urls: ["https://example.gov/data.csv", "https://example.gov/ga.csv"], fingerprint: "x", detail: "v1" },
     license: {},
   };
   const objects: Record<string, Uint8Array | string> = {
@@ -73,7 +73,8 @@ test("fetch reads only matching partitions, with provenance", async () => {
   assert.deepEqual(out.rows.map((r: any) => r.candidatevotes), [2473633, 2461854]);
   assert.equal(reads.filter((r) => r.includes("pack-0.bin")).length, 1, "only the GA partition is read");
   assert.equal(out.provenance.mirrored_at, "2026-11-25T00:00:00+00:00");
-  assert.ok(out.provenance.citation.includes("https://example.gov/data.csv"));
+  assert.deepEqual(out.provenance.original_urls, ["https://example.gov/ga.csv"], "cites only the files behind the rows read");
+  assert.ok(out.provenance.citation.includes("https://example.gov/ga.csv"));
   assert.deepEqual(out.caveats, ["a caveat that matters"]);
 });
 
@@ -142,4 +143,10 @@ test("report_issue builds a prefilled data-issue link for known sources only", a
   assert.equal(u.searchParams.get("template"), "data-issue.yml");
   assert.equal(u.searchParams.get("source_id"), "fake-src");
   assert.match((await tools.call("report_issue", { source_id: "nope", problem: "something is wrong here" }) as any).error, /Unknown source_id/);
+});
+
+test("prefix filter", async () => {
+  const { tools } = await fixture();
+  const out: any = await tools.fetch("fake-src", { candidate: { prefix: "trump" } }, ["state_po", "year"], 10);
+  assert.equal(out.row_count, 3);
 });
