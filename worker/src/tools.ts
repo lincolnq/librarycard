@@ -197,7 +197,7 @@ export class Tools {
       rows: res.rows,
       warnings,
       notes: m.notes,
-      metadata: m.metadata,
+      metadata: trimMetadata(m.metadata, cols),
       caveats: e.caveats,
       provenance: {
         source_id: id,
@@ -218,4 +218,12 @@ export class Tools {
       },
     };
   }
+}
+
+/** metadata.variable_labels can cover thousands of columns (e.g. ACS); return only the labels of this result's columns. */
+export function trimMetadata(meta: Record<string, any>, cols: string[]): Record<string, any> {
+  const vl = meta?.variable_labels;
+  if (!vl || typeof vl !== "object" || Array.isArray(vl)) return meta;
+  const keep = new Set(cols);
+  return { ...meta, variable_labels: Object.fromEntries(Object.entries(vl).filter(([k]) => keep.has(k))) };
 }

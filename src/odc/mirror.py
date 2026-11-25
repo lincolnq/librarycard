@@ -40,6 +40,8 @@ from .r2 import R2
 FORMAT = 1
 PACK_TARGET_BYTES = 90_000_000      # stay under the R2 REST upload limit
 MAX_PARTITION_ROWS = 100_000        # larger partitions are split into chunks (same key, several entries)
+MAX_CHUNK_BYTES = 16_000_000        # ...and so are chunks over this many uncompressed bytes: the Worker gunzips a whole
+                                    # chunk in memory (128 MB isolate limit), so wide rows need smaller chunks
 MAX_OPEN_FILES = 200
 KEEP_RELEASES = 2
 DISTINCT_LIMIT = 60
@@ -269,13 +271,15 @@ class Packer:
         spool.close()
         for k in sorted(spool.files, key=lambda k: json.dumps(spool.keys[k], sort_keys=True)):
             lines: list[str] = []
+            size = 0
             chunk_no = 0
             with open(spool.files[k], encoding="utf-8") as fh:
                 for line in fh:
                     lines.append(line)
-                    if len(lines) >= MAX_PARTITION_ROWS:
+                    size += len(line)
+                    if len(lines) >= MAX_PARTITION_ROWS or size >= MAX_CHUNK_BYTES:
                         self.add(spool.keys[k], chunk_no, lines)
-                        lines, chunk_no = [], chunk_no + 1
+                        lines, size, chunk_no = [], 0, chunk_no + 1
             if lines:
                 self.add(spool.keys[k], chunk_no, lines)
             spool.files[k].unlink(missing_ok=True)

@@ -34,6 +34,17 @@ access:
   formats: [pipe-delimited text]
   rate_limits: None published. Files are large (a 5-year table is 20-200 MB); the adapter caches them for 30 days (license allows).
   auth: none
+  notes: >-
+    Mirror scope (production fetch at mcp.librarycard.net): the latest 5-year release only (currently 2020-2024), every
+    geography listed in coverage, for 33 curated tables: B01001, B01002, B01003, B02001, B03002, B05001, B11001, B15003,
+    B17020, B19001, B19013, B19057, B19083, B19113, B19301, B22003, B23025, B25001, B25002, B25003, B25004, B25010,
+    B25035, B25058, B25064, B25071, B25077, B25088, B25105, B26001, B27020, B29001, C16002. Mirror rows add the columns
+    table, geography and state (postal code; set only for state-nested geographies). Mirror filters: table and
+    geography are required; filter state for state-nested geographies (county, tract, block_group, place, ...).
+    Other tables, 1-year data and older releases are available from the publisher through the local odc-server.
+    To widen the mirror, add table ids to MIRROR_TABLES in src/odc/adapters/census_acs_summary_file.py, bump
+    adapter_version (minor), update this list and the mirror caveat, and run the mirror workflow (odc mirror
+    census-acs-summary-file); each table column adds ~0.5 s of ingest and ~1.1 MB compressed.
 update:
   cadence: annual
   expected_lag: 1-year estimates ~9 months after the reference year (September); 5-year estimates ~12-13 months after the final year (December/January).
@@ -84,10 +95,11 @@ caveats:
   - Geographic boundaries change. 2020-based tracts/block groups apply from the 2020 5-year release onward; congressional districts follow the Congress named in the GEO_ID (e.g. 5001900US = 119th Congress). Cross-vintage comparisons need crosswalks.
   - The 2020 1-year ACS was not released as standard estimates (pandemic data-collection disruption); only experimental estimates exist.
   - 1-year estimates exist only for areas with 65,000+ population; use 5-year data for smaller areas.
+  - "The production mirror (mcp.librarycard.net) covers only 33 curated tables (listed in access.notes) of the latest 5-year release; other tables, 1-year estimates and earlier releases must be fetched from the publisher with the local odc-server. In the mirror, `state` is set only for state-nested geographies (null for nation, region, division, state, metro_area, zcta), and the release year/period and dollar year are in metadata.release."
 related: [census-data-api]
 status: healthy
 status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: census_acs_summary_file
-adapter_version: 1.0.1
+adapter_version: 1.1.0
