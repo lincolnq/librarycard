@@ -71,6 +71,8 @@ Rules and guidance:
 - **Units must not overlap.** Each unit's rows must not land in the same partition as another unit's (enforced).
 - **Every partition key must be a row column** (add it with a `mirror_rows` override if the adapter's rows lack it,
   as `unitedstates_congress_legislators.py` does) so filtering works the same for partition and row filters.
+  Known exception: `cdc-places` ZCTA rows have no `stateabbr` (partition value ""); its caveat says to filter on
+  `locationid`.
 - **Partition size:** aim for 1–20 MB compressed per partition. Too coarse means every query reads a lot. Too fine
   (tens of thousands of partitions) makes the manifest large. Split by state for anything with sub-state rows.
 - **Memory:** the default `mirror_rows` calls `_fetch` with no row limit, holding one unit's rows in memory. Keep
@@ -84,6 +86,11 @@ Rules and guidance:
   `timeout 560 odc mirror <id> --out DIR --resume`, repeated until it exits 0. Work in an unfinished unit is lost on
   each interruption, so split heavy units (FEC splits its busiest months into two state groups). Publishing with
   `--resume` skips packs already uploaded. Upload runs at roughly 7 MB/s from cloud sessions.
+  Rerunning `--resume` after a finished run republishes the same release (harmless). Timeout-killed runs leave spool
+  directories under `TMPDIR`; delete them when done.
+- **Paged APIs:** cache each page (the default `http` cache does) so a unit interrupted mid-way resumes without
+  re-requesting, and `http.evict(url, params)` the pages once the unit finishes or if its row count doesn't match
+  (`cdc_places.py`). Request sequentially with backoff.
 - **Scope big sources deliberately**, e.g. ACS: the most-used tables. Write the scope into the catalog entry's
   `access.notes` and a caveat ("the mirror covers tables X..."), and say how to widen it.
 - **Test:** `odc mirror <id> --dry-run --out /tmp/p`, inspect the manifest (row_count, partitions, column types),
