@@ -167,6 +167,11 @@ def download(url: str, *, cache_allowed: bool, max_age_s: int = 7 * 86400, param
         tmp.unlink(missing_ok=True)
 
 
+def evict(url: str, params: dict | None = None) -> None:
+    """Drop a cached download (e.g. pages a mirror ingest kept only so an interrupted run could resume)."""
+    _cache_path(str(httpx.URL(url, params=params)) if params else url).unlink(missing_ok=True)
+
+
 def _stream_to(url: str, dest: Path) -> None:
     for attempt in range(3):
         try:

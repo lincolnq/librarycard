@@ -38,7 +38,14 @@ access:
   formats: [json, csv]
   rate_limits: None published; responses are paginated (follow `next`). The adapter fetches at most 20 pages per call.
   auth: none
-  notes: Many other portal endpoints (schools, IPEDS colleges, CRDC, EDFacts assessments, SAIPE) are not covered by this entry.
+  notes: >-
+    Many other portal endpoints (schools, IPEDS colleges, CRDC, EDFacts assessments, SAIPE) are not covered by this
+    entry. Mirror (docs/MIRROR.md, production server): directory and finance for every year, and enrollment for grade
+    99 (all grades) for every year, with race x sex rows for the latest year only. Partitioned by dataset, year and
+    state_fips (2-digit string added to each row; `dataset` is a required filter and also a row column). Per-grade
+    enrollment and earlier race/sex breakdowns are not mirrored: race x sex is ~500k rows per year and the API serves
+    ~10k rows per 15-30 s; widen in the adapter's mirror_rows. National finance queries time out (HTTP 524), so the
+    mirror queries finance a few states at a time.
 update:
   cadence: annual
   expected_lag: ~1-2 years for enrollment/directory; ~3-4 years for finance (NCES F-33 release lag plus Urban processing).
@@ -92,6 +99,7 @@ caveats:
   - Codes -1 (missing/not reported), -2 (not applicable) and -3 (suppressed) are converted to null in value columns — do not treat null as zero.
   - District counts and boundaries change over time (consolidations, charter agencies counted as districts in many states); state totals of district data may not match NCES state-level files exactly.
   - Enrollment race categories changed in 2008-2011 (two or more races introduced; Asian and NHPI split); earlier years are not directly comparable.
+  - The production (mirror) server holds enrollment for grade 99 only, with race x sex rows only for the latest year; filter race=99 and sex=99 for district totals. Per-grade enrollment and earlier breakdowns need the local odc-server.
   - This is the Urban Institute's processed version of NCES data; variable names and recodes differ from raw NCES files. Cite both NCES and the portal.
   - Some states report finance for dependent districts through a parent government (censusid -2 / rev_local_parent_govt), so local tax revenue breakdowns can be missing for those systems.
 related: []
@@ -100,4 +108,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: urban_education_data_ccd
-adapter_version: 1.0.0
+adapter_version: 1.1.0

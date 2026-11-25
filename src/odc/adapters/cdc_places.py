@@ -11,6 +11,11 @@ rows have no stateabbr/statedesc; `totalpop18plus` exists from the 2024 release 
 
 from __future__ import annotations
 
+import json
+
+import httpx
+
+from .. import http
 from ..http import SourceError
 from ._common import soql_quote, socrata, state_abbr
 from .base import Check, ContractCase, FetchResult, FilterError, FilterSpec, SourceAdapter, require
@@ -28,6 +33,10 @@ RELEASES: dict[int, dict[str, str]] = {
 LATEST = max(RELEASES)
 NUMERIC = ("data_value", "low_confidence_limit", "high_confidence_limit", "totalpopulation", "totalpop18plus")
 DROP_PREFIX = ":@computed_region"
+MIRROR_PAGE = 50_000  # SODA 2.x documents $limit up to 50,000
+# Mirror scope: county, place and ZCTA for every release; tract only for these releases (~22M rows in all, of
+# which tract 2025 is ~3M). Widen by adding releases here (all releases x levels is ~34M rows).
+MIRROR_TRACT_RELEASES = {LATEST}
 
 
 def _num(v):
@@ -60,7 +69,7 @@ def _check_de_obesity(rows: list[dict]) -> None:
 
 class CdcPlaces(SourceAdapter):
     source_id = "cdc-places"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("Long format: one row per location x measure (measureid, e.g. OBESITY, DIABETES, CSMOKING, DEPRESSION, "
              "ACCESS2) x data value type (CrdPrv = crude prevalence, AgeAdjPrv = age-adjusted; tracts and ZCTAs have "
              "crude only). Pick `geography` and usually `state` + `measure_id`; `release` selects the annual release "
@@ -156,6 +165,65 @@ class CdcPlaces(SourceAdapter):
         return FetchResult(rows, urls, notes, total_available=total,
                            metadata={"release": release, "geography": geo, "dataset_id": ds,
                                      "dataset_url": f"https://{DOMAIN}/d/{ds}"})
+
+    # ------------------------------------------------------------------ mirror (docs/MIRROR.md)
+    # County, place and ZCTA for every release + tract for MIRROR_TRACT_RELEASES, partitioned by state (stateabbr).
+    # ZCTA rows have no state, so each ZCTA release is one partition (stateabbr "") split into 100k-row chunks.
+    # `release` and `geography` are added as row columns.
+    mirror_partition_keys = ["release", "geography", "stateabbr"]
+    mirror_required = ["release", "geography"]
+    mirror_semantics = {"stateabbr": "state_postal", "countyfips": "county_fips"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for release in sorted(RELEASES):
+            for geo in ("county", "place", "tract", "zcta"):
+                if geo == "tract" and release not in MIRROR_TRACT_RELEASES:
+                    continue
+                yield MirrorUnit(partition={"release": str(release), "geography": geo},
+                                 filters={"release": release, "geography": geo}, split_by=["stateabbr"])
+
+    def mirror_rows(self, unit):
+        """Stream a whole release x geography dataset page by page ($order=:id, $limit/$offset), one page in memory."""
+        release, geo = unit.filters["release"], unit.filters["geography"]
+        ds = RELEASES[release][geo]
+        url = f"https://{DOMAIN}/resource/{ds}.json"
+        cnt, curl_ = socrata(DOMAIN, ds, select="count(*) as n", limit=1)
+        expected = int(cnt[0]["n"])
+        urls = [curl_]
+        notes = ["PLACES estimates are model-based (multilevel regression and poststratification of BRFSS), not direct "
+                 "survey estimates. Each release x geography is a separate data.cdc.gov dataset (metadata.dataset_ids).",
+                 "geolocation was flattened to lon/lat; numeric fields converted from strings. Blank data_value means "
+                 "suppressed or not estimated (see data_value_footnote).",
+                 "Always filter release and geography; ZCTA rows have no stateabbr (filter locationid instead)."]
+        meta = {"dataset_ids": {f"{release}/{geo}": ds}}
+
+        def gen():
+            offset = 0
+            pages = []
+            while True:
+                params = {"$limit": MIRROR_PAGE, "$offset": offset, "$order": ":id"}
+                # http.download keeps pages in the license-gated cache, so a re-run after an interruption
+                # does not request them again.
+                with http.download(url, params=params, cache_allowed=True, max_age_s=2 * 86400) as path:
+                    with open(path, encoding="utf-8") as fh:
+                        page = json.load(fh)
+                pages.append(params)
+                if offset == 0:
+                    urls.append(str(httpx.URL(url, params=params)))
+                require(isinstance(page, list), f"expected a JSON list from {url} at offset {offset}", kind="parse")
+                for raw in page:
+                    yield {"release": release, "geography": geo, **_clean(raw)}
+                offset += len(page)
+                if len(page) < MIRROR_PAGE:
+                    break
+            # The unit is complete (or inconsistent, so a retry must re-download): free the cache, which holds up
+            # to ~2 GB of JSON pages for a tract release.
+            for params in pages:
+                http.evict(url, params=params)
+            require(offset == expected, f"PLACES {ds}: paged {offset} rows but count(*) is {expected}", kind="parse")
+
+        return gen(), urls, notes, meta
 
 
 ADAPTER = CdcPlaces()
