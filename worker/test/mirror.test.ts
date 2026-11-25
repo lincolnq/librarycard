@@ -10,7 +10,7 @@ async function gz(text: string): Promise<Uint8Array> {
 }
 
 // Build a tiny mirror for a fake entry, in the exact format src/odc/mirror.py writes.
-async function fixture() {
+async function fixture(metadata: Record<string, any> = {}) {
   const rowsByState: Record<string, any[]> = {
     GA: [{ year: 2020, state_po: "GA", state_fips: "13", candidate: "BIDEN, JOSEPH R. JR", candidatevotes: 2473633 },
          { year: 2020, state_po: "GA", state_fips: "13", candidate: "TRUMP, DONALD J.", candidatevotes: 2461854 },
@@ -35,7 +35,7 @@ async function fixture() {
     semantics: { state_po: "state_postal", state_fips: "state_fips" },
     columns: { year: { type: "integer", nulls: 0, min: 2016, max: 2020 }, state_po: { type: "string", nulls: 0 },
                state_fips: { type: "string", nulls: 0 }, candidate: { type: "string", nulls: 0 }, candidatevotes: { type: "integer", nulls: 0 } },
-    notes: ["note"], metadata: {}, upstream: { urls: ["https://example.gov/data.csv"], fingerprint: "x", detail: "v1" },
+    notes: ["note"], metadata, upstream: { urls: ["https://example.gov/data.csv"], fingerprint: "x", detail: "v1" },
     license: {},
   };
   const objects: Record<string, Uint8Array | string> = {
@@ -84,6 +84,12 @@ test("ranges, contains, columns, limit/truncation", async () => {
   out = await tools.fetch("fake-src", {}, undefined, 2);
   assert.equal(out.row_count, 2);
   assert.equal(out.truncated, true);
+});
+
+test("fetch returns variable_labels only for the result's columns", async () => {
+  const { tools } = await fixture({ variable_labels: { candidatevotes: "votes", other_col: "x" }, tables: { t: "T" } });
+  const out: any = await tools.fetch("fake-src", { state_po: "WY" }, ["state_po", "candidatevotes"], 10);
+  assert.deepEqual(out.metadata, { variable_labels: { candidatevotes: "votes" }, tables: { t: "T" } });
 });
 
 test("errors are helpful", async () => {

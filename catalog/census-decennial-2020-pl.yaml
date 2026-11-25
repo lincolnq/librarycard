@@ -35,6 +35,14 @@ access:
   formats: [pipe-delimited text (legacy summary file), zip]
   rate_limits: None published. State zips are 2-100 MB (TX largest); cached 180 days (license allows, data are final).
   auth: none
+  notes: >-
+    Mirror scope (production fetch at mcp.librarycard.net): all 50 states, DC and Puerto Rico, every summary level the
+    adapter serves except blocks, with all six tables (P1, P2, P3, P4, H1, P5) on every row. Mirror rows add the
+    columns state (postal code) and geography (summary level name). Mirror filters: state is required; also filter
+    geography (e.g. 'tract'). Blocks are available from the publisher through the local odc-server. To add them,
+    include "block" in MIRROR_GEOGRAPHIES in src/odc/adapters/census_decennial_2020_pl.py, bump adapter_version
+    (minor), update this note and the caveat, and run the mirror workflow (odc mirror census-decennial-2020-pl);
+    expect ~+1.35 GB compressed and ~40 min more ingest.
 update:
   cadence: decennial
   expected_lag: ~16 months after Census Day (statutory deadline April 1 of the following year; 2020 was delayed to August 2021).
@@ -85,6 +93,7 @@ caveats:
   - Race tables follow the 2020 coding with large increases in "Some Other Race" and multiracial reporting compared with 2010 because of question and coding changes; do not read 2010-2020 changes in race composition as pure demographic change.
   - District columns are the plans in effect for the 2020 Census (116th Congress, 2018 state legislative districts); post-2020 redistricting plans are not in this file. Use the Census 118th/119th congressional district summary files or new tabulations for current districts.
   - Only one state per request, and one summary level per request; nation-level and multi-state geographies (e.g. metro areas) are not served by this adapter.
+  - "The production mirror (mcp.librarycard.net) does not include census blocks (summary level 750); every other summary level is mirrored for all states, DC and PR, with every table (P1-P5, H1) on each row. Fetch blocks from the publisher with the local odc-server (geography 'block', one state per request)."
   - Census data cells are integers; the adapter returns publisher cell ids (P0010001 etc.) and puts labels in metadata.variable_labels. Labels with a trailing colon are subtotals.
 related: [census-acs-summary-file, census-gazetteer, census-pep, census-data-api]
 status: healthy
@@ -92,4 +101,4 @@ status_reason: Onboarded; contract tests pass.
 status_since: "2026-11-24"
 last_verified: "2026-11-24"
 adapter: census_decennial_2020_pl
-adapter_version: 1.0.0
+adapter_version: 1.1.0

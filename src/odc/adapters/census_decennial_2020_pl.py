@@ -9,6 +9,10 @@ Bulk files on www2.census.gov, one zip per state (legacy "logical record" format
 Field names come from the Census R import scripts (Phase3/SupportMaterials/2020PL_R_import_scripts.zip), which the
 adapter also reads at run time for cell labels (metadata.variable_labels). Zips range from ~2 MB (WY) to ~100 MB
 (TX); they are cached for 180 days because the 2020 release is final.
+
+Mirror (docs/MIRROR.md): one unit per state, rows streamed (geo header and the three segments are read in lock-step
+by LOGRECNO, so memory stays flat), partitioned by state and summary level (`geography`), with every table (P1-P5,
+H1). MIRROR_GEOGRAPHIES lists the summary levels mirrored: every level except blocks (see the comment there).
 """
 
 from __future__ import annotations
@@ -77,6 +81,12 @@ GEOGRAPHIES = {
     "state_legislative_district_lower": "620", "voting_district": "700", "block": "750",
     "school_district_elementary": "950", "school_district_secondary": "960", "school_district_unified": "970",
 }
+# Summary levels in the R2 mirror: all but blocks. Blocks (~8.2M rows nationally) would add ~1.35 GB compressed (DE
+# measured: 20,198 blocks -> 3.3 MB) and ~40 min of single-process ingest (DE: 6.2 s with blocks vs 0.8 s without),
+# well beyond one mirror run's budget here. To add them: include "block", bump `version` (minor) here and in the
+# catalog entry, drop the "no blocks" caveat, and consider splitting block partitions by county (TX/CA blocks exceed
+# the Worker's 60 MB per-request scan budget as one partition).
+MIRROR_GEOGRAPHIES = [g for g in GEOGRAPHIES if g != "block"]
 INT_GEO = {"AREALAND", "AREAWATR", "POP100", "HU100"}
 FLOAT_GEO = {"INTPTLAT", "INTPTLON"}
 
@@ -115,7 +125,7 @@ def _geo_val(k: str, v: str):
 
 class CensusDecennial2020Pl(SourceAdapter):
     source_id = "census-decennial-2020-pl"
-    version = "1.0.0"
+    version = "1.1.0"
     usage = ("2020 Census counts for one state at one summary level (state, county, tract, block group, block, place, "
              "voting district, congressional/legislative district, school district, ...). Tables: P1 race, P2 "
              "Hispanic origin by race, P3/P4 the same for ages 18+, H1 housing occupancy, P5 group quarters; cells are "
@@ -204,6 +214,71 @@ class CensusDecennial2020Pl(SourceAdapter):
                  "GEOID is the fully-qualified GEO_ID (e.g. 0500000US10001); GEOCODE is the short code."]
         meta = {"tables": {t: TABLE_TITLES[t] for t in tables}, "variable_labels": var_labels, "summary_level": sumlev}
         return FetchResult(rows, [url], notes, total_available=matched, metadata=meta)
+
+    # -------------------------------------------------------------- mirror (docs/MIRROR.md)
+    # Rows = fetch rows (all tables) plus the partition columns state (postal) and geography (summary level name).
+    mirror_partition_keys = ["state", "geography"]
+    mirror_required = ["state"]
+    mirror_semantics = {"state": "state_postal", "STATE": "state_fips"}
+
+    def mirror_plan(self):
+        from ..mirror import MirrorUnit
+        for st in sorted(STATE_DIRS):
+            abbr = FIPS_STATE[st]
+            yield MirrorUnit(partition={"state": abbr}, filters={"state": abbr}, split_by=["geography"])
+
+    def mirror_rows(self, unit):
+        st = state_fips(unit.filters["state"])
+        abbr = FIPS_STATE[st]
+        url = zip_url(st)
+        by_sumlev = {GEOGRAPHIES[g]: g for g in MIRROR_GEOGRAPHIES}
+        seg_names = {seg: [c for t in ts for c in TABLES[t][1]] for seg, ts in SEGMENT_TABLES.items()}
+
+        def rows():
+            with http.download(url, cache_allowed=True, max_age_s=180 * 86400) as path:
+                fhs = [http.open_text(path, member=f"{abbr.lower()}geo2020.pl", encoding="latin-1")]
+                fhs += [http.open_text(path, member=f"{abbr.lower()}0000{seg}2020.pl", encoding="latin-1") for seg in SEGMENT_TABLES]
+                try:
+                    for i, lines in enumerate(zip(*fhs, strict=True)):
+                        if i == 0:
+                            vals = lines[0].rstrip("\r\n").split("|")
+                            require(len(vals) == len(GEO_FIELDS) and vals[0] == "PLST",
+                                    f"{url}: geo header has {len(vals)} fields (expected {len(GEO_FIELDS)}) / FILEID {vals[0]!r}")
+                        head = lines[0].split("|", 5)  # FILEID|STUSAB|SUMLEV|GEOVAR|GEOCOMP|...: cheap skip of blocks
+                        geo = by_sumlev.get(head[2])
+                        if geo is None or head[4] != "00":
+                            continue
+                        vals = lines[0].rstrip("\r\n").split("|")
+                        g = dict(zip(GEO_FIELDS, vals))
+                        rec = {"state": abbr, "geography": geo}
+                        rec.update((k, _geo_val(k, g[k])) for k in GEO_OUT)
+                        for seg, line in zip(SEGMENT_TABLES, lines[1:]):
+                            sv = line.rstrip("\r\n").split("|")
+                            names = seg_names[seg]
+                            require(len(sv) == 5 + len(names) and sv[4] == g["LOGRECNO"],
+                                    f"{url}: segment {seg} record {i} has {len(sv)} fields / LOGRECNO {sv[4] if len(sv) > 4 else None!r}, "
+                                    f"expected {5 + len(names)} / {g['LOGRECNO']!r}", kind="parse")
+                            for n, v in zip(names, sv[5:]):
+                                rec[n] = int(v) if v.strip() else None
+                        yield rec
+                except ValueError as e:  # zip(strict=True): segment files of different lengths
+                    raise SourceError(f"{url}: geo/segment files are not aligned: {e}", kind="parse") from None
+                finally:
+                    for fh in fhs:
+                        fh.close()
+
+        notes = ["2020 Census PL 94-171 redistricting data (one zip per state).",
+                 "Counts are subject to the Census Bureau's 2020 disclosure avoidance (differential privacy); only "
+                 "state total population and housing-unit counts and group-quarters facility counts are invariant.",
+                 "GEOID is the fully-qualified GEO_ID (e.g. 0500000US10001); GEOCODE is the short code.",
+                 "Mirror columns state (postal code) and geography (summary level name) are partition keys; filter on both.",
+                 f"Mirrored summary levels: {', '.join(MIRROR_GEOGRAPHIES)}. Blocks are not in the mirror; fetch them "
+                 "from the publisher with the local odc-server (geography 'block')."]
+        lab = labels()
+        meta = {"tables": dict(TABLE_TITLES),
+                "variable_labels": {c: lab.get(c, "") for t in TABLES for c in TABLES[t][1]},
+                "summary_levels": {g: GEOGRAPHIES[g] for g in MIRROR_GEOGRAPHIES}}
+        return rows(), [url], notes, meta
 
 
 def _check_delaware(rows: list[dict]) -> None:

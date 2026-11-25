@@ -59,6 +59,15 @@ def test_ingest_roundtrip(stub_entry, tmp_path, monkeypatch):
     assert m["upstream"]["urls"] == ["https://example.gov/2019.csv", "https://example.gov/2020.csv"]
 
 
+def test_chunks_split_by_uncompressed_bytes(stub_entry, tmp_path, monkeypatch):
+    # wide rows: a chunk must stay small enough for the Worker to gunzip in memory
+    monkeypatch.setattr(mirror, "MAX_CHUNK_BYTES", 1)
+    m = mirror.ingest(stub_entry, tmp_path, log=lambda *a: None)
+    tx2020 = [p for p in m["partitions"] if p["k"] == {"year": "2020", "state": "TX"}]
+    assert [(p["c"], p["r"]) for p in tx2020] == [(0, 1), (1, 1)]
+    assert m["row_count"] == 8
+
+
 def test_pack_rollover(stub_entry, tmp_path, monkeypatch):
     monkeypatch.setattr(mirror, "PACK_TARGET_BYTES", 10)
     m = mirror.ingest(stub_entry, tmp_path, log=lambda *a: None)
