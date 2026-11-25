@@ -108,7 +108,7 @@ test("MCP JSON-RPC: initialize, tools/list, tools/call, notifications", async ()
   assert.equal(future.result.protocolVersion, "2025-11-25");
   assert.equal(await handleRpc({ jsonrpc: "2.0", method: "notifications/initialized" }, tools), null);
   const list: any = await handleRpc({ jsonrpc: "2.0", id: 2, method: "tools/list" }, tools);
-  assert.deepEqual(list.result.tools.map((t: any) => t.name).sort(), ["catalog_status", "describe_source", "fetch", "request_data", "search_catalog"]);
+  assert.deepEqual(list.result.tools.map((t: any) => t.name).sort(), ["catalog_status", "describe_source", "fetch", "report_issue", "request_data", "search_catalog"]);
   const call: any = await handleRpc({ jsonrpc: "2.0", id: 3, method: "tools/call", params: { name: "fetch", arguments: { source_id: "fake-src", filters: { state_po: "WY" } } } }, tools);
   assert.equal(call.result.structuredContent.row_count, 1);
   assert.equal(call.result.isError, false);
@@ -127,4 +127,13 @@ test("request_data builds a prefilled issue link and stores nothing", async () =
   assert.match(u.searchParams.get("title")!, /^\[data request\] Precinct-level/);
   assert.equal(reads.length, before);
   assert.match((await tools.call("request_data", { data: "x", use_case: "y" }) as any).error, /required/);
+});
+
+test("report_issue builds a prefilled data-issue link for known sources only", async () => {
+  const { tools } = await fixture();
+  const out: any = await tools.call("report_issue", { source_id: "fake-src", problem: "Georgia 2020 totals don't match the state's certified results.", evidence: "state_po=GA year=2020" });
+  const u = new URL(out.issue_url);
+  assert.equal(u.searchParams.get("template"), "data-issue.yml");
+  assert.equal(u.searchParams.get("source_id"), "fake-src");
+  assert.match((await tools.call("report_issue", { source_id: "nope", problem: "something is wrong here" }) as any).error, /Unknown source_id/);
 });

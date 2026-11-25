@@ -52,7 +52,7 @@
             <button type="button" class="btn btn-quiet" data-copy="claude mcp add --transport http librarycard https://mcp.librarycard.net/mcp">Copy</button></dd>
           <dt>Anything else</dt>
           <dd>Any client that speaks remote MCP over HTTP. Tools: <span class="mono">search_catalog</span>, <span class="mono">describe_source</span>,
-            <span class="mono">fetch</span>, <span class="mono">catalog_status</span>, <span class="mono">request_data</span>.</dd>
+            <span class="mono">fetch</span>, <span class="mono">catalog_status</span>, <span class="mono">request_data</span>, <span class="mono">report_issue</span>.</dd>
         </dl>
       </aside>
     </div>
@@ -105,9 +105,11 @@
             publisher. When it doesn't, the catalog says so and points to the publisher. Sources that need a sign-up or API key are listed but never served.</p>
         </div>
         <div>
-          <h3>Missing something?</h3>
+          <h3>Missing something? Something wrong?</h3>
           <p>Ask for it. Your agent can draft a request with <span class="mono">request_data</span>, or you can
             <a href="https://github.com/lincolnq/librarycard/issues/new?template=data-request.yml">open a data request</a>. Requests are reviewed in weekly batches.</p>
+          <p>Found something wrong? <a href="https://github.com/lincolnq/librarycard/issues/new?template=data-issue.yml">Report a data issue</a>, or let your agent do it with <span class="mono">report_issue</span>. Missing caveats are the most useful reports we get.</p>
+          <p>Want to give back? librarycard is free. Cite it, report issues, or have your coding agent <a href="https://github.com/lincolnq/librarycard/blob/main/CONTRIBUTING.md">onboard a source</a>; the repo is written so an agent can do it end to end.</p>
           <p>For headline national and international indicators, <a href="https://datacommons.org">Google Data Commons</a> is a great complement; librarycard focuses on records, fine geography and source detail.</p>
         </div>
       </div>

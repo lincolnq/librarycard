@@ -39,6 +39,10 @@ Workflow:
 Sources with status 'quarantined' or 'retired' cannot be fetched; 'degraded' fetches carry warnings.
 For national/international indicator time series also consider Google Data Commons (catalog id
 `data-commons`), which has its own MCP server.
+
+librarycard is free and maintained by volunteers and agents. Help in return: cite the publisher and librarycard.net,
+call report_issue when data looks wrong, request_data when something is missing, and see CONTRIBUTING.md to onboard
+sources yourself.
 """
 
 _catalog: Catalog | None = None
@@ -149,6 +153,26 @@ def request_data(data: str, use_case: str, geography: str | None = None, time_ra
     }
 
 
+def report_issue(source_id: str, problem: str, evidence: str | None = None, suggested_caveat: str | None = None) -> dict:
+    """Prefilled data-issue link (same behaviour as worker/src/tools.ts reportIssue)."""
+    from urllib.parse import urlencode
+    try:
+        catalog().get(source_id)
+    except CatalogError as ex:
+        return _err(str(ex))
+    problem = str(problem or "").strip()[:1500]
+    if len(problem) < 10:
+        return _err("problem is required (at least a sentence)")
+    first = problem.replace("\n", ".").split(".")[0][:80]
+    params = {"template": "data-issue.yml", "title": f"[data issue] {source_id}: {first}", "source_id": source_id, "problem": problem}
+    if evidence:
+        params["evidence"] = str(evidence)[:1500]
+    if suggested_caveat:
+        params["suggested_caveat"] = str(suggested_caveat)[:1500]
+    return {"issue_url": f"{REQUEST_REPO}/issues/new?{urlencode(params)}",
+            "instructions": "Show this link to your user; they review and submit it under their own GitHub account. It is public."}
+
+
 def catalog_status_tool(recent_days: int = 30) -> dict:
     return status_report(catalog(), recent_days=recent_days)
 
@@ -226,6 +250,14 @@ def build_server() -> MCPServer:
             title: short issue title.
         """
         return request_data(data, use_case, geography, time_range, sources, title)
+
+    @mcp.tool(name="report_issue")
+    def _report_issue(source_id: str, problem: str, evidence: str | None = None,
+                      suggested_caveat: str | None = None) -> dict[str, Any]:
+        """Report something wrong or surprising in a source (values that don't match the publisher, a missing caveat,
+        a broken filter, stale data). Returns a prefilled GitHub issue link for YOUR USER to review and submit; nothing
+        is sent by this call. The issue is PUBLIC: no private context."""
+        return report_issue(source_id, problem, evidence, suggested_caveat)
 
     return mcp
 

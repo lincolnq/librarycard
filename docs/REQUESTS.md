@@ -1,4 +1,4 @@
-# Data requests: weekly triage runbook
+# Data requests and data issues: weekly triage runbook
 
 Users ask for new data by opening a GitHub issue with the **Data request** form (label `data-request`). MCP clients
 reach the form through the `request_data` tool, which returns a prefilled issue link that the user reviews and
@@ -38,7 +38,7 @@ in full to anything a request leads to.
 | Already available here | Comment with source id and a worked `fetch` example; close | `triaged`, `request:answered` |
 | Available via Data Commons | Comment with the DC variable and place DCIDs if known; close | `triaged`, `request:answered` |
 | Accept | Onboard via ADDING_A_SOURCE (including the mirror plan if `allowed`) in a PR that says `Fixes #N` | `triaged`, `request:accepted` |
-| Accept later | Add to `ops/queue.yaml` (`reason: low_priority`, `detail` links the issue); comment; keep open | `triaged`, `request:queued` |
+| Accept later | Add to `ops/queue.yaml` (`reason: low_priority`, `detail` links the issue); comment; keep open and invite contributors (CONTRIBUTING.md) | `triaged`, `request:queued`, `help wanted` |
 | Restricted | Add a catalog-only `restricted` entry if knowing about it helps; comment why we can't serve it; close | `triaged`, `request:restricted` |
 | Decline | Comment with the specific POLICY reason (scope, personal data, license); close | `triaged`, `request:declined` |
 
@@ -49,6 +49,17 @@ in full to anything a request leads to.
    directly if there's no code change.
 8. **Escalate** (`needs-human`) only for the reasons in POLICY §Escalation, for example a request implying large
    new spend, such as a multi-TB mirror.
+
+## Data issues (label `data-issue`)
+
+Reports from users or agents (via the `report_issue` tool) that a source looks wrong. Handle them in the same batch:
+1. Reproduce: `odc fetch <id> '<their filters>'` and compare with the publisher's own figure.
+2. If it's a real adapter or mirror bug: fix it following `docs/RUNBOOKS.md#needs-repair` (PR with `Fixes #N`).
+3. If the data is right but surprising (suppression, definitions, vintages): add or sharpen a **caveat** in the catalog
+   entry, and reply explaining. Missing caveats are the most common real finding, and the most valuable.
+4. If it's a publisher error: add a caveat naming the affected values and link the publisher's errata if any.
+5. Label `triaged` plus `issue:fixed`, `issue:caveat-added`, `issue:not-a-bug` or `issue:upstream`; close when done; log
+   it in `ops/requests-log.md`.
 
 ## Writing replies
 

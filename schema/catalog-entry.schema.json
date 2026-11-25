@@ -513,6 +513,15 @@
         "null"
       ],
       "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "contributors": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 100
+      },
+      "description": "Optional credit: GitHub handles (and agents, e.g. 'claude-code') that onboarded or substantially improved this entry."
     }
   },
   "allOf": [

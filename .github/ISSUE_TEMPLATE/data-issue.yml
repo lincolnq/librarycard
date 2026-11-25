@@ -1,0 +1,32 @@
+name: Data issue
+description: Report something wrong or surprising in a librarycard source (wrong values, missing caveat, broken filter, stale data).
+title: "[data issue] "
+labels: ["data-issue"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This issue is **public**. Include what you fetched and what you expected; leave out private context.
+        Reports are reviewed in weekly batches and usually become a fix or a new caveat on the source.
+  - type: input
+    id: source_id
+    attributes:
+      label: Source id
+      placeholder: "e.g. census-acs-summary-file"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What looks wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: The fetch filters you used, what you got, what you expected, and where the expected value comes from (e.g. the publisher's own table).
+  - type: textarea
+    id: suggested_caveat
+    attributes:
+      label: Suggested caveat or fix (optional)

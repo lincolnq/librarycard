@@ -48,7 +48,7 @@ async def main(ids: list[str]) -> int:
     async with Client(StdioServerParameters(command=exe, args=[], env=dict(os.environ)), read_timeout_seconds=300) as c:
         tools = sorted(t.name for t in (await c.list_tools()).tools)
         print("tools:", tools)
-        check(tools == ["catalog_status", "describe_source", "fetch", "request_data", "search_catalog"], "five tools exposed")
+        check(tools == ["catalog_status", "describe_source", "fetch", "report_issue", "request_data", "search_catalog"], "six tools exposed")
 
         r = (await c.call_tool("catalog_status", {})).structured_content
         print("catalog_status:", json.dumps(r["counts_by_status"]), "fetchable:", r["fetchable"])
