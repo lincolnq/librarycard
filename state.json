@@ -1,0 +1,191 @@
+{
+ "bea-regional": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "etag=\"76423471da50dd1:0\", last-modified=Wed, 30 Sep 2026 12:51:42 GMT",
+  "fingerprint": "f1b8dd4c05975231",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "bls-laus": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "sha256=8edf04c0c21ef474 bytes=18263",
+  "fingerprint": "8edf04c0c21ef474",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "cdc-places": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"PLACES: Local Data for Better Health, Census Tract Data 2020 release\", \"PLACES: Local Data for Better Health, Census Tract Data 2021 release\", \"PLACES: Local Data for Better Health, Census Tract Data 2022 release\", \"PLACES: Local Data for Better Health, Census Tract Data 2023 release\", \"PLACES: Lo",
+  "fingerprint": "1a60b7d84779655f",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "cdc-svi": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2000\", \"2010\", \"2014\", \"2016\", \"2018\", \"2020\", \"2022\"]",
+  "fingerprint": "ab7e4570dc2caa1c",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "census-acs-summary-file": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2005\", \"2006\", \"2007\", \"2008\", \"2009\", \"2010\", \"2011\", \"2012\", \"2013\", \"2014\", \"2015\", \"2016\", \"2017\", \"2018\", \"2019\", \"2020\", \"2021\", \"2022\", \"2023\", \"2024\", \"2025\"]",
+  "fingerprint": "d66d16cd4b32cc35",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "census-cbp": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2000\", \"2001\", \"2002\", \"2003\", \"2004\", \"2005\", \"2006\", \"2007\", \"2008\", \"2009\", \"2010\", \"2011\", \"2012\", \"2013\", \"2014\", \"2015\", \"2016\", \"2017\", \"2018\", \"2019\", \"2020\", \"2021\", \"2022\", \"2023\"]",
+  "fingerprint": "60cf559e11c43ce1",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "census-decennial-2020-pl": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "last-modified=Thu, 12 Aug 2021 17:18:13 GMT, content-length=3720859",
+  "fingerprint": "8ec7aae4f3987d9a",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "census-gazetteer": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2012_Gazetteer\", \"2013_Gazetteer\", \"2014_Gazetteer\", \"2015_Gazetteer\", \"2016_Gazetteer\", \"2017_Gazetteer\", \"2018_Gazetteer\", \"2019_Gazetteer\", \"2020_Gazetteer\", \"2021_Gazetteer\", \"2022_Gazetteer\", \"2023_Gazetteer\", \"2024_Gazetteer\", \"2025_Gazetteer\", \"2026_Gazetteer\"]",
+  "fingerprint": "4be6acadce3214c3",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "census-pep": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2020-2021\", \"2020-2022\", \"2020-2023\", \"2020-2024\", \"2020-2025\"]",
+  "fingerprint": "c74bbaa3fb7d9cbd",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "census-saipe": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"1989\", \"1993\", \"1995\", \"1996\", \"1997\", \"1998\", \"1999\", \"2000\", \"2001\", \"2002\", \"2003\", \"2004\", \"2005\", \"2006\", \"2007\", \"2008\", \"2009\", \"2010\", \"2011\", \"2012\", \"2013\", \"2014\", \"2015\", \"2016\", \"2017\", \"2018\", \"2019\", \"2020\", \"2021\", \"2022\", \"2023\", \"2024\"]",
+  "fingerprint": "1208548772320dbe",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "cms-medicare-geographic-variation": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "{\"meta.data_file_name\": \"2014-2024 Original Medicare Geographic Variation Public Use File.csv\", \"meta.headers\": [\"YEAR\", \"BENE_GEO_LVL\", \"BENE_GEO_DESC\", \"BENE_GEO_CD\", \"BENE_AGE_LVL\", \"BENES_TOTAL_CNT\", \"BENES_WTH_PTAPTB_CNT\", \"BENES_OM_CNT\", \"BENES_MA_CNT\", \"MA_PRTCPTN_RATE\", \"BENE_AVG_AGE\", \"BENE_FEML_PCT\", \"BENE_MALE_PCT\", \"BENE_RACE_WHT_PCT\", \"BENE_RACE_BLACK_PCT\", \"BENE_RACE_HSPNC_PCT\", \"BEN",
+  "fingerprint": "ca30737d00f6bf21",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "county-health-rankings": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2024\", \"2025_v3\"]",
+  "fingerprint": "61f03473af566849",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "eac-eavs": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"2020_EAVS_for_Public_Release_nolabel%5B1%5D.csv\", \"2020_EAVS_for_Public_Release_nolabel_V1.2_CSV.zip\", \"2020_EAVS_for_Public_Release_nolabel_V2.csv\", \"2022_EAVS_for_Public_Release_nolabel_V1_CSV.zip\", \"2024_EAVS_for_Public_Release_nolabel_V1_csv.zip\", \"2024_EAVS_for_Public_Release_nolabel_V2_csv.z",
+  "fingerprint": "45a96243d512e8e2",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "fec-all-candidates": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"CAND_CONTRIB\", \"CAND_ICI\", \"CAND_ID\", \"CAND_LOANS\", \"CAND_LOAN_REPAY\", \"CAND_NAME\", \"CAND_OFFICE_DISTRICT\", \"CAND_OFFICE_ST\", \"CAND_PTY_AFFILIATION\", \"CMTE_REFUNDS\", \"COH_BOP\", \"COH_COP\", \"CVG_END_DT\", \"DEBTS_OWED_BY\", \"GEN_ELECTION\", \"GEN_ELECTION_PRECENT\", \"INDIV_REFUNDS\", \"OTHER_LOANS\", \"OTHER_",
+  "fingerprint": "81f620ebc96dec04",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "fec-individual-contributions": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "etag=\"3c9806ccdda7f0b19dea30d3878d37a1-321\", last-modified=Sun, 22 Nov 2026 17:00:21 GMT",
+  "fingerprint": "4a17fd304dcd37fb",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "federal-register-documents": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"abstract\", \"action\", \"agencies\", \"body_html_url\", \"cfr_references\", \"citation\", \"comment_url\", \"comments_close_on\", \"content_type\", \"correction_of\", \"corrections\", \"count\", \"dates\", \"disposition_notes\", \"docket_ids\", \"dockets\", \"document_number\", \"effective_on\", \"end_page\", \"executive_order_notes\"",
+  "fingerprint": "835cf44b83c1262a",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "fema-disaster-declarations": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "{\"OpenFemaDataSets[0].dataDictionary\": \"https://www.fema.gov/openfema-data-page/Disaster-Declarations-Summaries-v2\", \"OpenFemaDataSets[0].depApiMessage\": null, \"OpenFemaDataSets[0].depDate\": null, \"OpenFemaDataSets[0].depNewURL\": null, \"OpenFemaDataSets[0].modified\": \"2024-08-27T00:00:00.000Z\"}",
+  "fingerprint": "ef401595c3d02e37",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "fhfa-hpi": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"/hpi/download/annual/hpi_at_cbsa.xlsx\", \"/hpi/download/annual/hpi_at_county.xlsx\", \"/hpi/download/annual/hpi_at_national.xlsx\", \"/hpi/download/annual/hpi_at_state.xlsx\", \"/hpi/download/annual/hpi_at_tract.csv\", \"/hpi/download/annual/hpi_at_zip3.xlsx\", \"/hpi/download/annual/hpi_at_zip5.xlsx\", \"/hpi",
+  "fingerprint": "26b745d6050b72b2",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "lehd-lodes": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "last-modified=Wed, 14 Oct 2026 17:45:40 GMT",
+  "fingerprint": "7a3f3373647d4879",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "mit-election-president-state": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "{\"data.latestVersion.files[*].dataFile.filename\": [\"1976-2024-president.csv\", \"codebook-us-president-1976-2020.md\", \"sources-president.tab\"], \"data.latestVersion.license.name\": \"CC0 1.0\", \"data.latestVersion.versionMinorNumber\": 1, \"data.latestVersion.versionNumber\": 10}",
+  "fingerprint": "21fed9cab3095591",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "mit-election-senate-state": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "{\"data.latestVersion.files[*].dataFile.filename\": [\"1976-2024-senate-state.tab\", \"codebook-us-senate-1976\\u20132024.md\", \"sources-senate.tab\"], \"data.latestVersion.license.name\": \"CC0 1.0\", \"data.latestVersion.versionMinorNumber\": 0, \"data.latestVersion.versionNumber\": 8}",
+  "fingerprint": "2d69df401421403b",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "noaa-nclimgrid-daily": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "etag=\"4c629f9533b20ab9369639f42d7e3731\", last-modified=Wed, 04 Nov 2026 14:50:33 GMT",
+  "fingerprint": "3f8144cecc9dc26d",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "unitedstates-congress-legislators": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"last_name,first_name,middle_name,suffix,nickname,full_name,birthday,gender,type,state,district,senate_class,party,url,address,phone,contact_form,rss_url,twitter,twitter_id,facebook,youtube,youtube_id,mastodon,bioguide_id,thomas_id,opensecrets_id,lis_id,fec_ids,cspan_id,govtrack_id,votesmart_id,bal",
+  "fingerprint": "36db879b4a994710",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "urban-education-data-ccd": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "{\"results[endpoint_id=29].endpoint_url\": \"/api/v1/school-districts/ccd/finance/{year}/\", \"results[endpoint_id=29].years_available\": \"1991, 1994&ndash;2020\", \"results[endpoint_id=54].endpoint_url\": \"/api/v1/school-districts/ccd/directory/{year}/\", \"results[endpoint_id=54].years_available\": \"1986&ndash;2024\", \"results[endpoint_id=56].endpoint_url\": \"/api/v1/school-districts/ccd/enrollment/{year}/{gr",
+  "fingerprint": "e8ca405c2ee52fa5",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "usaspending-spending-by-geography": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "sha256=49064354883d1532 bytes=10331",
+  "fingerprint": "49064354883d1532",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "usda-ers-rural-urban-codes": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"/media/5767/2023-rural-urban-continuum-codes.xlsx\", \"/media/5768/2023-rural-urban-continuum-codes.csv\", \"/media/5769/2013-rural-urban-continuum-codes.xls\", \"/media/5770/2003-rural-urban-continuum-codes.xls\", \"/media/5771/2003-rural-urban-continuum-codes-codes-for-puerto-rico.xls\", \"/media/5772/199",
+  "fingerprint": "2d33ba2c68be6f08",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ },
+ "voteview-congress": {
+  "baseline_at": "2026-11-25T19:58:57+00:00",
+  "consecutive_errors": 0,
+  "detail": "matches=[\"congress,chamber,icpsr,state_icpsr,district_code,state_abbrev,party_code,occupancy,last_means,bioname,bioguide_id,born,died,nominate_dim1,nominate_dim2,nominate_log_likelihood,nominate_geo_mean_probability,nominate_number_of_votes,nominate_number_of_errors,conditional,nokken_poole_dim1,nokken_pool",
+  "fingerprint": "e902eb3d3f81a060",
+  "last_checked": "2026-11-25T19:58:57+00:00"
+ }
+}

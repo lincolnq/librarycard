@@ -1,0 +1,174 @@
+{
+  "generated_at": "2026-11-27T19:32:13+00:00",
+  "sources_tested": 6,
+  "sources_failed": 0,
+  "total_active_sources": 27,
+  "results": [
+    {
+      "source_id": "lehd-lodes",
+      "status": "healthy",
+      "status_since": "2026-11-24",
+      "passed": true,
+      "cases": [
+        {
+          "source_id": "lehd-lodes",
+          "case": "delaware_wac_counties_2021",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.28,
+          "rows": 3
+        },
+        {
+          "source_id": "lehd-lodes",
+          "case": "rhode_island_rac_blocks_2020",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.25,
+          "rows": 50
+        }
+      ]
+    },
+    {
+      "source_id": "mit-election-president-state",
+      "status": "healthy",
+      "status_since": "2026-11-24",
+      "passed": true,
+      "cases": [
+        {
+          "source_id": "mit-election-president-state",
+          "case": "georgia_2020",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.61,
+          "rows": 19
+        },
+        {
+          "source_id": "mit-election-president-state",
+          "case": "wyoming_republican_series",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.17,
+          "rows": 13
+        }
+      ]
+    },
+    {
+      "source_id": "mit-election-senate-state",
+      "status": "healthy",
+      "status_since": "2026-11-24",
+      "passed": true,
+      "cases": [
+        {
+          "source_id": "mit-election-senate-state",
+          "case": "georgia_2021_runoffs",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.62,
+          "rows": 4
+        },
+        {
+          "source_id": "mit-election-senate-state",
+          "case": "louisiana_1978_uncontested",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.18,
+          "rows": 1
+        }
+      ]
+    },
+    {
+      "source_id": "noaa-nclimgrid-daily",
+      "status": "healthy",
+      "status_since": "2026-11-24",
+      "passed": true,
+      "cases": [
+        {
+          "source_id": "noaa-nclimgrid-daily",
+          "case": "maricopa_july_2023_heat",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.29,
+          "rows": 31
+        },
+        {
+          "source_id": "noaa-nclimgrid-daily",
+          "case": "state_precip_one_day",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.1,
+          "rows": 48
+        }
+      ]
+    },
+    {
+      "source_id": "unitedstates-congress-legislators",
+      "status": "healthy",
+      "status_since": "2026-11-24",
+      "passed": true,
+      "cases": [
+        {
+          "source_id": "unitedstates-congress-legislators",
+          "case": "current_full_roster",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.06,
+          "rows": 539
+        },
+        {
+          "source_id": "unitedstates-congress-legislators",
+          "case": "historical_known_member",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.19,
+          "rows": 1
+        },
+        {
+          "source_id": "unitedstates-congress-legislators",
+          "case": "senate_finance_membership",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.08,
+          "rows": 111
+        }
+      ]
+    },
+    {
+      "source_id": "urban-education-data-ccd",
+      "status": "healthy",
+      "status_since": "2026-11-24",
+      "passed": true,
+      "cases": [
+        {
+          "source_id": "urban-education-data-ccd",
+          "case": "delaware_finance_2019",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 1.61,
+          "rows": 46
+        },
+        {
+          "source_id": "urban-education-data-ccd",
+          "case": "delaware_enrollment_2020_total",
+          "passed": true,
+          "kind": null,
+          "message": "ok",
+          "seconds": 0.26,
+          "rows": 45
+        }
+      ]
+    }
+  ],
+  "quarantine_overdue": []
+}
